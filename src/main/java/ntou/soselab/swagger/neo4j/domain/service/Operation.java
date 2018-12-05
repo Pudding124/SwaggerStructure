@@ -1,6 +1,8 @@
 package ntou.soselab.swagger.neo4j.domain.service;
 
 import ntou.soselab.swagger.neo4j.domain.relationship.Endpoint;
+import ntou.soselab.swagger.neo4j.domain.relationship.Input;
+import ntou.soselab.swagger.neo4j.domain.relationship.Output;
 import org.neo4j.ogm.annotation.NodeEntity;
 import org.neo4j.ogm.annotation.Relationship;
 
@@ -55,5 +57,25 @@ public class Operation extends ConcreteService{
 
     public void setEndpoints(Endpoint endpoint) {
         this.endpoints.add(endpoint);
+    }
+
+    @Relationship(type = "input", direction = Relationship.OUTGOING)
+    Set<Input> inputs = new HashSet<>();
+
+    public Set<Input> getInputs() {
+        return inputs;
+    }
+    public void setInput(Input input) {
+        this.inputs.add(input);
+    }
+
+    @Relationship(type = "output", direction = Relationship.OUTGOING)
+    Set<Output> outputs = new HashSet<>();
+
+    public Set<Output> getOutputs() {
+        return outputs;
+    }
+    public void setOutput(Output output) {
+        this.outputs.add(output);
     }
 }

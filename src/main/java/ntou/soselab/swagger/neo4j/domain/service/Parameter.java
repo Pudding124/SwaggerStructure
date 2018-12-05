@@ -1,6 +1,11 @@
 package ntou.soselab.swagger.neo4j.domain.service;
 
+import ntou.soselab.swagger.neo4j.domain.relationship.Input;
 import org.neo4j.ogm.annotation.NodeEntity;
+import org.neo4j.ogm.annotation.Relationship;
+
+import java.util.HashSet;
+import java.util.Set;
 
 @NodeEntity
 public class Parameter extends ConcreteService {
@@ -71,5 +76,15 @@ public class Parameter extends ConcreteService {
 
     public void setRequired(boolean required) {
         this.required = required;
+    }
+
+    @Relationship(type = "input", direction = Relationship.INCOMING)
+    Set<Input> inputs = new HashSet<>();
+
+    public Set<Input> getInputs() {
+        return inputs;
+    }
+    public void setInput(Input input) {
+        this.inputs.add(input);
     }
 }

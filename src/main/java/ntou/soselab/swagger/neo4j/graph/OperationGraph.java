@@ -28,7 +28,15 @@ public class OperationGraph {
         this.endpoint = endpoint;
     }
 
+//    public ArrayList<ParameterGraph> getParameterGraphs() {
+//        return parameterGraphs;
+//    }
+
+    // 避免該 path 沒有參數
     public ArrayList<ParameterGraph> getParameterGraphs() {
+        if(parameterGraphs == null){
+            parameterGraphs = new ArrayList<ParameterGraph>();
+        }
         return parameterGraphs;
     }
 
@@ -36,7 +44,13 @@ public class OperationGraph {
         this.parameterGraphs = parameterGraphs;
     }
 
+//    public ArrayList<ResponseGraph> getResponseGraphs() {
+//        return responseGraphs;
+//    }
     public ArrayList<ResponseGraph> getResponseGraphs() {
+        if(this.responseGraphs == null){
+            this.responseGraphs=new ArrayList<ResponseGraph>();
+        }
         return responseGraphs;
     }
 

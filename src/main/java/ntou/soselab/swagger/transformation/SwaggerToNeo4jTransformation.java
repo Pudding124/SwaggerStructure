@@ -12,13 +12,16 @@ import io.swagger.parser.SwaggerParser;
 import io.swagger.models.properties.Property;
 import io.swagger.models.properties.RefProperty;
 import ntou.soselab.swagger.neo4j.domain.relationship.Endpoint;
+import ntou.soselab.swagger.neo4j.domain.relationship.Input;
+import ntou.soselab.swagger.neo4j.domain.relationship.Output;
 import ntou.soselab.swagger.neo4j.domain.service.Operation;
 import ntou.soselab.swagger.neo4j.domain.service.Resource;
+import ntou.soselab.swagger.neo4j.domain.service.Parameter;
+import ntou.soselab.swagger.neo4j.domain.service.Response;
 import ntou.soselab.swagger.neo4j.graph.OperationGraph;
 import ntou.soselab.swagger.neo4j.graph.ParameterGraph;
 import ntou.soselab.swagger.neo4j.graph.ResourceGraph;
 import ntou.soselab.swagger.neo4j.graph.ResponseGraph;
-import ntou.soselab.swagger.neo4j.repositories.service.ResourceRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,8 +36,6 @@ public class SwaggerToNeo4jTransformation {
 
     Logger log = LoggerFactory.getLogger(SwaggerToNeo4jTransformation.class);
 
-    @Autowired
-    ResourceRepository resourceRepository;
     @Autowired
     Neo4jToDatabase neo4jToDatabase;
 
@@ -97,7 +98,7 @@ public class SwaggerToNeo4jTransformation {
             }
         }
 
-        // neo4jToDatabase.buildRelationshipStartWithResource(resourceGraph);
+        neo4jToDatabase.buildRelationshipStartWithResource(resourceGraph);
     }
 
     public ResourceGraph getResourceInformation(Swagger swagger, Resource resource) {
@@ -278,7 +279,7 @@ public class SwaggerToNeo4jTransformation {
                         parseRefProperty((RefProperty) property, definitions, "", operationGraph, "response");
 
                     } else {
-                        parseResponseProperty(null, property, definitions, operationGraph, new ArrayList<String>());
+                        parseResponseProperty(null, property, definitions, operationGraph);
                     }
                 }
             }
@@ -294,7 +295,7 @@ public class SwaggerToNeo4jTransformation {
         boolean required = false;
         log.info("------ create ParameterGraph by non body: {}", swaggerParameter.getName());
 
-        ntou.soselab.swagger.neo4j.domain.service.Parameter parameter = new ntou.soselab.swagger.neo4j.domain.service.Parameter();
+        Parameter parameter = new Parameter();
 
         // set parameter Name
         name = swaggerParameter.getName();
@@ -343,7 +344,12 @@ public class SwaggerToNeo4jTransformation {
             log.info("Parameter Format :{}", format);
         }
 
+        // Build relationship
+        Input input = new Input();
         ParameterGraph parameterGraph = new ParameterGraph(parameter);
+
+        parameterGraph.setInput(input);
+
         return parameterGraph;
     }
 
@@ -352,7 +358,7 @@ public class SwaggerToNeo4jTransformation {
         log.info("------ create ParameterBean by Property entity: {}", key);
 
 
-        ntou.soselab.swagger.neo4j.domain.service.Parameter parameter = new ntou.soselab.swagger.neo4j.domain.service.Parameter();
+        Parameter parameter = new Parameter();
         parameter.setDescription(property.getDescription());
         parameter.setName(key);
         parameter.setMedia_type(property.getType());
@@ -363,8 +369,11 @@ public class SwaggerToNeo4jTransformation {
         log.info("Parameter Media_Type :{}", property.getType());
         log.info("Parameter Format :{}", property.getFormat());
 
-
+        // Build relationship
+        Input input = new Input();
         ParameterGraph parameterGraph = new ParameterGraph(parameter);
+
+        parameterGraph.setInput(input);
 
         return parameterGraph;
     }
@@ -405,11 +414,9 @@ public class SwaggerToNeo4jTransformation {
                             if (pb != null) {
                                 operationGraph.setParameterGraph(pb);
                             }
+                        } else if (paramOrResponse.equals("response")) {
+                            operationGraph.setResponseGraph(getResponseBeanEntity(s, sp.get(s)));
                         }
-//                        else if (paramOrResponse.equals("response")) {
-//                            operationGraph
-//                                    .setResponseBean(getResponseBeanEntity(s, sp.get(s), newparentParameterConcept));
-//                        }
                     }
                 }
             }
@@ -431,10 +438,9 @@ public class SwaggerToNeo4jTransformation {
                             if (pb != null) {
                                 operationGraph.setParameterGraph(pb);
                             }
+                        } else if (paramOrResponse.equals("response")) {
+                            operationGraph.setResponseGraph(getResponseBeanEntity(s, sp.get(s)));
                         }
-//                        else if (paramOrResponse.equals("response")) {
-//                            operationGraph.setResponseBean(getResponseBeanEntity(s, sp.get(s), parentParameterConcept));
-//                        }
                         if (sp.get(s) instanceof RefProperty) {
                             parseRefProperty((RefProperty) sp.get(s), definitions, in, operationGraph, paramOrResponse);
                         }
@@ -475,11 +481,7 @@ public class SwaggerToNeo4jTransformation {
         }
     }
 
-    private void parseResponseProperty(String key, Property property, Map<String, Model> definitions, OperationGraph operationGraph, ArrayList<String> parentConcepts) {
-
-        if (key != null) {
-            parentConcepts.add(key);
-        }
+    private void parseResponseProperty(String key, Property property, Map<String, Model> definitions, OperationGraph operationGraph) {
 
         if (property instanceof ObjectProperty) {
             log.info("---- parse response ObjectProperty: {}", key);
@@ -487,7 +489,7 @@ public class SwaggerToNeo4jTransformation {
             Map<String, Property> paramTable = op.getProperties();
             if (paramTable != null) {
                 for (Entry<String, Property> entry : paramTable.entrySet()) {
-                    parseResponseProperty(entry.getKey(), entry.getValue(), definitions, operationGraph, parentConcepts);
+                    parseResponseProperty(entry.getKey(), entry.getValue(), definitions, operationGraph);
                 }
             }
         } else if (property instanceof ArrayProperty) {
@@ -508,7 +510,7 @@ public class SwaggerToNeo4jTransformation {
 
     private ResponseGraph getResponseBeanEntity(String key, Property swaggerResponse) {
 
-        ntou.soselab.swagger.neo4j.domain.service.Response response = new ntou.soselab.swagger.neo4j.domain.service.Response();
+        Response response = new Response();
         response.setName(key);
         response.setMedia_type(swaggerResponse.getType());
         log.info("Response Name :{}", key);
@@ -518,6 +520,9 @@ public class SwaggerToNeo4jTransformation {
         log.info("Response Required :{}", swaggerResponse.getRequired());
 
         ResponseGraph responseGraph = new ResponseGraph(response);
+        // Build relationship
+        Output output = new Output();
+        responseGraph.setOutput(output);
 
         return responseGraph;
     }
