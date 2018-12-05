@@ -8,27 +8,18 @@ import org.neo4j.ogm.annotation.GraphId;
 import org.neo4j.ogm.annotation.RelationshipEntity;
 import org.neo4j.ogm.annotation.StartNode;
 
-@RelationshipEntity(type="output")
-public class Output {
+@RelationshipEntity(type="have")
+public class Have {
     @GraphId
     Long graphId;
 
     @StartNode
-    Operation operation ;
+    StatusCode statusCode ;
 
     @EndNode
-    StatusCode statusCode;
+    Response response;
 
-    public Output() {
-    }
-
-    public Operation getOperation() {
-        return operation;
-    }
-
-    public void setOperation(Operation operation) {
-        this.operation = operation;
-    }
+    public Have() {}
 
     public StatusCode getStatusCode() {
         return statusCode;
@@ -38,19 +29,27 @@ public class Output {
         this.statusCode = statusCode;
     }
 
-    private void addOutputToOperationAndStatusCode(){
-        if(this.operation != null){
-            this.operation.setOutput(this);
+    public Response getResponse() {
+        return response;
+    }
+
+    public void setResponse(Response response) {
+        this.response = response;
+    }
+
+    private void addHaveToStatusCodeAndResponse(){
+        if(this.statusCode != null){
+            this.statusCode.setHave(this);
         }
 
-        if(this.statusCode != null){
-            this.statusCode.setOutput(this);
+        if(this.response != null){
+            this.response.setHave(this);
         }
     }
 
-    public void addOperationAndStatusCode(Operation operation, StatusCode statusCode){
-        this.operation = operation;
+    public void addStatusCodeAndResponse(StatusCode statusCode, Response response){
         this.statusCode = statusCode;
-        addOutputToOperationAndStatusCode();
+        this.response = response;
+        addHaveToStatusCodeAndResponse();
     }
 }

@@ -10,7 +10,7 @@ public class OperationGraph {
     Operation operation;
     Endpoint endpoint;
     ArrayList<ParameterGraph> parameterGraphs;
-    ArrayList<ResponseGraph> responseGraphs;
+    ArrayList<StatusCodeGraph> statusCodeGraphs;
 
     public Operation getOperation() {
         return operation;
@@ -44,20 +44,6 @@ public class OperationGraph {
         this.parameterGraphs = parameterGraphs;
     }
 
-//    public ArrayList<ResponseGraph> getResponseGraphs() {
-//        return responseGraphs;
-//    }
-    public ArrayList<ResponseGraph> getResponseGraphs() {
-        if(this.responseGraphs == null){
-            this.responseGraphs=new ArrayList<ResponseGraph>();
-        }
-        return responseGraphs;
-    }
-
-    public void setResponseGraphs(ArrayList<ResponseGraph> responseGraphs) {
-        this.responseGraphs = responseGraphs;
-    }
-
     public void setParameterGraph(ParameterGraph parameterGraph) {
         if(this.parameterGraphs == null){
             this.parameterGraphs = new ArrayList<ParameterGraph>();
@@ -65,10 +51,18 @@ public class OperationGraph {
         this.parameterGraphs.add(parameterGraph);
     }
 
-    public void setResponseGraph(ResponseGraph responseGraph) {
-        if(this.responseGraphs == null){
-            this.responseGraphs = new ArrayList<ResponseGraph>();
+    public ArrayList<StatusCodeGraph> getStatusCodeGraphs() {
+        return statusCodeGraphs;
+    }
+
+    public void setStatusCodeGraphs(ArrayList<StatusCodeGraph> statusCodeGraphs) {
+        this.statusCodeGraphs = statusCodeGraphs;
+    }
+
+    public void setStatusCodeGraphs(StatusCodeGraph statusCodeGraph) {
+        if(this.statusCodeGraphs == null){
+            this.statusCodeGraphs = new ArrayList<StatusCodeGraph>();
         }
-        this.responseGraphs.add(responseGraph);
+        this.statusCodeGraphs.add(statusCodeGraph);
     }
 }

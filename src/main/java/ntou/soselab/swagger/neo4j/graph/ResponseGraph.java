@@ -1,11 +1,12 @@
 package ntou.soselab.swagger.neo4j.graph;
 
+import ntou.soselab.swagger.neo4j.domain.relationship.Have;
 import ntou.soselab.swagger.neo4j.domain.relationship.Output;
 import ntou.soselab.swagger.neo4j.domain.service.Response;
 
 public class ResponseGraph {
     Response response;
-    Output output;
+    Have have;
 
     public ResponseGraph(Response response) {
         this.response = response;
@@ -19,10 +20,11 @@ public class ResponseGraph {
         this.response = response;
     }
 
-    public Output getOutput() {
-        return output;
+    public Have getHave() {
+        return have;
     }
-    public void setOutput(Output output) {
-        this.output = output;
+
+    public void setHave(Have have) {
+        this.have = have;
     }
 }

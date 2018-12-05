@@ -1,17 +1,13 @@
 package ntou.soselab.swagger.transformation;
 
 import ntou.soselab.swagger.neo4j.domain.relationship.Endpoint;
+import ntou.soselab.swagger.neo4j.domain.relationship.Have;
 import ntou.soselab.swagger.neo4j.domain.relationship.Input;
 import ntou.soselab.swagger.neo4j.domain.relationship.Output;
-import ntou.soselab.swagger.neo4j.domain.service.Operation;
-import ntou.soselab.swagger.neo4j.domain.service.Parameter;
-import ntou.soselab.swagger.neo4j.domain.service.Resource;
-import ntou.soselab.swagger.neo4j.domain.service.Response;
-import ntou.soselab.swagger.neo4j.graph.OperationGraph;
-import ntou.soselab.swagger.neo4j.graph.ParameterGraph;
-import ntou.soselab.swagger.neo4j.graph.ResourceGraph;
-import ntou.soselab.swagger.neo4j.graph.ResponseGraph;
+import ntou.soselab.swagger.neo4j.domain.service.*;
+import ntou.soselab.swagger.neo4j.graph.*;
 import ntou.soselab.swagger.neo4j.repositories.relationship.EndpointRepository;
+import ntou.soselab.swagger.neo4j.repositories.relationship.HaveRepository;
 import ntou.soselab.swagger.neo4j.repositories.relationship.InputRepository;
 import ntou.soselab.swagger.neo4j.repositories.relationship.OutputRepository;
 import ntou.soselab.swagger.neo4j.repositories.service.OperationRepository;
@@ -36,6 +32,8 @@ public class Neo4jToDatabase {
     InputRepository inputRepository;
     @Autowired
     OutputRepository outputRepository;
+    @Autowired
+    HaveRepository haveRepository;
     @Autowired
     ResourceRepository resourceRepository;
     @Autowired
@@ -70,8 +68,13 @@ public class Neo4jToDatabase {
             log.info("Operation name :{} To Parameter name :{}", operationGraph.getOperation().getPath(), parameterGraph.getParameter().getName());
             buildInputBetweenConcreteServices(operationGraph.getOperation(), parameterGraph.getParameter(), parameterGraph.getInput());
         }
-        for(ResponseGraph responseGraph: operationGraph.getResponseGraphs()){
-            buildOutputBetweenConcreteServices(operationGraph.getOperation(), responseGraph.getResponse(), responseGraph.getOutput());
+        for(StatusCodeGraph statusCodeGraph: operationGraph.getStatusCodeGraphs()){
+
+            for(ResponseGraph responseGraph :  statusCodeGraph.getResponseGraphs()){
+                buildHaveBetweenConcreteServices(statusCodeGraph.getStatusCode(), responseGraph.getResponse(), responseGraph.getHave());
+            }
+
+            buildOutputBetweenConcreteServices(operationGraph.getOperation(), statusCodeGraph.getStatusCode(), statusCodeGraph.getOutput());
         }
     }
 
@@ -81,11 +84,18 @@ public class Neo4jToDatabase {
         inputRepository.save(input);
     }
 
-    private void buildOutputBetweenConcreteServices(Operation operation, Response response, Output output){
+    private void buildOutputBetweenConcreteServices(Operation operation, StatusCode statusCode, Output output){
 
         // Add Output relationship
-        output.addOperationAndResponse(operation, response);
+        output.addOperationAndStatusCode(operation, statusCode);
         outputRepository.save(output);
+    }
+
+    private void buildHaveBetweenConcreteServices(StatusCode statusCode, Response response, Have have){
+
+        // Add Have relationship
+        have.addStatusCodeAndResponse(statusCode, response);
+        haveRepository.save(have);
     }
 
     // save Resource and Action relationship with Operation
