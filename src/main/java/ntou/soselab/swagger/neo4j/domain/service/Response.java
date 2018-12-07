@@ -13,10 +13,16 @@ public class Response extends ConcreteService {
 
     String name;
     String media_type;
+    String description;
+    String format;
+    boolean required;
 
-    public Response(Response response) {
-        this.name = response.getName();
-        this.media_type = response.getMedia_type();
+    public Response(String name, String media_type, String description, String format, boolean required) {
+        this.name = name;
+        this.media_type = media_type;
+        this.description = description;
+        this.format = format;
+        this.required = required;
     }
 
     public Response() {
@@ -34,6 +40,30 @@ public class Response extends ConcreteService {
     }
     public void setMedia_type(String media_type) {
         this.media_type = media_type;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getFormat() {
+        return format;
+    }
+
+    public void setFormat(String format) {
+        this.format = format;
+    }
+
+    public boolean getRequired() {
+        return required;
+    }
+
+    public void setRequired(boolean required) {
+        this.required = required;
     }
 
     @Relationship(type = "have", direction = Relationship.INCOMING)

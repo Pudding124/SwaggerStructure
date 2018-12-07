@@ -284,12 +284,13 @@ public class SwaggerToNeo4jTransformation {
                      * parseRefProperty((RefProperty)property, definitions, "",
                      * operationBean, "response", new ArrayList<String>()); }
                      */
-                    if (property instanceof RefProperty) { // 不取只顯示成功的字樣
-                        parseStatusCodeRefProperty((RefProperty) property, definitions, "", statusCodeGraph);
-
-                    } else {
-                        parseResponseProperty(null, property, definitions, statusCodeGraph);
-                    }
+//                    if (property instanceof RefProperty) { // 不取只顯示成功的字樣
+//                        parseStatusCodeRefProperty((RefProperty) property, definitions, "", statusCodeGraph);
+//
+//                    } else {
+//                        parseResponseProperty(null, property, definitions, statusCodeGraph);
+//                    }
+                    parseResponseProperty(null, property, definitions, statusCodeGraph);
                 }
             }
         }
@@ -365,18 +366,32 @@ public class SwaggerToNeo4jTransformation {
     private ParameterGraph getParameterBeanEntity(String key, Property property, String in) {
 
         log.info("------ create ParameterBean by Property entity: {}", key);
+        String name = null;
+        String description = null;
+        String media_type = null;
+        String format = null;
+        boolean required = false;
 
+        name = key;
+        description = property.getDescription();
+        required = property.getRequired();
+        media_type = property.getType();
+        format = property.getFormat();
 
-        Parameter parameter = new Parameter();
-        parameter.setDescription(property.getDescription());
-        parameter.setName(key);
-        parameter.setMedia_type(property.getType());
-        log.info("Parameter Name :{}", key);
+        log.info("Parameter Name :{}", name);
         log.info("Parameter In :{}", in);
         log.info("Parameter Description :{}", property.getDescription());
         log.info("Parameter Required :{}", property.getRequired());
         log.info("Parameter Media_Type :{}", property.getType());
         log.info("Parameter Format :{}", property.getFormat());
+
+        Parameter parameter = new Parameter();
+        parameter.setName(name);
+        parameter.setIn(in);
+        parameter.setDescription(description);
+        parameter.setRequired(required);
+        parameter.setFormat(format);
+        parameter.setMedia_type(media_type);
 
         // Build relationship
         Input input = new Input();
@@ -579,14 +594,28 @@ public class SwaggerToNeo4jTransformation {
 
     private ResponseGraph getResponseBeanEntity(String key, Property swaggerResponse) {
 
+        String name = null;
+        String mediaType = null;
+        String description = null;
+        String format = null;
+        boolean required = false;
+
         Response response = new Response();
-        response.setName(key);
-        response.setMedia_type(swaggerResponse.getType());
         log.info("Response Name :{}", key);
         log.info("Response Media_Type :{}", swaggerResponse.getType());
         log.info("Response Description :{}", swaggerResponse.getDescription());
         log.info("Response Format :{}", swaggerResponse.getFormat());
         log.info("Response Required :{}", swaggerResponse.getRequired());
+        name = key;
+        mediaType = swaggerResponse.getType();
+        description = swaggerResponse.getDescription();
+        format = swaggerResponse.getFormat();
+        required = swaggerResponse.getRequired();
+        response.setName(name);
+        response.setMedia_type(mediaType);
+        response.setDescription(description);
+        response.setFormat(format);
+        response.setRequired(required);
 
         ResponseGraph responseGraph = new ResponseGraph(response);
         // Build relationship
