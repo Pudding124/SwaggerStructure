@@ -1,5 +1,6 @@
 package ntou.soselab.swagger.neo4j.graph;
 
+import ntou.soselab.swagger.neo4j.domain.relationship.Action;
 import ntou.soselab.swagger.neo4j.domain.relationship.Endpoint;
 import ntou.soselab.swagger.neo4j.domain.service.Operation;
 
@@ -8,7 +9,7 @@ import java.util.ArrayList;
 public class OperationGraph {
 
     Operation operation;
-    Endpoint endpoint;
+    Action action;
     ArrayList<ParameterGraph> parameterGraphs;
     ArrayList<StatusCodeGraph> statusCodeGraphs;
 
@@ -20,15 +21,15 @@ public class OperationGraph {
         this.operation = operation;
     }
 
-    public Endpoint getEndpoint() {
-        return endpoint;
+    public Action getAction() {
+        return action;
     }
 
-    public void setEndpoint(Endpoint endpoint) {
-        this.endpoint = endpoint;
+    public void setAction(Action action) {
+        this.action = action;
     }
 
-//    public ArrayList<ParameterGraph> getParameterGraphs() {
+    //    public ArrayList<ParameterGraph> getParameterGraphs() {
 //        return parameterGraphs;
 //    }
 

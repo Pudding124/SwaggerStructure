@@ -2,32 +2,24 @@ package ntou.soselab.swagger.neo4j.domain.relationship;
 
 import ntou.soselab.swagger.neo4j.domain.service.Operation;
 import ntou.soselab.swagger.neo4j.domain.service.Path;
-import ntou.soselab.swagger.neo4j.domain.service.Resource;
 import org.neo4j.ogm.annotation.EndNode;
 import org.neo4j.ogm.annotation.GraphId;
 import org.neo4j.ogm.annotation.RelationshipEntity;
 import org.neo4j.ogm.annotation.StartNode;
 
-@RelationshipEntity(type="endpoint")
-public class Endpoint {
+@RelationshipEntity(type="action")
+public class Action {
+
     @GraphId
     Long graphId;
 
     @StartNode
-    Resource resource;
-
-    @EndNode
     Path path;
 
-    public Endpoint() {}
+    @EndNode
+    Operation operation;
 
-    public Resource getResource() {
-        return resource;
-    }
-
-    public void setResource(Resource resource) {
-        this.resource = resource;
-    }
+    public Action() {}
 
     public Path getPath() {
         return path;
@@ -37,15 +29,24 @@ public class Endpoint {
         this.path = path;
     }
 
-    public void addRelationshipToResourceAndPath(Resource resource, Path path){
-        this.resource=resource;
-        this.path=path;
+    public Operation getOperation() {
+        return operation;
+    }
 
-        if(this.resource != null){
-            this.resource.setEndpoints(this);
-        }
+    public void setOperation(Operation operation) {
+        this.operation = operation;
+    }
+
+    public void addRelationshipToResourceAndPath(Path path, Operation operation){
+        this.path=path;
+        this.operation=operation;
+
         if(this.path != null){
-            this.path.setEndpoints(this);
+            this.path.setActions(this);
+        }
+
+        if(this.operation != null){
+            this.operation.setActions(this);
         }
     }
 }

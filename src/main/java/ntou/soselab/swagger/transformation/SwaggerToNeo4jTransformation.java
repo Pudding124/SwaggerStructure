@@ -11,13 +11,11 @@ import io.swagger.models.properties.ObjectProperty;
 import io.swagger.parser.SwaggerParser;
 import io.swagger.models.properties.Property;
 import io.swagger.models.properties.RefProperty;
-import ntou.soselab.swagger.neo4j.domain.relationship.Endpoint;
-import ntou.soselab.swagger.neo4j.domain.relationship.Have;
-import ntou.soselab.swagger.neo4j.domain.relationship.Input;
-import ntou.soselab.swagger.neo4j.domain.relationship.Output;
+import ntou.soselab.swagger.neo4j.domain.relationship.*;
 import ntou.soselab.swagger.neo4j.domain.service.*;
 import ntou.soselab.swagger.neo4j.domain.service.Operation;
 import ntou.soselab.swagger.neo4j.domain.service.Parameter;
+import ntou.soselab.swagger.neo4j.domain.service.Path;
 import ntou.soselab.swagger.neo4j.domain.service.Response;
 import ntou.soselab.swagger.neo4j.graph.*;
 import org.slf4j.Logger;
@@ -43,57 +41,70 @@ public class SwaggerToNeo4jTransformation {
         ResourceGraph resourceGraph = getResourceInformation(swagger, resource);
 
         for (String p : swagger.getPaths().keySet()) {
+
+            // 設定路徑
+            Path path = new Path();
+            path.setPath(p);
+
+            // record relationship type
+            Endpoint endpoint = new Endpoint();
+            PathGraph pathGraph = new PathGraph();
+
+            pathGraph.setPath(path);
+            pathGraph.setEndpoint(endpoint);
+
             if (swagger.getPaths().get(p).getDelete() != null) {
                 log.info("--- operation:DELETE on {}", p);
-                OperationGraph operationGraph = getOperationInformation(swagger.getPaths().get(p).getDelete(),
-                        "delete", p);
+                OperationGraph operationGraph = getOperationInformation(swagger.getPaths().get(p).getDelete(), "delete");
+
                 findAllTheParametersFromOperation(operationGraph, swagger.getDefinitions(),
                         swagger.getPaths().get(p).getDelete()); // set
                 // Parameters
                 findAllTheStatusCodeFromOperation(operationGraph, swagger.getDefinitions(),
                         swagger.getPaths().get(p).getDelete()); // set Response
-                resourceGraph.setOperationGraph(operationGraph);
+                pathGraph.setOperationGraph(operationGraph);
             }
             if (swagger.getPaths().get(p).getGet() != null) {
                 log.info("--- operation:GET on {}", p);
-                OperationGraph operationGraph = getOperationInformation(swagger.getPaths().get(p).getGet(), "get",
-                        p);
+                OperationGraph operationGraph = getOperationInformation(swagger.getPaths().get(p).getGet(), "get");
+
                 findAllTheParametersFromOperation(operationGraph, swagger.getDefinitions(),
                         swagger.getPaths().get(p).getGet()); // set
                 findAllTheStatusCodeFromOperation(operationGraph, swagger.getDefinitions(),
                         swagger.getPaths().get(p).getGet()); // set Response
-                resourceGraph.setOperationGraph(operationGraph);
+                pathGraph.setOperationGraph(operationGraph);
             }
             if (swagger.getPaths().get(p).getPatch() != null) {
                 log.info("--- operation:PATCH on {}", p);
-                OperationGraph operationGraph = getOperationInformation(swagger.getPaths().get(p).getPatch(),
-                        "patch", p);
+                OperationGraph operationGraph = getOperationInformation(swagger.getPaths().get(p).getPatch(), "patch");
+
                 findAllTheParametersFromOperation(operationGraph, swagger.getDefinitions(),
                         swagger.getPaths().get(p).getPatch()); // set
                 findAllTheStatusCodeFromOperation(operationGraph, swagger.getDefinitions(),
                         swagger.getPaths().get(p).getPatch()); // set Response
-                resourceGraph.setOperationGraph(operationGraph);
+                pathGraph.setOperationGraph(operationGraph);
             }
             if (swagger.getPaths().get(p).getPost() != null) {
                 log.info("--- operation:POST on {}", p);
-                OperationGraph operationGraph = getOperationInformation(swagger.getPaths().get(p).getPost(),
-                        "post", p);
+                OperationGraph operationGraph = getOperationInformation(swagger.getPaths().get(p).getPost(), "post");
+
                 findAllTheParametersFromOperation(operationGraph, swagger.getDefinitions(),
                         swagger.getPaths().get(p).getPost()); // set
                 findAllTheStatusCodeFromOperation(operationGraph, swagger.getDefinitions(),
                         swagger.getPaths().get(p).getPost()); // set Response
-                resourceGraph.setOperationGraph(operationGraph);
+                pathGraph.setOperationGraph(operationGraph);
             }
             if (swagger.getPaths().get(p).getPut() != null) {
                 log.info("--- operation:PUT on {}", p);
-                OperationGraph operationGraph = getOperationInformation(swagger.getPaths().get(p).getPut(), "put",
-                        p);
+                OperationGraph operationGraph = getOperationInformation(swagger.getPaths().get(p).getPut(), "put");
+
                 findAllTheParametersFromOperation(operationGraph, swagger.getDefinitions(),
                         swagger.getPaths().get(p).getPut()); // set
                 findAllTheStatusCodeFromOperation(operationGraph, swagger.getDefinitions(),
                         swagger.getPaths().get(p).getPut()); // set Response
-                resourceGraph.setOperationGraph(operationGraph);
+                pathGraph.setOperationGraph(operationGraph);
             }
+            resourceGraph.setPathGraph(pathGraph);
         }
 
         neo4jToDatabase.buildRelationshipStartWithResource(resourceGraph);
@@ -191,21 +202,19 @@ public class SwaggerToNeo4jTransformation {
         return new ResourceGraph(resource);
     }
 
-    private OperationGraph getOperationInformation(io.swagger.models.Operation swaggerOperation, String Swaggeraction, String path) {
+    private OperationGraph getOperationInformation(io.swagger.models.Operation swaggerOperation, String Swaggeraction) {
 
         Operation operation = new Operation();
         operation.setDescription(swaggerOperation.getDescription());
         log.info("operation description :{}", swaggerOperation.getDescription());
-        operation.setPath(path);
-        log.info("operation path :{}", path);
         operation.setOperationAction(Swaggeraction);
         log.info("operation action :{}", Swaggeraction);
 
         // record relationship type
-        Endpoint endpoint = new Endpoint();
+        Action action = new Action();
         OperationGraph operationGraph = new OperationGraph();
 
-        operationGraph.setEndpoint(endpoint);
+        operationGraph.setAction(action);
         operationGraph.setOperation(operation);
 
         return operationGraph;

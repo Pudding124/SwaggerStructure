@@ -1,15 +1,9 @@
 package ntou.soselab.swagger.transformation;
 
-import ntou.soselab.swagger.neo4j.domain.relationship.Endpoint;
-import ntou.soselab.swagger.neo4j.domain.relationship.Have;
-import ntou.soselab.swagger.neo4j.domain.relationship.Input;
-import ntou.soselab.swagger.neo4j.domain.relationship.Output;
+import ntou.soselab.swagger.neo4j.domain.relationship.*;
 import ntou.soselab.swagger.neo4j.domain.service.*;
 import ntou.soselab.swagger.neo4j.graph.*;
-import ntou.soselab.swagger.neo4j.repositories.relationship.EndpointRepository;
-import ntou.soselab.swagger.neo4j.repositories.relationship.HaveRepository;
-import ntou.soselab.swagger.neo4j.repositories.relationship.InputRepository;
-import ntou.soselab.swagger.neo4j.repositories.relationship.OutputRepository;
+import ntou.soselab.swagger.neo4j.repositories.relationship.*;
 import ntou.soselab.swagger.neo4j.repositories.service.OperationRepository;
 import ntou.soselab.swagger.neo4j.repositories.service.ParameterRepository;
 import ntou.soselab.swagger.neo4j.repositories.service.ResourceRepository;
@@ -35,6 +29,8 @@ public class Neo4jToDatabase {
     @Autowired
     HaveRepository haveRepository;
     @Autowired
+    ActionRepository actionRepository;
+    @Autowired
     ResourceRepository resourceRepository;
     @Autowired
     ParameterRepository parameterRepository;
@@ -48,33 +44,45 @@ public class Neo4jToDatabase {
         log.info("Start store node to neo4j");
         log.info("start resource parseing: {}", resourceGraph.getResource().getTitle());
         log.info("first step: build Relationships Between ConcreteServices");
-        for(OperationGraph operationGraph: resourceGraph.getOperationGraphs()){
+
+        // 將 resource 每個 path 裡面的 operation 先建構起來
+        for(PathGraph pathGraph: resourceGraph.getPathGraphs()){
             log.info("build Relationships Between ConcreteServices");
-            log.info("Operation info :{}", operationGraph.getOperation().getPath());
-            buildRelationshipsBetweenConcreteServices(operationGraph);
+            log.info("Path info :{}", pathGraph.getPath().getPath());
+            buildRelationshipsBetweenConcreteServices(pathGraph);
+
+            // 再將 operation 與 path 建構起來
+            for(OperationGraph operationGraph : pathGraph.getOperationGraphs()) {
+                log.info("build Relationship Between Path and Operation");
+                buildActionBetweenPathAndOperation(pathGraph.getPath(), operationGraph.getOperation(), operationGraph.getAction());
+            }
         }
 
-        log.info("second step: save Resource And Relationship With Operation");
-        for(OperationGraph operationGraph: resourceGraph.getOperationGraphs()){
-            log.info("save Resource And Relationship With Operation");
-            saveResourceAndRelationshipWithOperation(resourceGraph.getResource(), operationGraph.getOperation(), operationGraph.getEndpoint());
+
+
+        log.info("second step: save Resource And Relationship With Path");
+        for(PathGraph pathGraph: resourceGraph.getPathGraphs()){
+            log.info("save Resource And Relationship With Path");
+            saveResourceAndRelationshipWithPath(resourceGraph.getResource(), pathGraph.getPath(), pathGraph.getEndpoint());
         }
 
     }
 
-    public void buildRelationshipsBetweenConcreteServices(OperationGraph operationGraph){
+    public void buildRelationshipsBetweenConcreteServices(PathGraph pathGraph){
 
-        for(ParameterGraph parameterGraph: operationGraph.getParameterGraphs()){
-            log.info("Operation name :{} To Parameter name :{}", operationGraph.getOperation().getPath(), parameterGraph.getParameter().getName());
-            buildInputBetweenConcreteServices(operationGraph.getOperation(), parameterGraph.getParameter(), parameterGraph.getInput());
-        }
-        for(StatusCodeGraph statusCodeGraph: operationGraph.getStatusCodeGraphs()){
-
-            for(ResponseGraph responseGraph :  statusCodeGraph.getResponseGraphs()){
-                buildHaveBetweenConcreteServices(statusCodeGraph.getStatusCode(), responseGraph.getResponse(), responseGraph.getHave());
+        // 將每個 path 裡面的操作都建構起來
+        for(OperationGraph operationGraph : pathGraph.getOperationGraphs()) {
+            for(ParameterGraph parameterGraph: operationGraph.getParameterGraphs()){
+                buildInputBetweenConcreteServices(operationGraph.getOperation(), parameterGraph.getParameter(), parameterGraph.getInput());
             }
+            for(StatusCodeGraph statusCodeGraph: operationGraph.getStatusCodeGraphs()){
 
-            buildOutputBetweenConcreteServices(operationGraph.getOperation(), statusCodeGraph.getStatusCode(), statusCodeGraph.getOutput());
+                for(ResponseGraph responseGraph :  statusCodeGraph.getResponseGraphs()){
+                    buildHaveBetweenConcreteServices(statusCodeGraph.getStatusCode(), responseGraph.getResponse(), responseGraph.getHave());
+                }
+
+                buildOutputBetweenConcreteServices(operationGraph.getOperation(), statusCodeGraph.getStatusCode(), statusCodeGraph.getOutput());
+            }
         }
     }
 
@@ -98,9 +106,14 @@ public class Neo4jToDatabase {
         haveRepository.save(have);
     }
 
+    private void buildActionBetweenPathAndOperation(Path path, Operation operation, Action action) {
+        action.addRelationshipToResourceAndPath(path, operation);
+        actionRepository.save(action);
+    }
+
     // save Resource and Action relationship with Operation
-    private void saveResourceAndRelationshipWithOperation(Resource resource, Operation operation, Endpoint endpoint){
-        endpoint.addRelationshipToResourceAndOperation(resource, operation);
+    private void saveResourceAndRelationshipWithPath(Resource resource, Path path, Endpoint endpoint){
+        endpoint.addRelationshipToResourceAndPath(resource, path);
         endpointRepository.save(endpoint);
     }
 }

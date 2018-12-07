@@ -1,5 +1,6 @@
 package ntou.soselab.swagger.neo4j.domain.service;
 
+import ntou.soselab.swagger.neo4j.domain.relationship.Action;
 import ntou.soselab.swagger.neo4j.domain.relationship.Endpoint;
 import ntou.soselab.swagger.neo4j.domain.relationship.Input;
 import ntou.soselab.swagger.neo4j.domain.relationship.Output;
@@ -11,7 +12,6 @@ import java.util.Set;
 
 @NodeEntity
 public class Operation extends ConcreteService{
-    String path;
     String description;
     String operationAction;
 
@@ -19,17 +19,9 @@ public class Operation extends ConcreteService{
         super();
     }
 
-    public Operation(String path, String description, String operationAction) {
-        this.path = path;
+    public Operation(String description, String operationAction) {
         this.description = description;
         this.operationAction = operationAction;
-    }
-
-    public String getPath() {
-        return path;
-    }
-    public void setPath(String path) {
-        this.path = path;
     }
 
     public String getDescription() {
@@ -48,15 +40,15 @@ public class Operation extends ConcreteService{
         this.operationAction = operationAction;
     }
 
-    @Relationship(type = "endpoint", direction = Relationship.INCOMING)
-    Set<Endpoint> endpoints = new HashSet<>();
+    @Relationship(type = "action", direction = Relationship.INCOMING)
+    Set<Action> actions = new HashSet<>();
 
-    public Set<Endpoint> getEndpoints() {
-        return endpoints;
+    public Set<Action> getActions() {
+        return actions;
     }
 
-    public void setEndpoints(Endpoint endpoint) {
-        this.endpoints.add(endpoint);
+    public void setActions(Action action) {
+        this.actions.add(action);
     }
 
     @Relationship(type = "input", direction = Relationship.OUTGOING)

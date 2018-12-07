@@ -1,6 +1,5 @@
 package ntou.soselab.swagger.neo4j.graph;
 
-import ntou.soselab.swagger.neo4j.domain.service.Operation;
 import ntou.soselab.swagger.neo4j.domain.service.Resource;
 
 import java.util.ArrayList;
@@ -8,7 +7,7 @@ import java.util.ArrayList;
 public class ResourceGraph {
 
     Resource resource;
-    ArrayList<OperationGraph> operationGraphs;
+    ArrayList<PathGraph> pathGraphs;
 
     public ResourceGraph(Resource resource) {
         this.resource = resource;
@@ -22,18 +21,18 @@ public class ResourceGraph {
         this.resource = resource;
     }
 
-    public ArrayList<OperationGraph> getOperationGraphs() {
-        return operationGraphs;
+    public ArrayList<PathGraph> getPathGraphs() {
+        return pathGraphs;
     }
 
-    public void setOperationGraphs(ArrayList<OperationGraph> operationGraphs) {
-        this.operationGraphs = operationGraphs;
+    public void setPathGraphs(ArrayList<PathGraph> pathGraphs) {
+        this.pathGraphs = pathGraphs;
     }
 
-    public void setOperationGraph(OperationGraph operationGraph) {
-        if(this.operationGraphs == null){
-            this.operationGraphs = new ArrayList<OperationGraph>();
+    public void setPathGraph(PathGraph pathGraph) {
+        if(this.pathGraphs == null){
+            this.pathGraphs = new ArrayList<PathGraph>();
         }
-        this.operationGraphs.add(operationGraph);
+        this.pathGraphs.add(pathGraph);
     }
 }

@@ -29,7 +29,7 @@ public class SwaggerElementTest {
     public void readOneFile() {
         try {
             // do something
-            String document = readLocalSwagger("./src/main/resources/swagger document/" + "ebay.com_buy-feed_v1_beta.9.0.json");
+            String document = readLocalSwagger("./src/main/resources/swagger document/" + "googleapis.com_youtube_v3.json");
             if(document != null){
                 swaggerToNeo4jTransformation.parseSwaggerDocument(document);
             }else{
