@@ -24,13 +24,15 @@ public class Resource extends ConcreteService{
     ArrayList<String> authentications;
     ArrayList<String> consumes;
     ArrayList<String> produces;
+    ArrayList<String> originalWord;
+    ArrayList<String> wordnetWord;
 
 
     public Resource() {
         super();
     }
 
-    public Resource(ArrayList<String> schemes, String host, String basePath, String id, String title, String description, String logo, String provider, String version, String swaggerUrl, ArrayList<String> authentications, ArrayList<String> consumes, ArrayList<String> produces) {
+    public Resource(ArrayList<String> schemes, String host, String basePath, String id, String title, String description, String logo, String provider, String version, String swaggerUrl, ArrayList<String> authentications, ArrayList<String> consumes, ArrayList<String> produces, ArrayList<String> originalWord, ArrayList<String> wordnetWord) {
         this.schemes = schemes;
         this.host = host;
         this.basePath = basePath;
@@ -44,6 +46,8 @@ public class Resource extends ConcreteService{
         this.authentications = authentications;
         this.consumes = consumes;
         this.produces = produces;
+        this.originalWord = originalWord;
+        this.wordnetWord = wordnetWord;
     }
 
     public ArrayList<String> getSchemes() {
@@ -176,6 +180,22 @@ public class Resource extends ConcreteService{
             produces = new ArrayList<String>();
         }
         produces.add(produce);
+    }
+
+    public ArrayList<String> getOriginalWord() {
+        return originalWord;
+    }
+
+    public void setOriginalWord(ArrayList<String> originalWord) {
+        this.originalWord = originalWord;
+    }
+
+    public ArrayList<String> getWordnetWord() {
+        return wordnetWord;
+    }
+
+    public void setWordnetWord(ArrayList<String> wordnetWord) {
+        this.wordnetWord = wordnetWord;
     }
 
     @Override

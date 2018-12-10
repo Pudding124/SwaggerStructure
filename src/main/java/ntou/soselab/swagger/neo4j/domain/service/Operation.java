@@ -7,6 +7,7 @@ import ntou.soselab.swagger.neo4j.domain.relationship.Output;
 import org.neo4j.ogm.annotation.NodeEntity;
 import org.neo4j.ogm.annotation.Relationship;
 
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -14,14 +15,18 @@ import java.util.Set;
 public class Operation extends ConcreteService{
     String description;
     String operationAction;
+    ArrayList<String> originalWord;
+    ArrayList<String> wordnetWord;
 
     public Operation(){
         super();
     }
 
-    public Operation(String description, String operationAction) {
+    public Operation(String description, String operationAction, ArrayList<String> originalWord, ArrayList<String> wordnetWord) {
         this.description = description;
         this.operationAction = operationAction;
+        this.originalWord = originalWord;
+        this.wordnetWord = wordnetWord;
     }
 
     public String getDescription() {
@@ -38,6 +43,22 @@ public class Operation extends ConcreteService{
 
     public void setOperationAction(String operationAction) {
         this.operationAction = operationAction;
+    }
+
+    public ArrayList<String> getOriginalWord() {
+        return originalWord;
+    }
+
+    public void setOriginalWord(ArrayList<String> originalWord) {
+        this.originalWord = originalWord;
+    }
+
+    public ArrayList<String> getWordnetWord() {
+        return wordnetWord;
+    }
+
+    public void setWordnetWord(ArrayList<String> wordnetWord) {
+        this.wordnetWord = wordnetWord;
     }
 
     @Relationship(type = "action", direction = Relationship.INCOMING)

@@ -5,6 +5,7 @@ import ntou.soselab.swagger.neo4j.domain.relationship.Output;
 import org.neo4j.ogm.annotation.NodeEntity;
 import org.neo4j.ogm.annotation.Relationship;
 
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -16,13 +17,17 @@ public class Response extends ConcreteService {
     String description;
     String format;
     boolean required;
+    ArrayList<String> originalWord;
+    ArrayList<String> wordnetWord;
 
-    public Response(String name, String media_type, String description, String format, boolean required) {
+    public Response(String name, String media_type, String description, String format, boolean required, ArrayList<String> originalWord, ArrayList<String> wordnetWord) {
         this.name = name;
         this.media_type = media_type;
         this.description = description;
         this.format = format;
         this.required = required;
+        this.originalWord = originalWord;
+        this.wordnetWord = wordnetWord;
     }
 
     public Response() {
@@ -64,6 +69,22 @@ public class Response extends ConcreteService {
 
     public void setRequired(boolean required) {
         this.required = required;
+    }
+
+    public ArrayList<String> getOriginalWord() {
+        return originalWord;
+    }
+
+    public void setOriginalWord(ArrayList<String> originalWord) {
+        this.originalWord = originalWord;
+    }
+
+    public ArrayList<String> getWordnetWord() {
+        return wordnetWord;
+    }
+
+    public void setWordnetWord(ArrayList<String> wordnetWord) {
+        this.wordnetWord = wordnetWord;
     }
 
     @Relationship(type = "have", direction = Relationship.INCOMING)

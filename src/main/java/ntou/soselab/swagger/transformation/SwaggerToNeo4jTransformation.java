@@ -1,5 +1,7 @@
 package ntou.soselab.swagger.transformation;
 
+import java.io.IOException;
+import java.util.HashMap;
 import java.util.Map.Entry;
 
 import com.fasterxml.jackson.databind.node.ObjectNode;
@@ -11,6 +13,7 @@ import io.swagger.models.properties.ObjectProperty;
 import io.swagger.parser.SwaggerParser;
 import io.swagger.models.properties.Property;
 import io.swagger.models.properties.RefProperty;
+import ntou.soselab.swagger.algo.WordNetExpansion;
 import ntou.soselab.swagger.neo4j.domain.relationship.*;
 import ntou.soselab.swagger.neo4j.domain.service.*;
 import ntou.soselab.swagger.neo4j.domain.service.Operation;
@@ -34,6 +37,12 @@ public class SwaggerToNeo4jTransformation {
 
     @Autowired
     Neo4jToDatabase neo4jToDatabase;
+
+    @Autowired
+    WordNetExpansion wordNetExpansion;
+
+    @Autowired
+    SwaggerToLDA swaggerToLDA;
 
     public void parseSwaggerDocument(String swaggerDocument) {
         Swagger swagger = new SwaggerParser().parse(swaggerDocument);
@@ -112,6 +121,12 @@ public class SwaggerToNeo4jTransformation {
 
     public ResourceGraph getResourceInformation(Swagger swagger, Resource resource) {
 
+        // store swagger parse information
+        ArrayList<String> swaggerInfo = new ArrayList<>();
+
+        // For saving key: stemming term --> value: original term
+        HashMap<String, String> stemmingAndTermsTable = new HashMap<String, String>();
+
         // For resource concept
         String title = null;
         String description = null;
@@ -127,15 +142,18 @@ public class SwaggerToNeo4jTransformation {
         }
 
         // get host
-        resource.setHost(swagger.getHost());
+        host = swagger.getHost();
+        resource.setHost(host);
 
         // get basePath
-        resource.setBasePath(swagger.getBasePath());
+        basePath = swagger.getBasePath();
+        resource.setBasePath(basePath);
 
         // get title
         title = swagger.getInfo().getTitle();
         log.info("Title :{}", title);
-        resource.setTitle(swagger.getInfo().getTitle());
+        resource.setTitle(title);
+        if(title != null) swaggerInfo.add(title);
 
         // get Logo
         Map<String, Object> info = swagger.getInfo().getVendorExtensions();
@@ -149,7 +167,8 @@ public class SwaggerToNeo4jTransformation {
 
         // get description
         description = swagger.getInfo().getDescription();
-        resource.setDescription(swagger.getInfo().getDescription());
+        resource.setDescription(description);
+        if(description != null) swaggerInfo.add(description);
 
         // get provider
         if (info.get("x-providerName") != null) {
@@ -199,16 +218,67 @@ public class SwaggerToNeo4jTransformation {
             }
         }
 
+
+        // 增加更多 swagger 額外的標註詞彙
+        // get x-tags
+        if (info.get("x-tags") != null) {
+            Object infoTags = info.get("x-tags");
+            if (infoTags instanceof ArrayList) {
+                ArrayList<String> infoTagsNode = (ArrayList) infoTags;
+                // assertEquals(infoTagsNode.get(0), "Azure");
+                for (String tag : infoTagsNode) {
+                    if(tag != null) swaggerInfo.add(tag);
+                }
+            }
+        }
+
+        try {
+            if(swaggerInfo.size() != 0) {
+                // parse LDA
+                ArrayList<String> LDAWord = swaggerToLDA.swaggerParseLDA(swaggerInfo.toArray(new String[0]), stemmingAndTermsTable);
+                // parse WordNet
+                ArrayList<String> WordNetWord = wordNetExpansion.getWordNetExpansion(LDAWord, stemmingAndTermsTable);
+
+                resource.setOriginalWord(LDAWord);
+                resource.setWordnetWord(WordNetWord);
+            }
+        } catch (IOException e) {
+            log.info("Parse word topic error :{}", e.toString());
+        }
+
         return new ResourceGraph(resource);
     }
 
     private OperationGraph getOperationInformation(io.swagger.models.Operation swaggerOperation, String Swaggeraction) {
 
+        // store swagger parse information
+        ArrayList<String> swaggerInfo = new ArrayList<>();
+        // For saving key: stemming term --> value: original term
+        HashMap<String, String> stemmingAndTermsTable = new HashMap<String, String>();
+
+        String description = null;
+
         Operation operation = new Operation();
-        operation.setDescription(swaggerOperation.getDescription());
+        description = swaggerOperation.getDescription();
+        operation.setDescription(description);
+        if(description != null) swaggerInfo.add(description);
         log.info("operation description :{}", swaggerOperation.getDescription());
         operation.setOperationAction(Swaggeraction);
         log.info("operation action :{}", Swaggeraction);
+
+        try {
+            if(swaggerInfo.size() != 0) {
+                // parse LDA
+                ArrayList<String> LDAWord = swaggerToLDA.swaggerParseLDA(swaggerInfo.toArray(new String[0]), stemmingAndTermsTable);
+                // parse WordNet
+                ArrayList<String> WordNetWord = wordNetExpansion.getWordNetExpansion(LDAWord, stemmingAndTermsTable);
+
+                operation.setOriginalWord(LDAWord);
+                operation.setWordnetWord(WordNetWord);
+            }
+        } catch (IOException e) {
+            log.info("Parse word topic error :{}", e.toString());
+        }
 
         // record relationship type
         Action action = new Action();
@@ -306,6 +376,11 @@ public class SwaggerToNeo4jTransformation {
     }
 
     private ParameterGraph getParameterBeanEntity(io.swagger.models.parameters.Parameter swaggerParameter) {
+        // store swagger parse information
+        ArrayList<String> swaggerInfo = new ArrayList<>();
+        // For saving key: stemming term --> value: original term
+        HashMap<String, String> stemmingAndTermsTable = new HashMap<String, String>();
+
         String name = null;
         String in = null;
         String description = null;
@@ -319,19 +394,25 @@ public class SwaggerToNeo4jTransformation {
         // set parameter Name
         name = swaggerParameter.getName();
         parameter.setName(name);
+        if(name != null) swaggerInfo.add(name);
         log.info("Parameter Name :{}", name);
+
         // set parameter in
         in = swaggerParameter.getIn();
         parameter.setIn(in);
         log.info("Parameter In :{}", in);
+
         // set parameter description
         description = swaggerParameter.getDescription();
         parameter.setDescription(description);
+        if(description != null) swaggerInfo.add(description);
         log.info("Parameter Description :{}", description);
+
         // set parameter required
         required = swaggerParameter.getRequired();
         parameter.setRequired(required);
         log.info("Parameter Required :{}", required);
+
         // media_type and format
         if (swaggerParameter instanceof QueryParameter) {
             media_type = ((QueryParameter) swaggerParameter).getType();
@@ -363,6 +444,20 @@ public class SwaggerToNeo4jTransformation {
             log.info("Parameter Format :{}", format);
         }
 
+        try {
+            if(swaggerInfo.size() != 0) {
+                // parse LDA
+                ArrayList<String> LDAWord = swaggerToLDA.swaggerParseLDA(swaggerInfo.toArray(new String[0]), stemmingAndTermsTable);
+                // parse WordNet
+                ArrayList<String> WordNetWord = wordNetExpansion.getWordNetExpansion(LDAWord, stemmingAndTermsTable);
+
+                parameter.setOriginalWord(LDAWord);
+                parameter.setWordnetWord(WordNetWord);
+            }
+        } catch (IOException e) {
+            log.info("Parse word topic error :{}", e.toString());
+        }
+
         // Build relationship
         Input input = new Input();
         ParameterGraph parameterGraph = new ParameterGraph(parameter);
@@ -373,6 +468,11 @@ public class SwaggerToNeo4jTransformation {
     }
 
     private ParameterGraph getParameterBeanEntity(String key, Property property, String in) {
+
+        // store swagger parse information
+        ArrayList<String> swaggerInfo = new ArrayList<>();
+        // For saving key: stemming term --> value: original term
+        HashMap<String, String> stemmingAndTermsTable = new HashMap<String, String>();
 
         log.info("------ create ParameterBean by Property entity: {}", key);
         String name = null;
@@ -401,6 +501,23 @@ public class SwaggerToNeo4jTransformation {
         parameter.setRequired(required);
         parameter.setFormat(format);
         parameter.setMedia_type(media_type);
+
+        if(name != null) swaggerInfo.add(name);
+        if(description != null) swaggerInfo.add(description);
+
+        try {
+            if(swaggerInfo.size() != 0) {
+                // parse LDA
+                ArrayList<String> LDAWord = swaggerToLDA.swaggerParseLDA(swaggerInfo.toArray(new String[0]), stemmingAndTermsTable);
+                // parse WordNet
+                ArrayList<String> WordNetWord = wordNetExpansion.getWordNetExpansion(LDAWord, stemmingAndTermsTable);
+
+                parameter.setOriginalWord(LDAWord);
+                parameter.setWordnetWord(WordNetWord);
+            }
+        } catch (IOException e) {
+            log.info("Parse word topic error :{}", e.toString());
+        }
 
         // Build relationship
         Input input = new Input();
@@ -603,6 +720,11 @@ public class SwaggerToNeo4jTransformation {
 
     private ResponseGraph getResponseBeanEntity(String key, Property swaggerResponse) {
 
+        // store swagger parse information
+        ArrayList<String> swaggerInfo = new ArrayList<>();
+        // For saving key: stemming term --> value: original term
+        HashMap<String, String> stemmingAndTermsTable = new HashMap<String, String>();
+
         String name = null;
         String mediaType = null;
         String description = null;
@@ -625,6 +747,23 @@ public class SwaggerToNeo4jTransformation {
         response.setDescription(description);
         response.setFormat(format);
         response.setRequired(required);
+
+        if(name != null) swaggerInfo.add(name);
+        if(description != null) swaggerInfo.add(description);
+
+        try {
+            if(swaggerInfo.size() != 0) {
+                // parse LDA
+                ArrayList<String> LDAWord = swaggerToLDA.swaggerParseLDA(swaggerInfo.toArray(new String[0]), stemmingAndTermsTable);
+                // parse WordNet
+                ArrayList<String> WordNetWord = wordNetExpansion.getWordNetExpansion(LDAWord, stemmingAndTermsTable);
+
+                response.setOriginalWord(LDAWord);
+                response.setWordnetWord(WordNetWord);
+            }
+        } catch (IOException e) {
+            log.info("Parse word topic error :{}", e.toString());
+        }
 
         ResponseGraph responseGraph = new ResponseGraph(response);
         // Build relationship

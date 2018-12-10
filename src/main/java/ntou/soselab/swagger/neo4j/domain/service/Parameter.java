@@ -4,6 +4,7 @@ import ntou.soselab.swagger.neo4j.domain.relationship.Input;
 import org.neo4j.ogm.annotation.NodeEntity;
 import org.neo4j.ogm.annotation.Relationship;
 
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -16,18 +17,22 @@ public class Parameter extends ConcreteService {
     String media_type;
     String format;
     boolean required;
+    ArrayList<String> originalWord;
+    ArrayList<String> wordnetWord;
 
     public Parameter() {
         super();
     }
 
-    public Parameter(String name, String in, String description, String media_type, String format, boolean required) {
+    public Parameter(String name, String in, String description, String media_type, String format, boolean required, ArrayList<String> originalWord, ArrayList<String> wordnetWord) {
         this.name = name;
         this.in = in;
         this.description = description;
         this.media_type = media_type;
         this.format = format;
         this.required = required;
+        this.originalWord = originalWord;
+        this.wordnetWord = wordnetWord;
     }
 
     public String getName() {
@@ -76,6 +81,22 @@ public class Parameter extends ConcreteService {
 
     public void setRequired(boolean required) {
         this.required = required;
+    }
+
+    public ArrayList<String> getOriginalWord() {
+        return originalWord;
+    }
+
+    public void setOriginalWord(ArrayList<String> originalWord) {
+        this.originalWord = originalWord;
+    }
+
+    public ArrayList<String> getWordnetWord() {
+        return wordnetWord;
+    }
+
+    public void setWordnetWord(ArrayList<String> wordnetWord) {
+        this.wordnetWord = wordnetWord;
     }
 
     @Relationship(type = "input", direction = Relationship.INCOMING)
