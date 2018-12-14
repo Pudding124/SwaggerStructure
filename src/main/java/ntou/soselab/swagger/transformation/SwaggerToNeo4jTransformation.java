@@ -369,7 +369,7 @@ public class SwaggerToNeo4jTransformation {
 //                    } else {
 //                        parseResponseProperty(null, property, definitions, statusCodeGraph);
 //                    }
-                    parseResponseProperty(null, property, definitions, statusCodeGraph);
+                    parseResponseProperty(null, property, definitions, statusCodeGraph, key);
                 }
             }
         }
@@ -623,13 +623,13 @@ public class SwaggerToNeo4jTransformation {
         }
     }
 
-    private void parseStatusCodeRefModel(RefModel refModel, Map<String, Model> definitions, String in, StatusCodeGraph statusCodeGraph) {
+    private void parseStatusCodeRefModel(RefModel refModel, Map<String, Model> definitions, String in, StatusCodeGraph statusCodeGraph, String statusCode) {
 
         log.info("----- go to RefModel {}", refModel.getSimpleRef());
         Model petModel = definitions.get(refModel.getSimpleRef());
         if (petModel instanceof ComposedModel) {
             log.info("---- detect allOf on definition:{} at {}", refModel.getSimpleRef(), "status code");
-            parseStatusCodeComposedModel((ComposedModel) petModel, definitions, in, statusCodeGraph);
+            parseStatusCodeComposedModel((ComposedModel) petModel, definitions, in, statusCodeGraph, statusCode);
         }
         if (petModel != null) {
             Map<String, Property> sp = petModel.getProperties();
@@ -638,29 +638,29 @@ public class SwaggerToNeo4jTransformation {
                     log.info("---- create ParameterBean on definition:{} at {} -- key: {}", refModel.getSimpleRef(),
                             "status code", s);
                     if (sp.get(s) instanceof RefProperty) {
-                        parseStatusCodeRefProperty((RefProperty) sp.get(s), definitions, in, statusCodeGraph);
+                        parseStatusCodeRefProperty((RefProperty) sp.get(s), definitions, in, statusCodeGraph, statusCode);
                     } else {
-                        statusCodeGraph.setResponseGraph(getResponseBeanEntity(s, sp.get(s)));
+                        statusCodeGraph.setResponseGraph(getResponseBeanEntity(s, sp.get(s), statusCode));
                     }
                 }
             }
         }
     }
 
-    private void parseStatusCodeComposedModel(ComposedModel mod, Map<String, Model> definitions, String in, StatusCodeGraph statusCodeGraph) {
+    private void parseStatusCodeComposedModel(ComposedModel mod, Map<String, Model> definitions, String in, StatusCodeGraph statusCodeGraph, String statusCode) {
 
         for (Model model : mod.getAllOf()) {
             if (model instanceof RefModel) {
-                parseStatusCodeRefModel((RefModel) model, definitions, in, statusCodeGraph);
+                parseStatusCodeRefModel((RefModel) model, definitions, in, statusCodeGraph, statusCode);
             } else {
                 if (model.getProperties() != null) {
                     Map<String, Property> sp = model.getProperties();
                     for (String s : sp.keySet()) {
                         log.info("---- create ParameterBean on allOf at {} -- key: {}", "status code", s);
-                        statusCodeGraph.setResponseGraph(getResponseBeanEntity(s, sp.get(s)));
+                        statusCodeGraph.setResponseGraph(getResponseBeanEntity(s, sp.get(s), statusCode));
 
                         if (sp.get(s) instanceof RefProperty) {
-                            parseStatusCodeRefProperty((RefProperty) sp.get(s), definitions, in, statusCodeGraph);
+                            parseStatusCodeRefProperty((RefProperty) sp.get(s), definitions, in, statusCodeGraph, statusCode);
                         }
                     }
 
@@ -669,7 +669,7 @@ public class SwaggerToNeo4jTransformation {
         }
     }
 
-    private void parseStatusCodeRefProperty(RefProperty ref, Map<String, Model> definitions, String in, StatusCodeGraph statusCodeGraph) {
+    private void parseStatusCodeRefProperty(RefProperty ref, Map<String, Model> definitions, String in, StatusCodeGraph statusCodeGraph, String statusCode) {
 
         log.info("---- go to RefProperty {}", ref.getSimpleRef());
         Model petModel = definitions.get(ref.getSimpleRef());
@@ -679,19 +679,19 @@ public class SwaggerToNeo4jTransformation {
 
             if (petModel instanceof ComposedModel) {
                 log.info("---- detect allOf on definition:{} at {}", ref.getSimpleRef(), "status code");
-                parseStatusCodeComposedModel((ComposedModel) petModel, definitions, in, statusCodeGraph);
+                parseStatusCodeComposedModel((ComposedModel) petModel, definitions, in, statusCodeGraph, statusCode);
             }
 
             if (sp != null) {
                 for (String s : sp.keySet()) {
                     log.info("---- create ParameterBean on definition:{} at {} -- key: {}", ref.getSimpleRef(), "status code", s);
-                    statusCodeGraph.setResponseGraph(getResponseBeanEntity(s, sp.get(s)));
+                    statusCodeGraph.setResponseGraph(getResponseBeanEntity(s, sp.get(s), statusCode));
                 }
             }
         }
     }
 
-    private void parseResponseProperty(String key, Property property, Map<String, Model> definitions, StatusCodeGraph statusCodeGraph) {
+    private void parseResponseProperty(String key, Property property, Map<String, Model> definitions, StatusCodeGraph statusCodeGraph, String statusCode) {
 
         if (property instanceof ObjectProperty) {
             log.info("---- parse response ObjectProperty: {}", key);
@@ -699,7 +699,7 @@ public class SwaggerToNeo4jTransformation {
             Map<String, Property> paramTable = op.getProperties();
             if (paramTable != null) {
                 for (Entry<String, Property> entry : paramTable.entrySet()) {
-                    parseResponseProperty(entry.getKey(), entry.getValue(), definitions, statusCodeGraph);
+                    parseResponseProperty(entry.getKey(), entry.getValue(), definitions, statusCodeGraph, statusCode);
                 }
             }
         } else if (property instanceof ArrayProperty) {
@@ -707,18 +707,18 @@ public class SwaggerToNeo4jTransformation {
             ArrayProperty array = (ArrayProperty) property;
             Property pItems = array.getItems();
             if (pItems instanceof RefProperty) {
-                parseStatusCodeRefProperty((RefProperty) pItems, definitions, "", statusCodeGraph);
+                parseStatusCodeRefProperty((RefProperty) pItems, definitions, "", statusCodeGraph, statusCode);
             }
         } else if (property instanceof RefProperty) {
             log.info("---- parse response RefProperty: {}", key);
-            parseStatusCodeRefProperty((RefProperty) property, definitions, "", statusCodeGraph);
+            parseStatusCodeRefProperty((RefProperty) property, definitions, "", statusCodeGraph, statusCode);
         } else {
             log.info("----- parse response final Property: {}, and save to operationBean!", key);
-            statusCodeGraph.setResponseGraph(getResponseBeanEntity(key, property));
+            statusCodeGraph.setResponseGraph(getResponseBeanEntity(key, property, statusCode));
         }
     }
 
-    private ResponseGraph getResponseBeanEntity(String key, Property swaggerResponse) {
+    private ResponseGraph getResponseBeanEntity(String key, Property swaggerResponse, String statusCode) {
 
         // store swagger parse information
         ArrayList<String> swaggerInfo = new ArrayList<>();
@@ -752,7 +752,7 @@ public class SwaggerToNeo4jTransformation {
         if(description != null) swaggerInfo.add(description);
 
         try {
-            if(swaggerInfo.size() != 0) {
+            if(swaggerInfo.size() != 0 && statusCode.equals("200")) {
                 // parse LDA
                 ArrayList<String> LDAWord = swaggerToLDA.swaggerParseLDA(swaggerInfo.toArray(new String[0]), stemmingAndTermsTable);
                 // parse WordNet

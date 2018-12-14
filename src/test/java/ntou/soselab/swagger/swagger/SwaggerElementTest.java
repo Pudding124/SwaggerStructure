@@ -25,7 +25,7 @@ public class SwaggerElementTest {
     @Autowired
     SwaggerToNeo4jTransformation swaggerToNeo4jTransformation;
 
-    @Test
+    //@Test
     public void readOneFile() {
         try {
             // do something
@@ -38,6 +38,37 @@ public class SwaggerElementTest {
         } catch (Exception e) {
             log.error("error parsing");
             log.error(e.toString());
+        }
+    }
+
+    @Test
+    public void readSwaggerFile() {
+        File sDocFolder = new File("./src/main/resources/swagger document");
+        int fileNumber = 100;
+
+        for (String serviceFile : sDocFolder.list()) {
+            if(fileNumber == 0) break;
+            fileNumber--;
+            log.info("parse swagger guru file: {}", serviceFile);
+            try {
+                // do something
+                String document = readLocalSwagger("./src/main/resources/swagger document/" + serviceFile);
+                if(document != null){
+                    swaggerToNeo4jTransformation.parseSwaggerDocument(document);
+                }else{
+                    log.error("error read swagger local file: {}", serviceFile);
+                }
+                Files.move(Paths.get("./src/main/resources/swagger document/" + serviceFile), Paths.get("./src/main/resources/finish/" + serviceFile));
+                log.info("finish move file {} to finish folder.", serviceFile);
+            } catch (Exception e) {
+                log.error("error parsing on {}", serviceFile);
+                log.info(e.toString());
+                try {
+                    Files.move(Paths.get("./src/main/resources/swagger document/" + serviceFile), Paths.get("./src/main/resources/fail/" + serviceFile));
+                } catch (IOException e1) {
+                    log.info("error on move file to error folder", e);
+                }
+            }
         }
     }
 
