@@ -1,0 +1,1039 @@
+{
+  "swagger": "2.0",
+  "schemes": [
+    "https",
+    "http"
+  ],
+  "host": "kafka.amazonaws.com",
+  "basePath": "/",
+  "info": {
+    "contact": {
+      "email": "mike.ralphson@gmail.com",
+      "name": "Mike Ralphson",
+      "url": "https://github.com/mermade/aws2openapi",
+      "x-twitter": "PermittedSoc"
+    },
+    "description": "The operations for managing an Amazon MSK cluster.",
+    "license": {
+      "name": "Apache 2.0 License",
+      "url": "http://www.apache.org/licenses/"
+    },
+    "termsOfService": "https://aws.amazon.com/service-terms/",
+    "title": "Managed Streaming for Kafka",
+    "version": "2018-11-14",
+    "x-apiClientRegistration": {
+      "url": "https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct"
+    },
+    "x-apisguru-categories": [
+      "cloud"
+    ],
+    "x-logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.jpeg"
+    },
+    "x-origin": [
+      {
+        "contentType": "application/json",
+        "converter": {
+          "url": "https://github.com/mermade/aws2openapi",
+          "version": "1.0.0"
+        },
+        "url": "https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/kafka-2018-11-14.normal.json",
+        "x-apisguru-direct": true
+      }
+    ],
+    "x-preferred": true,
+    "x-providerName": "amazonaws.com",
+    "x-release": "v4",
+    "x-serviceName": "kafka"
+  },
+  "externalDocs": {
+    "description": "Amazon Web Services documentation",
+    "url": "https://aws.amazon.com/kafka/"
+  },
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "securityDefinitions": {
+    "hmac": {
+      "description": "Amazon Signature authorization v4",
+      "in": "header",
+      "name": "Authorization",
+      "type": "apiKey",
+      "x-amazon-apigateway-authtype": "awsSigv4"
+    }
+  },
+  "security": [
+    {
+      "hmac": []
+    }
+  ],
+  "parameters": {
+    "Action": {
+      "in": "query",
+      "name": "Action",
+      "required": true,
+      "type": "string"
+    },
+    "Version": {
+      "in": "query",
+      "name": "Version",
+      "required": true,
+      "type": "string"
+    },
+    "X-Amz-Algorithm": {
+      "in": "header",
+      "name": "X-Amz-Algorithm",
+      "required": false,
+      "type": "string"
+    },
+    "X-Amz-Content-Sha256": {
+      "in": "header",
+      "name": "X-Amz-Content-Sha256",
+      "required": false,
+      "type": "string"
+    },
+    "X-Amz-Credential": {
+      "in": "header",
+      "name": "X-Amz-Credential",
+      "required": false,
+      "type": "string"
+    },
+    "X-Amz-Date": {
+      "in": "header",
+      "name": "X-Amz-Date",
+      "required": false,
+      "type": "string"
+    },
+    "X-Amz-Security-Token": {
+      "in": "header",
+      "name": "X-Amz-Security-Token",
+      "required": false,
+      "type": "string"
+    },
+    "X-Amz-Signature": {
+      "in": "header",
+      "name": "X-Amz-Signature",
+      "required": false,
+      "type": "string"
+    },
+    "X-Amz-SignedHeaders": {
+      "in": "header",
+      "name": "X-Amz-SignedHeaders",
+      "required": false,
+      "type": "string"
+    }
+  },
+  "paths": {
+    "/v1/clusters": {
+      "get": {
+        "description": "Returns a list of clusters in an account.",
+        "operationId": "ListClusters",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ListClustersRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ListClustersResponse"
+            }
+          },
+          "480": {
+            "description": "BadRequestException",
+            "schema": {
+              "$ref": "#/definitions/BadRequestException"
+            }
+          },
+          "481": {
+            "description": "InternalServerErrorException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerErrorException"
+            }
+          },
+          "482": {
+            "description": "UnauthorizedException",
+            "schema": {
+              "$ref": "#/definitions/UnauthorizedException"
+            }
+          },
+          "483": {
+            "description": "ForbiddenException",
+            "schema": {
+              "$ref": "#/definitions/ForbiddenException"
+            }
+          }
+        }
+      },
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Creates a new MSK cluster.",
+        "operationId": "CreateCluster",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CreateClusterRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/CreateClusterResponse"
+            }
+          },
+          "480": {
+            "description": "BadRequestException",
+            "schema": {
+              "$ref": "#/definitions/BadRequestException"
+            }
+          },
+          "481": {
+            "description": "InternalServerErrorException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerErrorException"
+            }
+          },
+          "482": {
+            "description": "UnauthorizedException",
+            "schema": {
+              "$ref": "#/definitions/UnauthorizedException"
+            }
+          },
+          "483": {
+            "description": "ForbiddenException",
+            "schema": {
+              "$ref": "#/definitions/ForbiddenException"
+            }
+          },
+          "484": {
+            "description": "ServiceUnavailableException",
+            "schema": {
+              "$ref": "#/definitions/ServiceUnavailableException"
+            }
+          },
+          "485": {
+            "description": "TooManyRequestsException",
+            "schema": {
+              "$ref": "#/definitions/TooManyRequestsException"
+            }
+          },
+          "486": {
+            "description": "ConflictException",
+            "schema": {
+              "$ref": "#/definitions/ConflictException"
+            }
+          }
+        }
+      }
+    },
+    "/v1/clusters/{clusterArn}": {
+      "delete": {
+        "description": "Deletes the MSK cluster specified by the Amazon Resource Name (ARN) in the request.",
+        "operationId": "DeleteCluster",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DeleteClusterRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "clusterArn",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DeleteClusterResponse"
+            }
+          },
+          "480": {
+            "description": "NotFoundException",
+            "schema": {
+              "$ref": "#/definitions/NotFoundException"
+            }
+          },
+          "481": {
+            "description": "BadRequestException",
+            "schema": {
+              "$ref": "#/definitions/BadRequestException"
+            }
+          },
+          "482": {
+            "description": "InternalServerErrorException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerErrorException"
+            }
+          },
+          "483": {
+            "description": "ForbiddenException",
+            "schema": {
+              "$ref": "#/definitions/ForbiddenException"
+            }
+          }
+        }
+      },
+      "get": {
+        "description": "Returns a description of the MSK cluster whose Amazon Resource Name (ARN) is specified in the request.",
+        "operationId": "DescribeCluster",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DescribeClusterRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "clusterArn",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DescribeClusterResponse"
+            }
+          },
+          "480": {
+            "description": "NotFoundException",
+            "schema": {
+              "$ref": "#/definitions/NotFoundException"
+            }
+          },
+          "481": {
+            "description": "BadRequestException",
+            "schema": {
+              "$ref": "#/definitions/BadRequestException"
+            }
+          },
+          "482": {
+            "description": "UnauthorizedException",
+            "schema": {
+              "$ref": "#/definitions/UnauthorizedException"
+            }
+          },
+          "483": {
+            "description": "InternalServerErrorException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerErrorException"
+            }
+          },
+          "484": {
+            "description": "ForbiddenException",
+            "schema": {
+              "$ref": "#/definitions/ForbiddenException"
+            }
+          }
+        }
+      },
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ]
+    },
+    "/v1/clusters/{clusterArn}/bootstrap-brokers": {
+      "get": {
+        "description": "A list of brokers that a client application can use to bootstrap.",
+        "operationId": "GetBootstrapBrokers",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/GetBootstrapBrokersRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "clusterArn",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/GetBootstrapBrokersResponse"
+            }
+          },
+          "480": {
+            "description": "BadRequestException",
+            "schema": {
+              "$ref": "#/definitions/BadRequestException"
+            }
+          },
+          "481": {
+            "description": "UnauthorizedException",
+            "schema": {
+              "$ref": "#/definitions/UnauthorizedException"
+            }
+          },
+          "482": {
+            "description": "InternalServerErrorException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerErrorException"
+            }
+          },
+          "483": {
+            "description": "ConflictException",
+            "schema": {
+              "$ref": "#/definitions/ConflictException"
+            }
+          },
+          "484": {
+            "description": "ForbiddenException",
+            "schema": {
+              "$ref": "#/definitions/ForbiddenException"
+            }
+          }
+        }
+      },
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ]
+    },
+    "/v1/clusters/{clusterArn}/nodes": {
+      "get": {
+        "description": "Returns a list of the broker nodes in the cluster.",
+        "operationId": "ListNodes",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ListNodesRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "clusterArn",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ListNodesResponse"
+            }
+          },
+          "480": {
+            "description": "NotFoundException",
+            "schema": {
+              "$ref": "#/definitions/NotFoundException"
+            }
+          },
+          "481": {
+            "description": "BadRequestException",
+            "schema": {
+              "$ref": "#/definitions/BadRequestException"
+            }
+          },
+          "482": {
+            "description": "InternalServerErrorException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerErrorException"
+            }
+          },
+          "483": {
+            "description": "ForbiddenException",
+            "schema": {
+              "$ref": "#/definitions/ForbiddenException"
+            }
+          }
+        }
+      },
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ]
+    }
+  },
+  "definitions": {
+    "BadRequestException": {},
+    "BrokerAZDistribution": {
+      "description": "The distribution of broker nodes across Availability Zones. By default, broker nodes are distributed among three Availability Zones. Currently, the only supported value is DEFAULT. You can either specify this value explicitly or leave it out.",
+      "enum": [
+        "DEFAULT"
+      ],
+      "type": "string"
+    },
+    "BrokerNodeGroupInfo": {
+      "description": "Describes the setup to be used for Kafka broker nodes in the cluster.",
+      "properties": {
+        "BrokerAZDistribution": {
+          "$ref": "#/definitions/BrokerAZDistribution",
+          "description": "The distribution of broker nodes across Availability Zones."
+        },
+        "ClientSubnets": {
+          "$ref": "#/definitions/__listOf__string",
+          "description": "The list of subnets to connect to in the client virtual private cloud (VPC). AWS creates elastic network interfaces inside these subnets. Client applications use elastic network interfaces to produce and consume data. Client subnets can't be in Availability Zone us-east-1e."
+        },
+        "InstanceType": {
+          "$ref": "#/definitions/__stringMin5Max32",
+          "description": "The type of Amazon EC2 instances to use for Kafka brokers. The following instance types are allowed: kafka.m5.large, kafka.m5.xlarge, kafka.m5.2xlarge,\nkafka.m5.4xlarge, kafka.m5.12xlarge, and kafka.m5.24xlarge."
+        },
+        "SecurityGroups": {
+          "$ref": "#/definitions/__listOf__string",
+          "description": "The AWS security groups to associate with the elastic network interfaces in order to specify who can connect to and communicate with the Amazon MSK cluster."
+        },
+        "StorageInfo": {
+          "$ref": "#/definitions/StorageInfo",
+          "description": "Contains information about storage volumes attached to MSK broker nodes."
+        }
+      },
+      "required": [
+        "ClientSubnets",
+        "InstanceType"
+      ],
+      "type": "object"
+    },
+    "BrokerNodeInfo": {
+      "description": "BrokerNodeInfo",
+      "properties": {
+        "AttachedENIId": {
+          "$ref": "#/definitions/__string",
+          "description": "The attached elastic network interface of the broker."
+        },
+        "BrokerId": {
+          "$ref": "#/definitions/__double",
+          "description": "The ID of the broker."
+        },
+        "ClientSubnet": {
+          "$ref": "#/definitions/__string",
+          "description": "The client subnet to which this broker node belongs."
+        },
+        "ClientVpcIpAddress": {
+          "$ref": "#/definitions/__string",
+          "description": "The virtual private cloud (VPC) of the client."
+        },
+        "CurrentBrokerSoftwareInfo": {
+          "$ref": "#/definitions/BrokerSoftwareInfo",
+          "description": "Information about the version of software currently deployed on the Kafka brokers in the cluster."
+        }
+      },
+      "type": "object"
+    },
+    "BrokerSoftwareInfo": {
+      "description": "Information about the current software installed on the cluster.",
+      "properties": {
+        "ConfigurationArn": {
+          "$ref": "#/definitions/__string",
+          "description": "The Amazon Resource Name (ARN) of the configuration used for the cluster."
+        },
+        "ConfigurationRevision": {
+          "$ref": "#/definitions/__string",
+          "description": "The revision of the configuration to use."
+        },
+        "KafkaVersion": {
+          "$ref": "#/definitions/__string",
+          "description": "The version of Apache Kafka."
+        }
+      },
+      "type": "object"
+    },
+    "ClusterInfo": {
+      "description": "Returns information about a cluster.",
+      "properties": {
+        "BrokerNodeGroupInfo": {
+          "$ref": "#/definitions/BrokerNodeGroupInfo",
+          "description": "Information about the broker nodes."
+        },
+        "ClusterArn": {
+          "$ref": "#/definitions/__string",
+          "description": "The Amazon Resource Name (ARN) that uniquely identifies the cluster."
+        },
+        "ClusterName": {
+          "$ref": "#/definitions/__string",
+          "description": "The name of the cluster."
+        },
+        "CreationTime": {
+          "$ref": "#/definitions/__timestampIso8601",
+          "description": "The time when the cluster was created."
+        },
+        "CurrentBrokerSoftwareInfo": {
+          "$ref": "#/definitions/BrokerSoftwareInfo",
+          "description": "Information about the version of software currently deployed on the Kafka brokers in the cluster."
+        },
+        "CurrentVersion": {
+          "$ref": "#/definitions/__string",
+          "description": "The current version of the MSK cluster."
+        },
+        "EncryptionInfo": {
+          "$ref": "#/definitions/EncryptionInfo",
+          "description": "Includes all encryption-related information."
+        },
+        "EnhancedMonitoring": {
+          "$ref": "#/definitions/EnhancedMonitoring",
+          "description": "Specifies which metrics are gathered for the MSK cluster. This property has three possible values: DEFAULT, PER_BROKER, and PER_TOPIC_PER_BROKER."
+        },
+        "NumberOfBrokerNodes": {
+          "$ref": "#/definitions/__integer",
+          "description": "The number of Kafka broker nodes in the cluster."
+        },
+        "State": {
+          "$ref": "#/definitions/ClusterState",
+          "description": "The state of the cluster. The possible states are CREATING, ACTIVE, and FAILED."
+        },
+        "ZookeeperConnectString": {
+          "$ref": "#/definitions/__string",
+          "description": "The connection string to use to connect to the Apache ZooKeeper cluster."
+        }
+      },
+      "type": "object"
+    },
+    "ClusterState": {
+      "description": "The state of a Kafka cluster.",
+      "enum": [
+        "ACTIVE",
+        "CREATING",
+        "DELETING",
+        "FAILED"
+      ],
+      "type": "string"
+    },
+    "ConflictException": {},
+    "CreateClusterRequest": {
+      "properties": {
+        "BrokerNodeGroupInfo": {
+          "$ref": "#/definitions/BrokerNodeGroupInfo",
+          "description": "Information about the broker nodes in the cluster."
+        },
+        "ClusterName": {
+          "$ref": "#/definitions/__stringMin1Max64",
+          "description": "The name of the cluster."
+        },
+        "EncryptionInfo": {
+          "$ref": "#/definitions/EncryptionInfo",
+          "description": "Includes all encryption-related information."
+        },
+        "EnhancedMonitoring": {
+          "$ref": "#/definitions/EnhancedMonitoring",
+          "description": "Specifies the level of monitoring for the MSK cluster. The possible values are DEFAULT, PER_BROKER, and PER_TOPIC_PER_BROKER."
+        },
+        "KafkaVersion": {
+          "$ref": "#/definitions/__stringMin1Max128",
+          "description": "The version of Apache Kafka."
+        },
+        "NumberOfBrokerNodes": {
+          "$ref": "#/definitions/__integerMin1Max15",
+          "description": "The number of Kafka broker nodes in the Amazon MSK cluster."
+        }
+      },
+      "required": [
+        "BrokerNodeGroupInfo",
+        "KafkaVersion",
+        "NumberOfBrokerNodes",
+        "ClusterName"
+      ],
+      "type": "object"
+    },
+    "CreateClusterResponse": {
+      "properties": {
+        "ClusterArn": {
+          "$ref": "#/definitions/__string",
+          "description": "The Amazon Resource Name (ARN) of the cluster."
+        },
+        "ClusterName": {
+          "$ref": "#/definitions/__string",
+          "description": "The name of the MSK cluster."
+        },
+        "State": {
+          "$ref": "#/definitions/ClusterState",
+          "description": "The state of the cluster. The possible states are CREATING, ACTIVE, and FAILED."
+        }
+      },
+      "type": "object"
+    },
+    "DeleteClusterRequest": {
+      "properties": {},
+      "type": "object"
+    },
+    "DeleteClusterResponse": {
+      "properties": {
+        "ClusterArn": {
+          "$ref": "#/definitions/__string",
+          "description": "The Amazon Resource Name (ARN) of the cluster."
+        },
+        "State": {
+          "$ref": "#/definitions/ClusterState",
+          "description": "The state of the cluster. The possible states are CREATING, ACTIVE, and FAILED."
+        }
+      },
+      "type": "object"
+    },
+    "DescribeClusterRequest": {
+      "properties": {},
+      "type": "object"
+    },
+    "DescribeClusterResponse": {
+      "properties": {
+        "ClusterInfo": {
+          "$ref": "#/definitions/ClusterInfo",
+          "description": "The cluster information."
+        }
+      },
+      "type": "object"
+    },
+    "EBSStorageInfo": {
+      "description": "Contains information about the EBS storage volumes attached to Kafka broker nodes.",
+      "properties": {
+        "VolumeSize": {
+          "$ref": "#/definitions/__integerMin1Max16384",
+          "description": "The size in GiB of the EBS volume for the data drive on each broker node."
+        }
+      },
+      "type": "object"
+    },
+    "EncryptionAtRest": {
+      "description": "The data volume encryption details.",
+      "properties": {
+        "DataVolumeKMSKeyId": {
+          "$ref": "#/definitions/__string",
+          "description": "The AWS KMS key used for data encryption."
+        }
+      },
+      "required": [
+        "DataVolumeKMSKeyId"
+      ],
+      "type": "object"
+    },
+    "EncryptionInfo": {
+      "description": "Includes encryption-related information, such as the AWS KMS key used for encrypting data at rest.",
+      "properties": {
+        "EncryptionAtRest": {
+          "$ref": "#/definitions/EncryptionAtRest",
+          "description": "The data volume encryption details."
+        }
+      },
+      "type": "object"
+    },
+    "EnhancedMonitoring": {
+      "description": "Specifies which metrics are gathered for the MSK cluster. This property has three possible values: DEFAULT, PER_BROKER, and PER_TOPIC_PER_BROKER.",
+      "enum": [
+        "DEFAULT",
+        "PER_BROKER",
+        "PER_TOPIC_PER_BROKER"
+      ],
+      "type": "string"
+    },
+    "ForbiddenException": {},
+    "GetBootstrapBrokersRequest": {
+      "properties": {},
+      "type": "object"
+    },
+    "GetBootstrapBrokersResponse": {
+      "properties": {
+        "BootstrapBrokerString": {
+          "$ref": "#/definitions/__string",
+          "description": "A string containing one or more hostname:port pairs."
+        }
+      },
+      "type": "object"
+    },
+    "InternalServerErrorException": {},
+    "ListClustersRequest": {
+      "properties": {},
+      "type": "object"
+    },
+    "ListClustersResponse": {
+      "properties": {
+        "ClusterInfoList": {
+          "$ref": "#/definitions/__listOfClusterInfo",
+          "description": "Information on each of the MSK clusters in the response."
+        },
+        "NextToken": {
+          "$ref": "#/definitions/__string",
+          "description": "The paginated results marker. When the result of a ListClusters operation is truncated, the call returns NextToken in the response. \n To get another batch of clusters, provide this token in your next request."
+        }
+      },
+      "type": "object"
+    },
+    "ListNodesRequest": {
+      "properties": {},
+      "type": "object"
+    },
+    "ListNodesResponse": {
+      "properties": {
+        "NextToken": {
+          "$ref": "#/definitions/__string",
+          "description": "The paginated results marker. When the result of a ListNodes operation is truncated, the call returns NextToken in the response. \n To get another batch of nodes, provide this token in your next request."
+        },
+        "NodeInfoList": {
+          "$ref": "#/definitions/__listOfNodeInfo",
+          "description": "List containing a NodeInfo object."
+        }
+      },
+      "type": "object"
+    },
+    "MaxResults": {
+      "maximum": 100,
+      "minimum": 1,
+      "type": "integer"
+    },
+    "NodeInfo": {
+      "description": "The node information object.",
+      "properties": {
+        "AddedToClusterTime": {
+          "$ref": "#/definitions/__string",
+          "description": "The start time."
+        },
+        "BrokerNodeInfo": {
+          "$ref": "#/definitions/BrokerNodeInfo",
+          "description": "The broker node info."
+        },
+        "InstanceType": {
+          "$ref": "#/definitions/__string",
+          "description": "The instance type."
+        },
+        "NodeARN": {
+          "$ref": "#/definitions/__string",
+          "description": "The Amazon Resource Name (ARN) of the node."
+        },
+        "NodeType": {
+          "$ref": "#/definitions/NodeType",
+          "description": "The node type."
+        },
+        "ZookeeperNodeInfo": {
+          "$ref": "#/definitions/ZookeeperNodeInfo",
+          "description": "The ZookeeperNodeInfo."
+        }
+      },
+      "type": "object"
+    },
+    "NodeType": {
+      "description": "The broker or Zookeeper node.",
+      "enum": [
+        "BROKER"
+      ],
+      "type": "string"
+    },
+    "NotFoundException": {},
+    "ServiceUnavailableException": {},
+    "StorageInfo": {
+      "description": "Contains information about storage volumes attached to MSK broker nodes.",
+      "properties": {
+        "EbsStorageInfo": {
+          "$ref": "#/definitions/EBSStorageInfo",
+          "description": "EBS volume information."
+        }
+      },
+      "type": "object"
+    },
+    "TooManyRequestsException": {},
+    "UnauthorizedException": {},
+    "ZookeeperNodeInfo": {
+      "description": "Zookeeper node information.",
+      "properties": {
+        "AttachedENIId": {
+          "$ref": "#/definitions/__string",
+          "description": "The attached elastic network interface of the broker."
+        },
+        "ClientVpcIpAddress": {
+          "$ref": "#/definitions/__string",
+          "description": "The virtual private cloud (VPC) IP address of the client."
+        },
+        "ZookeeperId": {
+          "$ref": "#/definitions/__double",
+          "description": "The role-specific ID for Zookeeper."
+        },
+        "ZookeeperVersion": {
+          "$ref": "#/definitions/__string",
+          "description": "The version of Zookeeper."
+        }
+      },
+      "type": "object"
+    },
+    "__double": {
+      "format": "double",
+      "type": "number"
+    },
+    "__integer": {
+      "type": "integer"
+    },
+    "__integerMin1Max15": {
+      "maximum": 15,
+      "minimum": 1,
+      "type": "integer"
+    },
+    "__integerMin1Max16384": {
+      "maximum": 16384,
+      "minimum": 1,
+      "type": "integer"
+    },
+    "__listOfClusterInfo": {
+      "items": {
+        "$ref": "#/definitions/ClusterInfo"
+      },
+      "type": "array"
+    },
+    "__listOfNodeInfo": {
+      "items": {
+        "$ref": "#/definitions/NodeInfo"
+      },
+      "type": "array"
+    },
+    "__listOf__string": {
+      "items": {
+        "$ref": "#/definitions/__string"
+      },
+      "type": "array"
+    },
+    "__string": {
+      "type": "string"
+    },
+    "__stringMin1Max128": {
+      "maxLength": 128,
+      "minLength": 1,
+      "type": "string"
+    },
+    "__stringMin1Max64": {
+      "maxLength": 64,
+      "minLength": 1,
+      "type": "string"
+    },
+    "__stringMin5Max32": {
+      "maxLength": 32,
+      "minLength": 5,
+      "type": "string"
+    },
+    "__timestampIso8601": {
+      "format": "date-time",
+      "type": "string"
+    }
+  }
+}

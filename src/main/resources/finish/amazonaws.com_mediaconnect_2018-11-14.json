@@ -1,0 +1,2253 @@
+{
+  "swagger": "2.0",
+  "schemes": [
+    "https",
+    "http"
+  ],
+  "host": "mediaconnect.amazonaws.com",
+  "basePath": "/",
+  "info": {
+    "contact": {
+      "email": "mike.ralphson@gmail.com",
+      "name": "Mike Ralphson",
+      "url": "https://github.com/mermade/aws2openapi",
+      "x-twitter": "PermittedSoc"
+    },
+    "description": "API for AWS Elemental MediaConnect",
+    "license": {
+      "name": "Apache 2.0 License",
+      "url": "http://www.apache.org/licenses/"
+    },
+    "termsOfService": "https://aws.amazon.com/service-terms/",
+    "title": "AWS MediaConnect",
+    "version": "2018-11-14",
+    "x-apiClientRegistration": {
+      "url": "https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct"
+    },
+    "x-apisguru-categories": [
+      "cloud"
+    ],
+    "x-logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.jpeg"
+    },
+    "x-origin": [
+      {
+        "contentType": "application/json",
+        "converter": {
+          "url": "https://github.com/mermade/aws2openapi",
+          "version": "1.0.0"
+        },
+        "url": "https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/mediaconnect-2018-11-14.normal.json",
+        "x-apisguru-direct": true
+      }
+    ],
+    "x-preferred": true,
+    "x-providerName": "amazonaws.com",
+    "x-release": "v4",
+    "x-serviceName": "mediaconnect"
+  },
+  "externalDocs": {
+    "description": "Amazon Web Services documentation",
+    "url": "https://aws.amazon.com/mediaconnect/"
+  },
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "securityDefinitions": {
+    "hmac": {
+      "description": "Amazon Signature authorization v4",
+      "in": "header",
+      "name": "Authorization",
+      "type": "apiKey",
+      "x-amazon-apigateway-authtype": "awsSigv4"
+    }
+  },
+  "security": [
+    {
+      "hmac": []
+    }
+  ],
+  "parameters": {
+    "Action": {
+      "in": "query",
+      "name": "Action",
+      "required": true,
+      "type": "string"
+    },
+    "Version": {
+      "in": "query",
+      "name": "Version",
+      "required": true,
+      "type": "string"
+    },
+    "X-Amz-Algorithm": {
+      "in": "header",
+      "name": "X-Amz-Algorithm",
+      "required": false,
+      "type": "string"
+    },
+    "X-Amz-Content-Sha256": {
+      "in": "header",
+      "name": "X-Amz-Content-Sha256",
+      "required": false,
+      "type": "string"
+    },
+    "X-Amz-Credential": {
+      "in": "header",
+      "name": "X-Amz-Credential",
+      "required": false,
+      "type": "string"
+    },
+    "X-Amz-Date": {
+      "in": "header",
+      "name": "X-Amz-Date",
+      "required": false,
+      "type": "string"
+    },
+    "X-Amz-Security-Token": {
+      "in": "header",
+      "name": "X-Amz-Security-Token",
+      "required": false,
+      "type": "string"
+    },
+    "X-Amz-Signature": {
+      "in": "header",
+      "name": "X-Amz-Signature",
+      "required": false,
+      "type": "string"
+    },
+    "X-Amz-SignedHeaders": {
+      "in": "header",
+      "name": "X-Amz-SignedHeaders",
+      "required": false,
+      "type": "string"
+    }
+  },
+  "paths": {
+    "/v1/entitlements": {
+      "get": {
+        "description": "Displays a list of all entitlements that have been granted to this account. This request returns 20 results per page.",
+        "operationId": "ListEntitlements",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ListEntitlementsRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ListEntitlementsResponse"
+            }
+          },
+          "480": {
+            "description": "ServiceUnavailableException",
+            "schema": {
+              "$ref": "#/definitions/ServiceUnavailableException"
+            }
+          },
+          "481": {
+            "description": "TooManyRequestsException",
+            "schema": {
+              "$ref": "#/definitions/TooManyRequestsException"
+            }
+          },
+          "482": {
+            "description": "BadRequestException",
+            "schema": {
+              "$ref": "#/definitions/BadRequestException"
+            }
+          },
+          "483": {
+            "description": "InternalServerErrorException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerErrorException"
+            }
+          }
+        }
+      },
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ]
+    },
+    "/v1/flows": {
+      "get": {
+        "description": "Displays a list of flows that are associated with this account. This request returns a paginated result.",
+        "operationId": "ListFlows",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ListFlowsRequest"
+            }
+          },
+          {
+            "description": "Pagination limit",
+            "in": "query",
+            "name": "MaxResults",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Pagination token",
+            "in": "query",
+            "name": "NextToken",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ListFlowsResponse"
+            }
+          },
+          "480": {
+            "description": "ServiceUnavailableException",
+            "schema": {
+              "$ref": "#/definitions/ServiceUnavailableException"
+            }
+          },
+          "481": {
+            "description": "TooManyRequestsException",
+            "schema": {
+              "$ref": "#/definitions/TooManyRequestsException"
+            }
+          },
+          "482": {
+            "description": "BadRequestException",
+            "schema": {
+              "$ref": "#/definitions/BadRequestException"
+            }
+          },
+          "483": {
+            "description": "InternalServerErrorException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerErrorException"
+            }
+          }
+        }
+      },
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Creates a new flow. The request must include one source. The request optionally can include outputs (up to 20) and entitlements (up to 50).",
+        "operationId": "CreateFlow",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CreateFlowRequest"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/CreateFlowResponse"
+            }
+          },
+          "480": {
+            "description": "CreateFlow420Exception",
+            "schema": {
+              "$ref": "#/definitions/CreateFlow420Exception"
+            }
+          },
+          "481": {
+            "description": "BadRequestException",
+            "schema": {
+              "$ref": "#/definitions/BadRequestException"
+            }
+          },
+          "482": {
+            "description": "InternalServerErrorException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerErrorException"
+            }
+          },
+          "483": {
+            "description": "ForbiddenException",
+            "schema": {
+              "$ref": "#/definitions/ForbiddenException"
+            }
+          },
+          "484": {
+            "description": "ServiceUnavailableException",
+            "schema": {
+              "$ref": "#/definitions/ServiceUnavailableException"
+            }
+          },
+          "485": {
+            "description": "TooManyRequestsException",
+            "schema": {
+              "$ref": "#/definitions/TooManyRequestsException"
+            }
+          }
+        }
+      }
+    },
+    "/v1/flows/start/{flowArn}": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Starts a flow.",
+        "operationId": "StartFlow",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/StartFlowRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "flowArn",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "202": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/StartFlowResponse"
+            }
+          },
+          "480": {
+            "description": "BadRequestException",
+            "schema": {
+              "$ref": "#/definitions/BadRequestException"
+            }
+          },
+          "481": {
+            "description": "InternalServerErrorException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerErrorException"
+            }
+          },
+          "482": {
+            "description": "ForbiddenException",
+            "schema": {
+              "$ref": "#/definitions/ForbiddenException"
+            }
+          },
+          "483": {
+            "description": "NotFoundException",
+            "schema": {
+              "$ref": "#/definitions/NotFoundException"
+            }
+          },
+          "484": {
+            "description": "ServiceUnavailableException",
+            "schema": {
+              "$ref": "#/definitions/ServiceUnavailableException"
+            }
+          },
+          "485": {
+            "description": "TooManyRequestsException",
+            "schema": {
+              "$ref": "#/definitions/TooManyRequestsException"
+            }
+          }
+        }
+      }
+    },
+    "/v1/flows/stop/{flowArn}": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Stops a flow.",
+        "operationId": "StopFlow",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/StopFlowRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "flowArn",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "202": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/StopFlowResponse"
+            }
+          },
+          "480": {
+            "description": "BadRequestException",
+            "schema": {
+              "$ref": "#/definitions/BadRequestException"
+            }
+          },
+          "481": {
+            "description": "InternalServerErrorException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerErrorException"
+            }
+          },
+          "482": {
+            "description": "ForbiddenException",
+            "schema": {
+              "$ref": "#/definitions/ForbiddenException"
+            }
+          },
+          "483": {
+            "description": "NotFoundException",
+            "schema": {
+              "$ref": "#/definitions/NotFoundException"
+            }
+          },
+          "484": {
+            "description": "ServiceUnavailableException",
+            "schema": {
+              "$ref": "#/definitions/ServiceUnavailableException"
+            }
+          },
+          "485": {
+            "description": "TooManyRequestsException",
+            "schema": {
+              "$ref": "#/definitions/TooManyRequestsException"
+            }
+          }
+        }
+      }
+    },
+    "/v1/flows/{flowArn}": {
+      "delete": {
+        "description": "Deletes a flow. Before you can delete a flow, you must stop the flow.",
+        "operationId": "DeleteFlow",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DeleteFlowRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "flowArn",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "202": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DeleteFlowResponse"
+            }
+          },
+          "480": {
+            "description": "BadRequestException",
+            "schema": {
+              "$ref": "#/definitions/BadRequestException"
+            }
+          },
+          "481": {
+            "description": "InternalServerErrorException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerErrorException"
+            }
+          },
+          "482": {
+            "description": "ForbiddenException",
+            "schema": {
+              "$ref": "#/definitions/ForbiddenException"
+            }
+          },
+          "483": {
+            "description": "NotFoundException",
+            "schema": {
+              "$ref": "#/definitions/NotFoundException"
+            }
+          },
+          "484": {
+            "description": "ServiceUnavailableException",
+            "schema": {
+              "$ref": "#/definitions/ServiceUnavailableException"
+            }
+          },
+          "485": {
+            "description": "TooManyRequestsException",
+            "schema": {
+              "$ref": "#/definitions/TooManyRequestsException"
+            }
+          }
+        }
+      },
+      "get": {
+        "description": "Displays the details of a flow. The response includes the flow ARN, name, and Availability Zone, as well as details about the source, outputs, and entitlements.",
+        "operationId": "DescribeFlow",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DescribeFlowRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "flowArn",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DescribeFlowResponse"
+            }
+          },
+          "480": {
+            "description": "BadRequestException",
+            "schema": {
+              "$ref": "#/definitions/BadRequestException"
+            }
+          },
+          "481": {
+            "description": "InternalServerErrorException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerErrorException"
+            }
+          },
+          "482": {
+            "description": "ForbiddenException",
+            "schema": {
+              "$ref": "#/definitions/ForbiddenException"
+            }
+          },
+          "483": {
+            "description": "NotFoundException",
+            "schema": {
+              "$ref": "#/definitions/NotFoundException"
+            }
+          },
+          "484": {
+            "description": "ServiceUnavailableException",
+            "schema": {
+              "$ref": "#/definitions/ServiceUnavailableException"
+            }
+          },
+          "485": {
+            "description": "TooManyRequestsException",
+            "schema": {
+              "$ref": "#/definitions/TooManyRequestsException"
+            }
+          }
+        }
+      },
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ]
+    },
+    "/v1/flows/{flowArn}/entitlements": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Grants entitlements to an existing flow.",
+        "operationId": "GrantFlowEntitlements",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/GrantFlowEntitlementsRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "flowArn",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/GrantFlowEntitlementsResponse"
+            }
+          },
+          "480": {
+            "description": "GrantFlowEntitlements420Exception",
+            "schema": {
+              "$ref": "#/definitions/GrantFlowEntitlements420Exception"
+            }
+          },
+          "481": {
+            "description": "BadRequestException",
+            "schema": {
+              "$ref": "#/definitions/BadRequestException"
+            }
+          },
+          "482": {
+            "description": "InternalServerErrorException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerErrorException"
+            }
+          },
+          "483": {
+            "description": "ForbiddenException",
+            "schema": {
+              "$ref": "#/definitions/ForbiddenException"
+            }
+          },
+          "484": {
+            "description": "NotFoundException",
+            "schema": {
+              "$ref": "#/definitions/NotFoundException"
+            }
+          },
+          "485": {
+            "description": "ServiceUnavailableException",
+            "schema": {
+              "$ref": "#/definitions/ServiceUnavailableException"
+            }
+          },
+          "486": {
+            "description": "TooManyRequestsException",
+            "schema": {
+              "$ref": "#/definitions/TooManyRequestsException"
+            }
+          }
+        }
+      }
+    },
+    "/v1/flows/{flowArn}/entitlements/{entitlementArn}": {
+      "delete": {
+        "description": "Revokes an entitlement from a flow. Once an entitlement is revoked, the content becomes unavailable to the subscriber and the associated output is removed.",
+        "operationId": "RevokeFlowEntitlement",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/RevokeFlowEntitlementRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "flowArn",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "entitlementArn",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "202": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/RevokeFlowEntitlementResponse"
+            }
+          },
+          "480": {
+            "description": "BadRequestException",
+            "schema": {
+              "$ref": "#/definitions/BadRequestException"
+            }
+          },
+          "481": {
+            "description": "InternalServerErrorException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerErrorException"
+            }
+          },
+          "482": {
+            "description": "ForbiddenException",
+            "schema": {
+              "$ref": "#/definitions/ForbiddenException"
+            }
+          },
+          "483": {
+            "description": "NotFoundException",
+            "schema": {
+              "$ref": "#/definitions/NotFoundException"
+            }
+          },
+          "484": {
+            "description": "ServiceUnavailableException",
+            "schema": {
+              "$ref": "#/definitions/ServiceUnavailableException"
+            }
+          },
+          "485": {
+            "description": "TooManyRequestsException",
+            "schema": {
+              "$ref": "#/definitions/TooManyRequestsException"
+            }
+          }
+        }
+      },
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "put": {
+        "description": "You can change an entitlement's description, subscribers, and encryption. If you change the subscribers, the service will remove the outputs that are are used by the subscribers that are removed.",
+        "operationId": "UpdateFlowEntitlement",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/UpdateFlowEntitlementRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "flowArn",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "entitlementArn",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "202": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/UpdateFlowEntitlementResponse"
+            }
+          },
+          "480": {
+            "description": "BadRequestException",
+            "schema": {
+              "$ref": "#/definitions/BadRequestException"
+            }
+          },
+          "481": {
+            "description": "InternalServerErrorException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerErrorException"
+            }
+          },
+          "482": {
+            "description": "ForbiddenException",
+            "schema": {
+              "$ref": "#/definitions/ForbiddenException"
+            }
+          },
+          "483": {
+            "description": "NotFoundException",
+            "schema": {
+              "$ref": "#/definitions/NotFoundException"
+            }
+          },
+          "484": {
+            "description": "ServiceUnavailableException",
+            "schema": {
+              "$ref": "#/definitions/ServiceUnavailableException"
+            }
+          },
+          "485": {
+            "description": "TooManyRequestsException",
+            "schema": {
+              "$ref": "#/definitions/TooManyRequestsException"
+            }
+          }
+        }
+      }
+    },
+    "/v1/flows/{flowArn}/outputs": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Adds outputs to an existing flow. You can create up to 20 outputs per flow.",
+        "operationId": "AddFlowOutputs",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/AddFlowOutputsRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "flowArn",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/AddFlowOutputsResponse"
+            }
+          },
+          "480": {
+            "description": "AddFlowOutputs420Exception",
+            "schema": {
+              "$ref": "#/definitions/AddFlowOutputs420Exception"
+            }
+          },
+          "481": {
+            "description": "BadRequestException",
+            "schema": {
+              "$ref": "#/definitions/BadRequestException"
+            }
+          },
+          "482": {
+            "description": "InternalServerErrorException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerErrorException"
+            }
+          },
+          "483": {
+            "description": "ForbiddenException",
+            "schema": {
+              "$ref": "#/definitions/ForbiddenException"
+            }
+          },
+          "484": {
+            "description": "NotFoundException",
+            "schema": {
+              "$ref": "#/definitions/NotFoundException"
+            }
+          },
+          "485": {
+            "description": "ServiceUnavailableException",
+            "schema": {
+              "$ref": "#/definitions/ServiceUnavailableException"
+            }
+          },
+          "486": {
+            "description": "TooManyRequestsException",
+            "schema": {
+              "$ref": "#/definitions/TooManyRequestsException"
+            }
+          }
+        }
+      }
+    },
+    "/v1/flows/{flowArn}/outputs/{outputArn}": {
+      "delete": {
+        "description": "Removes an output from an existing flow. This request can be made only on an output that does not have an entitlement associated with it. If the output has an entitlement, you must revoke the entitlement instead. When an entitlement is revoked from a flow, the service automatically removes the associated output.",
+        "operationId": "RemoveFlowOutput",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/RemoveFlowOutputRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "flowArn",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "outputArn",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "202": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/RemoveFlowOutputResponse"
+            }
+          },
+          "480": {
+            "description": "BadRequestException",
+            "schema": {
+              "$ref": "#/definitions/BadRequestException"
+            }
+          },
+          "481": {
+            "description": "InternalServerErrorException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerErrorException"
+            }
+          },
+          "482": {
+            "description": "ForbiddenException",
+            "schema": {
+              "$ref": "#/definitions/ForbiddenException"
+            }
+          },
+          "483": {
+            "description": "NotFoundException",
+            "schema": {
+              "$ref": "#/definitions/NotFoundException"
+            }
+          },
+          "484": {
+            "description": "ServiceUnavailableException",
+            "schema": {
+              "$ref": "#/definitions/ServiceUnavailableException"
+            }
+          },
+          "485": {
+            "description": "TooManyRequestsException",
+            "schema": {
+              "$ref": "#/definitions/TooManyRequestsException"
+            }
+          }
+        }
+      },
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "put": {
+        "description": "Updates an existing flow output.",
+        "operationId": "UpdateFlowOutput",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/UpdateFlowOutputRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "flowArn",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "outputArn",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "202": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/UpdateFlowOutputResponse"
+            }
+          },
+          "480": {
+            "description": "BadRequestException",
+            "schema": {
+              "$ref": "#/definitions/BadRequestException"
+            }
+          },
+          "481": {
+            "description": "InternalServerErrorException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerErrorException"
+            }
+          },
+          "482": {
+            "description": "ForbiddenException",
+            "schema": {
+              "$ref": "#/definitions/ForbiddenException"
+            }
+          },
+          "483": {
+            "description": "NotFoundException",
+            "schema": {
+              "$ref": "#/definitions/NotFoundException"
+            }
+          },
+          "484": {
+            "description": "ServiceUnavailableException",
+            "schema": {
+              "$ref": "#/definitions/ServiceUnavailableException"
+            }
+          },
+          "485": {
+            "description": "TooManyRequestsException",
+            "schema": {
+              "$ref": "#/definitions/TooManyRequestsException"
+            }
+          }
+        }
+      }
+    },
+    "/v1/flows/{flowArn}/source/{sourceArn}": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "put": {
+        "description": "Updates the source of a flow.",
+        "operationId": "UpdateFlowSource",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/UpdateFlowSourceRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "flowArn",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "sourceArn",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "202": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/UpdateFlowSourceResponse"
+            }
+          },
+          "480": {
+            "description": "BadRequestException",
+            "schema": {
+              "$ref": "#/definitions/BadRequestException"
+            }
+          },
+          "481": {
+            "description": "InternalServerErrorException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerErrorException"
+            }
+          },
+          "482": {
+            "description": "ForbiddenException",
+            "schema": {
+              "$ref": "#/definitions/ForbiddenException"
+            }
+          },
+          "483": {
+            "description": "NotFoundException",
+            "schema": {
+              "$ref": "#/definitions/NotFoundException"
+            }
+          },
+          "484": {
+            "description": "ServiceUnavailableException",
+            "schema": {
+              "$ref": "#/definitions/ServiceUnavailableException"
+            }
+          },
+          "485": {
+            "description": "TooManyRequestsException",
+            "schema": {
+              "$ref": "#/definitions/TooManyRequestsException"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "AddFlowOutputs420Exception": {},
+    "AddFlowOutputsRequest": {
+      "description": "A request to add outputs to the specified flow.",
+      "properties": {
+        "Outputs": {
+          "$ref": "#/definitions/__listOfAddOutputRequest",
+          "description": "A list of outputs that you want to add."
+        }
+      },
+      "required": [
+        "Outputs"
+      ],
+      "type": "object"
+    },
+    "AddFlowOutputsResponse": {
+      "properties": {
+        "FlowArn": {
+          "$ref": "#/definitions/__string",
+          "description": "The ARN of the flow that these outputs were added to."
+        },
+        "Outputs": {
+          "$ref": "#/definitions/__listOfOutput",
+          "description": "The details of the newly added outputs."
+        }
+      },
+      "type": "object"
+    },
+    "AddOutputRequest": {
+      "description": "The output that you want to add to this flow.",
+      "properties": {
+        "Description": {
+          "$ref": "#/definitions/__string",
+          "description": "A description of the output. This description appears only on the AWS Elemental MediaConnect console and will not be seen by the end user."
+        },
+        "Destination": {
+          "$ref": "#/definitions/__string",
+          "description": "The IP address from which video will be sent to output destinations."
+        },
+        "Encryption": {
+          "$ref": "#/definitions/Encryption",
+          "description": "The type of key used for the encryption. If no keyType is provided, the service will use the default setting (static-key)."
+        },
+        "MaxLatency": {
+          "$ref": "#/definitions/__integer",
+          "description": "The maximum latency in milliseconds for Zixi-based streams."
+        },
+        "Name": {
+          "$ref": "#/definitions/__string",
+          "description": "The name of the output. This value must be unique within the current flow."
+        },
+        "Port": {
+          "$ref": "#/definitions/__integer",
+          "description": "The port to use when content is distributed to this output."
+        },
+        "Protocol": {
+          "$ref": "#/definitions/Protocol",
+          "description": "The protocol to use for the output."
+        },
+        "SmoothingLatency": {
+          "$ref": "#/definitions/__integer",
+          "description": "The smoothing latency in milliseconds for RTP and RTP-FEC streams."
+        },
+        "StreamId": {
+          "$ref": "#/definitions/__string",
+          "description": "The stream ID that you want to use for this transport. This parameter applies only to Zixi-based streams."
+        }
+      },
+      "required": [
+        "Destination",
+        "Port",
+        "Protocol"
+      ],
+      "type": "object"
+    },
+    "Algorithm": {
+      "enum": [
+        "aes128",
+        "aes192",
+        "aes256"
+      ],
+      "type": "string"
+    },
+    "BadRequestException": {},
+    "CreateFlow420Exception": {},
+    "CreateFlowRequest": {
+      "description": "Creates a new flow. The request must include one source. The request optionally can include outputs (up to 20) and entitlements (up to 50).",
+      "properties": {
+        "AvailabilityZone": {
+          "$ref": "#/definitions/__string",
+          "description": "The Availability Zone that you want to create the flow in. These options are limited to the Availability Zones within the current AWS Region."
+        },
+        "Entitlements": {
+          "$ref": "#/definitions/__listOfGrantEntitlementRequest",
+          "description": "The entitlements that you want to grant on a flow."
+        },
+        "Name": {
+          "$ref": "#/definitions/__string",
+          "description": "The name of the flow."
+        },
+        "Outputs": {
+          "$ref": "#/definitions/__listOfAddOutputRequest",
+          "description": "The outputs that you want to add to this flow."
+        },
+        "Source": {
+          "$ref": "#/definitions/SetSourceRequest"
+        }
+      },
+      "required": [
+        "Source",
+        "Name"
+      ],
+      "type": "object"
+    },
+    "CreateFlowResponse": {
+      "properties": {
+        "Flow": {
+          "$ref": "#/definitions/Flow"
+        }
+      },
+      "type": "object"
+    },
+    "DeleteFlowRequest": {
+      "properties": {},
+      "type": "object"
+    },
+    "DeleteFlowResponse": {
+      "properties": {
+        "FlowArn": {
+          "$ref": "#/definitions/__string",
+          "description": "The ARN of the flow that was deleted."
+        },
+        "Status": {
+          "$ref": "#/definitions/Status",
+          "description": "The status of the flow when the DeleteFlow process begins."
+        }
+      },
+      "type": "object"
+    },
+    "DescribeFlowRequest": {
+      "properties": {},
+      "type": "object"
+    },
+    "DescribeFlowResponse": {
+      "properties": {
+        "Flow": {
+          "$ref": "#/definitions/Flow"
+        },
+        "Messages": {
+          "$ref": "#/definitions/Messages"
+        }
+      },
+      "type": "object"
+    },
+    "Encryption": {
+      "description": "Information about the encryption of the flow.",
+      "properties": {
+        "Algorithm": {
+          "$ref": "#/definitions/Algorithm",
+          "description": "The type of algorithm that is used for the encryption (such as aes128, aes192, or aes256)."
+        },
+        "KeyType": {
+          "$ref": "#/definitions/KeyType",
+          "description": "The type of key that is used for the encryption. If no keyType is provided, the service will use the default setting (static-key)."
+        },
+        "RoleArn": {
+          "$ref": "#/definitions/__string",
+          "description": "The ARN of the role that you created during setup (when you set up AWS Elemental MediaConnect as a trusted entity)."
+        },
+        "SecretArn": {
+          "$ref": "#/definitions/__string",
+          "description": "The ARN that was assigned to the secret that you created in AWS Secrets Manager to store the encryption key."
+        }
+      },
+      "required": [
+        "SecretArn",
+        "Algorithm",
+        "RoleArn"
+      ],
+      "type": "object"
+    },
+    "Entitlement": {
+      "description": "The settings for a flow entitlement.",
+      "properties": {
+        "Description": {
+          "$ref": "#/definitions/__string",
+          "description": "A description of the entitlement."
+        },
+        "Encryption": {
+          "$ref": "#/definitions/Encryption",
+          "description": "The type of encryption that will be used on the output that is associated with this entitlement."
+        },
+        "EntitlementArn": {
+          "$ref": "#/definitions/__string",
+          "description": "The ARN of the entitlement."
+        },
+        "Name": {
+          "$ref": "#/definitions/__string",
+          "description": "The name of the entitlement."
+        },
+        "Subscribers": {
+          "$ref": "#/definitions/__listOf__string",
+          "description": "The AWS account IDs that you want to share your content with. The receiving accounts (subscribers) will be allowed to create their own flow using your content as the source."
+        }
+      },
+      "required": [
+        "EntitlementArn",
+        "Subscribers",
+        "Name"
+      ],
+      "type": "object"
+    },
+    "Flow": {
+      "description": "The settings for a flow, including its source, outputs, and entitlements.",
+      "properties": {
+        "AvailabilityZone": {
+          "$ref": "#/definitions/__string",
+          "description": "The Availability Zone that you want to create the flow in. These options are limited to the Availability Zones within the current AWS."
+        },
+        "Description": {
+          "$ref": "#/definitions/__string",
+          "description": "A description of the flow. This value is not used or seen outside of the current AWS Elemental MediaConnect account."
+        },
+        "EgressIp": {
+          "$ref": "#/definitions/__string",
+          "description": "The IP address from which video will be sent to output destinations."
+        },
+        "Entitlements": {
+          "$ref": "#/definitions/__listOfEntitlement",
+          "description": "The entitlements in this flow."
+        },
+        "FlowArn": {
+          "$ref": "#/definitions/__string",
+          "description": "The Amazon Resource Name (ARN), a unique identifier for any AWS resource, of the flow."
+        },
+        "Name": {
+          "$ref": "#/definitions/__string",
+          "description": "The name of the flow."
+        },
+        "Outputs": {
+          "$ref": "#/definitions/__listOfOutput",
+          "description": "The outputs in this flow."
+        },
+        "Source": {
+          "$ref": "#/definitions/Source"
+        },
+        "Status": {
+          "$ref": "#/definitions/Status",
+          "description": "The current status of the flow."
+        }
+      },
+      "required": [
+        "Status",
+        "Entitlements",
+        "Outputs",
+        "AvailabilityZone",
+        "FlowArn",
+        "Source",
+        "Name"
+      ],
+      "type": "object"
+    },
+    "ForbiddenException": {},
+    "GrantEntitlementRequest": {
+      "description": "The entitlements that you want to grant on a flow.",
+      "properties": {
+        "Description": {
+          "$ref": "#/definitions/__string",
+          "description": "A description of the entitlement. This description appears only on the AWS Elemental MediaConnect console and will not be seen by the subscriber or end user."
+        },
+        "Encryption": {
+          "$ref": "#/definitions/Encryption",
+          "description": "The type of encryption that will be used on the output that is associated with this entitlement."
+        },
+        "Name": {
+          "$ref": "#/definitions/__string",
+          "description": "The name of the entitlement. This value must be unique within the current flow."
+        },
+        "Subscribers": {
+          "$ref": "#/definitions/__listOf__string",
+          "description": "The AWS account IDs that you want to share your content with. The receiving accounts (subscribers) will be allowed to create their own flows using your content as the source."
+        }
+      },
+      "required": [
+        "Subscribers"
+      ],
+      "type": "object"
+    },
+    "GrantFlowEntitlements420Exception": {},
+    "GrantFlowEntitlementsRequest": {
+      "description": "A request to grant entitlements on a flow.",
+      "properties": {
+        "Entitlements": {
+          "$ref": "#/definitions/__listOfGrantEntitlementRequest",
+          "description": "The list of entitlements that you want to grant."
+        }
+      },
+      "required": [
+        "Entitlements"
+      ],
+      "type": "object"
+    },
+    "GrantFlowEntitlementsResponse": {
+      "properties": {
+        "Entitlements": {
+          "$ref": "#/definitions/__listOfEntitlement",
+          "description": "The entitlements that were just granted."
+        },
+        "FlowArn": {
+          "$ref": "#/definitions/__string",
+          "description": "The ARN of the flow that these entitlements were granted to."
+        }
+      },
+      "type": "object"
+    },
+    "InternalServerErrorException": {},
+    "KeyType": {
+      "enum": [
+        "static-key"
+      ],
+      "type": "string"
+    },
+    "ListEntitlementsRequest": {
+      "properties": {},
+      "type": "object"
+    },
+    "ListEntitlementsResponse": {
+      "properties": {
+        "Entitlements": {
+          "$ref": "#/definitions/__listOfListedEntitlement",
+          "description": "A list of entitlements that have been granted to you from other AWS accounts."
+        },
+        "NextToken": {
+          "$ref": "#/definitions/__string",
+          "description": "The token that identifies which batch of results that you want to see. For example, you submit a ListEntitlements request with MaxResults set at 5. The service returns the first batch of results (up to 5) and a NextToken value. To see the next batch of results, you can submit the ListEntitlements request a second time and specify the NextToken value."
+        }
+      },
+      "type": "object"
+    },
+    "ListFlowsRequest": {
+      "properties": {},
+      "type": "object"
+    },
+    "ListFlowsResponse": {
+      "properties": {
+        "Flows": {
+          "$ref": "#/definitions/__listOfListedFlow",
+          "description": "A list of flow summaries."
+        },
+        "NextToken": {
+          "$ref": "#/definitions/__string",
+          "description": "The token that identifies which batch of results that you want to see. For example, you submit a ListFlows request with MaxResults set at 5. The service returns the first batch of results (up to 5) and a NextToken value. To see the next batch of results, you can submit the ListFlows request a second time and specify the NextToken value."
+        }
+      },
+      "type": "object"
+    },
+    "ListedEntitlement": {
+      "description": "An entitlement that has been granted to you from other AWS accounts.",
+      "properties": {
+        "EntitlementArn": {
+          "$ref": "#/definitions/__string",
+          "description": "The ARN of the entitlement."
+        },
+        "EntitlementName": {
+          "$ref": "#/definitions/__string",
+          "description": "The name of the entitlement."
+        }
+      },
+      "required": [
+        "EntitlementArn",
+        "EntitlementName"
+      ],
+      "type": "object"
+    },
+    "ListedFlow": {
+      "description": "Provides a summary of a flow, including its ARN, Availability Zone, and source type.",
+      "properties": {
+        "AvailabilityZone": {
+          "$ref": "#/definitions/__string",
+          "description": "The Availability Zone that the flow was created in."
+        },
+        "Description": {
+          "$ref": "#/definitions/__string",
+          "description": "A description of the flow."
+        },
+        "FlowArn": {
+          "$ref": "#/definitions/__string",
+          "description": "The ARN of the flow."
+        },
+        "Name": {
+          "$ref": "#/definitions/__string",
+          "description": "The name of the flow."
+        },
+        "SourceType": {
+          "$ref": "#/definitions/SourceType",
+          "description": "The type of source. This value is either owned (originated somewhere other than an AWS Elemental MediaConnect flow owned by another AWS account) or entitled (originated at an AWS Elemental MediaConnect flow owned by another AWS account)."
+        },
+        "Status": {
+          "$ref": "#/definitions/Status",
+          "description": "The current status of the flow."
+        }
+      },
+      "required": [
+        "Status",
+        "Description",
+        "SourceType",
+        "AvailabilityZone",
+        "FlowArn",
+        "Name"
+      ],
+      "type": "object"
+    },
+    "MaxResults": {
+      "maximum": 1000,
+      "minimum": 1,
+      "type": "integer"
+    },
+    "Messages": {
+      "description": "Messages that provide the state of the flow.",
+      "properties": {
+        "Errors": {
+          "$ref": "#/definitions/__listOf__string",
+          "description": "A list of errors that might have been generated from processes on this flow."
+        }
+      },
+      "required": [
+        "Errors"
+      ],
+      "type": "object"
+    },
+    "NotFoundException": {},
+    "Output": {
+      "description": "The settings for an output.",
+      "properties": {
+        "Description": {
+          "$ref": "#/definitions/__string",
+          "description": "A description of the output."
+        },
+        "Destination": {
+          "$ref": "#/definitions/__string",
+          "description": "The address where you want to send the output."
+        },
+        "Encryption": {
+          "$ref": "#/definitions/Encryption",
+          "description": "The type of key used for the encryption. If no keyType is provided, the service will use the default setting (static-key)."
+        },
+        "EntitlementArn": {
+          "$ref": "#/definitions/__string",
+          "description": "The ARN of the entitlement on the originator''s flow. This value is relevant only on entitled flows."
+        },
+        "MediaLiveInputArn": {
+          "$ref": "#/definitions/__string",
+          "description": "The input ARN of the AWS Elemental MediaLive channel. This parameter is relevant only for outputs that were added by creating a MediaLive input."
+        },
+        "Name": {
+          "$ref": "#/definitions/__string",
+          "description": "The name of the output. This value must be unique within the current flow."
+        },
+        "OutputArn": {
+          "$ref": "#/definitions/__string",
+          "description": "The ARN of the output."
+        },
+        "Port": {
+          "$ref": "#/definitions/__integer",
+          "description": "The port to use when content is distributed to this output."
+        },
+        "Transport": {
+          "$ref": "#/definitions/Transport",
+          "description": "Attributes related to the transport stream that are used in the output."
+        }
+      },
+      "required": [
+        "OutputArn",
+        "Name"
+      ],
+      "type": "object"
+    },
+    "Protocol": {
+      "enum": [
+        "zixi-push",
+        "rtp-fec",
+        "rtp"
+      ],
+      "type": "string"
+    },
+    "RemoveFlowOutputRequest": {
+      "properties": {},
+      "type": "object"
+    },
+    "RemoveFlowOutputResponse": {
+      "properties": {
+        "FlowArn": {
+          "$ref": "#/definitions/__string",
+          "description": "The ARN of the flow that is associated with the output you removed."
+        },
+        "OutputArn": {
+          "$ref": "#/definitions/__string",
+          "description": "The ARN of the output that was removed."
+        }
+      },
+      "type": "object"
+    },
+    "RevokeFlowEntitlementRequest": {
+      "properties": {},
+      "type": "object"
+    },
+    "RevokeFlowEntitlementResponse": {
+      "properties": {
+        "EntitlementArn": {
+          "$ref": "#/definitions/__string",
+          "description": "The ARN of the entitlement that was revoked."
+        },
+        "FlowArn": {
+          "$ref": "#/definitions/__string",
+          "description": "The ARN of the flow that the entitlement was revoked from."
+        }
+      },
+      "type": "object"
+    },
+    "ServiceUnavailableException": {},
+    "SetSourceRequest": {
+      "description": "The settings for the source of the flow.",
+      "properties": {
+        "Decryption": {
+          "$ref": "#/definitions/Encryption",
+          "description": "The type of encryption that is used on the content ingested from this source."
+        },
+        "Description": {
+          "$ref": "#/definitions/__string",
+          "description": "A description for the source. This value is not used or seen outside of the current AWS Elemental MediaConnect account."
+        },
+        "EntitlementArn": {
+          "$ref": "#/definitions/__string",
+          "description": "The ARN of the entitlement that allows you to subscribe to this flow. The entitlement is set by the flow originator, and the ARN is generated as part of the originator's flow."
+        },
+        "IngestPort": {
+          "$ref": "#/definitions/__integer",
+          "description": "The port that the flow will be listening on for incoming content."
+        },
+        "MaxBitrate": {
+          "$ref": "#/definitions/__integer",
+          "description": "The smoothing max bitrate for RTP and RTP-FEC streams."
+        },
+        "MaxLatency": {
+          "$ref": "#/definitions/__integer",
+          "description": "The maximum latency in milliseconds for Zixi-based streams."
+        },
+        "Name": {
+          "$ref": "#/definitions/__string",
+          "description": "The name of the source."
+        },
+        "Protocol": {
+          "$ref": "#/definitions/Protocol",
+          "description": "The protocol that is used by the source."
+        },
+        "StreamId": {
+          "$ref": "#/definitions/__string",
+          "description": "The stream ID that you want to use for this transport. This parameter applies only to Zixi-based streams."
+        },
+        "WhitelistCidr": {
+          "$ref": "#/definitions/__string",
+          "description": "The range of IP addresses that should be allowed to contribute content to your source. These IP addresses should in the form of a Classless Inter-Domain Routing (CIDR) block; for example, 10.0.0.0/16."
+        }
+      },
+      "type": "object"
+    },
+    "Source": {
+      "description": "The settings for the source of the flow.",
+      "properties": {
+        "Decryption": {
+          "$ref": "#/definitions/Encryption",
+          "description": "The type of encryption that is used on the content ingested from this source."
+        },
+        "Description": {
+          "$ref": "#/definitions/__string",
+          "description": "A description for the source. This value is not used or seen outside of the current AWS Elemental MediaConnect account."
+        },
+        "EntitlementArn": {
+          "$ref": "#/definitions/__string",
+          "description": "The ARN of the entitlement that allows you to subscribe to content that comes from another AWS account. The entitlement is set by the content originator and the ARN is generated as part of the originator's flow."
+        },
+        "IngestIp": {
+          "$ref": "#/definitions/__string",
+          "description": "The IP address that the flow will be listening on for incoming content."
+        },
+        "IngestPort": {
+          "$ref": "#/definitions/__integer",
+          "description": "The port that the flow will be listening on for incoming content."
+        },
+        "Name": {
+          "$ref": "#/definitions/__string",
+          "description": "The name of the source."
+        },
+        "SourceArn": {
+          "$ref": "#/definitions/__string",
+          "description": "The ARN of the source."
+        },
+        "Transport": {
+          "$ref": "#/definitions/Transport",
+          "description": "Attributes related to the transport stream that are used in the source."
+        },
+        "WhitelistCidr": {
+          "$ref": "#/definitions/__string",
+          "description": "The range of IP addresses that should be allowed to contribute content to your source. These IP addresses should in the form of a Classless Inter-Domain Routing (CIDR) block; for example, 10.0.0.0/16."
+        }
+      },
+      "required": [
+        "SourceArn",
+        "Name"
+      ],
+      "type": "object"
+    },
+    "SourceType": {
+      "enum": [
+        "OWNED",
+        "ENTITLED"
+      ],
+      "type": "string"
+    },
+    "StartFlowRequest": {
+      "properties": {},
+      "type": "object"
+    },
+    "StartFlowResponse": {
+      "properties": {
+        "FlowArn": {
+          "$ref": "#/definitions/__string",
+          "description": "The ARN of the flow that you started."
+        },
+        "Status": {
+          "$ref": "#/definitions/Status",
+          "description": "The status of the flow when the StartFlow process begins."
+        }
+      },
+      "type": "object"
+    },
+    "Status": {
+      "enum": [
+        "STANDBY",
+        "ACTIVE",
+        "UPDATING",
+        "DELETING",
+        "STARTING",
+        "STOPPING",
+        "ERROR"
+      ],
+      "type": "string"
+    },
+    "StopFlowRequest": {
+      "properties": {},
+      "type": "object"
+    },
+    "StopFlowResponse": {
+      "properties": {
+        "FlowArn": {
+          "$ref": "#/definitions/__string",
+          "description": "The ARN of the flow that you stopped."
+        },
+        "Status": {
+          "$ref": "#/definitions/Status",
+          "description": "The status of the flow when the StopFlow process begins."
+        }
+      },
+      "type": "object"
+    },
+    "TooManyRequestsException": {},
+    "Transport": {
+      "description": "Attributes related to the transport stream that are used in a source or output.",
+      "properties": {
+        "MaxBitrate": {
+          "$ref": "#/definitions/__integer",
+          "description": "The smoothing max bitrate for RTP and RTP-FEC streams."
+        },
+        "MaxLatency": {
+          "$ref": "#/definitions/__integer",
+          "description": "The maximum latency in milliseconds for Zixi-based streams."
+        },
+        "Protocol": {
+          "$ref": "#/definitions/Protocol",
+          "description": "The protocol that is used by the source or output."
+        },
+        "SmoothingLatency": {
+          "$ref": "#/definitions/__integer",
+          "description": "The smoothing latency in milliseconds for RTP and RTP-FEC streams."
+        },
+        "StreamId": {
+          "$ref": "#/definitions/__string",
+          "description": "The stream ID that you want to use for this transport. This parameter applies only to Zixi-based streams."
+        }
+      },
+      "required": [
+        "Protocol"
+      ],
+      "type": "object"
+    },
+    "UpdateEncryption": {
+      "description": "Information about the encryption of the flow.",
+      "properties": {
+        "Algorithm": {
+          "$ref": "#/definitions/Algorithm",
+          "description": "The type of algorithm that is used for the encryption (such as aes128, aes192, or aes256)."
+        },
+        "KeyType": {
+          "$ref": "#/definitions/KeyType",
+          "description": "The type of key that is used for the encryption. If no keyType is provided, the service will use the default setting (static-key)."
+        },
+        "RoleArn": {
+          "$ref": "#/definitions/__string",
+          "description": "The ARN of the role that you created during setup (when you set up AWS Elemental MediaConnect as a trusted entity)."
+        },
+        "SecretArn": {
+          "$ref": "#/definitions/__string",
+          "description": "The ARN that was assigned to the secret that you created in AWS Secrets Manager to store the encryption key."
+        }
+      },
+      "type": "object"
+    },
+    "UpdateFlowEntitlementRequest": {
+      "description": "The entitlement fields that you want to update.",
+      "properties": {
+        "Description": {
+          "$ref": "#/definitions/__string",
+          "description": "A description of the entitlement. This description appears only on the AWS Elemental MediaConnect console and will not be seen by the subscriber or end user."
+        },
+        "Encryption": {
+          "$ref": "#/definitions/UpdateEncryption",
+          "description": "The type of encryption that will be used on the output associated with this entitlement."
+        },
+        "Subscribers": {
+          "$ref": "#/definitions/__listOf__string",
+          "description": "The AWS account IDs that you want to share your content with. The receiving accounts (subscribers) will be allowed to create their own flow using your content as the source."
+        }
+      },
+      "type": "object"
+    },
+    "UpdateFlowEntitlementResponse": {
+      "properties": {
+        "Entitlement": {
+          "$ref": "#/definitions/Entitlement"
+        },
+        "FlowArn": {
+          "$ref": "#/definitions/__string",
+          "description": "The ARN of the flow that this entitlement was granted on."
+        }
+      },
+      "type": "object"
+    },
+    "UpdateFlowOutputRequest": {
+      "description": "The fields that you want to update in the output.",
+      "properties": {
+        "Description": {
+          "$ref": "#/definitions/__string",
+          "description": "A description of the output. This description appears only on the AWS Elemental MediaConnect console and will not be seen by the end user."
+        },
+        "Destination": {
+          "$ref": "#/definitions/__string",
+          "description": "The IP address where you want to send the output."
+        },
+        "Encryption": {
+          "$ref": "#/definitions/UpdateEncryption",
+          "description": "The type of key used for the encryption. If no keyType is provided, the service will use the default setting (static-key)."
+        },
+        "MaxLatency": {
+          "$ref": "#/definitions/__integer",
+          "description": "The maximum latency in milliseconds for Zixi-based streams."
+        },
+        "Port": {
+          "$ref": "#/definitions/__integer",
+          "description": "The port to use when content is distributed to this output."
+        },
+        "Protocol": {
+          "$ref": "#/definitions/Protocol",
+          "description": "The protocol to use for the output."
+        },
+        "SmoothingLatency": {
+          "$ref": "#/definitions/__integer",
+          "description": "The smoothing latency in milliseconds for RTP and RTP-FEC streams."
+        },
+        "StreamId": {
+          "$ref": "#/definitions/__string",
+          "description": "The stream ID that you want to use for this transport. This parameter applies only to Zixi-based streams."
+        }
+      },
+      "type": "object"
+    },
+    "UpdateFlowOutputResponse": {
+      "properties": {
+        "FlowArn": {
+          "$ref": "#/definitions/__string",
+          "description": "The ARN of the flow that is associated with the updated output."
+        },
+        "Output": {
+          "$ref": "#/definitions/Output"
+        }
+      },
+      "type": "object"
+    },
+    "UpdateFlowSourceRequest": {
+      "description": "A request to update the source of a flow.",
+      "properties": {
+        "Decryption": {
+          "$ref": "#/definitions/UpdateEncryption",
+          "description": "The type of encryption used on the content ingested from this source."
+        },
+        "Description": {
+          "$ref": "#/definitions/__string",
+          "description": "A description for the source. This value is not used or seen outside of the current AWS Elemental MediaConnect account."
+        },
+        "EntitlementArn": {
+          "$ref": "#/definitions/__string",
+          "description": "The ARN of the entitlement that allows you to subscribe to this flow. The entitlement is set by the flow originator, and the ARN is generated as part of the originator's flow."
+        },
+        "IngestPort": {
+          "$ref": "#/definitions/__integer",
+          "description": "The port that the flow will be listening on for incoming content."
+        },
+        "MaxBitrate": {
+          "$ref": "#/definitions/__integer",
+          "description": "The smoothing max bitrate for RTP and RTP-FEC streams."
+        },
+        "MaxLatency": {
+          "$ref": "#/definitions/__integer",
+          "description": "The maximum latency in milliseconds for Zixi-based streams."
+        },
+        "Protocol": {
+          "$ref": "#/definitions/Protocol",
+          "description": "The protocol that is used by the source."
+        },
+        "StreamId": {
+          "$ref": "#/definitions/__string",
+          "description": "The stream ID that you want to use for this transport. This parameter applies only to Zixi-based streams."
+        },
+        "WhitelistCidr": {
+          "$ref": "#/definitions/__string",
+          "description": "The range of IP addresses that should be allowed to contribute content to your source. These IP addresses should in the form of a Classless Inter-Domain Routing (CIDR) block; for example, 10.0.0.0/16."
+        }
+      },
+      "type": "object"
+    },
+    "UpdateFlowSourceResponse": {
+      "properties": {
+        "FlowArn": {
+          "$ref": "#/definitions/__string",
+          "description": "The ARN of the flow that you want to update."
+        },
+        "Source": {
+          "$ref": "#/definitions/Source",
+          "description": "The settings for the source of the flow."
+        }
+      },
+      "type": "object"
+    },
+    "__integer": {
+      "type": "integer"
+    },
+    "__listOfAddOutputRequest": {
+      "items": {
+        "$ref": "#/definitions/AddOutputRequest"
+      },
+      "type": "array"
+    },
+    "__listOfEntitlement": {
+      "items": {
+        "$ref": "#/definitions/Entitlement"
+      },
+      "type": "array"
+    },
+    "__listOfGrantEntitlementRequest": {
+      "items": {
+        "$ref": "#/definitions/GrantEntitlementRequest"
+      },
+      "type": "array"
+    },
+    "__listOfListedEntitlement": {
+      "items": {
+        "$ref": "#/definitions/ListedEntitlement"
+      },
+      "type": "array"
+    },
+    "__listOfListedFlow": {
+      "items": {
+        "$ref": "#/definitions/ListedFlow"
+      },
+      "type": "array"
+    },
+    "__listOfOutput": {
+      "items": {
+        "$ref": "#/definitions/Output"
+      },
+      "type": "array"
+    },
+    "__listOf__string": {
+      "items": {
+        "$ref": "#/definitions/__string"
+      },
+      "type": "array"
+    },
+    "__string": {
+      "type": "string"
+    }
+  }
+}

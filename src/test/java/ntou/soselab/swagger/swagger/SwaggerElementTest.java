@@ -44,7 +44,7 @@ public class SwaggerElementTest {
     @Test
     public void readSwaggerFile() {
         File sDocFolder = new File("./src/main/resources/swagger document");
-        int fileNumber = 100;
+        int fileNumber = 253;
 
         for (String serviceFile : sDocFolder.list()) {
             if(fileNumber == 0) break;

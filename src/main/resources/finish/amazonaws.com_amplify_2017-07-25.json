@@ -1,0 +1,3030 @@
+{
+  "swagger": "2.0",
+  "schemes": [
+    "https",
+    "http"
+  ],
+  "host": "amplify.amazonaws.com",
+  "basePath": "/",
+  "x-hasEquivalentPaths": true,
+  "info": {
+    "contact": {
+      "email": "mike.ralphson@gmail.com",
+      "name": "Mike Ralphson",
+      "url": "https://github.com/mermade/aws2openapi",
+      "x-twitter": "PermittedSoc"
+    },
+    "description": " Amplify is a fully managed continuous deployment and hosting service for modern web apps. ",
+    "license": {
+      "name": "Apache 2.0 License",
+      "url": "http://www.apache.org/licenses/"
+    },
+    "termsOfService": "https://aws.amazon.com/service-terms/",
+    "title": "AWS Amplify",
+    "version": "2017-07-25",
+    "x-apiClientRegistration": {
+      "url": "https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct"
+    },
+    "x-apisguru-categories": [
+      "cloud"
+    ],
+    "x-logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.jpeg"
+    },
+    "x-origin": [
+      {
+        "contentType": "application/json",
+        "converter": {
+          "url": "https://github.com/mermade/aws2openapi",
+          "version": "1.0.0"
+        },
+        "url": "https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/amplify-2017-07-25.normal.json",
+        "x-apisguru-direct": true
+      }
+    ],
+    "x-preferred": true,
+    "x-providerName": "amazonaws.com",
+    "x-release": "v4",
+    "x-serviceName": "amplify"
+  },
+  "externalDocs": {
+    "description": "Amazon Web Services documentation",
+    "url": "https://aws.amazon.com/amplify/"
+  },
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "securityDefinitions": {
+    "hmac": {
+      "description": "Amazon Signature authorization v4",
+      "in": "header",
+      "name": "Authorization",
+      "type": "apiKey",
+      "x-amazon-apigateway-authtype": "awsSigv4"
+    }
+  },
+  "security": [
+    {
+      "hmac": []
+    }
+  ],
+  "parameters": {
+    "Action": {
+      "in": "query",
+      "name": "Action",
+      "required": true,
+      "type": "string"
+    },
+    "Version": {
+      "in": "query",
+      "name": "Version",
+      "required": true,
+      "type": "string"
+    },
+    "X-Amz-Algorithm": {
+      "in": "header",
+      "name": "X-Amz-Algorithm",
+      "required": false,
+      "type": "string"
+    },
+    "X-Amz-Content-Sha256": {
+      "in": "header",
+      "name": "X-Amz-Content-Sha256",
+      "required": false,
+      "type": "string"
+    },
+    "X-Amz-Credential": {
+      "in": "header",
+      "name": "X-Amz-Credential",
+      "required": false,
+      "type": "string"
+    },
+    "X-Amz-Date": {
+      "in": "header",
+      "name": "X-Amz-Date",
+      "required": false,
+      "type": "string"
+    },
+    "X-Amz-Security-Token": {
+      "in": "header",
+      "name": "X-Amz-Security-Token",
+      "required": false,
+      "type": "string"
+    },
+    "X-Amz-Signature": {
+      "in": "header",
+      "name": "X-Amz-Signature",
+      "required": false,
+      "type": "string"
+    },
+    "X-Amz-SignedHeaders": {
+      "in": "header",
+      "name": "X-Amz-SignedHeaders",
+      "required": false,
+      "type": "string"
+    }
+  },
+  "paths": {
+    "/apps": {
+      "get": {
+        "description": " Lists existing Amplify Apps. ",
+        "operationId": "ListApps",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ListAppsRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ListAppsResult"
+            }
+          },
+          "480": {
+            "description": "BadRequestException",
+            "schema": {
+              "$ref": "#/definitions/BadRequestException"
+            }
+          },
+          "481": {
+            "description": "UnauthorizedException",
+            "schema": {
+              "$ref": "#/definitions/UnauthorizedException"
+            }
+          },
+          "482": {
+            "description": "InternalFailureException",
+            "schema": {
+              "$ref": "#/definitions/InternalFailureException"
+            }
+          }
+        }
+      },
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": " Creates a new Amplify App. ",
+        "operationId": "CreateApp",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CreateAppRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/CreateAppResult"
+            }
+          },
+          "480": {
+            "description": "BadRequestException",
+            "schema": {
+              "$ref": "#/definitions/BadRequestException"
+            }
+          },
+          "481": {
+            "description": "UnauthorizedException",
+            "schema": {
+              "$ref": "#/definitions/UnauthorizedException"
+            }
+          },
+          "482": {
+            "description": "InternalFailureException",
+            "schema": {
+              "$ref": "#/definitions/InternalFailureException"
+            }
+          },
+          "483": {
+            "description": "LimitExceededException",
+            "schema": {
+              "$ref": "#/definitions/LimitExceededException"
+            }
+          },
+          "484": {
+            "description": "DependentServiceFailureException",
+            "schema": {
+              "$ref": "#/definitions/DependentServiceFailureException"
+            }
+          }
+        }
+      }
+    },
+    "/apps/{appId}": {
+      "delete": {
+        "description": " Delete an existing Amplify App by appId. ",
+        "operationId": "DeleteApp",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DeleteAppRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "appId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DeleteAppResult"
+            }
+          },
+          "480": {
+            "description": "BadRequestException",
+            "schema": {
+              "$ref": "#/definitions/BadRequestException"
+            }
+          },
+          "481": {
+            "description": "NotFoundException",
+            "schema": {
+              "$ref": "#/definitions/NotFoundException"
+            }
+          },
+          "482": {
+            "description": "UnauthorizedException",
+            "schema": {
+              "$ref": "#/definitions/UnauthorizedException"
+            }
+          },
+          "483": {
+            "description": "InternalFailureException",
+            "schema": {
+              "$ref": "#/definitions/InternalFailureException"
+            }
+          },
+          "484": {
+            "description": "DependentServiceFailureException",
+            "schema": {
+              "$ref": "#/definitions/DependentServiceFailureException"
+            }
+          }
+        }
+      },
+      "get": {
+        "description": " Retrieves an existing Amplify App by appId. ",
+        "operationId": "GetApp",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/GetAppRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "appId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/GetAppResult"
+            }
+          },
+          "480": {
+            "description": "BadRequestException",
+            "schema": {
+              "$ref": "#/definitions/BadRequestException"
+            }
+          },
+          "481": {
+            "description": "NotFoundException",
+            "schema": {
+              "$ref": "#/definitions/NotFoundException"
+            }
+          },
+          "482": {
+            "description": "UnauthorizedException",
+            "schema": {
+              "$ref": "#/definitions/UnauthorizedException"
+            }
+          },
+          "483": {
+            "description": "InternalFailureException",
+            "schema": {
+              "$ref": "#/definitions/InternalFailureException"
+            }
+          }
+        }
+      },
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": " Updates an existing Amplify App. ",
+        "operationId": "UpdateApp",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/UpdateAppRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "appId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/UpdateAppResult"
+            }
+          },
+          "480": {
+            "description": "BadRequestException",
+            "schema": {
+              "$ref": "#/definitions/BadRequestException"
+            }
+          },
+          "481": {
+            "description": "NotFoundException",
+            "schema": {
+              "$ref": "#/definitions/NotFoundException"
+            }
+          },
+          "482": {
+            "description": "UnauthorizedException",
+            "schema": {
+              "$ref": "#/definitions/UnauthorizedException"
+            }
+          },
+          "483": {
+            "description": "InternalFailureException",
+            "schema": {
+              "$ref": "#/definitions/InternalFailureException"
+            }
+          }
+        }
+      }
+    },
+    "/apps/{appId}/branches": {
+      "get": {
+        "description": " Lists branches for an Amplify App. ",
+        "operationId": "ListBranches",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ListBranchesRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "appId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ListBranchesResult"
+            }
+          },
+          "480": {
+            "description": "BadRequestException",
+            "schema": {
+              "$ref": "#/definitions/BadRequestException"
+            }
+          },
+          "481": {
+            "description": "UnauthorizedException",
+            "schema": {
+              "$ref": "#/definitions/UnauthorizedException"
+            }
+          },
+          "482": {
+            "description": "InternalFailureException",
+            "schema": {
+              "$ref": "#/definitions/InternalFailureException"
+            }
+          }
+        }
+      },
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": " Creates a new Branch for an Amplify App. ",
+        "operationId": "CreateBranch",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CreateBranchRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "appId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/CreateBranchResult"
+            }
+          },
+          "480": {
+            "description": "BadRequestException",
+            "schema": {
+              "$ref": "#/definitions/BadRequestException"
+            }
+          },
+          "481": {
+            "description": "UnauthorizedException",
+            "schema": {
+              "$ref": "#/definitions/UnauthorizedException"
+            }
+          },
+          "482": {
+            "description": "NotFoundException",
+            "schema": {
+              "$ref": "#/definitions/NotFoundException"
+            }
+          },
+          "483": {
+            "description": "InternalFailureException",
+            "schema": {
+              "$ref": "#/definitions/InternalFailureException"
+            }
+          },
+          "484": {
+            "description": "LimitExceededException",
+            "schema": {
+              "$ref": "#/definitions/LimitExceededException"
+            }
+          },
+          "485": {
+            "description": "DependentServiceFailureException",
+            "schema": {
+              "$ref": "#/definitions/DependentServiceFailureException"
+            }
+          }
+        }
+      }
+    },
+    "/apps/{appId}/branches/{branchName}": {
+      "delete": {
+        "description": " Deletes a branch for an Amplify App. ",
+        "operationId": "DeleteBranch",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DeleteBranchRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "appId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "branchName",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DeleteBranchResult"
+            }
+          },
+          "480": {
+            "description": "BadRequestException",
+            "schema": {
+              "$ref": "#/definitions/BadRequestException"
+            }
+          },
+          "481": {
+            "description": "UnauthorizedException",
+            "schema": {
+              "$ref": "#/definitions/UnauthorizedException"
+            }
+          },
+          "482": {
+            "description": "NotFoundException",
+            "schema": {
+              "$ref": "#/definitions/NotFoundException"
+            }
+          },
+          "483": {
+            "description": "InternalFailureException",
+            "schema": {
+              "$ref": "#/definitions/InternalFailureException"
+            }
+          },
+          "484": {
+            "description": "DependentServiceFailureException",
+            "schema": {
+              "$ref": "#/definitions/DependentServiceFailureException"
+            }
+          }
+        }
+      },
+      "get": {
+        "description": " Retrieves a branch for an Amplify App. ",
+        "operationId": "GetBranch",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/GetBranchRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "appId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "branchName",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/GetBranchResult"
+            }
+          },
+          "480": {
+            "description": "BadRequestException",
+            "schema": {
+              "$ref": "#/definitions/BadRequestException"
+            }
+          },
+          "481": {
+            "description": "UnauthorizedException",
+            "schema": {
+              "$ref": "#/definitions/UnauthorizedException"
+            }
+          },
+          "482": {
+            "description": "NotFoundException",
+            "schema": {
+              "$ref": "#/definitions/NotFoundException"
+            }
+          },
+          "483": {
+            "description": "InternalFailureException",
+            "schema": {
+              "$ref": "#/definitions/InternalFailureException"
+            }
+          }
+        }
+      },
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": " Updates a branch for an Amplify App. ",
+        "operationId": "UpdateBranch",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/UpdateBranchRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "appId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "branchName",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/UpdateBranchResult"
+            }
+          },
+          "480": {
+            "description": "BadRequestException",
+            "schema": {
+              "$ref": "#/definitions/BadRequestException"
+            }
+          },
+          "481": {
+            "description": "UnauthorizedException",
+            "schema": {
+              "$ref": "#/definitions/UnauthorizedException"
+            }
+          },
+          "482": {
+            "description": "NotFoundException",
+            "schema": {
+              "$ref": "#/definitions/NotFoundException"
+            }
+          },
+          "483": {
+            "description": "InternalFailureException",
+            "schema": {
+              "$ref": "#/definitions/InternalFailureException"
+            }
+          },
+          "484": {
+            "description": "DependentServiceFailureException",
+            "schema": {
+              "$ref": "#/definitions/DependentServiceFailureException"
+            }
+          }
+        }
+      }
+    },
+    "/apps/{appId}/branches/{branchName}/jobs": {
+      "get": {
+        "description": " List Jobs for a branch, part of an Amplify App. ",
+        "operationId": "ListJobs",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ListJobsRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "appId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "branchName",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ListJobsResult"
+            }
+          },
+          "480": {
+            "description": "BadRequestException",
+            "schema": {
+              "$ref": "#/definitions/BadRequestException"
+            }
+          },
+          "481": {
+            "description": "UnauthorizedException",
+            "schema": {
+              "$ref": "#/definitions/UnauthorizedException"
+            }
+          },
+          "482": {
+            "description": "InternalFailureException",
+            "schema": {
+              "$ref": "#/definitions/InternalFailureException"
+            }
+          },
+          "483": {
+            "description": "LimitExceededException",
+            "schema": {
+              "$ref": "#/definitions/LimitExceededException"
+            }
+          }
+        }
+      },
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": " Starts a new job for a branch, part of an Amplify App. ",
+        "operationId": "StartJob",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/StartJobRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "appId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "branchName",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/StartJobResult"
+            }
+          },
+          "480": {
+            "description": "BadRequestException",
+            "schema": {
+              "$ref": "#/definitions/BadRequestException"
+            }
+          },
+          "481": {
+            "description": "UnauthorizedException",
+            "schema": {
+              "$ref": "#/definitions/UnauthorizedException"
+            }
+          },
+          "482": {
+            "description": "InternalFailureException",
+            "schema": {
+              "$ref": "#/definitions/InternalFailureException"
+            }
+          },
+          "483": {
+            "description": "NotFoundException",
+            "schema": {
+              "$ref": "#/definitions/NotFoundException"
+            }
+          },
+          "484": {
+            "description": "LimitExceededException",
+            "schema": {
+              "$ref": "#/definitions/LimitExceededException"
+            }
+          }
+        }
+      }
+    },
+    "/apps/{appId}/branches/{branchName}/jobs/{jobId}": {
+      "delete": {
+        "description": " Delete a job, for an Amplify branch, part of Amplify App. ",
+        "operationId": "DeleteJob",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DeleteJobRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "appId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "branchName",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "jobId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DeleteJobResult"
+            }
+          },
+          "480": {
+            "description": "BadRequestException",
+            "schema": {
+              "$ref": "#/definitions/BadRequestException"
+            }
+          },
+          "481": {
+            "description": "UnauthorizedException",
+            "schema": {
+              "$ref": "#/definitions/UnauthorizedException"
+            }
+          },
+          "482": {
+            "description": "InternalFailureException",
+            "schema": {
+              "$ref": "#/definitions/InternalFailureException"
+            }
+          },
+          "483": {
+            "description": "NotFoundException",
+            "schema": {
+              "$ref": "#/definitions/NotFoundException"
+            }
+          },
+          "484": {
+            "description": "LimitExceededException",
+            "schema": {
+              "$ref": "#/definitions/LimitExceededException"
+            }
+          }
+        }
+      },
+      "get": {
+        "description": " Get a job for a branch, part of an Amplify App. ",
+        "operationId": "GetJob",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/GetJobRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "appId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "branchName",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "jobId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/GetJobResult"
+            }
+          },
+          "480": {
+            "description": "BadRequestException",
+            "schema": {
+              "$ref": "#/definitions/BadRequestException"
+            }
+          },
+          "481": {
+            "description": "UnauthorizedException",
+            "schema": {
+              "$ref": "#/definitions/UnauthorizedException"
+            }
+          },
+          "482": {
+            "description": "InternalFailureException",
+            "schema": {
+              "$ref": "#/definitions/InternalFailureException"
+            }
+          },
+          "483": {
+            "description": "NotFoundException",
+            "schema": {
+              "$ref": "#/definitions/NotFoundException"
+            }
+          },
+          "484": {
+            "description": "LimitExceededException",
+            "schema": {
+              "$ref": "#/definitions/LimitExceededException"
+            }
+          }
+        }
+      },
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ]
+    },
+    "/apps/{appId}/branches/{branchName}/jobs/{jobId}/stop": {
+      "delete": {
+        "description": " Stop a job that is in progress, for an Amplify branch, part of Amplify App. ",
+        "operationId": "StopJob",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/StopJobRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "appId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "branchName",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "jobId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/StopJobResult"
+            }
+          },
+          "480": {
+            "description": "BadRequestException",
+            "schema": {
+              "$ref": "#/definitions/BadRequestException"
+            }
+          },
+          "481": {
+            "description": "UnauthorizedException",
+            "schema": {
+              "$ref": "#/definitions/UnauthorizedException"
+            }
+          },
+          "482": {
+            "description": "InternalFailureException",
+            "schema": {
+              "$ref": "#/definitions/InternalFailureException"
+            }
+          },
+          "483": {
+            "description": "NotFoundException",
+            "schema": {
+              "$ref": "#/definitions/NotFoundException"
+            }
+          },
+          "484": {
+            "description": "LimitExceededException",
+            "schema": {
+              "$ref": "#/definitions/LimitExceededException"
+            }
+          }
+        }
+      },
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ]
+    },
+    "/apps/{appId}/domains": {
+      "get": {
+        "description": " List domains with an app ",
+        "operationId": "ListDomainAssociations",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ListDomainAssociationsRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "appId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ListDomainAssociationsResult"
+            }
+          },
+          "480": {
+            "description": "BadRequestException",
+            "schema": {
+              "$ref": "#/definitions/BadRequestException"
+            }
+          },
+          "481": {
+            "description": "UnauthorizedException",
+            "schema": {
+              "$ref": "#/definitions/UnauthorizedException"
+            }
+          },
+          "482": {
+            "description": "InternalFailureException",
+            "schema": {
+              "$ref": "#/definitions/InternalFailureException"
+            }
+          }
+        }
+      },
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": " Create a new DomainAssociation on an App ",
+        "operationId": "CreateDomainAssociation",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CreateDomainAssociationRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "appId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/CreateDomainAssociationResult"
+            }
+          },
+          "480": {
+            "description": "BadRequestException",
+            "schema": {
+              "$ref": "#/definitions/BadRequestException"
+            }
+          },
+          "481": {
+            "description": "UnauthorizedException",
+            "schema": {
+              "$ref": "#/definitions/UnauthorizedException"
+            }
+          },
+          "482": {
+            "description": "NotFoundException",
+            "schema": {
+              "$ref": "#/definitions/NotFoundException"
+            }
+          },
+          "483": {
+            "description": "InternalFailureException",
+            "schema": {
+              "$ref": "#/definitions/InternalFailureException"
+            }
+          },
+          "484": {
+            "description": "LimitExceededException",
+            "schema": {
+              "$ref": "#/definitions/LimitExceededException"
+            }
+          },
+          "485": {
+            "description": "DependentServiceFailureException",
+            "schema": {
+              "$ref": "#/definitions/DependentServiceFailureException"
+            }
+          }
+        }
+      }
+    },
+    "/apps/{appId}/domains/{domainName}": {
+      "delete": {
+        "description": " Deletes a DomainAssociation. ",
+        "operationId": "DeleteDomainAssociation",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DeleteDomainAssociationRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "appId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "domainName",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DeleteDomainAssociationResult"
+            }
+          },
+          "480": {
+            "description": "BadRequestException",
+            "schema": {
+              "$ref": "#/definitions/BadRequestException"
+            }
+          },
+          "481": {
+            "description": "UnauthorizedException",
+            "schema": {
+              "$ref": "#/definitions/UnauthorizedException"
+            }
+          },
+          "482": {
+            "description": "NotFoundException",
+            "schema": {
+              "$ref": "#/definitions/NotFoundException"
+            }
+          },
+          "483": {
+            "description": "InternalFailureException",
+            "schema": {
+              "$ref": "#/definitions/InternalFailureException"
+            }
+          },
+          "484": {
+            "description": "DependentServiceFailureException",
+            "schema": {
+              "$ref": "#/definitions/DependentServiceFailureException"
+            }
+          }
+        }
+      },
+      "get": {
+        "description": " Retrieves domain info that corresponds to an appId and domainName. ",
+        "operationId": "GetDomainAssociation",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/GetDomainAssociationRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "appId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "domainName",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/GetDomainAssociationResult"
+            }
+          },
+          "480": {
+            "description": "BadRequestException",
+            "schema": {
+              "$ref": "#/definitions/BadRequestException"
+            }
+          },
+          "481": {
+            "description": "UnauthorizedException",
+            "schema": {
+              "$ref": "#/definitions/UnauthorizedException"
+            }
+          },
+          "482": {
+            "description": "NotFoundException",
+            "schema": {
+              "$ref": "#/definitions/NotFoundException"
+            }
+          },
+          "483": {
+            "description": "InternalFailureException",
+            "schema": {
+              "$ref": "#/definitions/InternalFailureException"
+            }
+          }
+        }
+      },
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": " Create a new DomainAssociation on an App ",
+        "operationId": "UpdateDomainAssociation",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/UpdateDomainAssociationRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "appId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "domainName",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/UpdateDomainAssociationResult"
+            }
+          },
+          "480": {
+            "description": "BadRequestException",
+            "schema": {
+              "$ref": "#/definitions/BadRequestException"
+            }
+          },
+          "481": {
+            "description": "UnauthorizedException",
+            "schema": {
+              "$ref": "#/definitions/UnauthorizedException"
+            }
+          },
+          "482": {
+            "description": "NotFoundException",
+            "schema": {
+              "$ref": "#/definitions/NotFoundException"
+            }
+          },
+          "483": {
+            "description": "InternalFailureException",
+            "schema": {
+              "$ref": "#/definitions/InternalFailureException"
+            }
+          },
+          "484": {
+            "description": "DependentServiceFailureException",
+            "schema": {
+              "$ref": "#/definitions/DependentServiceFailureException"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "ActiveJobId": {
+      "maxLength": 1000,
+      "type": "string"
+    },
+    "App": {
+      "description": " Amplify App represents different branches of a repository for building, deploying, and hosting. ",
+      "properties": {
+        "appArn": {
+          "$ref": "#/definitions/AppArn",
+          "description": " ARN for the Amplify App. "
+        },
+        "appId": {
+          "$ref": "#/definitions/AppId",
+          "description": " Unique Id for the Amplify App. "
+        },
+        "basicAuthCredentials": {
+          "$ref": "#/definitions/BasicAuthCredentials",
+          "description": " Basic Authorization credentials for branches for the Amplify App. "
+        },
+        "buildSpec": {
+          "$ref": "#/definitions/BuildSpec",
+          "description": " BuildSpec content for Amplify App. "
+        },
+        "createTime": {
+          "$ref": "#/definitions/CreateTime",
+          "description": " Create date / time for the Amplify App. "
+        },
+        "customRules": {
+          "$ref": "#/definitions/CustomRules",
+          "description": " Custom redirect / rewrite rules for the Amplify App. "
+        },
+        "defaultDomain": {
+          "$ref": "#/definitions/DefaultDomain",
+          "description": " Default domain for the Amplify App. "
+        },
+        "description": {
+          "$ref": "#/definitions/Description",
+          "description": " Description for the Amplify App. "
+        },
+        "enableBasicAuth": {
+          "$ref": "#/definitions/EnableBasicAuth",
+          "description": " Enables Basic Authorization for branches for the Amplify App. "
+        },
+        "enableBranchAutoBuild": {
+          "$ref": "#/definitions/EnableBranchAutoBuild",
+          "description": " Enables auto-building of branches for the Amplify App. "
+        },
+        "environmentVariables": {
+          "$ref": "#/definitions/EnvironmentVariables",
+          "description": " Environment Variables for the Amplify App. "
+        },
+        "iamServiceRoleArn": {
+          "$ref": "#/definitions/ServiceRoleArn",
+          "description": " IAM service role ARN for the Amplify App. "
+        },
+        "name": {
+          "$ref": "#/definitions/Name",
+          "description": " Name for the Amplify App. "
+        },
+        "platform": {
+          "$ref": "#/definitions/Platform",
+          "description": " Platform for the Amplify App. "
+        },
+        "productionBranch": {
+          "$ref": "#/definitions/ProductionBranch",
+          "description": " Structure with Production Branch information. "
+        },
+        "repository": {
+          "$ref": "#/definitions/Repository",
+          "description": " Repository for the Amplify App. "
+        },
+        "tags": {
+          "$ref": "#/definitions/Tags",
+          "description": " Tag for Amplify App. "
+        },
+        "updateTime": {
+          "$ref": "#/definitions/UpdateTime",
+          "description": " Update date / time for the Amplify App. "
+        }
+      },
+      "required": [
+        "appId",
+        "appArn",
+        "name",
+        "description",
+        "repository",
+        "platform",
+        "createTime",
+        "updateTime",
+        "environmentVariables",
+        "defaultDomain",
+        "enableBranchAutoBuild",
+        "enableBasicAuth"
+      ],
+      "type": "object"
+    },
+    "AppArn": {
+      "maxLength": 1000,
+      "type": "string"
+    },
+    "AppId": {
+      "maxLength": 255,
+      "minLength": 1,
+      "type": "string"
+    },
+    "Apps": {
+      "items": {
+        "$ref": "#/definitions/App"
+      },
+      "type": "array"
+    },
+    "ArtifactsUrl": {
+      "maxLength": 1000,
+      "type": "string"
+    },
+    "BadRequestException": {},
+    "BasicAuthCredentials": {
+      "maxLength": 2000,
+      "type": "string"
+    },
+    "Branch": {
+      "description": " Branch for an Amplify App, which maps to a 3rd party repository branch. ",
+      "properties": {
+        "activeJobId": {
+          "$ref": "#/definitions/ActiveJobId",
+          "description": " Id of the active job for a branch, part of an Amplify App. "
+        },
+        "basicAuthCredentials": {
+          "$ref": "#/definitions/BasicAuthCredentials",
+          "description": " Basic Authorization credentials for a branch, part of an Amplify App. "
+        },
+        "branchArn": {
+          "$ref": "#/definitions/BranchArn",
+          "description": " ARN for a branch, part of an Amplify App. "
+        },
+        "branchName": {
+          "$ref": "#/definitions/BranchName",
+          "description": " Name for a branch, part of an Amplify App. "
+        },
+        "buildSpec": {
+          "$ref": "#/definitions/BuildSpec",
+          "description": " BuildSpec content for branch for Amplify App. "
+        },
+        "createTime": {
+          "$ref": "#/definitions/CreateTime",
+          "description": " Creation date and time for a branch, part of an Amplify App. "
+        },
+        "customDomains": {
+          "$ref": "#/definitions/CustomDomains",
+          "description": " Custom domains for a branch, part of an Amplify App. "
+        },
+        "description": {
+          "$ref": "#/definitions/Description",
+          "description": " Description for a branch, part of an Amplify App. "
+        },
+        "displayName": {
+          "$ref": "#/definitions/DisplayName",
+          "description": " Display name for a branch, part of an Amplify App. "
+        },
+        "enableAutoBuild": {
+          "$ref": "#/definitions/EnableAutoBuild",
+          "description": " Enables auto-building on push for a branch, part of an Amplify App. "
+        },
+        "enableBasicAuth": {
+          "$ref": "#/definitions/EnableBasicAuth",
+          "description": " Enables Basic Authorization for a branch, part of an Amplify App. "
+        },
+        "enableNotification": {
+          "$ref": "#/definitions/EnableNotification",
+          "description": " Enables notifications for a branch, part of an Amplify App. "
+        },
+        "environmentVariables": {
+          "$ref": "#/definitions/EnvironmentVariables",
+          "description": " Environment Variables specific to a branch, part of an Amplify App. "
+        },
+        "framework": {
+          "$ref": "#/definitions/Framework",
+          "description": " Framework for a branch, part of an Amplify App. "
+        },
+        "stage": {
+          "$ref": "#/definitions/Stage",
+          "description": " Stage for a branch, part of an Amplify App. "
+        },
+        "tags": {
+          "$ref": "#/definitions/Tags",
+          "description": " Tag for branch for Amplify App. "
+        },
+        "thumbnailUrl": {
+          "$ref": "#/definitions/ThumbnailUrl",
+          "description": " Thumbnail Url for the branch. "
+        },
+        "totalNumberOfJobs": {
+          "$ref": "#/definitions/TotalNumberOfJobs",
+          "description": " Total number of Jobs part of an Amplify App. "
+        },
+        "ttl": {
+          "$ref": "#/definitions/TTL",
+          "description": " The content TTL for the website in seconds. "
+        },
+        "updateTime": {
+          "$ref": "#/definitions/UpdateTime",
+          "description": " Last updated date and time for a branch, part of an Amplify App. "
+        }
+      },
+      "required": [
+        "branchArn",
+        "branchName",
+        "description",
+        "stage",
+        "enableNotification",
+        "createTime",
+        "updateTime",
+        "environmentVariables",
+        "enableAutoBuild",
+        "customDomains",
+        "framework",
+        "activeJobId",
+        "totalNumberOfJobs",
+        "enableBasicAuth",
+        "ttl"
+      ],
+      "type": "object"
+    },
+    "BranchArn": {
+      "maxLength": 1000,
+      "type": "string"
+    },
+    "BranchName": {
+      "maxLength": 255,
+      "minLength": 1,
+      "type": "string"
+    },
+    "Branches": {
+      "items": {
+        "$ref": "#/definitions/Branch"
+      },
+      "maxItems": 255,
+      "type": "array"
+    },
+    "BuildSpec": {
+      "description": " BuildSpec file for Amplify app build. ",
+      "maxLength": 25000,
+      "minLength": 1,
+      "type": "string"
+    },
+    "CertificateVerificationDNSRecord": {
+      "maxLength": 1000,
+      "type": "string"
+    },
+    "CommitId": {
+      "maxLength": 255,
+      "type": "string"
+    },
+    "CommitMessage": {
+      "maxLength": 10000,
+      "type": "string"
+    },
+    "CommitTime": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "Condition": {
+      "maxLength": 2048,
+      "minLength": 1,
+      "type": "string"
+    },
+    "CreateAppRequest": {
+      "description": " Request structure used to create Apps in Amplify. ",
+      "properties": {
+        "basicAuthCredentials": {
+          "$ref": "#/definitions/BasicAuthCredentials",
+          "description": " Credentials for Basic Authorization for an Amplify App. "
+        },
+        "buildSpec": {
+          "$ref": "#/definitions/BuildSpec",
+          "description": " BuildSpec for an Amplify App "
+        },
+        "customRules": {
+          "$ref": "#/definitions/CustomRules",
+          "description": " Custom rewrite / redirect rules for an Amplify App. "
+        },
+        "description": {
+          "$ref": "#/definitions/Description",
+          "description": " Description for an Amplify App "
+        },
+        "enableBasicAuth": {
+          "$ref": "#/definitions/EnableBasicAuth",
+          "description": " Enable Basic Authorization for an Amplify App, this will apply to all branches part of this App. "
+        },
+        "enableBranchAutoBuild": {
+          "$ref": "#/definitions/EnableBranchAutoBuild",
+          "description": " Enable the auto building of branches for an Amplify App. "
+        },
+        "environmentVariables": {
+          "$ref": "#/definitions/EnvironmentVariables",
+          "description": " Environment variables map for an Amplify App. "
+        },
+        "iamServiceRoleArn": {
+          "$ref": "#/definitions/ServiceRoleArn",
+          "description": " AWS IAM service role for an Amplify App "
+        },
+        "name": {
+          "$ref": "#/definitions/Name",
+          "description": " Name for the Amplify App "
+        },
+        "oauthToken": {
+          "$ref": "#/definitions/OauthToken",
+          "description": " OAuth token for 3rd party source control system for an Amplify App, used to create webhook and read-only deploy key. OAuth token is not stored. "
+        },
+        "platform": {
+          "$ref": "#/definitions/Platform",
+          "description": " Platform / framework for an Amplify App "
+        },
+        "repository": {
+          "$ref": "#/definitions/Repository",
+          "description": " Repository for an Amplify App "
+        },
+        "tags": {
+          "$ref": "#/definitions/Tags",
+          "description": " Tag for an Amplify App "
+        }
+      },
+      "required": [
+        "name",
+        "repository",
+        "platform",
+        "oauthToken"
+      ],
+      "type": "object"
+    },
+    "CreateAppResult": {
+      "properties": {
+        "app": {
+          "$ref": "#/definitions/App"
+        }
+      },
+      "required": [
+        "app"
+      ],
+      "type": "object"
+    },
+    "CreateBranchRequest": {
+      "description": " Request structure for a branch create request. ",
+      "properties": {
+        "basicAuthCredentials": {
+          "$ref": "#/definitions/BasicAuthCredentials",
+          "description": " Basic Authorization credentials for the branch. "
+        },
+        "branchName": {
+          "$ref": "#/definitions/BranchName",
+          "description": " Name for the branch. "
+        },
+        "buildSpec": {
+          "$ref": "#/definitions/BuildSpec",
+          "description": " BuildSpec for the branch. "
+        },
+        "description": {
+          "$ref": "#/definitions/Description",
+          "description": " Description for the branch. "
+        },
+        "enableAutoBuild": {
+          "$ref": "#/definitions/EnableAutoBuild",
+          "description": " Enables auto building for the branch. "
+        },
+        "enableBasicAuth": {
+          "$ref": "#/definitions/EnableBasicAuth",
+          "description": " Enables Basic Auth for the branch. "
+        },
+        "enableNotification": {
+          "$ref": "#/definitions/EnableNotification",
+          "description": " Enables notifications for the branch. "
+        },
+        "environmentVariables": {
+          "$ref": "#/definitions/EnvironmentVariables",
+          "description": " Environment Variables for the branch. "
+        },
+        "framework": {
+          "$ref": "#/definitions/Framework",
+          "description": " Framework for the branch. "
+        },
+        "stage": {
+          "$ref": "#/definitions/Stage",
+          "description": " Stage for the branch. "
+        },
+        "tags": {
+          "$ref": "#/definitions/Tags",
+          "description": " Tag for the branch. "
+        },
+        "ttl": {
+          "$ref": "#/definitions/TTL",
+          "description": " The content TTL for the website in seconds. "
+        }
+      },
+      "required": [
+        "branchName"
+      ],
+      "type": "object"
+    },
+    "CreateBranchResult": {
+      "description": " Result structure for create branch request. ",
+      "properties": {
+        "branch": {
+          "$ref": "#/definitions/Branch",
+          "description": " Branch structure for an Amplify App. "
+        }
+      },
+      "required": [
+        "branch"
+      ],
+      "type": "object"
+    },
+    "CreateDomainAssociationRequest": {
+      "description": " Request structure for create Domain Association request. ",
+      "properties": {
+        "domainName": {
+          "$ref": "#/definitions/DomainName",
+          "description": " Domain name for the Domain Association. "
+        },
+        "enableAutoSubDomain": {
+          "$ref": "#/definitions/EnableAutoSubDomain",
+          "description": " Enables automated creation of Subdomains for branches. "
+        },
+        "subDomainSettings": {
+          "$ref": "#/definitions/SubDomainSettings",
+          "description": " Setting structure for the Subdomain. "
+        }
+      },
+      "required": [
+        "domainName",
+        "subDomainSettings"
+      ],
+      "type": "object"
+    },
+    "CreateDomainAssociationResult": {
+      "description": " Result structure for the create Domain Association request. ",
+      "properties": {
+        "domainAssociation": {
+          "$ref": "#/definitions/DomainAssociation",
+          "description": " Domain Association structure. "
+        }
+      },
+      "required": [
+        "domainAssociation"
+      ],
+      "type": "object"
+    },
+    "CreateTime": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "CustomDomain": {
+      "maxLength": 255,
+      "type": "string"
+    },
+    "CustomDomains": {
+      "items": {
+        "$ref": "#/definitions/CustomDomain"
+      },
+      "maxItems": 255,
+      "type": "array"
+    },
+    "CustomRule": {
+      "description": " Custom rewrite / redirect rule. ",
+      "properties": {
+        "condition": {
+          "$ref": "#/definitions/Condition",
+          "description": " The condition for a URL rewrite or redirect rule, e.g. country code. "
+        },
+        "source": {
+          "$ref": "#/definitions/Source",
+          "description": " The source pattern for a URL rewrite or redirect rule. "
+        },
+        "status": {
+          "$ref": "#/definitions/Status",
+          "description": " The status code for a URL rewrite or redirect rule. "
+        },
+        "target": {
+          "$ref": "#/definitions/Target",
+          "description": " The target pattern for a URL rewrite or redirect rule. "
+        }
+      },
+      "required": [
+        "source",
+        "target"
+      ],
+      "type": "object"
+    },
+    "CustomRules": {
+      "items": {
+        "$ref": "#/definitions/CustomRule"
+      },
+      "type": "array"
+    },
+    "DNSRecord": {
+      "maxLength": 1000,
+      "type": "string"
+    },
+    "DefaultDomain": {
+      "maxLength": 1000,
+      "minLength": 1,
+      "type": "string"
+    },
+    "DeleteAppRequest": {
+      "description": " Request structure for an Amplify App delete request. ",
+      "properties": {},
+      "type": "object"
+    },
+    "DeleteAppResult": {
+      "description": " Result structure for an Amplify App delete request. ",
+      "properties": {
+        "app": {
+          "$ref": "#/definitions/App"
+        }
+      },
+      "required": [
+        "app"
+      ],
+      "type": "object"
+    },
+    "DeleteBranchRequest": {
+      "description": " Request structure for delete branch request. ",
+      "properties": {},
+      "type": "object"
+    },
+    "DeleteBranchResult": {
+      "description": " Result structure for delete branch request. ",
+      "properties": {
+        "branch": {
+          "$ref": "#/definitions/Branch",
+          "description": " Branch structure for an Amplify App. "
+        }
+      },
+      "required": [
+        "branch"
+      ],
+      "type": "object"
+    },
+    "DeleteDomainAssociationRequest": {
+      "description": " Request structure for the delete Domain Association request. ",
+      "properties": {},
+      "type": "object"
+    },
+    "DeleteDomainAssociationResult": {
+      "properties": {
+        "domainAssociation": {
+          "$ref": "#/definitions/DomainAssociation"
+        }
+      },
+      "required": [
+        "domainAssociation"
+      ],
+      "type": "object"
+    },
+    "DeleteJobRequest": {
+      "description": " Request structure for delete job request. ",
+      "properties": {},
+      "type": "object"
+    },
+    "DeleteJobResult": {
+      "description": " Result structure for the delete job request. ",
+      "properties": {
+        "jobSummary": {
+          "$ref": "#/definitions/JobSummary"
+        }
+      },
+      "required": [
+        "jobSummary"
+      ],
+      "type": "object"
+    },
+    "DependentServiceFailureException": {},
+    "Description": {
+      "maxLength": 1000,
+      "type": "string"
+    },
+    "DisplayName": {
+      "maxLength": 255,
+      "type": "string"
+    },
+    "DomainAssociation": {
+      "description": " Structure for Domain Association, which associates a custom domain with an Amplify App. ",
+      "properties": {
+        "certificateVerificationDNSRecord": {
+          "$ref": "#/definitions/CertificateVerificationDNSRecord",
+          "description": " DNS Record for certificate verification. "
+        },
+        "domainAssociationArn": {
+          "$ref": "#/definitions/DomainAssociationArn",
+          "description": " ARN for the Domain Association. "
+        },
+        "domainName": {
+          "$ref": "#/definitions/DomainName",
+          "description": " Name of the domain. "
+        },
+        "domainStatus": {
+          "$ref": "#/definitions/DomainStatus",
+          "description": " Status fo the Domain Association. "
+        },
+        "enableAutoSubDomain": {
+          "$ref": "#/definitions/EnableAutoSubDomain",
+          "description": " Enables automated creation of Subdomains for branches. "
+        },
+        "statusReason": {
+          "$ref": "#/definitions/StatusReason",
+          "description": " Reason for the current status of the Domain Association. "
+        },
+        "subDomains": {
+          "$ref": "#/definitions/SubDomains",
+          "description": " Subdomains for the Domain Association. "
+        }
+      },
+      "required": [
+        "domainAssociationArn",
+        "domainName",
+        "enableAutoSubDomain",
+        "domainStatus",
+        "statusReason",
+        "certificateVerificationDNSRecord",
+        "subDomains"
+      ],
+      "type": "object"
+    },
+    "DomainAssociationArn": {
+      "maxLength": 1000,
+      "type": "string"
+    },
+    "DomainAssociations": {
+      "items": {
+        "$ref": "#/definitions/DomainAssociation"
+      },
+      "maxItems": 255,
+      "type": "array"
+    },
+    "DomainName": {
+      "maxLength": 255,
+      "type": "string"
+    },
+    "DomainPrefix": {
+      "maxLength": 255,
+      "type": "string"
+    },
+    "DomainStatus": {
+      "enum": [
+        "PENDING_VERIFICATION",
+        "IN_PROGRESS",
+        "AVAILABLE",
+        "PENDING_DEPLOYMENT",
+        "FAILED"
+      ],
+      "type": "string"
+    },
+    "EnableAutoBuild": {
+      "type": "boolean"
+    },
+    "EnableAutoSubDomain": {
+      "type": "boolean"
+    },
+    "EnableBasicAuth": {
+      "type": "boolean"
+    },
+    "EnableBranchAutoBuild": {
+      "type": "boolean"
+    },
+    "EnableNotification": {
+      "type": "boolean"
+    },
+    "EndTime": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "EnvKey": {
+      "maxLength": 255,
+      "type": "string"
+    },
+    "EnvValue": {
+      "maxLength": 1000,
+      "type": "string"
+    },
+    "EnvironmentVariables": {
+      "items": {
+        "properties": {
+          "key": {
+            "$ref": "#/definitions/EnvKey"
+          },
+          "value": {
+            "$ref": "#/definitions/EnvValue"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "Framework": {
+      "maxLength": 255,
+      "type": "string"
+    },
+    "GetAppRequest": {
+      "description": " Request structure for get App request. ",
+      "properties": {},
+      "type": "object"
+    },
+    "GetAppResult": {
+      "properties": {
+        "app": {
+          "$ref": "#/definitions/App"
+        }
+      },
+      "required": [
+        "app"
+      ],
+      "type": "object"
+    },
+    "GetBranchRequest": {
+      "description": " Result structure for get branch request. ",
+      "properties": {},
+      "type": "object"
+    },
+    "GetBranchResult": {
+      "properties": {
+        "branch": {
+          "$ref": "#/definitions/Branch"
+        }
+      },
+      "required": [
+        "branch"
+      ],
+      "type": "object"
+    },
+    "GetDomainAssociationRequest": {
+      "description": " Request structure for the get Domain Association request. ",
+      "properties": {},
+      "type": "object"
+    },
+    "GetDomainAssociationResult": {
+      "description": " Result structure for the get Domain Association request. ",
+      "properties": {
+        "domainAssociation": {
+          "$ref": "#/definitions/DomainAssociation",
+          "description": " Domain Association structure. "
+        }
+      },
+      "required": [
+        "domainAssociation"
+      ],
+      "type": "object"
+    },
+    "GetJobRequest": {
+      "description": " Request structure for get job request. ",
+      "properties": {},
+      "type": "object"
+    },
+    "GetJobResult": {
+      "properties": {
+        "job": {
+          "$ref": "#/definitions/Job"
+        }
+      },
+      "required": [
+        "job"
+      ],
+      "type": "object"
+    },
+    "InternalFailureException": {},
+    "Job": {
+      "description": " Structure for an execution job for an Amplify App. ",
+      "properties": {
+        "steps": {
+          "$ref": "#/definitions/Steps",
+          "description": " Execution steps for an execution job, for an Amplify App. "
+        },
+        "summary": {
+          "$ref": "#/definitions/JobSummary",
+          "description": " Summary for an execution job for an Amplify App. "
+        }
+      },
+      "required": [
+        "summary",
+        "steps"
+      ],
+      "type": "object"
+    },
+    "JobArn": {
+      "maxLength": 1000,
+      "type": "string"
+    },
+    "JobId": {
+      "maxLength": 255,
+      "type": "string"
+    },
+    "JobReason": {
+      "maxLength": 255,
+      "type": "string"
+    },
+    "JobStatus": {
+      "enum": [
+        "PENDING",
+        "PROVISIONING",
+        "RUNNING",
+        "FAILED",
+        "SUCCEED",
+        "CANCELLING",
+        "CANCELLED"
+      ],
+      "type": "string"
+    },
+    "JobSummaries": {
+      "items": {
+        "$ref": "#/definitions/JobSummary"
+      },
+      "type": "array"
+    },
+    "JobSummary": {
+      "description": " Structure for the summary of a Job. ",
+      "properties": {
+        "commitId": {
+          "$ref": "#/definitions/CommitId",
+          "description": " Commit Id from 3rd party repository provider for the Job. "
+        },
+        "commitMessage": {
+          "$ref": "#/definitions/CommitMessage",
+          "description": " Commit message from 3rd party repository provider for the Job. "
+        },
+        "commitTime": {
+          "$ref": "#/definitions/CommitTime",
+          "description": " Commit date / time for the Job. "
+        },
+        "endTime": {
+          "$ref": "#/definitions/EndTime",
+          "description": " End date / time for the Job. "
+        },
+        "jobArn": {
+          "$ref": "#/definitions/JobArn",
+          "description": " Arn for the Job. "
+        },
+        "jobId": {
+          "$ref": "#/definitions/JobId",
+          "description": " Unique Id for the Job. "
+        },
+        "jobType": {
+          "$ref": "#/definitions/JobType",
+          "description": " Type for the Job. "
+        },
+        "startTime": {
+          "$ref": "#/definitions/StartTime",
+          "description": " Start date / time for the Job. "
+        },
+        "status": {
+          "$ref": "#/definitions/JobStatus",
+          "description": " Status for the Job. "
+        }
+      },
+      "required": [
+        "jobArn",
+        "jobId",
+        "commitId",
+        "commitMessage",
+        "commitTime",
+        "startTime",
+        "status",
+        "jobType"
+      ],
+      "type": "object"
+    },
+    "JobType": {
+      "enum": [
+        "RELEASE",
+        "RETRY",
+        "WEB_HOOK"
+      ],
+      "maxLength": 10,
+      "type": "string"
+    },
+    "LastDeployTime": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "LimitExceededException": {},
+    "ListAppsRequest": {
+      "description": " Request structure for an Amplify App list request. ",
+      "properties": {},
+      "type": "object"
+    },
+    "ListAppsResult": {
+      "description": " Result structure for an Amplify App list request. ",
+      "properties": {
+        "apps": {
+          "$ref": "#/definitions/Apps",
+          "description": " List of Amplify Apps. "
+        },
+        "nextToken": {
+          "$ref": "#/definitions/NextToken",
+          "description": " Pagination token. Set to null to start listing Apps from start. If non-null pagination token is returned in a result, then pass its value in here to list more projects. "
+        }
+      },
+      "required": [
+        "apps"
+      ],
+      "type": "object"
+    },
+    "ListBranchesRequest": {
+      "description": " Request structure for list branches request. ",
+      "properties": {},
+      "type": "object"
+    },
+    "ListBranchesResult": {
+      "description": " Result structure for list branches request. ",
+      "properties": {
+        "branches": {
+          "$ref": "#/definitions/Branches",
+          "description": " List of branches for an Amplify App. "
+        },
+        "nextToken": {
+          "$ref": "#/definitions/NextToken",
+          "description": " Pagination token. If non-null pagination token is returned in a result, then pass its value in another request to fetch more entries. "
+        }
+      },
+      "required": [
+        "branches"
+      ],
+      "type": "object"
+    },
+    "ListDomainAssociationsRequest": {
+      "description": " Request structure for the list Domain Associations request. ",
+      "properties": {},
+      "type": "object"
+    },
+    "ListDomainAssociationsResult": {
+      "description": " Result structure for the list Domain Association request. ",
+      "properties": {
+        "domainAssociations": {
+          "$ref": "#/definitions/DomainAssociations",
+          "description": " List of Domain Associations. "
+        },
+        "nextToken": {
+          "$ref": "#/definitions/NextToken",
+          "description": " Pagination token. If non-null pagination token is returned in a result, then pass its value in another request to fetch more entries. "
+        }
+      },
+      "required": [
+        "domainAssociations"
+      ],
+      "type": "object"
+    },
+    "ListJobsRequest": {
+      "description": " Request structure for list job request. ",
+      "properties": {},
+      "type": "object"
+    },
+    "ListJobsResult": {
+      "description": " Maximum number of records to list in a single response. ",
+      "properties": {
+        "jobSummaries": {
+          "$ref": "#/definitions/JobSummaries",
+          "description": " Result structure for list job result request. "
+        },
+        "nextToken": {
+          "$ref": "#/definitions/NextToken",
+          "description": " Pagination token. If non-null pagination token is returned in a result, then pass its value in another request to fetch more entries. "
+        }
+      },
+      "required": [
+        "jobSummaries"
+      ],
+      "type": "object"
+    },
+    "LogUrl": {
+      "maxLength": 1000,
+      "type": "string"
+    },
+    "MaxResults": {
+      "maximum": 100,
+      "minimum": 1,
+      "type": "integer"
+    },
+    "Name": {
+      "maxLength": 255,
+      "minLength": 1,
+      "type": "string"
+    },
+    "NextToken": {
+      "maxLength": 2000,
+      "type": "string"
+    },
+    "NotFoundException": {},
+    "OauthToken": {
+      "maxLength": 100,
+      "type": "string"
+    },
+    "Platform": {
+      "enum": [
+        "IOS",
+        "ANDROID",
+        "WEB",
+        "REACT_NATIVE"
+      ],
+      "type": "string"
+    },
+    "ProductionBranch": {
+      "description": " Structure with Production Branch information. ",
+      "properties": {
+        "branchName": {
+          "$ref": "#/definitions/BranchName",
+          "description": " Branch Name for Production Branch. "
+        },
+        "lastDeployTime": {
+          "$ref": "#/definitions/LastDeployTime",
+          "description": " Last Deploy Time of Production Branch. "
+        },
+        "status": {
+          "$ref": "#/definitions/Status",
+          "description": " Status of Production Branch. "
+        },
+        "thumbnailUrl": {
+          "$ref": "#/definitions/ThumbnailUrl",
+          "description": " Thumbnail Url for Production Branch. "
+        }
+      },
+      "type": "object"
+    },
+    "Repository": {
+      "maxLength": 1000,
+      "type": "string"
+    },
+    "Screenshots": {
+      "items": {
+        "properties": {
+          "key": {
+            "$ref": "#/definitions/ThumbnailName"
+          },
+          "value": {
+            "$ref": "#/definitions/ThumbnailUrl"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "ServiceRoleArn": {
+      "maxLength": 1000,
+      "minLength": 1,
+      "type": "string"
+    },
+    "Source": {
+      "maxLength": 2048,
+      "minLength": 1,
+      "type": "string"
+    },
+    "Stage": {
+      "enum": [
+        "PRODUCTION",
+        "BETA",
+        "DEVELOPMENT",
+        "EXPERIMENTAL"
+      ],
+      "type": "string"
+    },
+    "StartJobRequest": {
+      "description": " Request structure for Start job request. ",
+      "properties": {
+        "commitId": {
+          "$ref": "#/definitions/CommitId",
+          "description": " Commit Id from 3rd party repository provider for the Job. "
+        },
+        "commitMessage": {
+          "$ref": "#/definitions/CommitMessage",
+          "description": " Commit message from 3rd party repository provider for the Job. "
+        },
+        "commitTime": {
+          "$ref": "#/definitions/CommitTime",
+          "description": " Commit date / time for the Job. "
+        },
+        "jobId": {
+          "$ref": "#/definitions/JobId",
+          "description": " Unique Id for the Job. "
+        },
+        "jobReason": {
+          "$ref": "#/definitions/JobReason",
+          "description": " Reason for the Job. "
+        },
+        "jobType": {
+          "$ref": "#/definitions/JobType",
+          "description": " Type for the Job. "
+        }
+      },
+      "required": [
+        "jobType"
+      ],
+      "type": "object"
+    },
+    "StartJobResult": {
+      "description": " Result structure for run job request. ",
+      "properties": {
+        "jobSummary": {
+          "$ref": "#/definitions/JobSummary",
+          "description": " Summary for the Job. "
+        }
+      },
+      "required": [
+        "jobSummary"
+      ],
+      "type": "object"
+    },
+    "StartTime": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "Status": {
+      "maxLength": 3,
+      "minLength": 3,
+      "type": "string"
+    },
+    "StatusReason": {
+      "maxLength": 1000,
+      "type": "string"
+    },
+    "Step": {
+      "description": " Structure for an execution step for an execution job, for an Amplify App. ",
+      "properties": {
+        "artifactsUrl": {
+          "$ref": "#/definitions/ArtifactsUrl",
+          "description": " Url to teh artifact for the execution step. "
+        },
+        "endTime": {
+          "$ref": "#/definitions/EndTime",
+          "description": " End date/ time of the execution step. "
+        },
+        "logUrl": {
+          "$ref": "#/definitions/LogUrl",
+          "description": " Url to the logs for the execution step. "
+        },
+        "screenshots": {
+          "$ref": "#/definitions/Screenshots",
+          "description": " List of screenshot Urls for the execution step, if relevant. "
+        },
+        "startTime": {
+          "$ref": "#/definitions/StartTime",
+          "description": " Start date/ time of the execution step. "
+        },
+        "status": {
+          "$ref": "#/definitions/JobStatus",
+          "description": " Status of the execution step. "
+        },
+        "stepName": {
+          "$ref": "#/definitions/StepName",
+          "description": " Name of the execution step. "
+        }
+      },
+      "required": [
+        "stepName",
+        "startTime",
+        "status",
+        "endTime"
+      ],
+      "type": "object"
+    },
+    "StepName": {
+      "maxLength": 255,
+      "type": "string"
+    },
+    "Steps": {
+      "items": {
+        "$ref": "#/definitions/Step"
+      },
+      "type": "array"
+    },
+    "StopJobRequest": {
+      "description": " Request structure for stop job request. ",
+      "properties": {},
+      "type": "object"
+    },
+    "StopJobResult": {
+      "description": " Result structure for the stop job request. ",
+      "properties": {
+        "jobSummary": {
+          "$ref": "#/definitions/JobSummary",
+          "description": " Summary for the Job. "
+        }
+      },
+      "required": [
+        "jobSummary"
+      ],
+      "type": "object"
+    },
+    "SubDomain": {
+      "description": " Subdomain for the Domain Association. ",
+      "properties": {
+        "dnsRecord": {
+          "$ref": "#/definitions/DNSRecord",
+          "description": " DNS record for the Subdomain. "
+        },
+        "subDomainSetting": {
+          "$ref": "#/definitions/SubDomainSetting",
+          "description": " Setting structure for the Subdomain. "
+        },
+        "verified": {
+          "$ref": "#/definitions/Verified",
+          "description": " Verified status of the Subdomain "
+        }
+      },
+      "required": [
+        "subDomainSetting",
+        "verified",
+        "dnsRecord"
+      ],
+      "type": "object"
+    },
+    "SubDomainSetting": {
+      "description": " Setting for the Subdomain. ",
+      "properties": {
+        "branchName": {
+          "$ref": "#/definitions/BranchName",
+          "description": " Branch name setting for the Subdomain. "
+        },
+        "prefix": {
+          "$ref": "#/definitions/DomainPrefix",
+          "description": " Prefix setting for the Subdomain. "
+        }
+      },
+      "required": [
+        "prefix",
+        "branchName"
+      ],
+      "type": "object"
+    },
+    "SubDomainSettings": {
+      "items": {
+        "$ref": "#/definitions/SubDomainSetting"
+      },
+      "maxItems": 255,
+      "type": "array"
+    },
+    "SubDomains": {
+      "items": {
+        "$ref": "#/definitions/SubDomain"
+      },
+      "maxItems": 255,
+      "type": "array"
+    },
+    "TTL": {
+      "description": " The content TTL for the website in seconds. ",
+      "type": "string"
+    },
+    "TagKey": {
+      "maxLength": 1000,
+      "type": "string"
+    },
+    "TagValue": {
+      "maxLength": 1000,
+      "type": "string"
+    },
+    "Tags": {
+      "items": {
+        "properties": {
+          "key": {
+            "$ref": "#/definitions/TagKey"
+          },
+          "value": {
+            "$ref": "#/definitions/TagValue"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "Target": {
+      "maxLength": 2048,
+      "minLength": 1,
+      "type": "string"
+    },
+    "ThumbnailName": {
+      "maxLength": 256,
+      "type": "string"
+    },
+    "ThumbnailUrl": {
+      "maxLength": 2000,
+      "minLength": 1,
+      "type": "string"
+    },
+    "TotalNumberOfJobs": {
+      "maxLength": 1000,
+      "type": "string"
+    },
+    "UnauthorizedException": {},
+    "UpdateAppRequest": {
+      "description": " Request structure for update App request. ",
+      "properties": {
+        "basicAuthCredentials": {
+          "$ref": "#/definitions/BasicAuthCredentials",
+          "description": " Basic Authorization credentials for an Amplify App. "
+        },
+        "buildSpec": {
+          "$ref": "#/definitions/BuildSpec",
+          "description": " BuildSpec for an Amplify App. "
+        },
+        "customRules": {
+          "$ref": "#/definitions/CustomRules",
+          "description": " Custom redirect / rewrite rules for an Amplify App. "
+        },
+        "description": {
+          "$ref": "#/definitions/Description",
+          "description": " Description for an Amplify App. "
+        },
+        "enableBasicAuth": {
+          "$ref": "#/definitions/EnableBasicAuth",
+          "description": " Enables Basic Authorization for an Amplify App. "
+        },
+        "enableBranchAutoBuild": {
+          "$ref": "#/definitions/EnableAutoBuild",
+          "description": " Enables branch auto-building for an Amplify App. "
+        },
+        "environmentVariables": {
+          "$ref": "#/definitions/EnvironmentVariables",
+          "description": " Environment Variables for an Amplify App. "
+        },
+        "iamServiceRoleArn": {
+          "$ref": "#/definitions/ServiceRoleArn",
+          "description": " IAM service role for an Amplify App. "
+        },
+        "name": {
+          "$ref": "#/definitions/Name",
+          "description": " Name for an Amplify App. "
+        },
+        "platform": {
+          "$ref": "#/definitions/Platform",
+          "description": " Platform for an Amplify App. "
+        }
+      },
+      "type": "object"
+    },
+    "UpdateAppResult": {
+      "description": " Result structure for an Amplify App update request. ",
+      "properties": {
+        "app": {
+          "$ref": "#/definitions/App",
+          "description": " App structure for the updated App. "
+        }
+      },
+      "required": [
+        "app"
+      ],
+      "type": "object"
+    },
+    "UpdateBranchRequest": {
+      "description": " Request structure for update branch request. ",
+      "properties": {
+        "basicAuthCredentials": {
+          "$ref": "#/definitions/BasicAuthCredentials",
+          "description": " Basic Authorization credentials for the branch. "
+        },
+        "buildSpec": {
+          "$ref": "#/definitions/BuildSpec",
+          "description": " BuildSpec for the branch. "
+        },
+        "description": {
+          "$ref": "#/definitions/Description",
+          "description": " Description for the branch. "
+        },
+        "enableAutoBuild": {
+          "$ref": "#/definitions/EnableAutoBuild",
+          "description": " Enables auto building for the branch. "
+        },
+        "enableBasicAuth": {
+          "$ref": "#/definitions/EnableBasicAuth",
+          "description": " Enables Basic Auth for the branch. "
+        },
+        "enableNotification": {
+          "$ref": "#/definitions/EnableNotification",
+          "description": " Enables notifications for the branch. "
+        },
+        "environmentVariables": {
+          "$ref": "#/definitions/EnvironmentVariables",
+          "description": " Environment Variables for the branch. "
+        },
+        "framework": {
+          "$ref": "#/definitions/Framework",
+          "description": " Framework for the branch. "
+        },
+        "stage": {
+          "$ref": "#/definitions/Stage",
+          "description": " Stage for the branch. "
+        },
+        "ttl": {
+          "$ref": "#/definitions/TTL",
+          "description": " The content TTL for the website in seconds. "
+        }
+      },
+      "type": "object"
+    },
+    "UpdateBranchResult": {
+      "description": " Result structure for update branch request. ",
+      "properties": {
+        "branch": {
+          "$ref": "#/definitions/Branch",
+          "description": " Branch structure for an Amplify App. "
+        }
+      },
+      "required": [
+        "branch"
+      ],
+      "type": "object"
+    },
+    "UpdateDomainAssociationRequest": {
+      "description": " Request structure for update Domain Association request. ",
+      "properties": {
+        "enableAutoSubDomain": {
+          "$ref": "#/definitions/EnableAutoSubDomain",
+          "description": " Enables automated creation of Subdomains for branches. "
+        },
+        "subDomainSettings": {
+          "$ref": "#/definitions/SubDomainSettings",
+          "description": " Setting structure for the Subdomain. "
+        }
+      },
+      "required": [
+        "subDomainSettings"
+      ],
+      "type": "object"
+    },
+    "UpdateDomainAssociationResult": {
+      "description": " Result structure for the update Domain Association request. ",
+      "properties": {
+        "domainAssociation": {
+          "$ref": "#/definitions/DomainAssociation",
+          "description": " Domain Association structure. "
+        }
+      },
+      "required": [
+        "domainAssociation"
+      ],
+      "type": "object"
+    },
+    "UpdateTime": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "Verified": {
+      "type": "boolean"
+    }
+  }
+}

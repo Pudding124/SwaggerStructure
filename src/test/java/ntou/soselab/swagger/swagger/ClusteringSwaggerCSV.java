@@ -43,7 +43,7 @@ public class ClusteringSwaggerCSV {
     @Test
     public void collection_Resource_Operation_Parameter_Response() {
         try {
-            PrintWriter pw = new PrintWriter(new File("/home/mingjen/Desktop/TSNETestData/All-Data-Distance-3.csv"));
+            PrintWriter pw = new PrintWriter(new File("/home/mingjen/Desktop/TSNETestData/1253-SwaggerDoc-without-title-input-output.csv"));
             StringBuilder sb = new StringBuilder();
 
             // 收集所有 Resource 的 id
@@ -82,11 +82,26 @@ public class ClusteringSwaggerCSV {
                     double responseScore = 0.0;
 
                     // resource score
-                    if(!currentResource.getOriginalWord().isEmpty() && !compareResource.getOriginalWord().isEmpty()) {
-                        resourceScore = resourceScore + calculateTwoMatrixVectorsAndCosineSimilarity(currentResource.getOriginalWord(),compareResource.getOriginalWord()) * 0.7;
+                    if(currentResource.getOriginalWord() != null && compareResource.getOriginalWord() != null) {
+                        if(!currentResource.getOriginalWord().isEmpty() && !compareResource.getOriginalWord().isEmpty()) {
+                            resourceScore = resourceScore + (calculateTwoMatrixVectorsAndCosineSimilarity(currentResource.getOriginalWord(),compareResource.getOriginalWord()) * 0.7);
+                        }
                     }
-                    if(!currentResource.getWordnetWord().isEmpty() && !compareResource.getWordnetWord().isEmpty()) {
-                        resourceScore = resourceScore + calculateTwoMatrixVectorsAndCosineSimilarity(currentResource.getWordnetWord(),compareResource.getWordnetWord()) * 0.3;
+
+                    if(currentResource.getWordnetWord() != null && compareResource.getWordnetWord() != null) {
+                        if(!currentResource.getWordnetWord().isEmpty() && !compareResource.getWordnetWord().isEmpty()) {
+                            // must be add LDA word compare together
+                            ArrayList<String> currentOriginalAndWordnetWord = new ArrayList<>(currentResource.getOriginalWord());
+                            ArrayList<String> compareOriginalAndWordnetWord = new ArrayList<>(compareResource.getOriginalWord());
+                            for(String word : currentResource.getWordnetWord()) {
+                                currentOriginalAndWordnetWord.add(word);
+                            }
+
+                            for(String word : compareResource.getWordnetWord()) {
+                                compareOriginalAndWordnetWord.add(word);
+                            }
+                            resourceScore = resourceScore + (calculateTwoMatrixVectorsAndCosineSimilarity(currentOriginalAndWordnetWord,compareOriginalAndWordnetWord) * 0.3);
+                        }
                     }
 
                     log.info("Resource Score :{}", resourceScore);
@@ -137,116 +152,131 @@ public class ClusteringSwaggerCSV {
                         operationScore = operationScore + (calculateTwoMatrixVectorsAndCosineSimilarity(currentOperationLDA, compareOperationLDA) * 0.7);
                     }
                     if(!currentOperationWordnet.isEmpty() && !compareOperationWordnet.isEmpty()) {
+                        // must be add LDA word compare together
+                        for(String word : currentOperationLDA) {
+                            currentOperationWordnet.add(word);
+                        }
+                        for(String word : compareOperationLDA) {
+                            compareOperationWordnet.add(word);
+                        }
                         operationScore = operationScore + (calculateTwoMatrixVectorsAndCosineSimilarity(currentOperationWordnet, compareOperationWordnet) * 0.3);
                     }
 
                     log.info("Operation Score :{}", operationScore);
 
-                    // parameter score
-                    ArrayList<String> currentParameterLDA = new ArrayList<>();
-                    ArrayList<String> currentParameterWordnet = new ArrayList<>();
-                    ArrayList<String> compareParameterLDA = new ArrayList<>();
-                    ArrayList<String> compareParameterWordnet = new ArrayList<>();
+//                    // parameter score
+//                    ArrayList<String> currentParameterLDA = new ArrayList<>();
+//                    ArrayList<String> currentParameterWordnet = new ArrayList<>();
+//                    ArrayList<String> compareParameterLDA = new ArrayList<>();
+//                    ArrayList<String> compareParameterWordnet = new ArrayList<>();
+//
+//                    for(Parameter parameter : parameterRepository.findParametersByResource(currentResource.getNodeId())) {
+//                        if(parameter.getOriginalWord() != null) {
+//                            if(!parameter.getOriginalWord().isEmpty()) {
+//                                for(String word : parameter.getOriginalWord()) {
+//                                    currentParameterLDA.add(word);
+//                                }
+//                            }
+//                        }
+//
+//                        if(parameter.getWordnetWord() != null) {
+//                            if(!parameter.getWordnetWord().isEmpty()) {
+//                                for(String word : parameter.getWordnetWord()) {
+//                                    currentParameterWordnet.add(word);
+//                                }
+//                            }
+//                        }
+//                    }
+//
+//                    for(Parameter parameter : parameterRepository.findParametersByResource(id)) {
+//                        if(parameter.getOriginalWord() != null) {
+//                            if(!parameter.getOriginalWord().isEmpty()) {
+//                                for(String word : parameter.getOriginalWord()) {
+//                                    compareParameterLDA.add(word);
+//                                }
+//                            }
+//                        }
+//
+//                        if(parameter.getWordnetWord() != null) {
+//                            if(!parameter.getWordnetWord().isEmpty()) {
+//                                for(String word : parameter.getWordnetWord()) {
+//                                    compareParameterWordnet.add(word);
+//                                }
+//                            }
+//                        }
+//                    }
+//
+//                    if(!currentParameterLDA.isEmpty() && !compareParameterLDA.isEmpty()) {
+//                        parameterScore = parameterScore + (calculateTwoMatrixVectorsAndCosineSimilarity(currentParameterLDA, compareParameterLDA) * 0.7);
+//                    }
+//                    if(!currentParameterWordnet.isEmpty() && !compareParameterWordnet.isEmpty()) {
+//                        parameterScore = parameterScore + (calculateTwoMatrixVectorsAndCosineSimilarity(currentParameterWordnet, compareParameterWordnet) * 0.3);
+//                    }
+//
+//                    log.info("Parameter Score :{}", parameterScore);
 
-                    for(Parameter parameter : parameterRepository.findParametersByResource(currentResource.getNodeId())) {
-                        if(parameter.getOriginalWord() != null) {
-                            if(!parameter.getOriginalWord().isEmpty()) {
-                                for(String word : parameter.getOriginalWord()) {
-                                    currentParameterLDA.add(word);
-                                }
-                            }
-                        }
-
-                        if(parameter.getWordnetWord() != null) {
-                            if(!parameter.getWordnetWord().isEmpty()) {
-                                for(String word : parameter.getWordnetWord()) {
-                                    currentParameterWordnet.add(word);
-                                }
-                            }
-                        }
-                    }
-
-                    for(Parameter parameter : parameterRepository.findParametersByResource(id)) {
-                        if(parameter.getOriginalWord() != null) {
-                            if(!parameter.getOriginalWord().isEmpty()) {
-                                for(String word : parameter.getOriginalWord()) {
-                                    compareParameterLDA.add(word);
-                                }
-                            }
-                        }
-
-                        if(parameter.getWordnetWord() != null) {
-                            if(!parameter.getWordnetWord().isEmpty()) {
-                                for(String word : parameter.getWordnetWord()) {
-                                    compareParameterWordnet.add(word);
-                                }
-                            }
-                        }
-                    }
-
-                    if(!currentParameterLDA.isEmpty() && !compareParameterLDA.isEmpty()) {
-                        parameterScore = parameterScore + (calculateTwoMatrixVectorsAndCosineSimilarity(currentParameterLDA, compareParameterLDA) * 0.7);
-                    }
-                    if(!currentParameterWordnet.isEmpty() && !compareParameterWordnet.isEmpty()) {
-                        parameterScore = parameterScore + (calculateTwoMatrixVectorsAndCosineSimilarity(currentParameterWordnet, compareParameterWordnet) * 0.3);
-                    }
-
-                    log.info("Parameter Score :{}", parameterScore);
-
-                    // response score
-                    ArrayList<String> currentResponseLDA = new ArrayList<>();
-                    ArrayList<String> currentResponseWordnet = new ArrayList<>();
-                    ArrayList<String> compareResponseLDA = new ArrayList<>();
-                    ArrayList<String> compareResponseWordnet = new ArrayList<>();
-
-                    for(Response response : responseRepository.findResponsesByResource(currentResource.getNodeId())) {
-                        if(response.getOriginalWord() != null) {
-                            if(!response.getOriginalWord().isEmpty()) {
-                                for(String word : response.getOriginalWord() ) {
-                                    currentResponseLDA.add(word);
-                                }
-                            }
-                        }
-
-                        if(response.getWordnetWord() != null) {
-                            if(!response.getWordnetWord().isEmpty()) {
-                                for(String word : response.getWordnetWord()) {
-                                    currentResponseWordnet.add(word);
-                                }
-                            }
-                        }
-                    }
-
-                    for(Response response : responseRepository.findResponsesByResource(id)) {
-                        if(response.getOriginalWord() != null) {
-                            if(!response.getOriginalWord().isEmpty()) {
-                                for(String word : response.getOriginalWord()) {
-                                    compareResponseLDA.add(word);
-                                }
-                            }
-                        }
-                        if(response.getWordnetWord() != null) {
-                            if(!response.getWordnetWord().isEmpty()) {
-                                for(String word : response.getWordnetWord()) {
-                                    compareResponseWordnet.add(word);
-                                }
-                            }
-                        }
-                    }
-
-                    if(!currentResponseLDA.isEmpty() && !compareResponseLDA.isEmpty()) {
-                        responseScore = responseScore + (calculateTwoMatrixVectorsAndCosineSimilarity(currentResponseLDA, compareResponseLDA) * 0.7);
-                    }
-                    if(!currentResponseWordnet.isEmpty() && !compareResponseWordnet.isEmpty()) {
-                        responseScore = responseScore + (calculateTwoMatrixVectorsAndCosineSimilarity(currentResponseWordnet, compareResponseWordnet) * 0.3);
-                    }
-
-                    log.info("Response Score :{}", responseScore);
+//                    // response score
+//                    ArrayList<String> currentResponseLDA = new ArrayList<>();
+//                    ArrayList<String> currentResponseWordnet = new ArrayList<>();
+//                    ArrayList<String> compareResponseLDA = new ArrayList<>();
+//                    ArrayList<String> compareResponseWordnet = new ArrayList<>();
+//
+//                    for(Response response : responseRepository.findResponsesByResource(currentResource.getNodeId())) {
+//                        if(response.getOriginalWord() != null) {
+//                            if(!response.getOriginalWord().isEmpty()) {
+//                                for(String word : response.getOriginalWord() ) {
+//                                    currentResponseLDA.add(word);
+//                                }
+//                            }
+//                        }
+//
+//                        if(response.getWordnetWord() != null) {
+//                            if(!response.getWordnetWord().isEmpty()) {
+//                                for(String word : response.getWordnetWord()) {
+//                                    currentResponseWordnet.add(word);
+//                                }
+//                            }
+//                        }
+//                    }
+//
+//                    for(Response response : responseRepository.findResponsesByResource(id)) {
+//                        if(response.getOriginalWord() != null) {
+//                            if(!response.getOriginalWord().isEmpty()) {
+//                                for(String word : response.getOriginalWord()) {
+//                                    compareResponseLDA.add(word);
+//                                }
+//                            }
+//                        }
+//                        if(response.getWordnetWord() != null) {
+//                            if(!response.getWordnetWord().isEmpty()) {
+//                                for(String word : response.getWordnetWord()) {
+//                                    compareResponseWordnet.add(word);
+//                                }
+//                            }
+//                        }
+//                    }
+//
+//                    if(!currentResponseLDA.isEmpty() && !compareResponseLDA.isEmpty()) {
+//                        responseScore = responseScore + (calculateTwoMatrixVectorsAndCosineSimilarity(currentResponseLDA, compareResponseLDA) * 0.7);
+//                    }
+//                    if(!currentResponseWordnet.isEmpty() && !compareResponseWordnet.isEmpty()) {
+//                        // must be add LDA word compare together
+//                        for(String word : currentResponseLDA) {
+//                            currentResponseWordnet.add(word);
+//                        }
+//                        for(String word : compareResponseLDA) {
+//                            compareResponseWordnet.add(word);
+//                        }
+//                        responseScore = responseScore + (calculateTwoMatrixVectorsAndCosineSimilarity(currentResponseWordnet, compareResponseWordnet) * 0.3);
+//                    }
+//
+//                    log.info("Response Score :{}", responseScore);
 
                     if(currentResource.getNodeId().equals(id)) {
                         sumScore = 0;
                     }else {
-                        sumScore = 1-((resourceScore * 0.3) + (operationScore * 0.3) + (parameterScore * 0.2) + (responseScore * 0.2));
+                        // (parameterScore * 0.2) (responseScore * 0.2)
+                        sumScore = 1-((resourceScore * 0.5) + (operationScore * 0.5));
                     }
 
                     DecimalFormat df = new DecimalFormat("0.00");

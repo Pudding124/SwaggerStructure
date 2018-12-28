@@ -1,0 +1,5023 @@
+{
+  "swagger": "2.0",
+  "schemes": [
+    "https",
+    "http"
+  ],
+  "host": "robomaker.amazonaws.com",
+  "basePath": "/",
+  "info": {
+    "contact": {
+      "email": "mike.ralphson@gmail.com",
+      "name": "Mike Ralphson",
+      "url": "https://github.com/mermade/aws2openapi",
+      "x-twitter": "PermittedSoc"
+    },
+    "description": "his section provides documentation for the AWS RoboMaker API operations.",
+    "license": {
+      "name": "Apache 2.0 License",
+      "url": "http://www.apache.org/licenses/"
+    },
+    "termsOfService": "https://aws.amazon.com/service-terms/",
+    "title": "AWS RoboMaker",
+    "version": "2018-06-29",
+    "x-apiClientRegistration": {
+      "url": "https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct"
+    },
+    "x-apisguru-categories": [
+      "cloud"
+    ],
+    "x-logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.jpeg"
+    },
+    "x-origin": [
+      {
+        "contentType": "application/json",
+        "converter": {
+          "url": "https://github.com/mermade/aws2openapi",
+          "version": "1.0.0"
+        },
+        "url": "https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/robomaker-2018-06-29.normal.json",
+        "x-apisguru-direct": true
+      }
+    ],
+    "x-preferred": true,
+    "x-providerName": "amazonaws.com",
+    "x-release": "v4",
+    "x-serviceName": "robomaker"
+  },
+  "externalDocs": {
+    "description": "Amazon Web Services documentation",
+    "url": "https://aws.amazon.com/robomaker/"
+  },
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "securityDefinitions": {
+    "hmac": {
+      "description": "Amazon Signature authorization v4",
+      "in": "header",
+      "name": "Authorization",
+      "type": "apiKey",
+      "x-amazon-apigateway-authtype": "awsSigv4"
+    }
+  },
+  "security": [
+    {
+      "hmac": []
+    }
+  ],
+  "parameters": {
+    "Action": {
+      "in": "query",
+      "name": "Action",
+      "required": true,
+      "type": "string"
+    },
+    "Version": {
+      "in": "query",
+      "name": "Version",
+      "required": true,
+      "type": "string"
+    },
+    "X-Amz-Algorithm": {
+      "in": "header",
+      "name": "X-Amz-Algorithm",
+      "required": false,
+      "type": "string"
+    },
+    "X-Amz-Content-Sha256": {
+      "in": "header",
+      "name": "X-Amz-Content-Sha256",
+      "required": false,
+      "type": "string"
+    },
+    "X-Amz-Credential": {
+      "in": "header",
+      "name": "X-Amz-Credential",
+      "required": false,
+      "type": "string"
+    },
+    "X-Amz-Date": {
+      "in": "header",
+      "name": "X-Amz-Date",
+      "required": false,
+      "type": "string"
+    },
+    "X-Amz-Security-Token": {
+      "in": "header",
+      "name": "X-Amz-Security-Token",
+      "required": false,
+      "type": "string"
+    },
+    "X-Amz-Signature": {
+      "in": "header",
+      "name": "X-Amz-Signature",
+      "required": false,
+      "type": "string"
+    },
+    "X-Amz-SignedHeaders": {
+      "in": "header",
+      "name": "X-Amz-SignedHeaders",
+      "required": false,
+      "type": "string"
+    }
+  },
+  "paths": {
+    "/batchDescribeSimulationJob": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Describes one or more simulation jobs.",
+        "operationId": "BatchDescribeSimulationJob",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/BatchDescribeSimulationJobRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/BatchDescribeSimulationJobResponse"
+            }
+          },
+          "480": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "481": {
+            "description": "InvalidParameterException",
+            "schema": {
+              "$ref": "#/definitions/InvalidParameterException"
+            }
+          },
+          "482": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          },
+          "483": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          }
+        }
+      }
+    },
+    "/cancelSimulationJob": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Cancels the specified simulation job.",
+        "operationId": "CancelSimulationJob",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CancelSimulationJobRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/CancelSimulationJobResponse"
+            }
+          },
+          "480": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "481": {
+            "description": "InvalidParameterException",
+            "schema": {
+              "$ref": "#/definitions/InvalidParameterException"
+            }
+          },
+          "482": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          },
+          "483": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          }
+        }
+      }
+    },
+    "/createDeploymentJob": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Creates a deployment job.",
+        "operationId": "CreateDeploymentJob",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CreateDeploymentJobRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/CreateDeploymentJobResponse"
+            }
+          },
+          "480": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "481": {
+            "description": "InvalidParameterException",
+            "schema": {
+              "$ref": "#/definitions/InvalidParameterException"
+            }
+          },
+          "482": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          },
+          "483": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "484": {
+            "description": "LimitExceededException",
+            "schema": {
+              "$ref": "#/definitions/LimitExceededException"
+            }
+          },
+          "485": {
+            "description": "ConcurrentDeploymentException",
+            "schema": {
+              "$ref": "#/definitions/ConcurrentDeploymentException"
+            }
+          },
+          "486": {
+            "description": "IdempotentParameterMismatchException",
+            "schema": {
+              "$ref": "#/definitions/IdempotentParameterMismatchException"
+            }
+          }
+        }
+      }
+    },
+    "/createFleet": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Creates a fleet, a logical group of robots running the same robot application.",
+        "operationId": "CreateFleet",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CreateFleetRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/CreateFleetResponse"
+            }
+          },
+          "480": {
+            "description": "InvalidParameterException",
+            "schema": {
+              "$ref": "#/definitions/InvalidParameterException"
+            }
+          },
+          "481": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          },
+          "482": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "483": {
+            "description": "LimitExceededException",
+            "schema": {
+              "$ref": "#/definitions/LimitExceededException"
+            }
+          }
+        }
+      }
+    },
+    "/createRobot": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Creates a robot.",
+        "operationId": "CreateRobot",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CreateRobotRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/CreateRobotResponse"
+            }
+          },
+          "480": {
+            "description": "InvalidParameterException",
+            "schema": {
+              "$ref": "#/definitions/InvalidParameterException"
+            }
+          },
+          "481": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          },
+          "482": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "483": {
+            "description": "LimitExceededException",
+            "schema": {
+              "$ref": "#/definitions/LimitExceededException"
+            }
+          },
+          "484": {
+            "description": "ResourceAlreadyExistsException",
+            "schema": {
+              "$ref": "#/definitions/ResourceAlreadyExistsException"
+            }
+          }
+        }
+      }
+    },
+    "/createRobotApplication": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Creates a robot application. ",
+        "operationId": "CreateRobotApplication",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CreateRobotApplicationRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/CreateRobotApplicationResponse"
+            }
+          },
+          "480": {
+            "description": "InvalidParameterException",
+            "schema": {
+              "$ref": "#/definitions/InvalidParameterException"
+            }
+          },
+          "481": {
+            "description": "ResourceAlreadyExistsException",
+            "schema": {
+              "$ref": "#/definitions/ResourceAlreadyExistsException"
+            }
+          },
+          "482": {
+            "description": "LimitExceededException",
+            "schema": {
+              "$ref": "#/definitions/LimitExceededException"
+            }
+          },
+          "483": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "484": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          },
+          "485": {
+            "description": "IdempotentParameterMismatchException",
+            "schema": {
+              "$ref": "#/definitions/IdempotentParameterMismatchException"
+            }
+          }
+        }
+      }
+    },
+    "/createRobotApplicationVersion": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Creates a version of a robot application.",
+        "operationId": "CreateRobotApplicationVersion",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CreateRobotApplicationVersionRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/CreateRobotApplicationVersionResponse"
+            }
+          },
+          "480": {
+            "description": "InvalidParameterException",
+            "schema": {
+              "$ref": "#/definitions/InvalidParameterException"
+            }
+          },
+          "481": {
+            "description": "IdempotentParameterMismatchException",
+            "schema": {
+              "$ref": "#/definitions/IdempotentParameterMismatchException"
+            }
+          },
+          "482": {
+            "description": "LimitExceededException",
+            "schema": {
+              "$ref": "#/definitions/LimitExceededException"
+            }
+          },
+          "483": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "484": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          }
+        }
+      }
+    },
+    "/createSimulationApplication": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Creates a simulation application.",
+        "operationId": "CreateSimulationApplication",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CreateSimulationApplicationRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/CreateSimulationApplicationResponse"
+            }
+          },
+          "480": {
+            "description": "InvalidParameterException",
+            "schema": {
+              "$ref": "#/definitions/InvalidParameterException"
+            }
+          },
+          "481": {
+            "description": "ResourceAlreadyExistsException",
+            "schema": {
+              "$ref": "#/definitions/ResourceAlreadyExistsException"
+            }
+          },
+          "482": {
+            "description": "LimitExceededException",
+            "schema": {
+              "$ref": "#/definitions/LimitExceededException"
+            }
+          },
+          "483": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "484": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          },
+          "485": {
+            "description": "IdempotentParameterMismatchException",
+            "schema": {
+              "$ref": "#/definitions/IdempotentParameterMismatchException"
+            }
+          }
+        }
+      }
+    },
+    "/createSimulationApplicationVersion": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Creates a simulation application with a specific revision id.",
+        "operationId": "CreateSimulationApplicationVersion",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CreateSimulationApplicationVersionRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/CreateSimulationApplicationVersionResponse"
+            }
+          },
+          "480": {
+            "description": "InvalidParameterException",
+            "schema": {
+              "$ref": "#/definitions/InvalidParameterException"
+            }
+          },
+          "481": {
+            "description": "IdempotentParameterMismatchException",
+            "schema": {
+              "$ref": "#/definitions/IdempotentParameterMismatchException"
+            }
+          },
+          "482": {
+            "description": "LimitExceededException",
+            "schema": {
+              "$ref": "#/definitions/LimitExceededException"
+            }
+          },
+          "483": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "484": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          }
+        }
+      }
+    },
+    "/createSimulationJob": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Creates a simulation job.",
+        "operationId": "CreateSimulationJob",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CreateSimulationJobRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/CreateSimulationJobResponse"
+            }
+          },
+          "480": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "481": {
+            "description": "InvalidParameterException",
+            "schema": {
+              "$ref": "#/definitions/InvalidParameterException"
+            }
+          },
+          "482": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          },
+          "483": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "484": {
+            "description": "LimitExceededException",
+            "schema": {
+              "$ref": "#/definitions/LimitExceededException"
+            }
+          },
+          "485": {
+            "description": "IdempotentParameterMismatchException",
+            "schema": {
+              "$ref": "#/definitions/IdempotentParameterMismatchException"
+            }
+          }
+        }
+      }
+    },
+    "/deleteFleet": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Deletes a fleet.",
+        "operationId": "DeleteFleet",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DeleteFleetRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DeleteFleetResponse"
+            }
+          },
+          "480": {
+            "description": "InvalidParameterException",
+            "schema": {
+              "$ref": "#/definitions/InvalidParameterException"
+            }
+          },
+          "481": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          },
+          "482": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          }
+        }
+      }
+    },
+    "/deleteRobot": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Deletes a robot.",
+        "operationId": "DeleteRobot",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DeleteRobotRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DeleteRobotResponse"
+            }
+          },
+          "480": {
+            "description": "InvalidParameterException",
+            "schema": {
+              "$ref": "#/definitions/InvalidParameterException"
+            }
+          },
+          "481": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          },
+          "482": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          }
+        }
+      }
+    },
+    "/deleteRobotApplication": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Deletes a robot application.",
+        "operationId": "DeleteRobotApplication",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DeleteRobotApplicationRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DeleteRobotApplicationResponse"
+            }
+          },
+          "480": {
+            "description": "InvalidParameterException",
+            "schema": {
+              "$ref": "#/definitions/InvalidParameterException"
+            }
+          },
+          "481": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "482": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          }
+        }
+      }
+    },
+    "/deleteSimulationApplication": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Deletes a simulation application.",
+        "operationId": "DeleteSimulationApplication",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DeleteSimulationApplicationRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DeleteSimulationApplicationResponse"
+            }
+          },
+          "480": {
+            "description": "InvalidParameterException",
+            "schema": {
+              "$ref": "#/definitions/InvalidParameterException"
+            }
+          },
+          "481": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "482": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          }
+        }
+      }
+    },
+    "/deregisterRobot": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Deregisters a robot.",
+        "operationId": "DeregisterRobot",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DeregisterRobotRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DeregisterRobotResponse"
+            }
+          },
+          "480": {
+            "description": "InvalidParameterException",
+            "schema": {
+              "$ref": "#/definitions/InvalidParameterException"
+            }
+          },
+          "481": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          },
+          "482": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "483": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          }
+        }
+      }
+    },
+    "/describeDeploymentJob": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Describes a deployment job. [Does it work regardless of deployment status, e.g. Failed?]",
+        "operationId": "DescribeDeploymentJob",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DescribeDeploymentJobRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DescribeDeploymentJobResponse"
+            }
+          },
+          "480": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "481": {
+            "description": "InvalidParameterException",
+            "schema": {
+              "$ref": "#/definitions/InvalidParameterException"
+            }
+          },
+          "482": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          },
+          "483": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          }
+        }
+      }
+    },
+    "/describeFleet": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Describes a fleet.",
+        "operationId": "DescribeFleet",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DescribeFleetRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DescribeFleetResponse"
+            }
+          },
+          "480": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "481": {
+            "description": "InvalidParameterException",
+            "schema": {
+              "$ref": "#/definitions/InvalidParameterException"
+            }
+          },
+          "482": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          },
+          "483": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          }
+        }
+      }
+    },
+    "/describeRobot": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Describes a robot.",
+        "operationId": "DescribeRobot",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DescribeRobotRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DescribeRobotResponse"
+            }
+          },
+          "480": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "481": {
+            "description": "InvalidParameterException",
+            "schema": {
+              "$ref": "#/definitions/InvalidParameterException"
+            }
+          },
+          "482": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          },
+          "483": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          }
+        }
+      }
+    },
+    "/describeRobotApplication": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Describes a robot application.",
+        "operationId": "DescribeRobotApplication",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DescribeRobotApplicationRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DescribeRobotApplicationResponse"
+            }
+          },
+          "480": {
+            "description": "InvalidParameterException",
+            "schema": {
+              "$ref": "#/definitions/InvalidParameterException"
+            }
+          },
+          "481": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "482": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "483": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          }
+        }
+      }
+    },
+    "/describeSimulationApplication": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Describes a simulation application.",
+        "operationId": "DescribeSimulationApplication",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DescribeSimulationApplicationRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DescribeSimulationApplicationResponse"
+            }
+          },
+          "480": {
+            "description": "InvalidParameterException",
+            "schema": {
+              "$ref": "#/definitions/InvalidParameterException"
+            }
+          },
+          "481": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "482": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "483": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          }
+        }
+      }
+    },
+    "/describeSimulationJob": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Describes a simulation job.",
+        "operationId": "DescribeSimulationJob",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DescribeSimulationJobRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DescribeSimulationJobResponse"
+            }
+          },
+          "480": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "481": {
+            "description": "InvalidParameterException",
+            "schema": {
+              "$ref": "#/definitions/InvalidParameterException"
+            }
+          },
+          "482": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          },
+          "483": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          }
+        }
+      }
+    },
+    "/listDeploymentJobs": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Returns a list of deployment jobs for a fleet. You can optionally provide filters to retrieve specific deployment jobs.",
+        "operationId": "ListDeploymentJobs",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ListDeploymentJobsRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ListDeploymentJobsResponse"
+            }
+          },
+          "480": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "481": {
+            "description": "InvalidParameterException",
+            "schema": {
+              "$ref": "#/definitions/InvalidParameterException"
+            }
+          },
+          "482": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          },
+          "483": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          }
+        }
+      }
+    },
+    "/listFleets": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Returns a list of fleets. You can optionally provide filters to retrieve specific fleets.",
+        "operationId": "ListFleets",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ListFleetsRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ListFleetsResponse"
+            }
+          },
+          "480": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "481": {
+            "description": "InvalidParameterException",
+            "schema": {
+              "$ref": "#/definitions/InvalidParameterException"
+            }
+          },
+          "482": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          },
+          "483": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          }
+        }
+      }
+    },
+    "/listRobotApplications": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Returns a list of robot application. You can optionally provide filters to retrieve specific robot applications.",
+        "operationId": "ListRobotApplications",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ListRobotApplicationsRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ListRobotApplicationsResponse"
+            }
+          },
+          "480": {
+            "description": "InvalidParameterException",
+            "schema": {
+              "$ref": "#/definitions/InvalidParameterException"
+            }
+          },
+          "481": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "482": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          }
+        }
+      }
+    },
+    "/listRobots": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Returns a list of robots. You can optionally provide filters to retrieve specific robots.",
+        "operationId": "ListRobots",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ListRobotsRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ListRobotsResponse"
+            }
+          },
+          "480": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "481": {
+            "description": "InvalidParameterException",
+            "schema": {
+              "$ref": "#/definitions/InvalidParameterException"
+            }
+          },
+          "482": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          },
+          "483": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          }
+        }
+      }
+    },
+    "/listSimulationApplications": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Returns a list of simulation applications. You can optionally provide filters to retrieve specific simulation applications.",
+        "operationId": "ListSimulationApplications",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ListSimulationApplicationsRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ListSimulationApplicationsResponse"
+            }
+          },
+          "480": {
+            "description": "InvalidParameterException",
+            "schema": {
+              "$ref": "#/definitions/InvalidParameterException"
+            }
+          },
+          "481": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "482": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          }
+        }
+      }
+    },
+    "/listSimulationJobs": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Returns a list of simulation jobs. You can optionally provide filters to retrieve specific simulation jobs.",
+        "operationId": "ListSimulationJobs",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ListSimulationJobsRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ListSimulationJobsResponse"
+            }
+          },
+          "480": {
+            "description": "InvalidParameterException",
+            "schema": {
+              "$ref": "#/definitions/InvalidParameterException"
+            }
+          },
+          "481": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          },
+          "482": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          }
+        }
+      }
+    },
+    "/registerRobot": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Registers a robot with a fleet.",
+        "operationId": "RegisterRobot",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/RegisterRobotRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/RegisterRobotResponse"
+            }
+          },
+          "480": {
+            "description": "InvalidParameterException",
+            "schema": {
+              "$ref": "#/definitions/InvalidParameterException"
+            }
+          },
+          "481": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          },
+          "482": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "483": {
+            "description": "LimitExceededException",
+            "schema": {
+              "$ref": "#/definitions/LimitExceededException"
+            }
+          },
+          "484": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          }
+        }
+      }
+    },
+    "/restartSimulationJob": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Restarts a running simulation job.",
+        "operationId": "RestartSimulationJob",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/RestartSimulationJobRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/RestartSimulationJobResponse"
+            }
+          },
+          "480": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "481": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "482": {
+            "description": "LimitExceededException",
+            "schema": {
+              "$ref": "#/definitions/LimitExceededException"
+            }
+          },
+          "483": {
+            "description": "InvalidParameterException",
+            "schema": {
+              "$ref": "#/definitions/InvalidParameterException"
+            }
+          },
+          "484": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          }
+        }
+      }
+    },
+    "/syncDeploymentJob": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Syncrhonizes robots in a fleet to the latest deployment. This is helpful if robots were added after a deployment.",
+        "operationId": "SyncDeploymentJob",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/SyncDeploymentJobRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/SyncDeploymentJobResponse"
+            }
+          },
+          "480": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "481": {
+            "description": "InvalidParameterException",
+            "schema": {
+              "$ref": "#/definitions/InvalidParameterException"
+            }
+          },
+          "482": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          },
+          "483": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "484": {
+            "description": "LimitExceededException",
+            "schema": {
+              "$ref": "#/definitions/LimitExceededException"
+            }
+          },
+          "485": {
+            "description": "ConcurrentDeploymentException",
+            "schema": {
+              "$ref": "#/definitions/ConcurrentDeploymentException"
+            }
+          },
+          "486": {
+            "description": "IdempotentParameterMismatchException",
+            "schema": {
+              "$ref": "#/definitions/IdempotentParameterMismatchException"
+            }
+          }
+        }
+      }
+    },
+    "/updateRobotApplication": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Updates a robot application.",
+        "operationId": "UpdateRobotApplication",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/UpdateRobotApplicationRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/UpdateRobotApplicationResponse"
+            }
+          },
+          "480": {
+            "description": "InvalidParameterException",
+            "schema": {
+              "$ref": "#/definitions/InvalidParameterException"
+            }
+          },
+          "481": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "482": {
+            "description": "LimitExceededException",
+            "schema": {
+              "$ref": "#/definitions/LimitExceededException"
+            }
+          },
+          "483": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "484": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          }
+        }
+      }
+    },
+    "/updateSimulationApplication": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Updates a simulation application.",
+        "operationId": "UpdateSimulationApplication",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/UpdateSimulationApplicationRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/UpdateSimulationApplicationResponse"
+            }
+          },
+          "480": {
+            "description": "InvalidParameterException",
+            "schema": {
+              "$ref": "#/definitions/InvalidParameterException"
+            }
+          },
+          "481": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "482": {
+            "description": "LimitExceededException",
+            "schema": {
+              "$ref": "#/definitions/LimitExceededException"
+            }
+          },
+          "483": {
+            "description": "ThrottlingException",
+            "schema": {
+              "$ref": "#/definitions/ThrottlingException"
+            }
+          },
+          "484": {
+            "description": "InternalServerException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerException"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Architecture": {
+      "enum": [
+        "X86_64",
+        "ARM64",
+        "ARMHF"
+      ],
+      "type": "string"
+    },
+    "Arn": {
+      "maxLength": 1224,
+      "minLength": 1,
+      "pattern": "arn:.*",
+      "type": "string"
+    },
+    "Arns": {
+      "items": {
+        "$ref": "#/definitions/Arn"
+      },
+      "maxItems": 100,
+      "minItems": 1,
+      "type": "array"
+    },
+    "BatchDescribeSimulationJobRequest": {
+      "properties": {
+        "jobs": {
+          "$ref": "#/definitions/Arns",
+          "description": "A list of Amazon Resource Names (ARNs) of simulation jobs to describe."
+        }
+      },
+      "required": [
+        "jobs"
+      ],
+      "type": "object"
+    },
+    "BatchDescribeSimulationJobResponse": {
+      "properties": {
+        "jobs": {
+          "$ref": "#/definitions/SimulationJobs",
+          "description": "A list of simulation jobs."
+        },
+        "unprocessedJobs": {
+          "$ref": "#/definitions/Arns",
+          "description": "A list of unprocessed simulation job Amazon Resource Names (ARNs)."
+        }
+      },
+      "type": "object"
+    },
+    "Boolean": {
+      "type": "boolean"
+    },
+    "CancelSimulationJobRequest": {
+      "properties": {
+        "job": {
+          "$ref": "#/definitions/Arn",
+          "description": "The simulation job ARN to cancel."
+        }
+      },
+      "required": [
+        "job"
+      ],
+      "type": "object"
+    },
+    "CancelSimulationJobResponse": {
+      "properties": {},
+      "type": "object"
+    },
+    "ClientRequestToken": {
+      "maxLength": 64,
+      "minLength": 1,
+      "pattern": "[a-zA-Z0-9_\\-=]*",
+      "type": "string"
+    },
+    "ConcurrentDeploymentException": {},
+    "CreateDeploymentJobRequest": {
+      "properties": {
+        "clientRequestToken": {
+          "$ref": "#/definitions/ClientRequestToken",
+          "description": "Unique, case-sensitive identifier that you provide to ensure the idempotency of the request."
+        },
+        "deploymentApplicationConfigs": {
+          "$ref": "#/definitions/DeploymentApplicationConfigs",
+          "description": "The deployment application configuration."
+        },
+        "deploymentConfig": {
+          "$ref": "#/definitions/DeploymentConfig",
+          "description": "The requested deployment configuration."
+        },
+        "fleet": {
+          "$ref": "#/definitions/Arn",
+          "description": "The Amazon Resource Name (ARN) of the fleet to deploy."
+        }
+      },
+      "required": [
+        "clientRequestToken",
+        "fleet",
+        "deploymentApplicationConfigs"
+      ],
+      "type": "object"
+    },
+    "CreateDeploymentJobResponse": {
+      "properties": {
+        "arn": {
+          "$ref": "#/definitions/Arn",
+          "description": "The Amazon Resource Name (ARN) of the deployment job."
+        },
+        "createdAt": {
+          "$ref": "#/definitions/CreatedAt",
+          "description": "The time, in milliseconds since the epoch, when the fleet was created."
+        },
+        "deploymentApplicationConfigs": {
+          "$ref": "#/definitions/DeploymentApplicationConfigs",
+          "description": "The deployment application configuration."
+        },
+        "deploymentConfig": {
+          "$ref": "#/definitions/DeploymentConfig",
+          "description": "The deployment configuration."
+        },
+        "failureCode": {
+          "$ref": "#/definitions/DeploymentJobErrorCode",
+          "description": "The failure code of the deployment job if it failed."
+        },
+        "failureReason": {
+          "$ref": "#/definitions/GenericString",
+          "description": "The failure reason of the deployment job if it failed."
+        },
+        "fleet": {
+          "$ref": "#/definitions/Arn",
+          "description": "The target fleet for the deployment job."
+        },
+        "status": {
+          "$ref": "#/definitions/DeploymentStatus",
+          "description": "The status of the deployment job."
+        }
+      },
+      "type": "object"
+    },
+    "CreateFleetRequest": {
+      "properties": {
+        "name": {
+          "$ref": "#/definitions/Name",
+          "description": "The name of the fleet."
+        }
+      },
+      "required": [
+        "name"
+      ],
+      "type": "object"
+    },
+    "CreateFleetResponse": {
+      "properties": {
+        "arn": {
+          "$ref": "#/definitions/Arn",
+          "description": "The Amazon Resource Name (ARN) of the fleet."
+        },
+        "createdAt": {
+          "$ref": "#/definitions/CreatedAt",
+          "description": "The time, in milliseconds since the epoch, when the fleet was created."
+        },
+        "name": {
+          "$ref": "#/definitions/Name",
+          "description": "The name of the fleet."
+        }
+      },
+      "type": "object"
+    },
+    "CreateRobotApplicationRequest": {
+      "properties": {
+        "name": {
+          "$ref": "#/definitions/Name",
+          "description": "The name of the robot application."
+        },
+        "robotSoftwareSuite": {
+          "$ref": "#/definitions/RobotSoftwareSuite",
+          "description": "The robot software suite used by the robot application."
+        },
+        "sources": {
+          "$ref": "#/definitions/SourceConfigs",
+          "description": "The sources of the robot application."
+        }
+      },
+      "required": [
+        "name",
+        "sources",
+        "robotSoftwareSuite"
+      ],
+      "type": "object"
+    },
+    "CreateRobotApplicationResponse": {
+      "properties": {
+        "arn": {
+          "$ref": "#/definitions/Arn",
+          "description": "The Amazon Resource Name (ARN) of the robot application."
+        },
+        "lastUpdatedAt": {
+          "$ref": "#/definitions/LastUpdatedAt",
+          "description": "The time, in milliseconds since the epoch, when the robot application was last updated."
+        },
+        "name": {
+          "$ref": "#/definitions/Name",
+          "description": "The name of the robot application."
+        },
+        "revisionId": {
+          "$ref": "#/definitions/RevisionId",
+          "description": "The revision id of the robot application."
+        },
+        "robotSoftwareSuite": {
+          "$ref": "#/definitions/RobotSoftwareSuite",
+          "description": "The robot software suite used by the robot application."
+        },
+        "sources": {
+          "$ref": "#/definitions/Sources",
+          "description": "The sources of the robot application."
+        },
+        "version": {
+          "$ref": "#/definitions/Version",
+          "description": "The version of the robot application."
+        }
+      },
+      "type": "object"
+    },
+    "CreateRobotApplicationVersionRequest": {
+      "properties": {
+        "application": {
+          "$ref": "#/definitions/Arn",
+          "description": "The application information for the robot application."
+        },
+        "currentRevisionId": {
+          "$ref": "#/definitions/RevisionId",
+          "description": "The current revision id for the robot application. If you provide a value and it matches the latest revision ID, a new version will be created."
+        }
+      },
+      "required": [
+        "application"
+      ],
+      "type": "object"
+    },
+    "CreateRobotApplicationVersionResponse": {
+      "properties": {
+        "arn": {
+          "$ref": "#/definitions/Arn",
+          "description": "The Amazon Resource Name (ARN) of the robot application."
+        },
+        "lastUpdatedAt": {
+          "$ref": "#/definitions/LastUpdatedAt",
+          "description": "The time, in milliseconds since the epoch, when the robot application was last updated."
+        },
+        "name": {
+          "$ref": "#/definitions/Name",
+          "description": "The name of the robot application."
+        },
+        "revisionId": {
+          "$ref": "#/definitions/RevisionId",
+          "description": "The revision id of the robot application."
+        },
+        "robotSoftwareSuite": {
+          "$ref": "#/definitions/RobotSoftwareSuite",
+          "description": "The robot software suite used by the robot application."
+        },
+        "sources": {
+          "$ref": "#/definitions/Sources",
+          "description": "The sources of the robot application."
+        },
+        "version": {
+          "$ref": "#/definitions/Version",
+          "description": "The version of the robot application."
+        }
+      },
+      "type": "object"
+    },
+    "CreateRobotRequest": {
+      "properties": {
+        "architecture": {
+          "$ref": "#/definitions/Architecture",
+          "description": "The target architecture of the robot."
+        },
+        "greengrassGroupId": {
+          "$ref": "#/definitions/Id",
+          "description": "The Greengrass group id."
+        },
+        "name": {
+          "$ref": "#/definitions/Name",
+          "description": "The name for the robot."
+        }
+      },
+      "required": [
+        "name",
+        "architecture",
+        "greengrassGroupId"
+      ],
+      "type": "object"
+    },
+    "CreateRobotResponse": {
+      "properties": {
+        "architecture": {
+          "$ref": "#/definitions/Architecture",
+          "description": "The target architecture of the robot."
+        },
+        "arn": {
+          "$ref": "#/definitions/Arn",
+          "description": "The Amazon Resource Name (ARN) of the robot."
+        },
+        "createdAt": {
+          "$ref": "#/definitions/CreatedAt",
+          "description": "The time, in milliseconds since the epoch, when the robot was created."
+        },
+        "greengrassGroupId": {
+          "$ref": "#/definitions/Id",
+          "description": "The Amazon Resource Name (ARN) of the Greengrass group associated with the robot."
+        },
+        "name": {
+          "$ref": "#/definitions/Name",
+          "description": "The name of the robot."
+        }
+      },
+      "type": "object"
+    },
+    "CreateSimulationApplicationRequest": {
+      "properties": {
+        "name": {
+          "$ref": "#/definitions/Name",
+          "description": "The name of the simulation application."
+        },
+        "renderingEngine": {
+          "$ref": "#/definitions/RenderingEngine",
+          "description": "The rendering engine for the simulation application."
+        },
+        "robotSoftwareSuite": {
+          "$ref": "#/definitions/RobotSoftwareSuite",
+          "description": "The robot software suite of the simulation application."
+        },
+        "simulationSoftwareSuite": {
+          "$ref": "#/definitions/SimulationSoftwareSuite",
+          "description": "The simulation software suite used by the simulation application."
+        },
+        "sources": {
+          "$ref": "#/definitions/SourceConfigs",
+          "description": "The sources of the simulation application."
+        }
+      },
+      "required": [
+        "name",
+        "sources",
+        "simulationSoftwareSuite",
+        "robotSoftwareSuite",
+        "renderingEngine"
+      ],
+      "type": "object"
+    },
+    "CreateSimulationApplicationResponse": {
+      "properties": {
+        "arn": {
+          "$ref": "#/definitions/Arn",
+          "description": "The Amazon Resource Name (ARN) of the simulation application."
+        },
+        "lastUpdatedAt": {
+          "$ref": "#/definitions/LastUpdatedAt",
+          "description": "The time, in milliseconds since the epoch, when the simulation application was last updated."
+        },
+        "name": {
+          "$ref": "#/definitions/Name",
+          "description": "The name of the simulation application."
+        },
+        "renderingEngine": {
+          "$ref": "#/definitions/RenderingEngine",
+          "description": "The rendering engine for the simulation application."
+        },
+        "revisionId": {
+          "$ref": "#/definitions/RevisionId",
+          "description": "The revision id of the simulation application."
+        },
+        "robotSoftwareSuite": {
+          "$ref": "#/definitions/RobotSoftwareSuite",
+          "description": "Information about the robot software suite."
+        },
+        "simulationSoftwareSuite": {
+          "$ref": "#/definitions/SimulationSoftwareSuite",
+          "description": "The simulation software suite used by the simulation application."
+        },
+        "sources": {
+          "$ref": "#/definitions/Sources",
+          "description": "The sources of the simulation application."
+        },
+        "version": {
+          "$ref": "#/definitions/Version",
+          "description": "The version of the simulation application."
+        }
+      },
+      "type": "object"
+    },
+    "CreateSimulationApplicationVersionRequest": {
+      "properties": {
+        "application": {
+          "$ref": "#/definitions/Arn",
+          "description": "The application information for the simulation application."
+        },
+        "currentRevisionId": {
+          "$ref": "#/definitions/RevisionId",
+          "description": "The current revision id for the simulation application. If you provide a value and it matches the latest revision ID, a new version will be created."
+        }
+      },
+      "required": [
+        "application"
+      ],
+      "type": "object"
+    },
+    "CreateSimulationApplicationVersionResponse": {
+      "properties": {
+        "arn": {
+          "$ref": "#/definitions/Arn",
+          "description": "The Amazon Resource Name (ARN) of the simulation application."
+        },
+        "lastUpdatedAt": {
+          "$ref": "#/definitions/LastUpdatedAt",
+          "description": "The time, in milliseconds since the epoch, when the simulation application was last updated."
+        },
+        "name": {
+          "$ref": "#/definitions/Name",
+          "description": "The name of the simulation application."
+        },
+        "renderingEngine": {
+          "$ref": "#/definitions/RenderingEngine",
+          "description": "The rendering engine for the simulation application."
+        },
+        "revisionId": {
+          "$ref": "#/definitions/RevisionId",
+          "description": "The revision ID of the simulation application."
+        },
+        "robotSoftwareSuite": {
+          "$ref": "#/definitions/RobotSoftwareSuite",
+          "description": "Information about the robot software suite."
+        },
+        "simulationSoftwareSuite": {
+          "$ref": "#/definitions/SimulationSoftwareSuite",
+          "description": "The simulation software suite used by the simulation application."
+        },
+        "sources": {
+          "$ref": "#/definitions/Sources",
+          "description": "The sources of the simulation application."
+        },
+        "version": {
+          "$ref": "#/definitions/Version",
+          "description": "The version of the simulation application."
+        }
+      },
+      "type": "object"
+    },
+    "CreateSimulationJobRequest": {
+      "properties": {
+        "clientRequestToken": {
+          "$ref": "#/definitions/ClientRequestToken",
+          "description": "Unique, case-sensitive identifier that you provide to ensure the idempotency of the request."
+        },
+        "failureBehavior": {
+          "$ref": "#/definitions/FailureBehavior",
+          "description": "<p>The failure behavior the simulation job.</p> <dl> <dt>Continue</dt> <dd> <p>Restart the simulation job in the same host instance.</p> </dd> <dt>Fail</dt> <dd> <p>Stop the simulation job and terminate the instance.</p> </dd> </dl>"
+        },
+        "iamRole": {
+          "$ref": "#/definitions/IamRole",
+          "description": "The IAM role that allows the simulation instance to call the AWS APIs that are specified in its associated policies on your behalf. This is how credentials are passed in to your simulation job. See how to <a href=\"https://docs.aws.amazon.com/toolkit-for-visual-studio/latest/user-guide/deployment-ecs-specify-credentials\">specify AWS security credentials for your application</a>. "
+        },
+        "maxJobDurationInSeconds": {
+          "$ref": "#/definitions/JobDuration",
+          "description": "The maximum simulation job duration in seconds (up to 14 days or 1,209,600 seconds. When <code>maxJobDurationInSeconds</code> is reached, the simulation job will status will transition to <code>Completed</code>."
+        },
+        "outputLocation": {
+          "$ref": "#/definitions/OutputLocation",
+          "description": "Location for output files generated by the simulation job."
+        },
+        "robotApplications": {
+          "$ref": "#/definitions/RobotApplicationConfigs",
+          "description": "The robot application to use in the simulation job."
+        },
+        "simulationApplications": {
+          "$ref": "#/definitions/SimulationApplicationConfigs",
+          "description": "The simulation application to use in the simulation job."
+        },
+        "vpcConfig": {
+          "$ref": "#/definitions/VPCConfig",
+          "description": "If your simulation job accesses resources in a VPC, you provide this parameter identifying the list of security group IDs and subnet IDs. These must belong to the same VPC. You must provide at least one security group and one subnet ID. "
+        }
+      },
+      "required": [
+        "maxJobDurationInSeconds",
+        "iamRole"
+      ],
+      "type": "object"
+    },
+    "CreateSimulationJobResponse": {
+      "properties": {
+        "arn": {
+          "$ref": "#/definitions/Arn",
+          "description": "The Amazon Resource Name (ARN) of the simulation job."
+        },
+        "clientRequestToken": {
+          "$ref": "#/definitions/ClientRequestToken",
+          "description": "Unique, case-sensitive identifier that you provide to ensure the idempotency of the request."
+        },
+        "failureBehavior": {
+          "$ref": "#/definitions/FailureBehavior",
+          "description": "the failure behavior for the simulation job."
+        },
+        "failureCode": {
+          "$ref": "#/definitions/SimulationJobErrorCode",
+          "description": "The failure code of the simulation job if it failed."
+        },
+        "iamRole": {
+          "$ref": "#/definitions/IamRole",
+          "description": "The IAM role that allows the simulation job to call the AWS APIs that are specified in its associated policies on your behalf."
+        },
+        "lastUpdatedAt": {
+          "$ref": "#/definitions/LastUpdatedAt",
+          "description": "The time, in milliseconds since the epoch, when the simulation job was last updated."
+        },
+        "maxJobDurationInSeconds": {
+          "$ref": "#/definitions/JobDuration",
+          "description": "The maximum simulation job duration in seconds. The value must be 8 days (691,200 seconds) or less. "
+        },
+        "outputLocation": {
+          "$ref": "#/definitions/OutputLocation",
+          "description": "Simulation job output files location."
+        },
+        "robotApplications": {
+          "$ref": "#/definitions/RobotApplicationConfigs",
+          "description": "The robot application used by the simulation job."
+        },
+        "simulationApplications": {
+          "$ref": "#/definitions/SimulationApplicationConfigs",
+          "description": "The simulation application used by the simulation job."
+        },
+        "simulationTimeMillis": {
+          "$ref": "#/definitions/SimulationTimeMillis",
+          "description": "The simulation job execution duration in milliseconds."
+        },
+        "status": {
+          "$ref": "#/definitions/SimulationJobStatus",
+          "description": "The status of the simulation job."
+        },
+        "vpcConfig": {
+          "$ref": "#/definitions/VPCConfigResponse",
+          "description": "Information about the vpc configuration."
+        }
+      },
+      "type": "object"
+    },
+    "CreatedAt": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "DeleteFleetRequest": {
+      "properties": {
+        "fleet": {
+          "$ref": "#/definitions/Arn",
+          "description": "The Amazon Resource Name (ARN) of the fleet."
+        }
+      },
+      "required": [
+        "fleet"
+      ],
+      "type": "object"
+    },
+    "DeleteFleetResponse": {
+      "properties": {},
+      "type": "object"
+    },
+    "DeleteRobotApplicationRequest": {
+      "properties": {
+        "application": {
+          "$ref": "#/definitions/Arn",
+          "description": "The Amazon Resource Name (ARN) of the the robot application."
+        },
+        "applicationVersion": {
+          "$ref": "#/definitions/Version",
+          "description": "The version of the robot application to delete."
+        }
+      },
+      "required": [
+        "application"
+      ],
+      "type": "object"
+    },
+    "DeleteRobotApplicationResponse": {
+      "properties": {},
+      "type": "object"
+    },
+    "DeleteRobotRequest": {
+      "properties": {
+        "robot": {
+          "$ref": "#/definitions/Arn",
+          "description": "The Amazon Resource Name (ARN) of the robot."
+        }
+      },
+      "required": [
+        "robot"
+      ],
+      "type": "object"
+    },
+    "DeleteRobotResponse": {
+      "properties": {},
+      "type": "object"
+    },
+    "DeleteSimulationApplicationRequest": {
+      "properties": {
+        "application": {
+          "$ref": "#/definitions/Arn",
+          "description": "The application information for the simulation application to delete."
+        },
+        "applicationVersion": {
+          "$ref": "#/definitions/Version",
+          "description": "The version of the simulation application to delete."
+        }
+      },
+      "required": [
+        "application"
+      ],
+      "type": "object"
+    },
+    "DeleteSimulationApplicationResponse": {
+      "properties": {},
+      "type": "object"
+    },
+    "DeploymentApplicationConfig": {
+      "description": "Information about a deployment application configuration.",
+      "properties": {
+        "application": {
+          "$ref": "#/definitions/Arn",
+          "description": "The application."
+        },
+        "applicationVersion": {
+          "$ref": "#/definitions/Version",
+          "description": "The version of the application."
+        },
+        "launchConfig": {
+          "$ref": "#/definitions/DeploymentLaunchConfig",
+          "description": "The launch configuration, usually <code>roslaunch</code>."
+        }
+      },
+      "required": [
+        "application",
+        "applicationVersion",
+        "launchConfig"
+      ],
+      "type": "object"
+    },
+    "DeploymentApplicationConfigs": {
+      "items": {
+        "$ref": "#/definitions/DeploymentApplicationConfig"
+      },
+      "maxItems": 1,
+      "minItems": 1,
+      "type": "array"
+    },
+    "DeploymentConfig": {
+      "description": "Information about a deployment configuration.",
+      "properties": {
+        "concurrentDeploymentPercentage": {
+          "$ref": "#/definitions/Percentage",
+          "description": "The percentage of robots receiving the deployment at the same time."
+        },
+        "failureThresholdPercentage": {
+          "$ref": "#/definitions/Percentage",
+          "description": "The percentage of deployments that need to fail before stopping deployment."
+        }
+      },
+      "type": "object"
+    },
+    "DeploymentJob": {
+      "description": "Information about a deployment job.",
+      "properties": {
+        "arn": {
+          "$ref": "#/definitions/Arn",
+          "description": "The Amazon Resource Name (ARN) of the deployment job."
+        },
+        "createdAt": {
+          "$ref": "#/definitions/CreatedAt",
+          "description": "The time, in milliseconds since the epoch, when the deployment job was created."
+        },
+        "deploymentApplicationConfigs": {
+          "$ref": "#/definitions/DeploymentApplicationConfigs",
+          "description": "The deployment application configuration."
+        },
+        "deploymentConfig": {
+          "$ref": "#/definitions/DeploymentConfig",
+          "description": "The deployment configuration."
+        },
+        "failureCode": {
+          "$ref": "#/definitions/DeploymentJobErrorCode",
+          "description": "The deployment job failure code."
+        },
+        "failureReason": {
+          "$ref": "#/definitions/GenericString",
+          "description": "A short description of the reason why the deployment job failed."
+        },
+        "fleet": {
+          "$ref": "#/definitions/Arn",
+          "description": "The Amazon Resource Name (ARN) of the fleet."
+        },
+        "status": {
+          "$ref": "#/definitions/DeploymentStatus",
+          "description": "The status of the deployment job."
+        }
+      },
+      "type": "object"
+    },
+    "DeploymentJobErrorCode": {
+      "enum": [
+        "ResourceNotFound",
+        "FailureThresholdBreached",
+        "RobotDeploymentNoResponse",
+        "GreengrassDeploymentFailed",
+        "MissingRobotArchitecture",
+        "MissingRobotApplicationArchitecture",
+        "MissingRobotDeploymentResource",
+        "GreengrassGroupVersionDoesNotExist",
+        "ExtractingBundleFailure",
+        "PreLaunchFileFailure",
+        "PostLaunchFileFailure",
+        "BadPermissionError",
+        "InternalServerError"
+      ],
+      "type": "string"
+    },
+    "DeploymentJobs": {
+      "items": {
+        "$ref": "#/definitions/DeploymentJob"
+      },
+      "maxItems": 200,
+      "minItems": 0,
+      "type": "array"
+    },
+    "DeploymentLaunchConfig": {
+      "description": "Configuration information for a deployment launch.",
+      "properties": {
+        "environmentVariables": {
+          "$ref": "#/definitions/EnvironmentVariableMap",
+          "description": "An array of key/value pairs specifying environment variables for the deployment application."
+        },
+        "launchFile": {
+          "$ref": "#/definitions/GenericString",
+          "description": "The deployment launch file."
+        },
+        "packageName": {
+          "$ref": "#/definitions/GenericString",
+          "description": "The package name."
+        },
+        "postLaunchFile": {
+          "$ref": "#/definitions/GenericString",
+          "description": "The deployment post-launch file. This file will be executed after the deployment launch file."
+        },
+        "preLaunchFile": {
+          "$ref": "#/definitions/GenericString",
+          "description": "The deployment pre-launch file. This file will be executed prior to the deployment launch file."
+        }
+      },
+      "required": [
+        "packageName",
+        "launchFile"
+      ],
+      "type": "object"
+    },
+    "DeploymentStatus": {
+      "enum": [
+        "Pending",
+        "Preparing",
+        "InProgress",
+        "Failed",
+        "Succeeded"
+      ],
+      "type": "string"
+    },
+    "DeregisterRobotRequest": {
+      "properties": {
+        "fleet": {
+          "$ref": "#/definitions/Arn",
+          "description": "The Amazon Resource Name (ARN) of the fleet."
+        },
+        "robot": {
+          "$ref": "#/definitions/Arn",
+          "description": "The Amazon Resource Name (ARN) of the robot."
+        }
+      },
+      "required": [
+        "fleet",
+        "robot"
+      ],
+      "type": "object"
+    },
+    "DeregisterRobotResponse": {
+      "properties": {
+        "fleet": {
+          "$ref": "#/definitions/Arn",
+          "description": "The Amazon Resource Name (ARN) of the fleet."
+        },
+        "robot": {
+          "$ref": "#/definitions/Arn",
+          "description": "The Amazon Resource Name (ARN) of the robot."
+        }
+      },
+      "type": "object"
+    },
+    "DescribeDeploymentJobRequest": {
+      "properties": {
+        "job": {
+          "$ref": "#/definitions/Arn",
+          "description": "The Amazon Resource Name (ARN) of the deployment job."
+        }
+      },
+      "required": [
+        "job"
+      ],
+      "type": "object"
+    },
+    "DescribeDeploymentJobResponse": {
+      "properties": {
+        "arn": {
+          "$ref": "#/definitions/Arn",
+          "description": "The Amazon Resource Name (ARN) of the deployment job."
+        },
+        "createdAt": {
+          "$ref": "#/definitions/CreatedAt",
+          "description": "The time, in milliseconds since the epoch, when the deployment job was created."
+        },
+        "deploymentApplicationConfigs": {
+          "$ref": "#/definitions/DeploymentApplicationConfigs",
+          "description": "The deployment application configuration."
+        },
+        "deploymentConfig": {
+          "$ref": "#/definitions/DeploymentConfig",
+          "description": "The deployment configuration."
+        },
+        "failureCode": {
+          "$ref": "#/definitions/DeploymentJobErrorCode",
+          "description": "The deployment job failure code."
+        },
+        "failureReason": {
+          "$ref": "#/definitions/GenericString",
+          "description": "A short description of the reason why the deployment job failed."
+        },
+        "fleet": {
+          "$ref": "#/definitions/Arn",
+          "description": "The Amazon Resource Name (ARN) of the fleet."
+        },
+        "robotDeploymentSummary": {
+          "$ref": "#/definitions/RobotDeploymentSummary",
+          "description": "A list of robot deployment summaries."
+        },
+        "status": {
+          "$ref": "#/definitions/DeploymentStatus",
+          "description": "The status of the deployment job."
+        }
+      },
+      "type": "object"
+    },
+    "DescribeFleetRequest": {
+      "properties": {
+        "fleet": {
+          "$ref": "#/definitions/Arn",
+          "description": "The Amazon Resource Name (ARN) of the fleet."
+        }
+      },
+      "required": [
+        "fleet"
+      ],
+      "type": "object"
+    },
+    "DescribeFleetResponse": {
+      "properties": {
+        "arn": {
+          "$ref": "#/definitions/Arn",
+          "description": "The Amazon Resource Name (ARN) of the fleet."
+        },
+        "createdAt": {
+          "$ref": "#/definitions/CreatedAt",
+          "description": "The time, in milliseconds since the epoch, when the fleet was created."
+        },
+        "lastDeploymentJob": {
+          "$ref": "#/definitions/Arn",
+          "description": "The Amazon Resource Name (ARN) of the last deployment job."
+        },
+        "lastDeploymentStatus": {
+          "$ref": "#/definitions/DeploymentStatus",
+          "description": "The status of the last deployment."
+        },
+        "lastDeploymentTime": {
+          "$ref": "#/definitions/CreatedAt",
+          "description": "The time of the last deployment."
+        },
+        "name": {
+          "$ref": "#/definitions/Name",
+          "description": "The name of the fleet."
+        },
+        "robots": {
+          "$ref": "#/definitions/Robots",
+          "description": "A list of robots."
+        }
+      },
+      "type": "object"
+    },
+    "DescribeRobotApplicationRequest": {
+      "properties": {
+        "application": {
+          "$ref": "#/definitions/Arn",
+          "description": "The Amazon Resource Name (ARN) of the robot application."
+        },
+        "applicationVersion": {
+          "$ref": "#/definitions/Version",
+          "description": "The version of the robot application to describe."
+        }
+      },
+      "required": [
+        "application"
+      ],
+      "type": "object"
+    },
+    "DescribeRobotApplicationResponse": {
+      "properties": {
+        "arn": {
+          "$ref": "#/definitions/Arn",
+          "description": "The Amazon Resource Name (ARN) of the robot application."
+        },
+        "lastUpdatedAt": {
+          "$ref": "#/definitions/LastUpdatedAt",
+          "description": "The time, in milliseconds since the epoch, when the robot application was last updated."
+        },
+        "name": {
+          "$ref": "#/definitions/Name",
+          "description": "The name of the robot application."
+        },
+        "revisionId": {
+          "$ref": "#/definitions/RevisionId",
+          "description": "The revision id of the robot application."
+        },
+        "robotSoftwareSuite": {
+          "$ref": "#/definitions/RobotSoftwareSuite",
+          "description": "The robot software suite used by the robot application."
+        },
+        "sources": {
+          "$ref": "#/definitions/Sources",
+          "description": "The sources of the robot application."
+        },
+        "version": {
+          "$ref": "#/definitions/Version",
+          "description": "The version of the robot application."
+        }
+      },
+      "type": "object"
+    },
+    "DescribeRobotRequest": {
+      "properties": {
+        "robot": {
+          "$ref": "#/definitions/Arn",
+          "description": "The Amazon Resource Name (ARN) of the robot to be described."
+        }
+      },
+      "required": [
+        "robot"
+      ],
+      "type": "object"
+    },
+    "DescribeRobotResponse": {
+      "properties": {
+        "architecture": {
+          "$ref": "#/definitions/Architecture",
+          "description": "The target architecture of the robot application."
+        },
+        "arn": {
+          "$ref": "#/definitions/Arn",
+          "description": "The Amazon Resource Name (ARN) of the robot."
+        },
+        "createdAt": {
+          "$ref": "#/definitions/CreatedAt",
+          "description": "The time, in milliseconds since the epoch, when the robot was created."
+        },
+        "fleetArn": {
+          "$ref": "#/definitions/Arn",
+          "description": "The Amazon Resource Name (ARN) of the fleet."
+        },
+        "greengrassGroupId": {
+          "$ref": "#/definitions/Id",
+          "description": "The Greengrass group id."
+        },
+        "lastDeploymentJob": {
+          "$ref": "#/definitions/Arn",
+          "description": "The Amazon Resource Name (ARN) of the last deployment job."
+        },
+        "lastDeploymentTime": {
+          "$ref": "#/definitions/CreatedAt",
+          "description": "The time of the last deployment job."
+        },
+        "name": {
+          "$ref": "#/definitions/Name",
+          "description": "The name of the robot."
+        },
+        "status": {
+          "$ref": "#/definitions/RobotStatus",
+          "description": "The status of the fleet."
+        }
+      },
+      "type": "object"
+    },
+    "DescribeSimulationApplicationRequest": {
+      "properties": {
+        "application": {
+          "$ref": "#/definitions/Arn",
+          "description": "The application information for the simulation application."
+        },
+        "applicationVersion": {
+          "$ref": "#/definitions/Version",
+          "description": "The version of the simulation application to describe."
+        }
+      },
+      "required": [
+        "application"
+      ],
+      "type": "object"
+    },
+    "DescribeSimulationApplicationResponse": {
+      "properties": {
+        "arn": {
+          "$ref": "#/definitions/Arn",
+          "description": "The Amazon Resource Name (ARN) of the robot simulation application."
+        },
+        "lastUpdatedAt": {
+          "$ref": "#/definitions/LastUpdatedAt",
+          "description": "The time, in milliseconds since the epoch, when the simulation application was last updated."
+        },
+        "name": {
+          "$ref": "#/definitions/Name",
+          "description": "The name of the simulation application."
+        },
+        "renderingEngine": {
+          "$ref": "#/definitions/RenderingEngine",
+          "description": "The rendering engine for the simulation application."
+        },
+        "revisionId": {
+          "$ref": "#/definitions/RevisionId",
+          "description": "The revision id of the simulation application."
+        },
+        "robotSoftwareSuite": {
+          "$ref": "#/definitions/RobotSoftwareSuite",
+          "description": "Information about the robot software suite."
+        },
+        "simulationSoftwareSuite": {
+          "$ref": "#/definitions/SimulationSoftwareSuite",
+          "description": "The simulation software suite used by the simulation application."
+        },
+        "sources": {
+          "$ref": "#/definitions/Sources",
+          "description": "The sources of the simulation application."
+        },
+        "version": {
+          "$ref": "#/definitions/Version",
+          "description": "The version of the simulation application."
+        }
+      },
+      "type": "object"
+    },
+    "DescribeSimulationJobRequest": {
+      "properties": {
+        "job": {
+          "$ref": "#/definitions/Arn",
+          "description": "The Amazon Resource Name (ARN) of the simulation job to be described."
+        }
+      },
+      "required": [
+        "job"
+      ],
+      "type": "object"
+    },
+    "DescribeSimulationJobResponse": {
+      "properties": {
+        "arn": {
+          "$ref": "#/definitions/Arn",
+          "description": "The Amazon Resource Name (ARN) of the simulation job."
+        },
+        "clientRequestToken": {
+          "$ref": "#/definitions/ClientRequestToken",
+          "description": "Unique, case-sensitive identifier that you provide to ensure the idempotency of the request."
+        },
+        "failureBehavior": {
+          "$ref": "#/definitions/FailureBehavior",
+          "description": "The failure behavior for the simulation job."
+        },
+        "failureCode": {
+          "$ref": "#/definitions/SimulationJobErrorCode",
+          "description": "<p>The failure code of the simulation job if it failed:</p> <dl> <dt>InternalServiceError</dt> <dd> <p>Internal service error</p> </dd> <dt>RobotApplicationCrash</dt> <dd> <p>Robot application exited abnormally (segfault, etc.)</p> </dd> <dt>SimulationApplicationCrash</dt> <dd> <p> Simulation application exited abnormally (segfault, etc.)</p> </dd> <dt>BadPermissionsRobotApplication</dt> <dd> <p>Robot application bundle could not be downloaded</p> </dd> <dt>BadPermissionsSimulationApplication</dt> <dd> <p>Simulation application bundle could not be downloaded</p> </dd> <dt>BadPermissionsS3Output</dt> <dd> <p>Unable to publish outputs to customer-provided S3 bucket</p> </dd> <dt>BadPermissionsCloudwatchLogs</dt> <dd> <p>Unable to publish logs to customer-provided CloudWatch Logs resource</p> </dd> <dt>SubnetIpLimitExceeded</dt> <dd> <p>Subnet IP limit exceeded</p> </dd> <dt>ENILimitExceeded</dt> <dd> <p>ENI limit exceeded</p> </dd> <dt>BadPermissionsUserCredentials</dt> <dd> <p>Unable to use the Role provided</p> </dd> <dt>InvalidBundleRobotApplication</dt> <dd> <p>Robot bundle cannot be extracted (invalid format, bundling error, etc.)</p> </dd> <dt>InvalidBundleSimulationApplication</dt> <dd> <p>Simulation bundle cannot be extracted (invalid format, bundling error, etc.)</p> </dd> <dt>RobotApplicationVersionMismatchedEtag</dt> <dd> <p>Etag for RobotApplication does not match value during version creation</p> </dd> <dt>SimulationApplicationVersionMismatchedEtag</dt> <dd> <p>Etag for SimulationApplication does not match value during version creation</p> </dd> </dl>"
+        },
+        "iamRole": {
+          "$ref": "#/definitions/IamRole",
+          "description": "The IAM role that allows the simulation instance to call the AWS APIs that are specified in its associated policies on your behalf."
+        },
+        "lastUpdatedAt": {
+          "$ref": "#/definitions/LastUpdatedAt",
+          "description": "The time, in milliseconds since the epoch, when the simulation job was last updated."
+        },
+        "maxJobDurationInSeconds": {
+          "$ref": "#/definitions/JobDuration",
+          "description": "The maximum job duration in seconds. The value must be 8 days (691,200 seconds) or less."
+        },
+        "name": {
+          "$ref": "#/definitions/Name",
+          "description": "The name of the simulation job."
+        },
+        "outputLocation": {
+          "$ref": "#/definitions/OutputLocation",
+          "description": "Location for output files generated by the simulation job."
+        },
+        "robotApplications": {
+          "$ref": "#/definitions/RobotApplicationConfigs",
+          "description": "A list of robot applications."
+        },
+        "simulationApplications": {
+          "$ref": "#/definitions/SimulationApplicationConfigs",
+          "description": "A list of simulation applications."
+        },
+        "simulationTimeMillis": {
+          "$ref": "#/definitions/SimulationTimeMillis",
+          "description": "The simulation job execution duration in milliseconds."
+        },
+        "status": {
+          "$ref": "#/definitions/SimulationJobStatus",
+          "description": "The status of the simulation job."
+        },
+        "vpcConfig": {
+          "$ref": "#/definitions/VPCConfigResponse",
+          "description": "The VPC configuration."
+        }
+      },
+      "type": "object"
+    },
+    "EnvironmentVariableKey": {
+      "maxLength": 1024,
+      "minLength": 1,
+      "pattern": "[A-Z_][A-Z0-9_]*",
+      "type": "string"
+    },
+    "EnvironmentVariableMap": {
+      "items": {
+        "properties": {
+          "key": {
+            "$ref": "#/definitions/EnvironmentVariableKey"
+          },
+          "value": {
+            "$ref": "#/definitions/EnvironmentVariableValue"
+          }
+        },
+        "type": "object"
+      },
+      "maxItems": 16,
+      "minItems": 0,
+      "type": "array"
+    },
+    "EnvironmentVariableValue": {
+      "maxLength": 1024,
+      "minLength": 1,
+      "type": "string"
+    },
+    "FailureBehavior": {
+      "enum": [
+        "Fail",
+        "Continue"
+      ],
+      "type": "string"
+    },
+    "Filter": {
+      "description": "Information about a filter.",
+      "properties": {
+        "name": {
+          "$ref": "#/definitions/Name",
+          "description": "The name of the filter."
+        },
+        "values": {
+          "$ref": "#/definitions/FilterValues",
+          "description": "A list of values."
+        }
+      },
+      "type": "object"
+    },
+    "FilterValues": {
+      "items": {
+        "$ref": "#/definitions/Name"
+      },
+      "maxItems": 1,
+      "minItems": 1,
+      "type": "array"
+    },
+    "Filters": {
+      "items": {
+        "$ref": "#/definitions/Filter"
+      },
+      "maxItems": 1,
+      "minItems": 1,
+      "type": "array"
+    },
+    "Fleet": {
+      "description": "Information about a fleet.",
+      "properties": {
+        "arn": {
+          "$ref": "#/definitions/Arn",
+          "description": "The Amazon Resource Name (ARN) of the fleet."
+        },
+        "createdAt": {
+          "$ref": "#/definitions/CreatedAt",
+          "description": "The time, in milliseconds since the epoch, when the fleet was created."
+        },
+        "lastDeploymentJob": {
+          "$ref": "#/definitions/Arn",
+          "description": "The Amazon Resource Name (ARN) of the last deployment job."
+        },
+        "lastDeploymentStatus": {
+          "$ref": "#/definitions/DeploymentStatus",
+          "description": "The status of the last fleet deployment."
+        },
+        "lastDeploymentTime": {
+          "$ref": "#/definitions/CreatedAt",
+          "description": "The time of the last deployment."
+        },
+        "name": {
+          "$ref": "#/definitions/Name",
+          "description": "The name of the fleet."
+        }
+      },
+      "type": "object"
+    },
+    "Fleets": {
+      "items": {
+        "$ref": "#/definitions/Fleet"
+      },
+      "maxItems": 200,
+      "minItems": 0,
+      "type": "array"
+    },
+    "GenericString": {
+      "type": "string"
+    },
+    "IamRole": {
+      "maxLength": 255,
+      "minLength": 1,
+      "pattern": "arn:.*",
+      "type": "string"
+    },
+    "Id": {
+      "maxLength": 1224,
+      "minLength": 1,
+      "type": "string"
+    },
+    "IdempotentParameterMismatchException": {},
+    "InternalServerException": {},
+    "InvalidParameterException": {},
+    "JobDuration": {
+      "type": "integer"
+    },
+    "LastUpdatedAt": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "LaunchConfig": {
+      "description": "Information about a launch configuration.",
+      "properties": {
+        "environmentVariables": {
+          "$ref": "#/definitions/EnvironmentVariableMap",
+          "description": "The environment variables for the application launch."
+        },
+        "launchFile": {
+          "$ref": "#/definitions/GenericString",
+          "description": "The launch file."
+        },
+        "packageName": {
+          "$ref": "#/definitions/GenericString",
+          "description": "The package name."
+        }
+      },
+      "required": [
+        "packageName",
+        "launchFile"
+      ],
+      "type": "object"
+    },
+    "LimitExceededException": {},
+    "ListDeploymentJobsRequest": {
+      "properties": {
+        "filters": {
+          "$ref": "#/definitions/Filters",
+          "description": "Optional filters to limit results."
+        },
+        "maxResults": {
+          "$ref": "#/definitions/MaxResults",
+          "description": "The maximum number of deployment job results returned by <code>ListDeploymentJobs</code> in paginated output. When this parameter is used, <code>ListDeploymentJobs</code> only returns <code>maxResults</code> results in a single page along with a <code>nextToken</code> response element. The remaining results of the initial request can be seen by sending another <code>ListDeploymentJobs</code> request with the returned <code>nextToken</code> value. This value can be between 1 and 100. If this parameter is not used, then <code>ListDeploymentJobs</code> returns up to 100 results and a <code>nextToken</code> value if applicable. "
+        },
+        "nextToken": {
+          "$ref": "#/definitions/PaginationToken",
+          "description": "<p>The <code>nextToken</code> value returned from a previous paginated <code>ListDeploymentJobs</code> request where <code>maxResults</code> was used and the results exceeded the value of that parameter. Pagination continues from the end of the previous results that returned the <code>nextToken</code> value. </p> <note> <p>This token should be treated as an opaque identifier that is only used to retrieve the next items in a list and not for other programmatic purposes.</p> </note>"
+        }
+      },
+      "type": "object"
+    },
+    "ListDeploymentJobsResponse": {
+      "properties": {
+        "deploymentJobs": {
+          "$ref": "#/definitions/DeploymentJobs",
+          "description": "A list of deployment jobs that meet the criteria of the request."
+        },
+        "nextToken": {
+          "$ref": "#/definitions/PaginationToken",
+          "description": "The <code>nextToken</code> value to include in a future <code>ListDeploymentJobs</code> request. When the results of a <code>ListDeploymentJobs</code> request exceed <code>maxResults</code>, this value can be used to retrieve the next page of results. This value is <code>null</code> when there are no more results to return. "
+        }
+      },
+      "type": "object"
+    },
+    "ListFleetsRequest": {
+      "properties": {
+        "filters": {
+          "$ref": "#/definitions/Filters",
+          "description": "Optional filters to limit results."
+        },
+        "maxResults": {
+          "$ref": "#/definitions/MaxResults",
+          "description": "The maximum number of deployment job results returned by <code>ListFleets</code> in paginated output. When this parameter is used, <code>ListFleets</code> only returns <code>maxResults</code> results in a single page along with a <code>nextToken</code> response element. The remaining results of the initial request can be seen by sending another <code>ListFleets</code> request with the returned <code>nextToken</code> value. This value can be between 1 and 100. If this parameter is not used, then <code>ListFleets</code> returns up to 100 results and a <code>nextToken</code> value if applicable. "
+        },
+        "nextToken": {
+          "$ref": "#/definitions/PaginationToken",
+          "description": "<p>The <code>nextToken</code> value returned from a previous paginated <code>ListFleets</code> request where <code>maxResults</code> was used and the results exceeded the value of that parameter. Pagination continues from the end of the previous results that returned the <code>nextToken</code> value. </p> <note> <p>This token should be treated as an opaque identifier that is only used to retrieve the next items in a list and not for other programmatic purposes.</p> </note>"
+        }
+      },
+      "type": "object"
+    },
+    "ListFleetsResponse": {
+      "properties": {
+        "fleetDetails": {
+          "$ref": "#/definitions/Fleets",
+          "description": "A list of fleet details meeting the request criteria."
+        },
+        "nextToken": {
+          "$ref": "#/definitions/PaginationToken",
+          "description": "The <code>nextToken</code> value to include in a future <code>ListDeploymentJobs</code> request. When the results of a <code>ListFleets</code> request exceed <code>maxResults</code>, this value can be used to retrieve the next page of results. This value is <code>null</code> when there are no more results to return. "
+        }
+      },
+      "type": "object"
+    },
+    "ListRobotApplicationsRequest": {
+      "properties": {
+        "filters": {
+          "$ref": "#/definitions/Filters",
+          "description": "Optional filters to limit results."
+        },
+        "maxResults": {
+          "$ref": "#/definitions/MaxResults",
+          "description": "The maximum number of deployment job results returned by <code>ListRobotApplications</code> in paginated output. When this parameter is used, <code>ListRobotApplications</code> only returns <code>maxResults</code> results in a single page along with a <code>nextToken</code> response element. The remaining results of the initial request can be seen by sending another <code>ListFleets</code> request with the returned <code>nextToken</code> value. This value can be between 1 and 100. If this parameter is not used, then <code>ListRobotApplications</code> returns up to 100 results and a <code>nextToken</code> value if applicable. "
+        },
+        "nextToken": {
+          "$ref": "#/definitions/PaginationToken",
+          "description": "<p>The <code>nextToken</code> value returned from a previous paginated <code>ListRobotApplications</code> request where <code>maxResults</code> was used and the results exceeded the value of that parameter. Pagination continues from the end of the previous results that returned the <code>nextToken</code> value. </p> <note> <p>This token should be treated as an opaque identifier that is only used to retrieve the next items in a list and not for other programmatic purposes.</p> </note>"
+        },
+        "versionQualifier": {
+          "$ref": "#/definitions/VersionQualifier",
+          "description": "The version qualifier of the robot application."
+        }
+      },
+      "type": "object"
+    },
+    "ListRobotApplicationsResponse": {
+      "properties": {
+        "nextToken": {
+          "$ref": "#/definitions/PaginationToken",
+          "description": "The <code>nextToken</code> value to include in a future <code>ListRobotApplications</code> request. When the results of a <code>ListRobotApplications</code> request exceed <code>maxResults</code>, this value can be used to retrieve the next page of results. This value is <code>null</code> when there are no more results to return. "
+        },
+        "robotApplicationSummaries": {
+          "$ref": "#/definitions/RobotApplicationSummaries",
+          "description": "A list of robot application summaries that meet the criteria of the request."
+        }
+      },
+      "type": "object"
+    },
+    "ListRobotsRequest": {
+      "properties": {
+        "filters": {
+          "$ref": "#/definitions/Filters",
+          "description": "Optional filters to limit results."
+        },
+        "maxResults": {
+          "$ref": "#/definitions/MaxResults",
+          "description": "The maximum number of deployment job results returned by <code>ListRobots</code> in paginated output. When this parameter is used, <code>ListRobots</code> only returns <code>maxResults</code> results in a single page along with a <code>nextToken</code> response element. The remaining results of the initial request can be seen by sending another <code>ListFleets</code> request with the returned <code>nextToken</code> value. This value can be between 1 and 100. If this parameter is not used, then <code>ListRobots</code> returns up to 100 results and a <code>nextToken</code> value if applicable. "
+        },
+        "nextToken": {
+          "$ref": "#/definitions/PaginationToken",
+          "description": "<p>The <code>nextToken</code> value returned from a previous paginated <code>ListRobots</code> request where <code>maxResults</code> was used and the results exceeded the value of that parameter. Pagination continues from the end of the previous results that returned the <code>nextToken</code> value. </p> <note> <p>This token should be treated as an opaque identifier that is only used to retrieve the next items in a list and not for other programmatic purposes.</p> </note>"
+        }
+      },
+      "type": "object"
+    },
+    "ListRobotsResponse": {
+      "properties": {
+        "nextToken": {
+          "$ref": "#/definitions/PaginationToken",
+          "description": "The <code>nextToken</code> value to include in a future <code>ListRobots</code> request. When the results of a <code>ListRobot</code> request exceed <code>maxResults</code>, this value can be used to retrieve the next page of results. This value is <code>null</code> when there are no more results to return. "
+        },
+        "robots": {
+          "$ref": "#/definitions/Robots",
+          "description": "A list of robots that meet the criteria of the request."
+        }
+      },
+      "type": "object"
+    },
+    "ListSimulationApplicationsRequest": {
+      "properties": {
+        "filters": {
+          "$ref": "#/definitions/Filters",
+          "description": "Optional list of filters to limit results. The only valid filter name is <code>name</code>."
+        },
+        "maxResults": {
+          "$ref": "#/definitions/MaxResults",
+          "description": "The maximum number of deployment job results returned by <code>ListSimulationApplications</code> in paginated output. When this parameter is used, <code>ListSimulationApplications</code> only returns <code>maxResults</code> results in a single page along with a <code>nextToken</code> response element. The remaining results of the initial request can be seen by sending another <code>ListFleets</code> request with the returned <code>nextToken</code> value. This value can be between 1 and 100. If this parameter is not used, then <code>ListSimulationApplications</code> returns up to 100 results and a <code>nextToken</code> value if applicable. "
+        },
+        "nextToken": {
+          "$ref": "#/definitions/PaginationToken",
+          "description": "<p>The <code>nextToken</code> value returned from a previous paginated <code>ListSimulationApplications</code> request where <code>maxResults</code> was used and the results exceeded the value of that parameter. Pagination continues from the end of the previous results that returned the <code>nextToken</code> value. </p> <note> <p>This token should be treated as an opaque identifier that is only used to retrieve the next items in a list and not for other programmatic purposes.</p> </note>"
+        },
+        "versionQualifier": {
+          "$ref": "#/definitions/VersionQualifier",
+          "description": "The version qualifier of the simulation application."
+        }
+      },
+      "type": "object"
+    },
+    "ListSimulationApplicationsResponse": {
+      "properties": {
+        "nextToken": {
+          "$ref": "#/definitions/PaginationToken",
+          "description": "The <code>nextToken</code> value to include in a future <code>ListSimulationApplications</code> request. When the results of a <code>ListRobot</code> request exceed <code>maxResults</code>, this value can be used to retrieve the next page of results. This value is <code>null</code> when there are no more results to return. "
+        },
+        "simulationApplicationSummaries": {
+          "$ref": "#/definitions/SimulationApplicationSummaries",
+          "description": "A list of simulation application summaries that meet the criteria of the request."
+        }
+      },
+      "type": "object"
+    },
+    "ListSimulationJobsRequest": {
+      "properties": {
+        "filters": {
+          "$ref": "#/definitions/Filters",
+          "description": "Optional filters to limit results."
+        },
+        "maxResults": {
+          "$ref": "#/definitions/MaxResults",
+          "description": "The maximum number of deployment job results returned by <code>ListSimulationJobs</code> in paginated output. When this parameter is used, <code>ListSimulationJobs</code> only returns <code>maxResults</code> results in a single page along with a <code>nextToken</code> response element. The remaining results of the initial request can be seen by sending another <code>ListFleets</code> request with the returned <code>nextToken</code> value. This value can be between 1 and 100. If this parameter is not used, then <code>ListSimulationJobs</code> returns up to 100 results and a <code>nextToken</code> value if applicable. "
+        },
+        "nextToken": {
+          "$ref": "#/definitions/PaginationToken",
+          "description": "<p>The <code>nextToken</code> value returned from a previous paginated <code>ListSimulationJobs</code> request where <code>maxResults</code> was used and the results exceeded the value of that parameter. Pagination continues from the end of the previous results that returned the <code>nextToken</code> value. </p> <note> <p>This token should be treated as an opaque identifier that is only used to retrieve the next items in a list and not for other programmatic purposes.</p> </note>"
+        }
+      },
+      "type": "object"
+    },
+    "ListSimulationJobsResponse": {
+      "properties": {
+        "nextToken": {
+          "$ref": "#/definitions/PaginationToken",
+          "description": "The <code>nextToken</code> value to include in a future <code>ListSimulationJobs</code> request. When the results of a <code>ListRobot</code> request exceed <code>maxResults</code>, this value can be used to retrieve the next page of results. This value is <code>null</code> when there are no more results to return. "
+        },
+        "simulationJobSummaries": {
+          "$ref": "#/definitions/SimulationJobSummaries",
+          "description": "A list of simulation job summaries that meet the criteria of the request."
+        }
+      },
+      "required": [
+        "simulationJobSummaries"
+      ],
+      "type": "object"
+    },
+    "MaxResults": {
+      "type": "integer"
+    },
+    "Name": {
+      "maxLength": 255,
+      "minLength": 1,
+      "pattern": "[a-zA-Z0-9_\\-]*",
+      "type": "string"
+    },
+    "OutputLocation": {
+      "description": "The output location.",
+      "properties": {
+        "s3Bucket": {
+          "$ref": "#/definitions/S3Bucket",
+          "description": "The S3 bucket for output."
+        },
+        "s3Prefix": {
+          "$ref": "#/definitions/S3Key",
+          "description": "The S3 folder in the <code>s3Bucket</code> where output files will be placed."
+        }
+      },
+      "type": "object"
+    },
+    "PaginationToken": {
+      "maxLength": 2048,
+      "minLength": 1,
+      "pattern": "[a-zA-Z0-9_.\\-\\/+=]*",
+      "type": "string"
+    },
+    "Percentage": {
+      "maximum": 100,
+      "minimum": 1,
+      "type": "integer"
+    },
+    "ProgressDetail": {
+      "description": "Information about the progress of a deployment job.",
+      "properties": {
+        "currentProgress": {
+          "$ref": "#/definitions/GenericString",
+          "description": "The current progress status."
+        },
+        "targetResource": {
+          "$ref": "#/definitions/GenericString",
+          "description": "The Amazon Resource Name (ARN) of the deployment job."
+        }
+      },
+      "type": "object"
+    },
+    "RegisterRobotRequest": {
+      "properties": {
+        "fleet": {
+          "$ref": "#/definitions/Arn",
+          "description": "The Amazon Resource Name (ARN) of the fleet."
+        },
+        "robot": {
+          "$ref": "#/definitions/Arn",
+          "description": "The Amazon Resource Name (ARN) of the robot."
+        }
+      },
+      "required": [
+        "fleet",
+        "robot"
+      ],
+      "type": "object"
+    },
+    "RegisterRobotResponse": {
+      "properties": {
+        "fleet": {
+          "$ref": "#/definitions/Arn",
+          "description": "The Amazon Resource Name (ARN) of the fleet that the robot will join."
+        },
+        "robot": {
+          "$ref": "#/definitions/Arn",
+          "description": "Information about the robot registration."
+        }
+      },
+      "type": "object"
+    },
+    "RenderingEngine": {
+      "description": "Information about a rendering engine.",
+      "properties": {
+        "name": {
+          "$ref": "#/definitions/RenderingEngineType",
+          "description": "The name of the rendering engine."
+        },
+        "version": {
+          "$ref": "#/definitions/RenderingEngineVersionType",
+          "description": "The version of the rendering engine."
+        }
+      },
+      "type": "object"
+    },
+    "RenderingEngineType": {
+      "enum": [
+        "OGRE"
+      ],
+      "type": "string"
+    },
+    "RenderingEngineVersionType": {
+      "pattern": "1.x",
+      "type": "string"
+    },
+    "ResourceAlreadyExistsException": {},
+    "ResourceNotFoundException": {},
+    "RestartSimulationJobRequest": {
+      "properties": {
+        "job": {
+          "$ref": "#/definitions/Arn",
+          "description": "The Amazon Resource Name (ARN) of the simulation job."
+        }
+      },
+      "required": [
+        "job"
+      ],
+      "type": "object"
+    },
+    "RestartSimulationJobResponse": {
+      "properties": {},
+      "type": "object"
+    },
+    "RevisionId": {
+      "maxLength": 40,
+      "minLength": 1,
+      "pattern": "[a-zA-Z0-9_.\\-]*",
+      "type": "string"
+    },
+    "Robot": {
+      "description": "Information about a robot.",
+      "properties": {
+        "architecture": {
+          "$ref": "#/definitions/Architecture",
+          "description": "The architecture of the robot."
+        },
+        "arn": {
+          "$ref": "#/definitions/Arn",
+          "description": "The Amazon Resource Name (ARN) of the robot."
+        },
+        "createdAt": {
+          "$ref": "#/definitions/CreatedAt",
+          "description": "The time, in milliseconds since the epoch, when the robot was created."
+        },
+        "fleetArn": {
+          "$ref": "#/definitions/Arn",
+          "description": "The Amazon Resource Name (ARN) of the fleet."
+        },
+        "greenGrassGroupId": {
+          "$ref": "#/definitions/Id",
+          "description": "The Greengrass group associated with the robot."
+        },
+        "lastDeploymentJob": {
+          "$ref": "#/definitions/Arn",
+          "description": "The Amazon Resource Name (ARN) of the last deployment job."
+        },
+        "lastDeploymentTime": {
+          "$ref": "#/definitions/CreatedAt",
+          "description": "The time of the last deployment."
+        },
+        "name": {
+          "$ref": "#/definitions/Name",
+          "description": "The name of the robot."
+        },
+        "status": {
+          "$ref": "#/definitions/RobotStatus",
+          "description": "The status of the robot."
+        }
+      },
+      "type": "object"
+    },
+    "RobotApplicationConfig": {
+      "description": "Application configuration information for a robot.",
+      "properties": {
+        "application": {
+          "$ref": "#/definitions/Arn",
+          "description": "The application information for the robot application."
+        },
+        "applicationVersion": {
+          "$ref": "#/definitions/Version",
+          "description": "The version of the robot application."
+        },
+        "launchConfig": {
+          "$ref": "#/definitions/LaunchConfig",
+          "description": "The launch configuration for the robot application."
+        }
+      },
+      "required": [
+        "application",
+        "launchConfig"
+      ],
+      "type": "object"
+    },
+    "RobotApplicationConfigs": {
+      "items": {
+        "$ref": "#/definitions/RobotApplicationConfig"
+      },
+      "maxItems": 1,
+      "minItems": 1,
+      "type": "array"
+    },
+    "RobotApplicationNames": {
+      "items": {
+        "$ref": "#/definitions/Name"
+      },
+      "maxItems": 1,
+      "minItems": 1,
+      "type": "array"
+    },
+    "RobotApplicationSummaries": {
+      "items": {
+        "$ref": "#/definitions/RobotApplicationSummary"
+      },
+      "maxItems": 100,
+      "minItems": 0,
+      "type": "array"
+    },
+    "RobotApplicationSummary": {
+      "description": "Summary information for a robot application.",
+      "properties": {
+        "arn": {
+          "$ref": "#/definitions/Arn",
+          "description": "The Amazon Resource Name (ARN) of the robot."
+        },
+        "lastUpdatedAt": {
+          "$ref": "#/definitions/LastUpdatedAt",
+          "description": "The time, in milliseconds since the epoch, when the robot application was last updated."
+        },
+        "name": {
+          "$ref": "#/definitions/Name",
+          "description": "The name of the robot application."
+        },
+        "version": {
+          "$ref": "#/definitions/Version",
+          "description": "The version of the robot application."
+        }
+      },
+      "type": "object"
+    },
+    "RobotDeployment": {
+      "description": "Information about a robot deployment.",
+      "properties": {
+        "arn": {
+          "$ref": "#/definitions/Arn",
+          "description": "The robot deployment Amazon Resource Name (ARN)."
+        },
+        "deploymentFinishTime": {
+          "$ref": "#/definitions/CreatedAt",
+          "description": "The time, in milliseconds since the epoch, when the deployment finished."
+        },
+        "deploymentStartTime": {
+          "$ref": "#/definitions/CreatedAt",
+          "description": "The time, in milliseconds since the epoch, when the deployment was started."
+        },
+        "failureCode": {
+          "$ref": "#/definitions/DeploymentJobErrorCode",
+          "description": "The robot deployment failure code."
+        },
+        "failureReason": {
+          "$ref": "#/definitions/GenericString",
+          "description": "A short description of the reason why the robot deployment failed."
+        },
+        "progressDetail": {
+          "$ref": "#/definitions/ProgressDetail",
+          "description": "Information about how the deployment is progressing."
+        },
+        "status": {
+          "$ref": "#/definitions/RobotStatus",
+          "description": "The status of the robot deployment."
+        }
+      },
+      "type": "object"
+    },
+    "RobotDeploymentSummary": {
+      "items": {
+        "$ref": "#/definitions/RobotDeployment"
+      },
+      "type": "array"
+    },
+    "RobotSoftwareSuite": {
+      "description": "Information about a robot software suite.",
+      "properties": {
+        "name": {
+          "$ref": "#/definitions/RobotSoftwareSuiteType",
+          "description": "The name of the robot software suite."
+        },
+        "version": {
+          "$ref": "#/definitions/RobotSoftwareSuiteVersionType",
+          "description": "The version of the robot software suite."
+        }
+      },
+      "type": "object"
+    },
+    "RobotSoftwareSuiteType": {
+      "enum": [
+        "ROS"
+      ],
+      "type": "string"
+    },
+    "RobotSoftwareSuiteVersionType": {
+      "enum": [
+        "Kinetic"
+      ],
+      "type": "string"
+    },
+    "RobotStatus": {
+      "enum": [
+        "Available",
+        "Registered",
+        "PendingNewDeployment",
+        "Deploying",
+        "Failed",
+        "InSync",
+        "NoResponse"
+      ],
+      "type": "string"
+    },
+    "Robots": {
+      "items": {
+        "$ref": "#/definitions/Robot"
+      },
+      "maxItems": 1000,
+      "minItems": 0,
+      "type": "array"
+    },
+    "S3Bucket": {
+      "maxLength": 63,
+      "minLength": 3,
+      "pattern": "[a-z0-9][a-z0-9\\-]*[a-z0-9]",
+      "type": "string"
+    },
+    "S3Etag": {
+      "type": "string"
+    },
+    "S3Key": {
+      "maxLength": 1024,
+      "minLength": 1,
+      "pattern": ".*",
+      "type": "string"
+    },
+    "SecurityGroups": {
+      "items": {
+        "$ref": "#/definitions/GenericString"
+      },
+      "maxItems": 5,
+      "minItems": 1,
+      "type": "array"
+    },
+    "SimulationApplicationConfig": {
+      "description": "Information about a simulation application configuration.",
+      "properties": {
+        "application": {
+          "$ref": "#/definitions/Arn",
+          "description": "The application information for the simulation application."
+        },
+        "applicationVersion": {
+          "$ref": "#/definitions/Version",
+          "description": "The version of the simulation application."
+        },
+        "launchConfig": {
+          "$ref": "#/definitions/LaunchConfig",
+          "description": "The launch configuration for the simulation application."
+        }
+      },
+      "required": [
+        "application",
+        "launchConfig"
+      ],
+      "type": "object"
+    },
+    "SimulationApplicationConfigs": {
+      "items": {
+        "$ref": "#/definitions/SimulationApplicationConfig"
+      },
+      "maxItems": 1,
+      "minItems": 1,
+      "type": "array"
+    },
+    "SimulationApplicationNames": {
+      "items": {
+        "$ref": "#/definitions/Name"
+      },
+      "maxItems": 1,
+      "minItems": 1,
+      "type": "array"
+    },
+    "SimulationApplicationSummaries": {
+      "items": {
+        "$ref": "#/definitions/SimulationApplicationSummary"
+      },
+      "maxItems": 100,
+      "minItems": 0,
+      "type": "array"
+    },
+    "SimulationApplicationSummary": {
+      "description": "Summary information for a simulation application.",
+      "properties": {
+        "arn": {
+          "$ref": "#/definitions/Arn",
+          "description": "The Amazon Resource Name (ARN) of the simulation application."
+        },
+        "lastUpdatedAt": {
+          "$ref": "#/definitions/LastUpdatedAt",
+          "description": "The time, in milliseconds since the epoch, when the simulation application was last updated."
+        },
+        "name": {
+          "$ref": "#/definitions/Name",
+          "description": "The name of the simulation application."
+        },
+        "version": {
+          "$ref": "#/definitions/Version",
+          "description": "The version of the simulation application."
+        }
+      },
+      "type": "object"
+    },
+    "SimulationJob": {
+      "description": "Information about a simulation job.",
+      "properties": {
+        "arn": {
+          "$ref": "#/definitions/Arn",
+          "description": "The Amazon Resource Name (ARN) of the simulation job."
+        },
+        "clientRequestToken": {
+          "$ref": "#/definitions/ClientRequestToken",
+          "description": "A unique identifier for this <code>SimulationJob</code> request."
+        },
+        "failureBehavior": {
+          "$ref": "#/definitions/FailureBehavior",
+          "description": "<p>The failure behavior the simulation job.</p> <dl> <dt>Continue</dt> <dd> <p>Restart the simulation job in the same host instance.</p> </dd> <dt>Fail</dt> <dd> <p>Stop the simulation job and terminate the instance.</p> </dd> </dl>"
+        },
+        "failureCode": {
+          "$ref": "#/definitions/SimulationJobErrorCode",
+          "description": "The failure code of the simulation job if it failed."
+        },
+        "iamRole": {
+          "$ref": "#/definitions/IamRole",
+          "description": "The IAM role that allows the simulation instance to call the AWS APIs that are specified in its associated policies on your behalf. This is how credentials are passed in to your simulation job. See how to <a href=\"https://docs.aws.amazon.com/toolkit-for-visual-studio/latest/user-guide/deployment-ecs-specify-credentials\">specify AWS security credentials for your application</a>. "
+        },
+        "lastUpdatedAt": {
+          "$ref": "#/definitions/LastUpdatedAt",
+          "description": "The time, in milliseconds since the epoch, when the simulation job was last updated."
+        },
+        "maxJobDurationInSeconds": {
+          "$ref": "#/definitions/JobDuration",
+          "description": "The maximum simulation job duration in seconds. The value must be 8 days (691,200 seconds) or less."
+        },
+        "name": {
+          "$ref": "#/definitions/Name",
+          "description": "The name of the simulation job."
+        },
+        "outputLocation": {
+          "$ref": "#/definitions/OutputLocation",
+          "description": "Location for output files generated by the simulation job."
+        },
+        "robotApplications": {
+          "$ref": "#/definitions/RobotApplicationConfigs",
+          "description": "A list of robot applications."
+        },
+        "simulationApplications": {
+          "$ref": "#/definitions/SimulationApplicationConfigs",
+          "description": "A list of simulation applications."
+        },
+        "simulationTimeMillis": {
+          "$ref": "#/definitions/SimulationTimeMillis",
+          "description": "The simulation job execution duration in milliseconds."
+        },
+        "status": {
+          "$ref": "#/definitions/SimulationJobStatus",
+          "description": "Status of the simulation job."
+        },
+        "vpcConfig": {
+          "$ref": "#/definitions/VPCConfigResponse",
+          "description": "VPC configuration information."
+        }
+      },
+      "type": "object"
+    },
+    "SimulationJobErrorCode": {
+      "enum": [
+        "InternalServiceError",
+        "RobotApplicationCrash",
+        "SimulationApplicationCrash",
+        "BadPermissionsRobotApplication",
+        "BadPermissionsSimulationApplication",
+        "BadPermissionsS3Output",
+        "BadPermissionsCloudwatchLogs",
+        "SubnetIpLimitExceeded",
+        "ENILimitExceeded",
+        "BadPermissionsUserCredentials",
+        "InvalidBundleRobotApplication",
+        "InvalidBundleSimulationApplication",
+        "RobotApplicationVersionMismatchedEtag",
+        "SimulationApplicationVersionMismatchedEtag"
+      ],
+      "type": "string"
+    },
+    "SimulationJobStatus": {
+      "enum": [
+        "Pending",
+        "Preparing",
+        "Running",
+        "Restarting",
+        "Completed",
+        "Failed",
+        "RunningFailed",
+        "Terminating",
+        "Terminated",
+        "Canceled"
+      ],
+      "type": "string"
+    },
+    "SimulationJobSummaries": {
+      "items": {
+        "$ref": "#/definitions/SimulationJobSummary"
+      },
+      "maxItems": 100,
+      "minItems": 0,
+      "type": "array"
+    },
+    "SimulationJobSummary": {
+      "description": "Summary information for a simulation job.",
+      "properties": {
+        "arn": {
+          "$ref": "#/definitions/Arn",
+          "description": "The Amazon Resource Name (ARN) of the simulation job."
+        },
+        "lastUpdatedAt": {
+          "$ref": "#/definitions/LastUpdatedAt",
+          "description": "The time, in milliseconds since the epoch, when the simulation job was last updated."
+        },
+        "name": {
+          "$ref": "#/definitions/Name",
+          "description": "The name of the simulation job."
+        },
+        "robotApplicationNames": {
+          "$ref": "#/definitions/RobotApplicationNames",
+          "description": "A list of simulation job robot application names."
+        },
+        "simulationApplicationNames": {
+          "$ref": "#/definitions/SimulationApplicationNames",
+          "description": "A list of simulation job simulation application names."
+        },
+        "status": {
+          "$ref": "#/definitions/SimulationJobStatus",
+          "description": "The status of the simulation job."
+        }
+      },
+      "type": "object"
+    },
+    "SimulationJobs": {
+      "items": {
+        "$ref": "#/definitions/SimulationJob"
+      },
+      "type": "array"
+    },
+    "SimulationSoftwareSuite": {
+      "description": "Information about a simulation software suite.",
+      "properties": {
+        "name": {
+          "$ref": "#/definitions/SimulationSoftwareSuiteType",
+          "description": "The name of the simulation software suite."
+        },
+        "version": {
+          "$ref": "#/definitions/SimulationSoftwareSuiteVersionType",
+          "description": "The version of the simulation software suite."
+        }
+      },
+      "type": "object"
+    },
+    "SimulationSoftwareSuiteType": {
+      "enum": [
+        "Gazebo"
+      ],
+      "type": "string"
+    },
+    "SimulationSoftwareSuiteVersionType": {
+      "pattern": "7",
+      "type": "string"
+    },
+    "SimulationTimeMillis": {
+      "type": "integer"
+    },
+    "Source": {
+      "description": "Information about a source.",
+      "properties": {
+        "architecture": {
+          "$ref": "#/definitions/Architecture",
+          "description": "The taget processor architecture for the application."
+        },
+        "etag": {
+          "$ref": "#/definitions/S3Etag",
+          "description": "A hash of the object specified by <code>s3Bucket</code> and <code>s3Key</code>."
+        },
+        "s3Bucket": {
+          "$ref": "#/definitions/S3Bucket",
+          "description": "The s3 bucket name."
+        },
+        "s3Key": {
+          "$ref": "#/definitions/S3Key",
+          "description": "The s3 object key."
+        }
+      },
+      "type": "object"
+    },
+    "SourceConfig": {
+      "description": "Information about a source configuration.",
+      "properties": {
+        "architecture": {
+          "$ref": "#/definitions/Architecture",
+          "description": "The target processor architecture for the application."
+        },
+        "s3Bucket": {
+          "$ref": "#/definitions/S3Bucket",
+          "description": "The Amazon S3 bucket name."
+        },
+        "s3Key": {
+          "$ref": "#/definitions/S3Key",
+          "description": "The s3 object key."
+        }
+      },
+      "type": "object"
+    },
+    "SourceConfigs": {
+      "items": {
+        "$ref": "#/definitions/SourceConfig"
+      },
+      "type": "array"
+    },
+    "Sources": {
+      "items": {
+        "$ref": "#/definitions/Source"
+      },
+      "type": "array"
+    },
+    "Subnets": {
+      "items": {
+        "$ref": "#/definitions/GenericString"
+      },
+      "maxItems": 16,
+      "minItems": 1,
+      "type": "array"
+    },
+    "SyncDeploymentJobRequest": {
+      "properties": {
+        "clientRequestToken": {
+          "$ref": "#/definitions/ClientRequestToken",
+          "description": "Unique, case-sensitive identifier that you provide to ensure the idempotency of the request."
+        },
+        "fleet": {
+          "$ref": "#/definitions/Arn",
+          "description": "The target fleet for the synchronization."
+        }
+      },
+      "required": [
+        "clientRequestToken",
+        "fleet"
+      ],
+      "type": "object"
+    },
+    "SyncDeploymentJobResponse": {
+      "properties": {
+        "arn": {
+          "$ref": "#/definitions/Arn",
+          "description": "The Amazon Resource Name (ARN) of the synchronization request."
+        },
+        "createdAt": {
+          "$ref": "#/definitions/CreatedAt",
+          "description": "The time, in milliseconds since the epoch, when the fleet was created."
+        },
+        "deploymentApplicationConfigs": {
+          "$ref": "#/definitions/DeploymentApplicationConfigs",
+          "description": "Information about the deployment application configurations."
+        },
+        "deploymentConfig": {
+          "$ref": "#/definitions/DeploymentConfig",
+          "description": "Information about the deployment configuration."
+        },
+        "failureCode": {
+          "$ref": "#/definitions/DeploymentJobErrorCode",
+          "description": "The failure code if the job fails."
+        },
+        "failureReason": {
+          "$ref": "#/definitions/GenericString",
+          "description": "The failure reason if the job fails."
+        },
+        "fleet": {
+          "$ref": "#/definitions/Arn",
+          "description": "The Amazon Resource Name (ARN) of the fleet."
+        },
+        "status": {
+          "$ref": "#/definitions/DeploymentStatus",
+          "description": "The status of the synchronization job."
+        }
+      },
+      "type": "object"
+    },
+    "ThrottlingException": {},
+    "UpdateRobotApplicationRequest": {
+      "properties": {
+        "application": {
+          "$ref": "#/definitions/Arn",
+          "description": "The application information for the robot application."
+        },
+        "currentRevisionId": {
+          "$ref": "#/definitions/RevisionId",
+          "description": "The revision id for the robot application."
+        },
+        "robotSoftwareSuite": {
+          "$ref": "#/definitions/RobotSoftwareSuite",
+          "description": "The robot software suite used by the robot application."
+        },
+        "sources": {
+          "$ref": "#/definitions/SourceConfigs",
+          "description": "The sources of the robot application."
+        }
+      },
+      "required": [
+        "application",
+        "sources",
+        "robotSoftwareSuite"
+      ],
+      "type": "object"
+    },
+    "UpdateRobotApplicationResponse": {
+      "properties": {
+        "arn": {
+          "$ref": "#/definitions/Arn",
+          "description": "The Amazon Resource Name (ARN) of the updated robot application."
+        },
+        "lastUpdatedAt": {
+          "$ref": "#/definitions/LastUpdatedAt",
+          "description": "The time, in milliseconds since the epoch, when the robot application was last updated."
+        },
+        "name": {
+          "$ref": "#/definitions/Name",
+          "description": "The name of the robot application."
+        },
+        "revisionId": {
+          "$ref": "#/definitions/RevisionId",
+          "description": "The revision id of the robot application."
+        },
+        "robotSoftwareSuite": {
+          "$ref": "#/definitions/RobotSoftwareSuite",
+          "description": "The robot software suite used by the robot application."
+        },
+        "sources": {
+          "$ref": "#/definitions/Sources",
+          "description": "The sources of the robot application."
+        },
+        "version": {
+          "$ref": "#/definitions/Version",
+          "description": "The version of the robot application."
+        }
+      },
+      "type": "object"
+    },
+    "UpdateSimulationApplicationRequest": {
+      "properties": {
+        "application": {
+          "$ref": "#/definitions/Arn",
+          "description": "The application information for the simulation application."
+        },
+        "currentRevisionId": {
+          "$ref": "#/definitions/RevisionId",
+          "description": "The revision id for the robot application."
+        },
+        "renderingEngine": {
+          "$ref": "#/definitions/RenderingEngine",
+          "description": "The rendering engine for the simulation application."
+        },
+        "robotSoftwareSuite": {
+          "$ref": "#/definitions/RobotSoftwareSuite",
+          "description": "Information about the robot software suite."
+        },
+        "simulationSoftwareSuite": {
+          "$ref": "#/definitions/SimulationSoftwareSuite",
+          "description": "The simulation software suite used by the simulation application."
+        },
+        "sources": {
+          "$ref": "#/definitions/SourceConfigs",
+          "description": "The sources of the simulation application."
+        }
+      },
+      "required": [
+        "application",
+        "sources",
+        "simulationSoftwareSuite",
+        "robotSoftwareSuite",
+        "renderingEngine"
+      ],
+      "type": "object"
+    },
+    "UpdateSimulationApplicationResponse": {
+      "properties": {
+        "arn": {
+          "$ref": "#/definitions/Arn",
+          "description": "The Amazon Resource Name (ARN) of the updated simulation application."
+        },
+        "lastUpdatedAt": {
+          "$ref": "#/definitions/LastUpdatedAt",
+          "description": "The time, in milliseconds since the epoch, when the simulation application was last updated."
+        },
+        "name": {
+          "$ref": "#/definitions/Name",
+          "description": "The name of the simulation application."
+        },
+        "renderingEngine": {
+          "$ref": "#/definitions/RenderingEngine",
+          "description": "The rendering engine for the simulation application."
+        },
+        "revisionId": {
+          "$ref": "#/definitions/RevisionId",
+          "description": "The revision id of the simulation application."
+        },
+        "robotSoftwareSuite": {
+          "$ref": "#/definitions/RobotSoftwareSuite",
+          "description": "Information about the robot software suite."
+        },
+        "simulationSoftwareSuite": {
+          "$ref": "#/definitions/SimulationSoftwareSuite",
+          "description": "The simulation software suite used by the simulation application."
+        },
+        "sources": {
+          "$ref": "#/definitions/Sources",
+          "description": "The sources of the simulation application."
+        },
+        "version": {
+          "$ref": "#/definitions/Version",
+          "description": "The version of the robot application."
+        }
+      },
+      "type": "object"
+    },
+    "VPCConfig": {
+      "description": "If your simulation job accesses resources in a VPC, you provide this parameter identifying the list of security group IDs and subnet IDs. These must belong to the same VPC. You must provide at least one security group and two subnet IDs.",
+      "properties": {
+        "assignPublicIp": {
+          "$ref": "#/definitions/Boolean",
+          "description": "A boolean indicating whether to assign a public IP address."
+        },
+        "securityGroups": {
+          "$ref": "#/definitions/SecurityGroups",
+          "description": "A list of one or more security groups IDs in your VPC."
+        },
+        "subnets": {
+          "$ref": "#/definitions/Subnets",
+          "description": "A list of one or more subnet IDs in your VPC."
+        }
+      },
+      "required": [
+        "subnets"
+      ],
+      "type": "object"
+    },
+    "VPCConfigResponse": {
+      "description": "VPC configuration associated with your simulation job.",
+      "properties": {
+        "assignPublicIp": {
+          "$ref": "#/definitions/Boolean",
+          "description": "A boolean indicating if a public IP was assigned."
+        },
+        "securityGroups": {
+          "$ref": "#/definitions/SecurityGroups",
+          "description": "A list of security group IDs associated with the simulation job."
+        },
+        "subnets": {
+          "$ref": "#/definitions/Subnets",
+          "description": "A list of subnet IDs associated with the simulation job."
+        },
+        "vpcId": {
+          "$ref": "#/definitions/GenericString",
+          "description": "The VPC ID associated with your simulation job."
+        }
+      },
+      "type": "object"
+    },
+    "Version": {
+      "maxLength": 255,
+      "minLength": 1,
+      "pattern": "(\\$LATEST)|[0-9]*",
+      "type": "string"
+    },
+    "VersionQualifier": {
+      "pattern": "ALL",
+      "type": "string"
+    }
+  }
+}

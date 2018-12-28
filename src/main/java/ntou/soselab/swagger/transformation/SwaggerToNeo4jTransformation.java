@@ -153,7 +153,9 @@ public class SwaggerToNeo4jTransformation {
         title = swagger.getInfo().getTitle();
         log.info("Title :{}", title);
         resource.setTitle(title);
-        if(title != null) swaggerInfo.add(title);
+
+        // avoid provider name in title
+        //if(title != null) swaggerInfo.add(title);
 
         // get Logo
         Map<String, Object> info = swagger.getInfo().getVendorExtensions();

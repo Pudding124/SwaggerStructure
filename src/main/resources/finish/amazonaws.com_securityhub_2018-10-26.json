@@ -1,0 +1,4285 @@
+{
+  "swagger": "2.0",
+  "schemes": [
+    "https",
+    "http"
+  ],
+  "host": "securityhub.amazonaws.com",
+  "basePath": "/",
+  "info": {
+    "contact": {
+      "email": "mike.ralphson@gmail.com",
+      "name": "Mike Ralphson",
+      "url": "https://github.com/mermade/aws2openapi",
+      "x-twitter": "PermittedSoc"
+    },
+    "description": "AWS Security Hub provides you with a comprehensive view of your security state within AWS and your compliance with the security industry standards and best practices. Security Hub collects security data from across AWS accounts, services, and supported third-party partners and helps you analyze your security trends and identify the highest priority security issues. For more information, see <a href=\"\">AWS Security Hub User Guide</a>. ",
+    "license": {
+      "name": "Apache 2.0 License",
+      "url": "http://www.apache.org/licenses/"
+    },
+    "termsOfService": "https://aws.amazon.com/service-terms/",
+    "title": "AWS SecurityHub",
+    "version": "2018-10-26",
+    "x-apiClientRegistration": {
+      "url": "https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct"
+    },
+    "x-apisguru-categories": [
+      "cloud"
+    ],
+    "x-logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.jpeg"
+    },
+    "x-origin": [
+      {
+        "contentType": "application/json",
+        "converter": {
+          "url": "https://github.com/mermade/aws2openapi",
+          "version": "1.0.0"
+        },
+        "url": "https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/securityhub-2018-10-26.normal.json",
+        "x-apisguru-direct": true
+      }
+    ],
+    "x-preferred": true,
+    "x-providerName": "amazonaws.com",
+    "x-release": "v4",
+    "x-serviceName": "securityhub"
+  },
+  "externalDocs": {
+    "description": "Amazon Web Services documentation",
+    "url": "https://aws.amazon.com/securityhub/"
+  },
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "securityDefinitions": {
+    "hmac": {
+      "description": "Amazon Signature authorization v4",
+      "in": "header",
+      "name": "Authorization",
+      "type": "apiKey",
+      "x-amazon-apigateway-authtype": "awsSigv4"
+    }
+  },
+  "security": [
+    {
+      "hmac": []
+    }
+  ],
+  "parameters": {
+    "Action": {
+      "in": "query",
+      "name": "Action",
+      "required": true,
+      "type": "string"
+    },
+    "Version": {
+      "in": "query",
+      "name": "Version",
+      "required": true,
+      "type": "string"
+    },
+    "X-Amz-Algorithm": {
+      "in": "header",
+      "name": "X-Amz-Algorithm",
+      "required": false,
+      "type": "string"
+    },
+    "X-Amz-Content-Sha256": {
+      "in": "header",
+      "name": "X-Amz-Content-Sha256",
+      "required": false,
+      "type": "string"
+    },
+    "X-Amz-Credential": {
+      "in": "header",
+      "name": "X-Amz-Credential",
+      "required": false,
+      "type": "string"
+    },
+    "X-Amz-Date": {
+      "in": "header",
+      "name": "X-Amz-Date",
+      "required": false,
+      "type": "string"
+    },
+    "X-Amz-Security-Token": {
+      "in": "header",
+      "name": "X-Amz-Security-Token",
+      "required": false,
+      "type": "string"
+    },
+    "X-Amz-Signature": {
+      "in": "header",
+      "name": "X-Amz-Signature",
+      "required": false,
+      "type": "string"
+    },
+    "X-Amz-SignedHeaders": {
+      "in": "header",
+      "name": "X-Amz-SignedHeaders",
+      "required": false,
+      "type": "string"
+    }
+  },
+  "paths": {
+    "/accounts": {
+      "delete": {
+        "description": "Disables the AWS Security Hub Service.",
+        "operationId": "DisableSecurityHub",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DisableSecurityHubRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DisableSecurityHubResponse"
+            }
+          },
+          "480": {
+            "description": "InternalException",
+            "schema": {
+              "$ref": "#/definitions/InternalException"
+            }
+          },
+          "481": {
+            "description": "LimitExceededException",
+            "schema": {
+              "$ref": "#/definitions/LimitExceededException"
+            }
+          }
+        }
+      },
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Enables the AWS Security Hub service.",
+        "operationId": "EnableSecurityHub",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/EnableSecurityHubRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/EnableSecurityHubResponse"
+            }
+          },
+          "480": {
+            "description": "InternalException",
+            "schema": {
+              "$ref": "#/definitions/InternalException"
+            }
+          },
+          "481": {
+            "description": "LimitExceededException",
+            "schema": {
+              "$ref": "#/definitions/LimitExceededException"
+            }
+          }
+        }
+      }
+    },
+    "/findings": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "patch": {
+        "description": "Updates the AWS Security Hub-aggregated findings specified by the filter attributes.",
+        "operationId": "UpdateFindings",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/UpdateFindingsRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/UpdateFindingsResponse"
+            }
+          },
+          "480": {
+            "description": "InternalException",
+            "schema": {
+              "$ref": "#/definitions/InternalException"
+            }
+          },
+          "481": {
+            "description": "InvalidInputException",
+            "schema": {
+              "$ref": "#/definitions/InvalidInputException"
+            }
+          },
+          "482": {
+            "description": "LimitExceededException",
+            "schema": {
+              "$ref": "#/definitions/LimitExceededException"
+            }
+          },
+          "483": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          }
+        }
+      },
+      "post": {
+        "description": "Lists and describes Security Hub-aggregated findings that are specified by filter attributes.",
+        "operationId": "GetFindings",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/GetFindingsRequest"
+            }
+          },
+          {
+            "description": "Pagination limit",
+            "in": "query",
+            "name": "MaxResults",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Pagination token",
+            "in": "query",
+            "name": "NextToken",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/GetFindingsResponse"
+            }
+          },
+          "480": {
+            "description": "InternalException",
+            "schema": {
+              "$ref": "#/definitions/InternalException"
+            }
+          },
+          "481": {
+            "description": "InvalidInputException",
+            "schema": {
+              "$ref": "#/definitions/InvalidInputException"
+            }
+          },
+          "482": {
+            "description": "LimitExceededException",
+            "schema": {
+              "$ref": "#/definitions/LimitExceededException"
+            }
+          },
+          "483": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          }
+        }
+      }
+    },
+    "/findings/import": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Imports security findings that are generated by the integrated third-party products into Security Hub.",
+        "operationId": "BatchImportFindings",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/BatchImportFindingsRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/BatchImportFindingsResponse"
+            }
+          },
+          "480": {
+            "description": "InternalException",
+            "schema": {
+              "$ref": "#/definitions/InternalException"
+            }
+          },
+          "481": {
+            "description": "InvalidInputException",
+            "schema": {
+              "$ref": "#/definitions/InvalidInputException"
+            }
+          },
+          "482": {
+            "description": "LimitExceededException",
+            "schema": {
+              "$ref": "#/definitions/LimitExceededException"
+            }
+          }
+        }
+      }
+    },
+    "/insights": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Creates an insight, which is a consolidation of findings that identifies a security area that requires attention or intervention.",
+        "operationId": "CreateInsight",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CreateInsightRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/CreateInsightResponse"
+            }
+          },
+          "480": {
+            "description": "InternalException",
+            "schema": {
+              "$ref": "#/definitions/InternalException"
+            }
+          },
+          "481": {
+            "description": "InvalidInputException",
+            "schema": {
+              "$ref": "#/definitions/InvalidInputException"
+            }
+          },
+          "482": {
+            "description": "LimitExceededException",
+            "schema": {
+              "$ref": "#/definitions/LimitExceededException"
+            }
+          }
+        }
+      }
+    },
+    "/insights/get": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Lists and describes insights that are specified by insight ARNs.",
+        "operationId": "GetInsights",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/GetInsightsRequest"
+            }
+          },
+          {
+            "description": "Pagination limit",
+            "in": "query",
+            "name": "MaxResults",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Pagination token",
+            "in": "query",
+            "name": "NextToken",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/GetInsightsResponse"
+            }
+          },
+          "480": {
+            "description": "InternalException",
+            "schema": {
+              "$ref": "#/definitions/InternalException"
+            }
+          },
+          "481": {
+            "description": "InvalidInputException",
+            "schema": {
+              "$ref": "#/definitions/InvalidInputException"
+            }
+          },
+          "482": {
+            "description": "LimitExceededException",
+            "schema": {
+              "$ref": "#/definitions/LimitExceededException"
+            }
+          }
+        }
+      }
+    },
+    "/insights/results/{InsightArn}": {
+      "get": {
+        "description": "Lists the results of the Security Hub insight specified by the insight ARN.",
+        "operationId": "GetInsightResults",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/GetInsightResultsRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "InsightArn",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/GetInsightResultsResponse"
+            }
+          },
+          "480": {
+            "description": "InternalException",
+            "schema": {
+              "$ref": "#/definitions/InternalException"
+            }
+          },
+          "481": {
+            "description": "InvalidInputException",
+            "schema": {
+              "$ref": "#/definitions/InvalidInputException"
+            }
+          },
+          "482": {
+            "description": "LimitExceededException",
+            "schema": {
+              "$ref": "#/definitions/LimitExceededException"
+            }
+          }
+        }
+      },
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ]
+    },
+    "/insights/{InsightArn}": {
+      "delete": {
+        "description": "Deletes an insight that is specified by the insight ARN.",
+        "operationId": "DeleteInsight",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DeleteInsightRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "InsightArn",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DeleteInsightResponse"
+            }
+          },
+          "480": {
+            "description": "InternalException",
+            "schema": {
+              "$ref": "#/definitions/InternalException"
+            }
+          },
+          "481": {
+            "description": "InvalidInputException",
+            "schema": {
+              "$ref": "#/definitions/InvalidInputException"
+            }
+          },
+          "482": {
+            "description": "LimitExceededException",
+            "schema": {
+              "$ref": "#/definitions/LimitExceededException"
+            }
+          }
+        }
+      },
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "patch": {
+        "description": "Updates the AWS Security Hub insight specified by the insight ARN.",
+        "operationId": "UpdateInsight",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/UpdateInsightRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "InsightArn",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/UpdateInsightResponse"
+            }
+          },
+          "480": {
+            "description": "InternalException",
+            "schema": {
+              "$ref": "#/definitions/InternalException"
+            }
+          },
+          "481": {
+            "description": "InvalidInputException",
+            "schema": {
+              "$ref": "#/definitions/InvalidInputException"
+            }
+          },
+          "482": {
+            "description": "LimitExceededException",
+            "schema": {
+              "$ref": "#/definitions/LimitExceededException"
+            }
+          },
+          "483": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          }
+        }
+      }
+    },
+    "/invitations": {
+      "get": {
+        "description": "Lists all Security Hub membership invitations that were sent to the current AWS account. ",
+        "operationId": "ListInvitations",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ListInvitationsRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ListInvitationsResponse"
+            }
+          },
+          "480": {
+            "description": "InternalException",
+            "schema": {
+              "$ref": "#/definitions/InternalException"
+            }
+          },
+          "481": {
+            "description": "InvalidInputException",
+            "schema": {
+              "$ref": "#/definitions/InvalidInputException"
+            }
+          },
+          "482": {
+            "description": "LimitExceededException",
+            "schema": {
+              "$ref": "#/definitions/LimitExceededException"
+            }
+          },
+          "483": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          }
+        }
+      },
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ]
+    },
+    "/invitations/count": {
+      "get": {
+        "description": "Returns the count of all Security Hub membership invitations that were sent to the current member account, not including the currently accepted invitation. ",
+        "operationId": "GetInvitationsCount",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/GetInvitationsCountRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/GetInvitationsCountResponse"
+            }
+          },
+          "480": {
+            "description": "InternalException",
+            "schema": {
+              "$ref": "#/definitions/InternalException"
+            }
+          },
+          "481": {
+            "description": "InvalidInputException",
+            "schema": {
+              "$ref": "#/definitions/InvalidInputException"
+            }
+          },
+          "482": {
+            "description": "LimitExceededException",
+            "schema": {
+              "$ref": "#/definitions/LimitExceededException"
+            }
+          },
+          "483": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          }
+        }
+      },
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ]
+    },
+    "/invitations/decline": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Declines invitations that are sent to this AWS account (invitee) by the AWS accounts (inviters) that are specified by the account IDs. ",
+        "operationId": "DeclineInvitations",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DeclineInvitationsRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DeclineInvitationsResponse"
+            }
+          },
+          "480": {
+            "description": "InternalException",
+            "schema": {
+              "$ref": "#/definitions/InternalException"
+            }
+          },
+          "481": {
+            "description": "InvalidInputException",
+            "schema": {
+              "$ref": "#/definitions/InvalidInputException"
+            }
+          },
+          "482": {
+            "description": "LimitExceededException",
+            "schema": {
+              "$ref": "#/definitions/LimitExceededException"
+            }
+          },
+          "483": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          }
+        }
+      }
+    },
+    "/invitations/delete": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Deletes invitations that are sent to this AWS account (invitee) by the AWS accounts (inviters) that are specified by their account IDs. ",
+        "operationId": "DeleteInvitations",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DeleteInvitationsRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DeleteInvitationsResponse"
+            }
+          },
+          "480": {
+            "description": "InternalException",
+            "schema": {
+              "$ref": "#/definitions/InternalException"
+            }
+          },
+          "481": {
+            "description": "InvalidInputException",
+            "schema": {
+              "$ref": "#/definitions/InvalidInputException"
+            }
+          },
+          "482": {
+            "description": "LimitExceededException",
+            "schema": {
+              "$ref": "#/definitions/LimitExceededException"
+            }
+          },
+          "483": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          }
+        }
+      }
+    },
+    "/master": {
+      "get": {
+        "description": "Provides the details for the Security Hub master account to the current member account. ",
+        "operationId": "GetMasterAccount",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/GetMasterAccountRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/GetMasterAccountResponse"
+            }
+          },
+          "480": {
+            "description": "InternalException",
+            "schema": {
+              "$ref": "#/definitions/InternalException"
+            }
+          },
+          "481": {
+            "description": "InvalidInputException",
+            "schema": {
+              "$ref": "#/definitions/InvalidInputException"
+            }
+          },
+          "482": {
+            "description": "LimitExceededException",
+            "schema": {
+              "$ref": "#/definitions/LimitExceededException"
+            }
+          },
+          "483": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          }
+        }
+      },
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Accepts the invitation to be monitored by a master SecurityHub account.",
+        "operationId": "AcceptInvitation",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/AcceptInvitationRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/AcceptInvitationResponse"
+            }
+          },
+          "480": {
+            "description": "InternalException",
+            "schema": {
+              "$ref": "#/definitions/InternalException"
+            }
+          },
+          "481": {
+            "description": "InvalidInputException",
+            "schema": {
+              "$ref": "#/definitions/InvalidInputException"
+            }
+          },
+          "482": {
+            "description": "LimitExceededException",
+            "schema": {
+              "$ref": "#/definitions/LimitExceededException"
+            }
+          },
+          "483": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          }
+        }
+      }
+    },
+    "/master/disassociate": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Disassociates the current Security Hub member account from its master account.",
+        "operationId": "DisassociateFromMasterAccount",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DisassociateFromMasterAccountRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DisassociateFromMasterAccountResponse"
+            }
+          },
+          "480": {
+            "description": "InternalException",
+            "schema": {
+              "$ref": "#/definitions/InternalException"
+            }
+          },
+          "481": {
+            "description": "InvalidInputException",
+            "schema": {
+              "$ref": "#/definitions/InvalidInputException"
+            }
+          },
+          "482": {
+            "description": "LimitExceededException",
+            "schema": {
+              "$ref": "#/definitions/LimitExceededException"
+            }
+          },
+          "483": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          }
+        }
+      }
+    },
+    "/members": {
+      "get": {
+        "description": "Lists details about all member accounts for the current Security Hub master account.",
+        "operationId": "ListMembers",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ListMembersRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ListMembersResponse"
+            }
+          },
+          "480": {
+            "description": "InternalException",
+            "schema": {
+              "$ref": "#/definitions/InternalException"
+            }
+          },
+          "481": {
+            "description": "InvalidInputException",
+            "schema": {
+              "$ref": "#/definitions/InvalidInputException"
+            }
+          },
+          "482": {
+            "description": "LimitExceededException",
+            "schema": {
+              "$ref": "#/definitions/LimitExceededException"
+            }
+          },
+          "483": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          }
+        }
+      },
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Creates member Security Hub accounts in the current AWS account (which becomes the master Security Hub account) that has Security Hub enabled.",
+        "operationId": "CreateMembers",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CreateMembersRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/CreateMembersResponse"
+            }
+          },
+          "480": {
+            "description": "InternalException",
+            "schema": {
+              "$ref": "#/definitions/InternalException"
+            }
+          },
+          "481": {
+            "description": "InvalidInputException",
+            "schema": {
+              "$ref": "#/definitions/InvalidInputException"
+            }
+          },
+          "482": {
+            "description": "LimitExceededException",
+            "schema": {
+              "$ref": "#/definitions/LimitExceededException"
+            }
+          }
+        }
+      }
+    },
+    "/members/delete": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Deletes the Security Hub member accounts that are specified by the account IDs.",
+        "operationId": "DeleteMembers",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DeleteMembersRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DeleteMembersResponse"
+            }
+          },
+          "480": {
+            "description": "InternalException",
+            "schema": {
+              "$ref": "#/definitions/InternalException"
+            }
+          },
+          "481": {
+            "description": "InvalidInputException",
+            "schema": {
+              "$ref": "#/definitions/InvalidInputException"
+            }
+          },
+          "482": {
+            "description": "LimitExceededException",
+            "schema": {
+              "$ref": "#/definitions/LimitExceededException"
+            }
+          },
+          "483": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          }
+        }
+      }
+    },
+    "/members/disassociate": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Disassociates the Security Hub member accounts that are specified by the account IDs from their master account. ",
+        "operationId": "DisassociateMembers",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DisassociateMembersRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DisassociateMembersResponse"
+            }
+          },
+          "480": {
+            "description": "InternalException",
+            "schema": {
+              "$ref": "#/definitions/InternalException"
+            }
+          },
+          "481": {
+            "description": "InvalidInputException",
+            "schema": {
+              "$ref": "#/definitions/InvalidInputException"
+            }
+          },
+          "482": {
+            "description": "LimitExceededException",
+            "schema": {
+              "$ref": "#/definitions/LimitExceededException"
+            }
+          },
+          "483": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          }
+        }
+      }
+    },
+    "/members/get": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Returns the details on the Security Hub member accounts that are specified by the account IDs. ",
+        "operationId": "GetMembers",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/GetMembersRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/GetMembersResponse"
+            }
+          },
+          "480": {
+            "description": "InternalException",
+            "schema": {
+              "$ref": "#/definitions/InternalException"
+            }
+          },
+          "481": {
+            "description": "InvalidInputException",
+            "schema": {
+              "$ref": "#/definitions/InvalidInputException"
+            }
+          },
+          "482": {
+            "description": "LimitExceededException",
+            "schema": {
+              "$ref": "#/definitions/LimitExceededException"
+            }
+          },
+          "483": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          }
+        }
+      }
+    },
+    "/members/invite": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Invites other AWS accounts to enable Security Hub and become Security Hub member accounts. When an account accepts the invitation and becomes a member account, the master account can view Security Hub findings of the member account. ",
+        "operationId": "InviteMembers",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/InviteMembersRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/InviteMembersResponse"
+            }
+          },
+          "480": {
+            "description": "InternalException",
+            "schema": {
+              "$ref": "#/definitions/InternalException"
+            }
+          },
+          "481": {
+            "description": "InvalidInputException",
+            "schema": {
+              "$ref": "#/definitions/InvalidInputException"
+            }
+          },
+          "482": {
+            "description": "LimitExceededException",
+            "schema": {
+              "$ref": "#/definitions/LimitExceededException"
+            }
+          },
+          "483": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          }
+        }
+      }
+    },
+    "/productSubscriptions": {
+      "get": {
+        "description": "Lists all Security Hub-integrated third-party findings providers.",
+        "operationId": "ListEnabledProductsForImport",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ListEnabledProductsForImportRequest"
+            }
+          },
+          {
+            "description": "Pagination limit",
+            "in": "query",
+            "name": "MaxResults",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Pagination token",
+            "in": "query",
+            "name": "NextToken",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ListEnabledProductsForImportResponse"
+            }
+          },
+          "480": {
+            "description": "InternalException",
+            "schema": {
+              "$ref": "#/definitions/InternalException"
+            }
+          },
+          "481": {
+            "description": "LimitExceededException",
+            "schema": {
+              "$ref": "#/definitions/LimitExceededException"
+            }
+          }
+        }
+      },
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Enables you to import findings generated by integrated third-party providers into Security Hub.",
+        "operationId": "EnableImportFindingsForProduct",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/EnableImportFindingsForProductRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/EnableImportFindingsForProductResponse"
+            }
+          },
+          "480": {
+            "description": "InternalException",
+            "schema": {
+              "$ref": "#/definitions/InternalException"
+            }
+          },
+          "481": {
+            "description": "InvalidInputException",
+            "schema": {
+              "$ref": "#/definitions/InvalidInputException"
+            }
+          }
+        }
+      }
+    },
+    "/productSubscriptions/{ProductSubscriptionArn}": {
+      "delete": {
+        "description": "Stops you from being able to import findings generated by integrated third-party providers into Security Hub.",
+        "operationId": "DisableImportFindingsForProduct",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DisableImportFindingsForProductRequest"
+            }
+          },
+          {
+            "in": "path",
+            "name": "ProductSubscriptionArn",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DisableImportFindingsForProductResponse"
+            }
+          },
+          "480": {
+            "description": "InternalException",
+            "schema": {
+              "$ref": "#/definitions/InternalException"
+            }
+          },
+          "481": {
+            "description": "InvalidInputException",
+            "schema": {
+              "$ref": "#/definitions/InvalidInputException"
+            }
+          },
+          "482": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          }
+        }
+      },
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ]
+    },
+    "/standards/deregister": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Disables the standards specified by the standards subscription ARNs. In the context of Security Hub, supported standards (for example, CIS AWS Foundations) are automated and continuous checks that help determine your compliance status against security industry (including AWS) best practices. ",
+        "operationId": "BatchDisableStandards",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/BatchDisableStandardsRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/BatchDisableStandardsResponse"
+            }
+          },
+          "480": {
+            "description": "InternalException",
+            "schema": {
+              "$ref": "#/definitions/InternalException"
+            }
+          },
+          "481": {
+            "description": "InvalidInputException",
+            "schema": {
+              "$ref": "#/definitions/InvalidInputException"
+            }
+          },
+          "482": {
+            "description": "LimitExceededException",
+            "schema": {
+              "$ref": "#/definitions/LimitExceededException"
+            }
+          }
+        }
+      }
+    },
+    "/standards/get": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Lists and describes enabled standards.",
+        "operationId": "GetEnabledStandards",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/GetEnabledStandardsRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/GetEnabledStandardsResponse"
+            }
+          },
+          "480": {
+            "description": "InternalException",
+            "schema": {
+              "$ref": "#/definitions/InternalException"
+            }
+          },
+          "481": {
+            "description": "InvalidInputException",
+            "schema": {
+              "$ref": "#/definitions/InvalidInputException"
+            }
+          },
+          "482": {
+            "description": "LimitExceededException",
+            "schema": {
+              "$ref": "#/definitions/LimitExceededException"
+            }
+          }
+        }
+      }
+    },
+    "/standards/register": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Enables the standards specified by the standards ARNs. In the context of Security Hub, supported standards (for example, CIS AWS Foundations) are automated and continuous checks that help determine your compliance status against security industry (including AWS) best practices. ",
+        "operationId": "BatchEnableStandards",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/BatchEnableStandardsRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/BatchEnableStandardsResponse"
+            }
+          },
+          "480": {
+            "description": "InternalException",
+            "schema": {
+              "$ref": "#/definitions/InternalException"
+            }
+          },
+          "481": {
+            "description": "InvalidInputException",
+            "schema": {
+              "$ref": "#/definitions/InvalidInputException"
+            }
+          },
+          "482": {
+            "description": "LimitExceededException",
+            "schema": {
+              "$ref": "#/definitions/LimitExceededException"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "AcceptInvitationRequest": {
+      "properties": {
+        "InvitationId": {
+          "$ref": "#/definitions/NonEmptyString",
+          "description": "The ID of the invitation that is sent to the AWS account by the Security Hub master account. "
+        },
+        "MasterId": {
+          "$ref": "#/definitions/NonEmptyString",
+          "description": "The account ID of the master Security Hub account whose invitation you're accepting. "
+        }
+      },
+      "type": "object"
+    },
+    "AcceptInvitationResponse": {
+      "properties": {},
+      "type": "object"
+    },
+    "AccountDetails": {
+      "description": "The details of an AWS account.",
+      "properties": {
+        "AccountId": {
+          "$ref": "#/definitions/AccountId",
+          "description": "The ID of an AWS account."
+        },
+        "Email": {
+          "$ref": "#/definitions/NonEmptyString",
+          "description": "The email of an AWS account."
+        }
+      },
+      "type": "object"
+    },
+    "AccountDetailsList": {
+      "items": {
+        "$ref": "#/definitions/AccountDetails"
+      },
+      "type": "array"
+    },
+    "AccountId": {
+      "type": "string"
+    },
+    "AccountIdList": {
+      "items": {
+        "$ref": "#/definitions/NonEmptyString"
+      },
+      "type": "array"
+    },
+    "ArnList": {
+      "items": {
+        "$ref": "#/definitions/NonEmptyString"
+      },
+      "type": "array"
+    },
+    "AwsEc2InstanceDetails": {
+      "description": "The details of an AWS EC2 instance.",
+      "properties": {
+        "IamInstanceProfileArn": {
+          "$ref": "#/definitions/NonEmptyString",
+          "description": "The IAM profile ARN of the instance."
+        },
+        "ImageId": {
+          "$ref": "#/definitions/NonEmptyString",
+          "description": "The Amazon Machine Image (AMI) ID of the instance."
+        },
+        "IpV4Addresses": {
+          "$ref": "#/definitions/StringList",
+          "description": "The IPv4 addresses associated with the instance."
+        },
+        "IpV6Addresses": {
+          "$ref": "#/definitions/StringList",
+          "description": "The IPv6 addresses associated with the instance."
+        },
+        "KeyName": {
+          "$ref": "#/definitions/NonEmptyString",
+          "description": "The key name associated with the instance."
+        },
+        "LaunchedAt": {
+          "$ref": "#/definitions/NonEmptyString",
+          "description": "The date/time the instance was launched."
+        },
+        "SubnetId": {
+          "$ref": "#/definitions/NonEmptyString",
+          "description": "The identifier of the subnet in which the instance was launched."
+        },
+        "Type": {
+          "$ref": "#/definitions/NonEmptyString",
+          "description": "The instance type of the instance. "
+        },
+        "VpcId": {
+          "$ref": "#/definitions/NonEmptyString",
+          "description": "The identifier of the VPC in which the instance was launched."
+        }
+      },
+      "type": "object"
+    },
+    "AwsIamAccessKeyDetails": {
+      "description": "AWS IAM access key details related to a finding.",
+      "properties": {
+        "CreatedAt": {
+          "$ref": "#/definitions/NonEmptyString",
+          "description": "The creation date/time of the IAM access key related to a finding."
+        },
+        "Status": {
+          "$ref": "#/definitions/AwsIamAccessKeyStatus",
+          "description": "The status of the IAM access key related to a finding."
+        },
+        "UserName": {
+          "$ref": "#/definitions/NonEmptyString",
+          "description": "The user associated with the IAM access key related to a finding."
+        }
+      },
+      "type": "object"
+    },
+    "AwsIamAccessKeyStatus": {
+      "enum": [
+        "Active",
+        "Inactive"
+      ],
+      "type": "string"
+    },
+    "AwsS3BucketDetails": {
+      "description": "The details of an AWS S3 Bucket.",
+      "properties": {
+        "OwnerId": {
+          "$ref": "#/definitions/NonEmptyString",
+          "description": "The canonical user ID of the owner of the S3 bucket."
+        },
+        "OwnerName": {
+          "$ref": "#/definitions/NonEmptyString",
+          "description": "The display name of the owner of the S3 bucket."
+        }
+      },
+      "type": "object"
+    },
+    "AwsSecurityFinding": {
+      "description": "<p>Provides consistent format for the contents of the Security Hub-aggregated findings. AwsSecurityFinding format enables you to share findings between AWS security services and third-party solutions, and compliance checks.</p> <note> <p>A finding is a potential security issue generated either by AWS services (GuardDuty, Inspector, Macie) or by the integrated third-party solutions and compliance checks.</p> </note>",
+      "properties": {
+        "AwsAccountId": {
+          "$ref": "#/definitions/NonEmptyString",
+          "description": "The AWS account ID in which a finding is generated."
+        },
+        "Compliance": {
+          "$ref": "#/definitions/Compliance",
+          "description": "This data type is exclusive to findings that are generated as the result of a check run against a specific rule in a supported standard (for example, AWS CIS Foundations). Contains compliance-related finding details."
+        },
+        "Confidence": {
+          "$ref": "#/definitions/Integer",
+          "description": "A finding's confidence. Confidence is defined as the likelihood that a finding accurately identifies the behavior or issue that it was intended to identify. Confidence is scored on a 0-100 basis using a ratio scale. 0 equates zero percent confidence and 100 equates to 100 percent confidence."
+        },
+        "CreatedAt": {
+          "$ref": "#/definitions/NonEmptyString",
+          "description": "An ISO8601-formatted timestamp that indicates when the potential security issue captured by a finding was created by the security findings provider."
+        },
+        "Criticality": {
+          "$ref": "#/definitions/Integer",
+          "description": "The level of importance assigned to the resources associated with the finding. A score of 0 means the underlying resources have no criticality, and a score of 100 is reserved for the most critical resources."
+        },
+        "Description": {
+          "$ref": "#/definitions/NonEmptyString",
+          "description": "A finding's description."
+        },
+        "FirstObservedAt": {
+          "$ref": "#/definitions/NonEmptyString",
+          "description": "An ISO8601-formatted timestamp that indicates when the potential security issue captured by a finding was first observed by the security findings provider."
+        },
+        "GeneratorId": {
+          "$ref": "#/definitions/NonEmptyString",
+          "description": "This is the identifier for the solution-specific component (a discrete unit of logic) that generated a finding. In various security findings provider's solutions, this generator can be called a rule, a check, a detector, a plug-in, etc. "
+        },
+        "Id": {
+          "$ref": "#/definitions/NonEmptyString",
+          "description": "The security findings provider-specific identifier for a finding."
+        },
+        "LastObservedAt": {
+          "$ref": "#/definitions/NonEmptyString",
+          "description": "An ISO8601-formatted timestamp that indicates when the potential security issue captured by a finding was most recently observed by the security findings provider."
+        },
+        "Malware": {
+          "$ref": "#/definitions/MalwareList",
+          "description": "A list of malware related to a finding."
+        },
+        "Network": {
+          "$ref": "#/definitions/Network",
+          "description": "The details of network-related information about a finding."
+        },
+        "Note": {
+          "$ref": "#/definitions/Note",
+          "description": "A user-defined note added to a finding."
+        },
+        "Process": {
+          "$ref": "#/definitions/ProcessDetails",
+          "description": "The details of process-related information about a finding."
+        },
+        "ProductArn": {
+          "$ref": "#/definitions/NonEmptyString",
+          "description": "The ARN generated by Security Hub that uniquely identifies a third-party company (security findings provider) once this provider's product (solution that generates findings) is registered with Security Hub. "
+        },
+        "ProductFields": {
+          "$ref": "#/definitions/FieldMap",
+          "description": "A data type where security findings providers can include additional solution-specific details that are not part of the defined AwsSecurityFinding format."
+        },
+        "RecordState": {
+          "$ref": "#/definitions/RecordState",
+          "description": "The record state of a finding."
+        },
+        "RelatedFindings": {
+          "$ref": "#/definitions/RelatedFindingList",
+          "description": "A list of related findings."
+        },
+        "Remediation": {
+          "$ref": "#/definitions/Remediation",
+          "description": "An data type that describes the remediation options for a finding."
+        },
+        "Resources": {
+          "$ref": "#/definitions/ResourceList",
+          "description": "A set of resource data types that describe the resources to which the finding refers."
+        },
+        "SchemaVersion": {
+          "$ref": "#/definitions/NonEmptyString",
+          "description": "The schema version for which a finding is formatted."
+        },
+        "Severity": {
+          "$ref": "#/definitions/Severity",
+          "description": "A finding's severity."
+        },
+        "SourceUrl": {
+          "$ref": "#/definitions/NonEmptyString",
+          "description": "A URL that links to a page about the current finding in the security findings provider's solution."
+        },
+        "ThreatIntelIndicators": {
+          "$ref": "#/definitions/ThreatIntelIndicatorList",
+          "description": "Threat intel details related to a finding."
+        },
+        "Title": {
+          "$ref": "#/definitions/NonEmptyString",
+          "description": "A finding's title."
+        },
+        "Types": {
+          "$ref": "#/definitions/TypeList",
+          "description": "<p>One or more finding types in the format of 'namespace/category/classifier' that classify a finding.</p> <p>Valid namespace values are: Software and Configuration Checks | TTPs | Effects | Unusual Behaviors | Sensitive Data Identifications</p>"
+        },
+        "UpdatedAt": {
+          "$ref": "#/definitions/NonEmptyString",
+          "description": "An ISO8601-formatted timestamp that indicates when the finding record was last updated by the security findings provider. "
+        },
+        "UserDefinedFields": {
+          "$ref": "#/definitions/FieldMap",
+          "description": "A list of name/value string pairs associated with the finding. These are custom, user-defined fields added to a finding. "
+        },
+        "VerificationState": {
+          "$ref": "#/definitions/VerificationState",
+          "description": "Indicates the veracity of a finding. "
+        },
+        "WorkflowState": {
+          "$ref": "#/definitions/WorkflowState",
+          "description": "The workflow state of a finding. "
+        }
+      },
+      "required": [
+        "SchemaVersion",
+        "Id",
+        "ProductArn",
+        "GeneratorId",
+        "AwsAccountId",
+        "Types",
+        "CreatedAt",
+        "UpdatedAt",
+        "Severity",
+        "Resources"
+      ],
+      "type": "object"
+    },
+    "AwsSecurityFindingFilters": {
+      "description": "A collection of attributes that are applied to all active Security Hub-aggregated findings and that result in a subset of findings that are included in this insight. ",
+      "properties": {
+        "AwsAccountId": {
+          "$ref": "#/definitions/StringFilterList",
+          "description": "The AWS account ID in which a finding is generated."
+        },
+        "CompanyName": {
+          "$ref": "#/definitions/StringFilterList",
+          "description": "The name of the findings provider (company) that owns the solution (product) that generates findings."
+        },
+        "ComplianceStatus": {
+          "$ref": "#/definitions/StringFilterList",
+          "description": "Exclusive to findings that are generated as the result of a check run against a specific rule in a supported standard (for example, AWS CIS Foundations). Contains compliance-related finding details."
+        },
+        "Confidence": {
+          "$ref": "#/definitions/NumberFilterList",
+          "description": "A finding's confidence. Confidence is defined as the likelihood that a finding accurately identifies the behavior or issue that it was intended to identify. Confidence is scored on a 0-100 basis using a ratio scale. 0 equates zero percent confidence and 100 equates to 100 percent confidence."
+        },
+        "CreatedAt": {
+          "$ref": "#/definitions/DateFilterList",
+          "description": "An ISO8601-formatted timestamp that indicates when the potential security issue captured by a finding was created by the security findings provider."
+        },
+        "Criticality": {
+          "$ref": "#/definitions/NumberFilterList",
+          "description": "The level of importance assigned to the resources associated with the finding. A score of 0 means the underlying resources have no criticality, and a score of 100 is reserved for the most critical resources."
+        },
+        "Description": {
+          "$ref": "#/definitions/StringFilterList",
+          "description": "A finding's description."
+        },
+        "FirstObservedAt": {
+          "$ref": "#/definitions/DateFilterList",
+          "description": "An ISO8601-formatted timestamp that indicates when the potential security issue captured by a finding was first observed by the security findings provider."
+        },
+        "GeneratorId": {
+          "$ref": "#/definitions/StringFilterList",
+          "description": "This is the identifier for the solution-specific component (a discrete unit of logic) that generated a finding. In various security findings provider's solutions, this generator can be called a rule, a check, a detector, a plug-in, etc."
+        },
+        "Id": {
+          "$ref": "#/definitions/StringFilterList",
+          "description": "The security findings provider-specific identifier for a finding."
+        },
+        "Keyword": {
+          "$ref": "#/definitions/KeywordFilterList",
+          "description": "A keyword for a finding."
+        },
+        "LastObservedAt": {
+          "$ref": "#/definitions/DateFilterList",
+          "description": "An ISO8601-formatted timestamp that indicates when the potential security issue captured by a finding was most recently observed by the security findings provider."
+        },
+        "MalwareName": {
+          "$ref": "#/definitions/StringFilterList",
+          "description": "The name of the malware that was observed."
+        },
+        "MalwarePath": {
+          "$ref": "#/definitions/StringFilterList",
+          "description": "The filesystem path of the malware that was observed."
+        },
+        "MalwareState": {
+          "$ref": "#/definitions/StringFilterList",
+          "description": "The state of the malware that was observed."
+        },
+        "MalwareType": {
+          "$ref": "#/definitions/StringFilterList",
+          "description": "The type of the malware that was observed."
+        },
+        "NetworkDestinationDomain": {
+          "$ref": "#/definitions/StringFilterList",
+          "description": "The destination domain of network-related information about a finding."
+        },
+        "NetworkDestinationIpV4": {
+          "$ref": "#/definitions/IpFilterList",
+          "description": "The destination IPv4 address of network-related information about a finding."
+        },
+        "NetworkDestinationIpV6": {
+          "$ref": "#/definitions/IpFilterList",
+          "description": "The destination IPv6 address of network-related information about a finding."
+        },
+        "NetworkDestinationPort": {
+          "$ref": "#/definitions/NumberFilterList",
+          "description": "The destination port of network-related information about a finding."
+        },
+        "NetworkDirection": {
+          "$ref": "#/definitions/StringFilterList",
+          "description": "Indicates the direction of network traffic associated with a finding."
+        },
+        "NetworkProtocol": {
+          "$ref": "#/definitions/StringFilterList",
+          "description": "The protocol of network-related information about a finding."
+        },
+        "NetworkSourceDomain": {
+          "$ref": "#/definitions/StringFilterList",
+          "description": "The source domain of network-related information about a finding."
+        },
+        "NetworkSourceIpV4": {
+          "$ref": "#/definitions/IpFilterList",
+          "description": "The source IPv4 address of network-related information about a finding."
+        },
+        "NetworkSourceIpV6": {
+          "$ref": "#/definitions/IpFilterList",
+          "description": "The source IPv6 address of network-related information about a finding."
+        },
+        "NetworkSourceMac": {
+          "$ref": "#/definitions/StringFilterList",
+          "description": "The source media access control (MAC) address of network-related information about a finding."
+        },
+        "NetworkSourcePort": {
+          "$ref": "#/definitions/NumberFilterList",
+          "description": "The source port of network-related information about a finding."
+        },
+        "NoteText": {
+          "$ref": "#/definitions/StringFilterList",
+          "description": "The text of a note."
+        },
+        "NoteUpdatedAt": {
+          "$ref": "#/definitions/DateFilterList",
+          "description": "The timestamp of when the note was updated."
+        },
+        "NoteUpdatedBy": {
+          "$ref": "#/definitions/StringFilterList",
+          "description": "The principal that created a note."
+        },
+        "ProcessLaunchedAt": {
+          "$ref": "#/definitions/DateFilterList",
+          "description": "The date/time that the process was launched."
+        },
+        "ProcessName": {
+          "$ref": "#/definitions/StringFilterList",
+          "description": "The name of the process."
+        },
+        "ProcessParentPid": {
+          "$ref": "#/definitions/NumberFilterList",
+          "description": "The parent process ID."
+        },
+        "ProcessPath": {
+          "$ref": "#/definitions/StringFilterList",
+          "description": "The path to the process executable."
+        },
+        "ProcessPid": {
+          "$ref": "#/definitions/NumberFilterList",
+          "description": "The process ID."
+        },
+        "ProcessTerminatedAt": {
+          "$ref": "#/definitions/DateFilterList",
+          "description": "The date/time that the process was terminated."
+        },
+        "ProductArn": {
+          "$ref": "#/definitions/StringFilterList",
+          "description": "The ARN generated by Security Hub that uniquely identifies a third-party company (security findings provider) once this provider's product (solution that generates findings) is registered with Security Hub."
+        },
+        "ProductFields": {
+          "$ref": "#/definitions/MapFilterList",
+          "description": "A data type where security findings providers can include additional solution-specific details that are not part of the defined AwsSecurityFinding format."
+        },
+        "ProductName": {
+          "$ref": "#/definitions/StringFilterList",
+          "description": "The name of the solution (product) that generates findings."
+        },
+        "RecommendationText": {
+          "$ref": "#/definitions/StringFilterList",
+          "description": "The recommendation of what to do about the issue described in a finding."
+        },
+        "RecordState": {
+          "$ref": "#/definitions/StringFilterList",
+          "description": "The updated record state for the finding."
+        },
+        "RelatedFindingsId": {
+          "$ref": "#/definitions/StringFilterList",
+          "description": "The solution-generated identifier for a related finding."
+        },
+        "RelatedFindingsProductArn": {
+          "$ref": "#/definitions/StringFilterList",
+          "description": "The ARN of the solution that generated a related finding."
+        },
+        "ResourceAwsEc2InstanceIamInstanceProfileArn": {
+          "$ref": "#/definitions/StringFilterList",
+          "description": "The IAM profile ARN of the instance."
+        },
+        "ResourceAwsEc2InstanceImageId": {
+          "$ref": "#/definitions/StringFilterList",
+          "description": "The Amazon Machine Image (AMI) ID of the instance."
+        },
+        "ResourceAwsEc2InstanceIpV4Addresses": {
+          "$ref": "#/definitions/IpFilterList",
+          "description": "The IPv4 addresses associated with the instance."
+        },
+        "ResourceAwsEc2InstanceIpV6Addresses": {
+          "$ref": "#/definitions/IpFilterList",
+          "description": "The IPv6 addresses associated with the instance."
+        },
+        "ResourceAwsEc2InstanceKeyName": {
+          "$ref": "#/definitions/StringFilterList",
+          "description": "The key name associated with the instance."
+        },
+        "ResourceAwsEc2InstanceLaunchedAt": {
+          "$ref": "#/definitions/DateFilterList",
+          "description": "The date/time the instance was launched."
+        },
+        "ResourceAwsEc2InstanceSubnetId": {
+          "$ref": "#/definitions/StringFilterList",
+          "description": "The identifier of the subnet in which the instance was launched."
+        },
+        "ResourceAwsEc2InstanceType": {
+          "$ref": "#/definitions/StringFilterList",
+          "description": "The instance type of the instance."
+        },
+        "ResourceAwsEc2InstanceVpcId": {
+          "$ref": "#/definitions/StringFilterList",
+          "description": "The identifier of the VPC in which the instance was launched."
+        },
+        "ResourceAwsIamAccessKeyCreatedAt": {
+          "$ref": "#/definitions/DateFilterList",
+          "description": "The creation date/time of the IAM access key related to a finding."
+        },
+        "ResourceAwsIamAccessKeyStatus": {
+          "$ref": "#/definitions/StringFilterList",
+          "description": "The status of the IAM access key related to a finding."
+        },
+        "ResourceAwsIamAccessKeyUserName": {
+          "$ref": "#/definitions/StringFilterList",
+          "description": "The user associated with the IAM access key related to a finding."
+        },
+        "ResourceAwsS3BucketOwnerId": {
+          "$ref": "#/definitions/StringFilterList",
+          "description": "The canonical user ID of the owner of the S3 bucket."
+        },
+        "ResourceAwsS3BucketOwnerName": {
+          "$ref": "#/definitions/StringFilterList",
+          "description": "The display name of the owner of the S3 bucket."
+        },
+        "ResourceContainerImageId": {
+          "$ref": "#/definitions/StringFilterList",
+          "description": "The identifier of the image related to a finding."
+        },
+        "ResourceContainerImageName": {
+          "$ref": "#/definitions/StringFilterList",
+          "description": "The name of the image related to a finding."
+        },
+        "ResourceContainerLaunchedAt": {
+          "$ref": "#/definitions/DateFilterList",
+          "description": "The date/time that the container was started."
+        },
+        "ResourceContainerName": {
+          "$ref": "#/definitions/StringFilterList",
+          "description": "The name of the container related to a finding."
+        },
+        "ResourceDetailsOther": {
+          "$ref": "#/definitions/MapFilterList",
+          "description": "The details of a resource that does not have a specific sub-field for the resource type defined."
+        },
+        "ResourceId": {
+          "$ref": "#/definitions/StringFilterList",
+          "description": "The canonical identifier for the given resource type."
+        },
+        "ResourcePartition": {
+          "$ref": "#/definitions/StringFilterList",
+          "description": "The canonical AWS partition name to which the region is assigned."
+        },
+        "ResourceRegion": {
+          "$ref": "#/definitions/StringFilterList",
+          "description": "The canonical AWS external region name where this resource is located."
+        },
+        "ResourceTags": {
+          "$ref": "#/definitions/MapFilterList",
+          "description": "A list of AWS tags associated with a resource at the time the finding was processed."
+        },
+        "ResourceType": {
+          "$ref": "#/definitions/StringFilterList",
+          "description": "Specifies the type of the resource for which details are provided."
+        },
+        "SeverityLabel": {
+          "$ref": "#/definitions/StringFilterList",
+          "description": "The label of a finding's severity."
+        },
+        "SeverityNormalized": {
+          "$ref": "#/definitions/NumberFilterList",
+          "description": "The normalized severity of a finding."
+        },
+        "SeverityProduct": {
+          "$ref": "#/definitions/NumberFilterList",
+          "description": "The native severity as defined by the security findings provider's solution that generated the finding."
+        },
+        "SourceUrl": {
+          "$ref": "#/definitions/StringFilterList",
+          "description": "A URL that links to a page about the current finding in the security findings provider's solution."
+        },
+        "ThreatIntelIndicatorCategory": {
+          "$ref": "#/definitions/StringFilterList",
+          "description": "The category of a threat intel indicator."
+        },
+        "ThreatIntelIndicatorLastObservedAt": {
+          "$ref": "#/definitions/DateFilterList",
+          "description": "The date/time of the last observation of a threat intel indicator."
+        },
+        "ThreatIntelIndicatorSource": {
+          "$ref": "#/definitions/StringFilterList",
+          "description": "The source of the threat intel."
+        },
+        "ThreatIntelIndicatorSourceUrl": {
+          "$ref": "#/definitions/StringFilterList",
+          "description": "The URL for more details from the source of the threat intel."
+        },
+        "ThreatIntelIndicatorType": {
+          "$ref": "#/definitions/StringFilterList",
+          "description": "The type of a threat intel indicator."
+        },
+        "ThreatIntelIndicatorValue": {
+          "$ref": "#/definitions/StringFilterList",
+          "description": "The value of a threat intel indicator."
+        },
+        "Title": {
+          "$ref": "#/definitions/StringFilterList",
+          "description": "A finding's title."
+        },
+        "Type": {
+          "$ref": "#/definitions/StringFilterList",
+          "description": "A finding type in the format of 'namespace/category/classifier' that classifies a finding."
+        },
+        "UpdatedAt": {
+          "$ref": "#/definitions/DateFilterList",
+          "description": "An ISO8601-formatted timestamp that indicates when the finding record was last updated by the security findings provider. "
+        },
+        "UserDefinedFields": {
+          "$ref": "#/definitions/MapFilterList",
+          "description": "A list of name/value string pairs associated with the finding. These are custom, user-defined fields added to a finding. "
+        },
+        "VerificationState": {
+          "$ref": "#/definitions/StringFilterList",
+          "description": "Indicates the veracity of a finding. "
+        },
+        "WorkflowState": {
+          "$ref": "#/definitions/StringFilterList",
+          "description": "The workflow state of a finding."
+        }
+      },
+      "type": "object"
+    },
+    "AwsSecurityFindingList": {
+      "items": {
+        "$ref": "#/definitions/AwsSecurityFinding"
+      },
+      "type": "array"
+    },
+    "BatchDisableStandardsRequest": {
+      "properties": {
+        "StandardsSubscriptionArns": {
+          "$ref": "#/definitions/StandardsSubscriptionArns",
+          "description": "The ARNS of the standards subscriptions that you want to disable."
+        }
+      },
+      "required": [
+        "StandardsSubscriptionArns"
+      ],
+      "type": "object"
+    },
+    "BatchDisableStandardsResponse": {
+      "properties": {
+        "StandardsSubscriptions": {
+          "$ref": "#/definitions/StandardsSubscriptions",
+          "description": "The details of the standards subscriptions that were disabled."
+        }
+      },
+      "type": "object"
+    },
+    "BatchEnableStandardsRequest": {
+      "properties": {
+        "StandardsSubscriptionRequests": {
+          "$ref": "#/definitions/StandardsSubscriptionRequests",
+          "description": "The list of standards that you want to enable."
+        }
+      },
+      "required": [
+        "StandardsSubscriptionRequests"
+      ],
+      "type": "object"
+    },
+    "BatchEnableStandardsResponse": {
+      "properties": {
+        "StandardsSubscriptions": {
+          "$ref": "#/definitions/StandardsSubscriptions",
+          "description": "The details of the standards subscriptions that were enabled."
+        }
+      },
+      "type": "object"
+    },
+    "BatchImportFindingsRequest": {
+      "properties": {
+        "Findings": {
+          "$ref": "#/definitions/AwsSecurityFindingList",
+          "description": "A list of findings that you want to import. Must be submitted in the AWSSecurityFinding format."
+        }
+      },
+      "required": [
+        "Findings"
+      ],
+      "type": "object"
+    },
+    "BatchImportFindingsResponse": {
+      "properties": {
+        "FailedCount": {
+          "$ref": "#/definitions/Integer",
+          "description": "The number of findings that cannot be imported."
+        },
+        "FailedFindings": {
+          "$ref": "#/definitions/ImportFindingsErrorList",
+          "description": "The list of the findings that cannot be imported."
+        },
+        "SuccessCount": {
+          "$ref": "#/definitions/Integer",
+          "description": "The number of findings that were successfully imported"
+        }
+      },
+      "required": [
+        "FailedCount",
+        "SuccessCount"
+      ],
+      "type": "object"
+    },
+    "Boolean": {
+      "type": "boolean"
+    },
+    "Compliance": {
+      "description": "Exclusive to findings that are generated as the result of a check run against a specific rule in a supported standard (for example, AWS CIS Foundations). Contains compliance-related finding details.",
+      "properties": {
+        "Status": {
+          "$ref": "#/definitions/ComplianceStatus",
+          "description": "Indicates the result of a compliance check."
+        }
+      },
+      "type": "object"
+    },
+    "ComplianceStatus": {
+      "enum": [
+        "PASSED",
+        "WARNING",
+        "FAILED",
+        "NOT_AVAILABLE"
+      ],
+      "type": "string"
+    },
+    "ContainerDetails": {
+      "description": "Container details related to a finding.",
+      "properties": {
+        "ImageId": {
+          "$ref": "#/definitions/NonEmptyString",
+          "description": "The identifier of the image related to a finding."
+        },
+        "ImageName": {
+          "$ref": "#/definitions/NonEmptyString",
+          "description": "The name of the image related to a finding."
+        },
+        "LaunchedAt": {
+          "$ref": "#/definitions/NonEmptyString",
+          "description": "The date/time that the container was started."
+        },
+        "Name": {
+          "$ref": "#/definitions/NonEmptyString",
+          "description": "The name of the container related to a finding."
+        }
+      },
+      "type": "object"
+    },
+    "CreateInsightRequest": {
+      "properties": {
+        "Filters": {
+          "$ref": "#/definitions/AwsSecurityFindingFilters",
+          "description": "A collection of attributes that are applied to all active Security Hub-aggregated findings and that result in a subset of findings that are included in this insight."
+        },
+        "GroupByAttribute": {
+          "$ref": "#/definitions/NonEmptyString",
+          "description": "The attribute by which the insight's findings are grouped. This attribute is used as a findings aggregator for the purposes of viewing and managing multiple related findings under a single operand. "
+        },
+        "Name": {
+          "$ref": "#/definitions/NonEmptyString",
+          "description": "The user-defined name that identifies the insight that you want to create."
+        }
+      },
+      "required": [
+        "Name",
+        "Filters",
+        "GroupByAttribute"
+      ],
+      "type": "object"
+    },
+    "CreateInsightResponse": {
+      "properties": {
+        "InsightArn": {
+          "$ref": "#/definitions/NonEmptyString",
+          "description": "The ARN Of the created insight."
+        }
+      },
+      "required": [
+        "InsightArn"
+      ],
+      "type": "object"
+    },
+    "CreateMembersRequest": {
+      "properties": {
+        "AccountDetails": {
+          "$ref": "#/definitions/AccountDetailsList",
+          "description": "A list of account ID and email address pairs of the accounts that you want to associate with the master Security Hub account."
+        }
+      },
+      "type": "object"
+    },
+    "CreateMembersResponse": {
+      "properties": {
+        "UnprocessedAccounts": {
+          "$ref": "#/definitions/ResultList",
+          "description": "A list of account ID and email address pairs of the AWS accounts that could not be processed."
+        }
+      },
+      "type": "object"
+    },
+    "DateFilter": {
+      "description": "A date filter for querying findings.",
+      "properties": {
+        "DateRange": {
+          "$ref": "#/definitions/DateRange",
+          "description": "A date range for the date filter."
+        },
+        "End": {
+          "$ref": "#/definitions/NonEmptyString",
+          "description": "An end date for the date filter."
+        },
+        "Start": {
+          "$ref": "#/definitions/NonEmptyString",
+          "description": "A start date for the date filter."
+        }
+      },
+      "type": "object"
+    },
+    "DateFilterList": {
+      "items": {
+        "$ref": "#/definitions/DateFilter"
+      },
+      "type": "array"
+    },
+    "DateRange": {
+      "description": "A date range for the date filter.",
+      "properties": {
+        "Unit": {
+          "$ref": "#/definitions/DateRangeUnit",
+          "description": "A date range unit for the date filter."
+        },
+        "Value": {
+          "$ref": "#/definitions/Integer",
+          "description": "A date range value for the date filter."
+        }
+      },
+      "type": "object"
+    },
+    "DateRangeUnit": {
+      "enum": [
+        "DAYS"
+      ],
+      "type": "string"
+    },
+    "DeclineInvitationsRequest": {
+      "properties": {
+        "AccountIds": {
+          "$ref": "#/definitions/AccountIdList",
+          "description": "A list of account IDs specifying accounts whose invitations to Security Hub you want to decline. "
+        }
+      },
+      "type": "object"
+    },
+    "DeclineInvitationsResponse": {
+      "properties": {
+        "UnprocessedAccounts": {
+          "$ref": "#/definitions/ResultList",
+          "description": "A list of account ID and email address pairs of the AWS accounts that could not be processed. "
+        }
+      },
+      "type": "object"
+    },
+    "DeleteInsightRequest": {
+      "properties": {},
+      "type": "object"
+    },
+    "DeleteInsightResponse": {
+      "properties": {
+        "InsightArn": {
+          "$ref": "#/definitions/NonEmptyString",
+          "description": "The ARN of the insight that was deleted."
+        }
+      },
+      "required": [
+        "InsightArn"
+      ],
+      "type": "object"
+    },
+    "DeleteInvitationsRequest": {
+      "properties": {
+        "AccountIds": {
+          "$ref": "#/definitions/AccountIdList",
+          "description": "A list of account IDs specifying accounts whose invitations to Security Hub you want to delete. "
+        }
+      },
+      "type": "object"
+    },
+    "DeleteInvitationsResponse": {
+      "properties": {
+        "UnprocessedAccounts": {
+          "$ref": "#/definitions/ResultList",
+          "description": "A list of account ID and email address pairs of the AWS accounts that could not be processed. "
+        }
+      },
+      "type": "object"
+    },
+    "DeleteMembersRequest": {
+      "properties": {
+        "AccountIds": {
+          "$ref": "#/definitions/AccountIdList",
+          "description": "A list of account IDs of the Security Hub member accounts that you want to delete. "
+        }
+      },
+      "type": "object"
+    },
+    "DeleteMembersResponse": {
+      "properties": {
+        "UnprocessedAccounts": {
+          "$ref": "#/definitions/ResultList",
+          "description": "A list of account ID and email address pairs of the AWS accounts that could not be processed. "
+        }
+      },
+      "type": "object"
+    },
+    "DisableImportFindingsForProductRequest": {
+      "properties": {},
+      "type": "object"
+    },
+    "DisableImportFindingsForProductResponse": {
+      "properties": {},
+      "type": "object"
+    },
+    "DisableSecurityHubRequest": {
+      "properties": {},
+      "type": "object"
+    },
+    "DisableSecurityHubResponse": {
+      "properties": {},
+      "type": "object"
+    },
+    "DisassociateFromMasterAccountRequest": {
+      "properties": {},
+      "type": "object"
+    },
+    "DisassociateFromMasterAccountResponse": {
+      "properties": {},
+      "type": "object"
+    },
+    "DisassociateMembersRequest": {
+      "properties": {
+        "AccountIds": {
+          "$ref": "#/definitions/AccountIdList",
+          "description": "The account IDs of the member accounts that you want to disassociate from the master account."
+        }
+      },
+      "type": "object"
+    },
+    "DisassociateMembersResponse": {
+      "properties": {},
+      "type": "object"
+    },
+    "Double": {
+      "format": "double",
+      "type": "number"
+    },
+    "EnableImportFindingsForProductRequest": {
+      "properties": {
+        "ProductArn": {
+          "$ref": "#/definitions/NonEmptyString",
+          "description": "The ARN of the product that generates findings that you want to import into Security Hub."
+        }
+      },
+      "required": [
+        "ProductArn"
+      ],
+      "type": "object"
+    },
+    "EnableImportFindingsForProductResponse": {
+      "properties": {
+        "ProductSubscriptionArn": {
+          "$ref": "#/definitions/NonEmptyString",
+          "description": "The ARN of a resource that represents your subscription to the product that generates the findings that you want to import into Security Hub."
+        }
+      },
+      "type": "object"
+    },
+    "EnableSecurityHubRequest": {
+      "properties": {},
+      "type": "object"
+    },
+    "EnableSecurityHubResponse": {
+      "properties": {},
+      "type": "object"
+    },
+    "FieldMap": {
+      "items": {
+        "properties": {
+          "key": {
+            "$ref": "#/definitions/NonEmptyString"
+          },
+          "value": {
+            "$ref": "#/definitions/NonEmptyString"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "GetEnabledStandardsRequest": {
+      "properties": {
+        "MaxResults": {
+          "$ref": "#/definitions/MaxResults",
+          "description": "Indicates the maximum number of items that you want in the response."
+        },
+        "NextToken": {
+          "$ref": "#/definitions/NextToken",
+          "description": "Paginates results. Set the value of this parameter to NULL on your first call to the GetEnabledStandards operation. For subsequent calls to the operation, fill nextToken in the request with the value of nextToken from the previous response to continue listing data."
+        },
+        "StandardsSubscriptionArns": {
+          "$ref": "#/definitions/StandardsSubscriptionArns",
+          "description": "The list of standards subscription ARNS that you want to list and describe."
+        }
+      },
+      "type": "object"
+    },
+    "GetEnabledStandardsResponse": {
+      "properties": {
+        "NextToken": {
+          "$ref": "#/definitions/NextToken",
+          "description": "The token that is required for pagination."
+        },
+        "StandardsSubscriptions": {
+          "$ref": "#/definitions/StandardsSubscriptions",
+          "description": "The standards subscription details returned by the operation."
+        }
+      },
+      "type": "object"
+    },
+    "GetFindingsRequest": {
+      "properties": {
+        "Filters": {
+          "$ref": "#/definitions/AwsSecurityFindingFilters",
+          "description": "A collection of attributes that is use for querying findings."
+        },
+        "MaxResults": {
+          "$ref": "#/definitions/MaxResults",
+          "description": "Indicates the maximum number of items that you want in the response."
+        },
+        "NextToken": {
+          "$ref": "#/definitions/NextToken",
+          "description": "Paginates results. Set the value of this parameter to NULL on your first call to the GetFindings operation. For subsequent calls to the operation, fill nextToken in the request with the value of nextToken from the previous response to continue listing data."
+        },
+        "SortCriteria": {
+          "$ref": "#/definitions/SortCriteria",
+          "description": "A collection of attributes used for sorting findings."
+        }
+      },
+      "type": "object"
+    },
+    "GetFindingsResponse": {
+      "properties": {
+        "Findings": {
+          "$ref": "#/definitions/AwsSecurityFindingList",
+          "description": "Findings details returned by the operation."
+        },
+        "NextToken": {
+          "$ref": "#/definitions/NextToken",
+          "description": "The token that is required for pagination."
+        }
+      },
+      "required": [
+        "Findings"
+      ],
+      "type": "object"
+    },
+    "GetInsightResultsRequest": {
+      "properties": {},
+      "type": "object"
+    },
+    "GetInsightResultsResponse": {
+      "properties": {
+        "InsightResults": {
+          "$ref": "#/definitions/InsightResults",
+          "description": "The insight results returned by the operation."
+        }
+      },
+      "required": [
+        "InsightResults"
+      ],
+      "type": "object"
+    },
+    "GetInsightsRequest": {
+      "properties": {
+        "InsightArns": {
+          "$ref": "#/definitions/ArnList",
+          "description": "The ARNS of the insights that you want to describe."
+        },
+        "MaxResults": {
+          "$ref": "#/definitions/MaxResults",
+          "description": "Indicates the maximum number of items that you want in the response."
+        },
+        "NextToken": {
+          "$ref": "#/definitions/NextToken",
+          "description": "Paginates results. Set the value of this parameter to NULL on your first call to the GetInsights operation. For subsequent calls to the operation, fill nextToken in the request with the value of nextToken from the previous response to continue listing data."
+        }
+      },
+      "type": "object"
+    },
+    "GetInsightsResponse": {
+      "properties": {
+        "Insights": {
+          "$ref": "#/definitions/InsightList",
+          "description": "The insights returned by the operation."
+        },
+        "NextToken": {
+          "$ref": "#/definitions/NextToken",
+          "description": "The token that is required for pagination."
+        }
+      },
+      "required": [
+        "Insights"
+      ],
+      "type": "object"
+    },
+    "GetInvitationsCountRequest": {
+      "properties": {},
+      "type": "object"
+    },
+    "GetInvitationsCountResponse": {
+      "properties": {
+        "InvitationsCount": {
+          "$ref": "#/definitions/Integer",
+          "description": "The number of all membership invitations sent to this Security Hub member account, not including the currently accepted invitation. "
+        }
+      },
+      "type": "object"
+    },
+    "GetMasterAccountRequest": {
+      "properties": {},
+      "type": "object"
+    },
+    "GetMasterAccountResponse": {
+      "properties": {
+        "Master": {
+          "$ref": "#/definitions/Invitation",
+          "description": "A list of details about the Security Hub master account for the current member account. "
+        }
+      },
+      "type": "object"
+    },
+    "GetMembersRequest": {
+      "properties": {
+        "AccountIds": {
+          "$ref": "#/definitions/AccountIdList",
+          "description": "A list of account IDs for the Security Hub member accounts on which you want to return the details. "
+        }
+      },
+      "required": [
+        "AccountIds"
+      ],
+      "type": "object"
+    },
+    "GetMembersResponse": {
+      "properties": {
+        "Members": {
+          "$ref": "#/definitions/MemberList",
+          "description": "A list of details about the Security Hub member accounts."
+        },
+        "UnprocessedAccounts": {
+          "$ref": "#/definitions/ResultList",
+          "description": "A list of account ID and email address pairs of the AWS accounts that could not be processed."
+        }
+      },
+      "type": "object"
+    },
+    "ImportFindingsError": {
+      "description": "Includes details of the list of the findings that cannot be imported. ",
+      "properties": {
+        "ErrorCode": {
+          "$ref": "#/definitions/NonEmptyString",
+          "description": "The code of the error made during the BatchImportFindings operation. "
+        },
+        "ErrorMessage": {
+          "$ref": "#/definitions/NonEmptyString",
+          "description": "The message of the error made during the BatchImportFindings operation. "
+        },
+        "Id": {
+          "$ref": "#/definitions/NonEmptyString",
+          "description": "The id of the error made during the BatchImportFindings operation."
+        }
+      },
+      "required": [
+        "Id",
+        "ErrorCode",
+        "ErrorMessage"
+      ],
+      "type": "object"
+    },
+    "ImportFindingsErrorList": {
+      "items": {
+        "$ref": "#/definitions/ImportFindingsError"
+      },
+      "type": "array"
+    },
+    "Insight": {
+      "description": "Contains information about a Security Hub insight. ",
+      "properties": {
+        "Filters": {
+          "$ref": "#/definitions/AwsSecurityFindingFilters",
+          "description": "A collection of attributes that are applied to all active Security Hub-aggregated findings and that result in a subset of findings that are included in this insight. "
+        },
+        "GroupByAttribute": {
+          "$ref": "#/definitions/NonEmptyString",
+          "description": "The attribute by which the insight's findings are grouped. This attribute is used as a findings aggregator for the purposes of viewing and managing multiple related findings under a single operand."
+        },
+        "InsightArn": {
+          "$ref": "#/definitions/NonEmptyString",
+          "description": "The ARN of a Security Hub insight."
+        },
+        "Name": {
+          "$ref": "#/definitions/NonEmptyString",
+          "description": "The name of a Security Hub insight."
+        }
+      },
+      "required": [
+        "InsightArn",
+        "Name",
+        "Filters",
+        "GroupByAttribute"
+      ],
+      "type": "object"
+    },
+    "InsightList": {
+      "items": {
+        "$ref": "#/definitions/Insight"
+      },
+      "type": "array"
+    },
+    "InsightResultValue": {
+      "description": "The insight result values returned by the GetInsightResults operation.",
+      "properties": {
+        "Count": {
+          "$ref": "#/definitions/Integer",
+          "description": "The number of findings returned for each GroupByAttributeValue."
+        },
+        "GroupByAttributeValue": {
+          "$ref": "#/definitions/NonEmptyString",
+          "description": "The value of the attribute by which the findings are grouped for the insight's whose results are returned by the GetInsightResults operation."
+        }
+      },
+      "required": [
+        "GroupByAttributeValue",
+        "Count"
+      ],
+      "type": "object"
+    },
+    "InsightResultValueList": {
+      "items": {
+        "$ref": "#/definitions/InsightResultValue"
+      },
+      "type": "array"
+    },
+    "InsightResults": {
+      "description": "The insight results returned by the GetInsightResults operation.",
+      "properties": {
+        "GroupByAttribute": {
+          "$ref": "#/definitions/NonEmptyString",
+          "description": "The attribute by which the findings are grouped for the insight's whose results are returned by the GetInsightResults operation."
+        },
+        "InsightArn": {
+          "$ref": "#/definitions/NonEmptyString",
+          "description": "The ARN of the insight whose results are returned by the GetInsightResults operation."
+        },
+        "ResultValues": {
+          "$ref": "#/definitions/InsightResultValueList",
+          "description": "The list of insight result values returned by the GetInsightResults operation."
+        }
+      },
+      "required": [
+        "InsightArn",
+        "GroupByAttribute",
+        "ResultValues"
+      ],
+      "type": "object"
+    },
+    "Integer": {
+      "type": "integer"
+    },
+    "InternalException": {},
+    "InvalidInputException": {},
+    "Invitation": {
+      "description": "The details of an invitation sent to an AWS account by the Security Hub master account. ",
+      "properties": {
+        "AccountId": {
+          "$ref": "#/definitions/AccountId",
+          "description": "The account ID of the master Security Hub account who sent the invitation. "
+        },
+        "InvitationId": {
+          "$ref": "#/definitions/NonEmptyString",
+          "description": "The ID of the invitation sent by the master Security Hub account."
+        },
+        "InvitedAt": {
+          "$ref": "#/definitions/Timestamp",
+          "description": "The timestamp of when the invitation was sent."
+        },
+        "MemberStatus": {
+          "$ref": "#/definitions/NonEmptyString",
+          "description": "The current relationship status between the inviter and invitee accounts."
+        }
+      },
+      "type": "object"
+    },
+    "InvitationList": {
+      "items": {
+        "$ref": "#/definitions/Invitation"
+      },
+      "type": "array"
+    },
+    "InviteMembersRequest": {
+      "properties": {
+        "AccountIds": {
+          "$ref": "#/definitions/AccountIdList",
+          "description": "A list of IDs of the AWS accounts that you want to invite to Security Hub as members. "
+        }
+      },
+      "type": "object"
+    },
+    "InviteMembersResponse": {
+      "properties": {
+        "UnprocessedAccounts": {
+          "$ref": "#/definitions/ResultList",
+          "description": "A list of account ID and email address pairs of the AWS accounts that could not be processed. "
+        }
+      },
+      "type": "object"
+    },
+    "IpFilter": {
+      "description": "The IP filter for querying findings.&gt;",
+      "properties": {
+        "Cidr": {
+          "$ref": "#/definitions/NonEmptyString",
+          "description": "Finding's CIDR value."
+        }
+      },
+      "type": "object"
+    },
+    "IpFilterList": {
+      "items": {
+        "$ref": "#/definitions/IpFilter"
+      },
+      "type": "array"
+    },
+    "KeywordFilter": {
+      "description": "A keyword filter for querying findings.",
+      "properties": {
+        "Value": {
+          "$ref": "#/definitions/NonEmptyString",
+          "description": "A value for the keyword."
+        }
+      },
+      "type": "object"
+    },
+    "KeywordFilterList": {
+      "items": {
+        "$ref": "#/definitions/KeywordFilter"
+      },
+      "type": "array"
+    },
+    "LimitExceededException": {},
+    "ListEnabledProductsForImportRequest": {
+      "properties": {},
+      "type": "object"
+    },
+    "ListEnabledProductsForImportResponse": {
+      "properties": {
+        "NextToken": {
+          "$ref": "#/definitions/NextToken",
+          "description": "The token that is required for pagination."
+        },
+        "ProductSubscriptions": {
+          "$ref": "#/definitions/ProductSubscriptionArnList",
+          "description": "A list of ARNs for the resources that represent your subscriptions to products. "
+        }
+      },
+      "type": "object"
+    },
+    "ListInvitationsRequest": {
+      "properties": {},
+      "type": "object"
+    },
+    "ListInvitationsResponse": {
+      "properties": {
+        "Invitations": {
+          "$ref": "#/definitions/InvitationList",
+          "description": "The details of the invitations returned by the operation."
+        },
+        "NextToken": {
+          "$ref": "#/definitions/NonEmptyString",
+          "description": "The token that is required for pagination."
+        }
+      },
+      "type": "object"
+    },
+    "ListMembersRequest": {
+      "properties": {},
+      "type": "object"
+    },
+    "ListMembersResponse": {
+      "properties": {
+        "Members": {
+          "$ref": "#/definitions/MemberList",
+          "description": "Member details returned by the operation."
+        },
+        "NextToken": {
+          "$ref": "#/definitions/NonEmptyString",
+          "description": "The token that is required for pagination."
+        }
+      },
+      "type": "object"
+    },
+    "Malware": {
+      "description": "A list of malware related to a finding.",
+      "properties": {
+        "Name": {
+          "$ref": "#/definitions/NonEmptyString",
+          "description": "The name of the malware that was observed."
+        },
+        "Path": {
+          "$ref": "#/definitions/NonEmptyString",
+          "description": "The filesystem path of the malware that was observed."
+        },
+        "State": {
+          "$ref": "#/definitions/MalwareState",
+          "description": "The state of the malware that was observed."
+        },
+        "Type": {
+          "$ref": "#/definitions/MalwareType",
+          "description": "The type of the malware that was observed."
+        }
+      },
+      "required": [
+        "Name"
+      ],
+      "type": "object"
+    },
+    "MalwareList": {
+      "items": {
+        "$ref": "#/definitions/Malware"
+      },
+      "type": "array"
+    },
+    "MalwareState": {
+      "enum": [
+        "OBSERVED",
+        "REMOVAL_FAILED",
+        "REMOVED"
+      ],
+      "type": "string"
+    },
+    "MalwareType": {
+      "enum": [
+        "ADWARE",
+        "BLENDED_THREAT",
+        "BOTNET_AGENT",
+        "COIN_MINER",
+        "EXPLOIT_KIT",
+        "KEYLOGGER",
+        "MACRO",
+        "POTENTIALLY_UNWANTED",
+        "SPYWARE",
+        "RANSOMWARE",
+        "REMOTE_ACCESS",
+        "ROOTKIT",
+        "TROJAN",
+        "VIRUS",
+        "WORM"
+      ],
+      "type": "string"
+    },
+    "MapFilter": {
+      "description": "The map filter for querying findings.",
+      "properties": {
+        "Comparison": {
+          "$ref": "#/definitions/MapFilterComparison",
+          "description": "Represents the condition to be applied to a key value when querying for findings with a map filter."
+        },
+        "Key": {
+          "$ref": "#/definitions/NonEmptyString",
+          "description": "The key of the map filter."
+        },
+        "Value": {
+          "$ref": "#/definitions/NonEmptyString",
+          "description": "The value for the key in the map filter."
+        }
+      },
+      "type": "object"
+    },
+    "MapFilterComparison": {
+      "enum": [
+        "CONTAINS"
+      ],
+      "type": "string"
+    },
+    "MapFilterList": {
+      "items": {
+        "$ref": "#/definitions/MapFilter"
+      },
+      "type": "array"
+    },
+    "MaxResults": {
+      "maximum": 100,
+      "minimum": 1,
+      "type": "integer"
+    },
+    "Member": {
+      "description": "The details for a Security Hub member account.",
+      "properties": {
+        "AccountId": {
+          "$ref": "#/definitions/AccountId",
+          "description": "The AWS account ID of a Security Hub member account."
+        },
+        "Email": {
+          "$ref": "#/definitions/NonEmptyString",
+          "description": "The email of a Security Hub member account."
+        },
+        "InvitedAt": {
+          "$ref": "#/definitions/Timestamp",
+          "description": "Time stamp at which the member account was invited to Security Hub."
+        },
+        "MasterId": {
+          "$ref": "#/definitions/NonEmptyString",
+          "description": "The AWS account ID of the master Security Hub account to this member account."
+        },
+        "MemberStatus": {
+          "$ref": "#/definitions/NonEmptyString",
+          "description": "The status of the relationship between the member account and its master account. "
+        },
+        "UpdatedAt": {
+          "$ref": "#/definitions/Timestamp",
+          "description": "Time stamp at which this member account was updated."
+        }
+      },
+      "type": "object"
+    },
+    "MemberList": {
+      "items": {
+        "$ref": "#/definitions/Member"
+      },
+      "type": "array"
+    },
+    "Network": {
+      "description": "The details of network-related information about a finding.",
+      "properties": {
+        "DestinationDomain": {
+          "$ref": "#/definitions/NonEmptyString",
+          "description": "The destination domain of network-related information about a finding."
+        },
+        "DestinationIpV4": {
+          "$ref": "#/definitions/NonEmptyString",
+          "description": "The destination IPv4 address of network-related information about a finding."
+        },
+        "DestinationIpV6": {
+          "$ref": "#/definitions/NonEmptyString",
+          "description": "The destination IPv6 address of network-related information about a finding."
+        },
+        "DestinationPort": {
+          "$ref": "#/definitions/Integer",
+          "description": "The destination port of network-related information about a finding."
+        },
+        "Direction": {
+          "$ref": "#/definitions/NetworkDirection",
+          "description": "Indicates the direction of network traffic associated with a finding."
+        },
+        "Protocol": {
+          "$ref": "#/definitions/NonEmptyString",
+          "description": "The protocol of network-related information about a finding."
+        },
+        "SourceDomain": {
+          "$ref": "#/definitions/NonEmptyString",
+          "description": "The source domain of network-related information about a finding."
+        },
+        "SourceIpV4": {
+          "$ref": "#/definitions/NonEmptyString",
+          "description": "The source IPv4 address of network-related information about a finding."
+        },
+        "SourceIpV6": {
+          "$ref": "#/definitions/NonEmptyString",
+          "description": "The source IPv6 address of network-related information about a finding."
+        },
+        "SourceMac": {
+          "$ref": "#/definitions/NonEmptyString",
+          "description": "The source media access control (MAC) address of network-related information about a finding."
+        },
+        "SourcePort": {
+          "$ref": "#/definitions/Integer",
+          "description": "The source port of network-related information about a finding."
+        }
+      },
+      "type": "object"
+    },
+    "NetworkDirection": {
+      "enum": [
+        "IN",
+        "OUT"
+      ],
+      "type": "string"
+    },
+    "NextToken": {
+      "type": "string"
+    },
+    "NonEmptyString": {
+      "pattern": ".*\\S.*",
+      "type": "string"
+    },
+    "Note": {
+      "description": "A user-defined note added to a finding.",
+      "properties": {
+        "Text": {
+          "$ref": "#/definitions/NonEmptyString",
+          "description": "The text of a note."
+        },
+        "UpdatedAt": {
+          "$ref": "#/definitions/NonEmptyString",
+          "description": "The timestamp of when the note was updated."
+        },
+        "UpdatedBy": {
+          "$ref": "#/definitions/NonEmptyString",
+          "description": "The principal that created a note."
+        }
+      },
+      "required": [
+        "Text",
+        "UpdatedBy",
+        "UpdatedAt"
+      ],
+      "type": "object"
+    },
+    "NoteUpdate": {
+      "description": "The updated note.",
+      "properties": {
+        "Text": {
+          "$ref": "#/definitions/NonEmptyString",
+          "description": "The updated note text."
+        },
+        "UpdatedBy": {
+          "$ref": "#/definitions/NonEmptyString",
+          "description": "The principal that updated the note."
+        }
+      },
+      "required": [
+        "Text",
+        "UpdatedBy"
+      ],
+      "type": "object"
+    },
+    "NumberFilter": {
+      "description": "A number filter for querying findings.",
+      "properties": {
+        "Eq": {
+          "$ref": "#/definitions/Double",
+          "description": "Represents the \"equal to\" condition to be applied to a single field when querying for findings."
+        },
+        "Gte": {
+          "$ref": "#/definitions/Double",
+          "description": "Represents the \"greater than equal\" condition to be applied to a single field when querying for findings. "
+        },
+        "Lte": {
+          "$ref": "#/definitions/Double",
+          "description": "Represents the \"less than equal\" condition to be applied to a single field when querying for findings. "
+        }
+      },
+      "type": "object"
+    },
+    "NumberFilterList": {
+      "items": {
+        "$ref": "#/definitions/NumberFilter"
+      },
+      "type": "array"
+    },
+    "Partition": {
+      "enum": [
+        "aws",
+        "aws-cn",
+        "aws-us-gov"
+      ],
+      "type": "string"
+    },
+    "ProcessDetails": {
+      "description": "The details of process-related information about a finding.",
+      "properties": {
+        "LaunchedAt": {
+          "$ref": "#/definitions/NonEmptyString",
+          "description": "The date/time that the process was launched."
+        },
+        "Name": {
+          "$ref": "#/definitions/NonEmptyString",
+          "description": "The name of the process."
+        },
+        "ParentPid": {
+          "$ref": "#/definitions/Integer",
+          "description": "The parent process ID."
+        },
+        "Path": {
+          "$ref": "#/definitions/NonEmptyString",
+          "description": "The path to the process executable."
+        },
+        "Pid": {
+          "$ref": "#/definitions/Integer",
+          "description": "The process ID."
+        },
+        "TerminatedAt": {
+          "$ref": "#/definitions/NonEmptyString",
+          "description": "The date/time that the process was terminated."
+        }
+      },
+      "type": "object"
+    },
+    "ProductSubscriptionArnList": {
+      "items": {
+        "$ref": "#/definitions/NonEmptyString"
+      },
+      "type": "array"
+    },
+    "Recommendation": {
+      "description": "Provides a recommendation on how to remediate the issue identified within a finding.",
+      "properties": {
+        "Text": {
+          "$ref": "#/definitions/NonEmptyString",
+          "description": "The recommendation of what to do about the issue described in a finding. "
+        },
+        "Url": {
+          "$ref": "#/definitions/NonEmptyString",
+          "description": "A URL to link to general remediation information for the finding type of a finding. "
+        }
+      },
+      "type": "object"
+    },
+    "RecordState": {
+      "enum": [
+        "ACTIVE",
+        "ARCHIVED"
+      ],
+      "type": "string"
+    },
+    "RelatedFinding": {
+      "description": "Related finding's details.",
+      "properties": {
+        "Id": {
+          "$ref": "#/definitions/NonEmptyString",
+          "description": "The solution-generated identifier for a related finding."
+        },
+        "ProductArn": {
+          "$ref": "#/definitions/NonEmptyString",
+          "description": "The ARN of the solution that generated a related finding."
+        }
+      },
+      "required": [
+        "ProductArn",
+        "Id"
+      ],
+      "type": "object"
+    },
+    "RelatedFindingList": {
+      "items": {
+        "$ref": "#/definitions/RelatedFinding"
+      },
+      "type": "array"
+    },
+    "Remediation": {
+      "description": "The remediation options for a finding. ",
+      "properties": {
+        "Recommendation": {
+          "$ref": "#/definitions/Recommendation",
+          "description": "Provides a recommendation on how to remediate the issue identified within a finding."
+        }
+      },
+      "type": "object"
+    },
+    "Resource": {
+      "description": "A resource data type that describes a resource to which the finding refers.",
+      "properties": {
+        "Details": {
+          "$ref": "#/definitions/ResourceDetails",
+          "description": "Provides additional details about the resource."
+        },
+        "Id": {
+          "$ref": "#/definitions/NonEmptyString",
+          "description": "The canonical identifier for the given resource type."
+        },
+        "Partition": {
+          "$ref": "#/definitions/Partition",
+          "description": "The canonical AWS partition name to which the region is assigned."
+        },
+        "Region": {
+          "$ref": "#/definitions/NonEmptyString",
+          "description": "The canonical AWS external region name where this resource is located."
+        },
+        "Tags": {
+          "$ref": "#/definitions/FieldMap",
+          "description": "A list of AWS tags associated with a resource at the time the finding was processed."
+        },
+        "Type": {
+          "$ref": "#/definitions/NonEmptyString",
+          "description": "Specifies the type of the resource for which details are provided."
+        }
+      },
+      "required": [
+        "Type",
+        "Id"
+      ],
+      "type": "object"
+    },
+    "ResourceDetails": {
+      "description": "Provides additional details about the resource.",
+      "properties": {
+        "AwsEc2Instance": {
+          "$ref": "#/definitions/AwsEc2InstanceDetails",
+          "description": "The details of an AWS EC2 instance."
+        },
+        "AwsIamAccessKey": {
+          "$ref": "#/definitions/AwsIamAccessKeyDetails",
+          "description": "AWS IAM access key details related to a finding."
+        },
+        "AwsS3Bucket": {
+          "$ref": "#/definitions/AwsS3BucketDetails",
+          "description": "The details of an AWS S3 Bucket."
+        },
+        "Container": {
+          "$ref": "#/definitions/ContainerDetails",
+          "description": "Container details related to a finding."
+        },
+        "Other": {
+          "$ref": "#/definitions/FieldMap",
+          "description": "The details of a resource that does not have a specific sub-field for the resource type defined."
+        }
+      },
+      "type": "object"
+    },
+    "ResourceList": {
+      "items": {
+        "$ref": "#/definitions/Resource"
+      },
+      "type": "array"
+    },
+    "ResourceNotFoundException": {},
+    "Result": {
+      "description": "The account details that could not be processed.",
+      "properties": {
+        "AccountId": {
+          "$ref": "#/definitions/AccountId",
+          "description": "An ID of the AWS account that could not be processed. "
+        },
+        "ProcessingResult": {
+          "$ref": "#/definitions/NonEmptyString",
+          "description": "The reason for why an account could not be processed."
+        }
+      },
+      "type": "object"
+    },
+    "ResultList": {
+      "items": {
+        "$ref": "#/definitions/Result"
+      },
+      "type": "array"
+    },
+    "Severity": {
+      "description": "A finding's severity.",
+      "properties": {
+        "Normalized": {
+          "$ref": "#/definitions/Integer",
+          "description": "The normalized severity of a finding."
+        },
+        "Product": {
+          "$ref": "#/definitions/Double",
+          "description": "The native severity as defined by the security findings provider's solution that generated the finding."
+        }
+      },
+      "required": [
+        "Normalized"
+      ],
+      "type": "object"
+    },
+    "SortCriteria": {
+      "items": {
+        "$ref": "#/definitions/SortCriterion"
+      },
+      "type": "array"
+    },
+    "SortCriterion": {
+      "description": "A collection of attributes used for sorting findings.",
+      "properties": {
+        "Field": {
+          "$ref": "#/definitions/NonEmptyString",
+          "description": "The finding attribute used for sorting findings."
+        },
+        "SortOrder": {
+          "$ref": "#/definitions/SortOrder",
+          "description": "The order used for sorting findings."
+        }
+      },
+      "type": "object"
+    },
+    "SortOrder": {
+      "enum": [
+        "asc",
+        "desc"
+      ],
+      "type": "string"
+    },
+    "StandardsInputParameterMap": {
+      "items": {
+        "properties": {
+          "key": {
+            "$ref": "#/definitions/NonEmptyString"
+          },
+          "value": {
+            "$ref": "#/definitions/NonEmptyString"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "StandardsStatus": {
+      "enum": [
+        "PENDING",
+        "READY",
+        "FAILED",
+        "DELETING"
+      ],
+      "type": "string"
+    },
+    "StandardsSubscription": {
+      "description": "A resource that represents your subscription to a supported standard.",
+      "properties": {
+        "StandardsArn": {
+          "$ref": "#/definitions/NonEmptyString",
+          "description": "The ARN of a standard."
+        },
+        "StandardsInput": {
+          "$ref": "#/definitions/StandardsInputParameterMap",
+          "description": "<p/>"
+        },
+        "StandardsStatus": {
+          "$ref": "#/definitions/StandardsStatus",
+          "description": "The standard's status."
+        },
+        "StandardsSubscriptionArn": {
+          "$ref": "#/definitions/NonEmptyString",
+          "description": "The ARN of a resource that represents your subscription to a supported standard."
+        }
+      },
+      "required": [
+        "StandardsSubscriptionArn",
+        "StandardsArn",
+        "StandardsInput",
+        "StandardsStatus"
+      ],
+      "type": "object"
+    },
+    "StandardsSubscriptionArns": {
+      "items": {
+        "$ref": "#/definitions/NonEmptyString"
+      },
+      "maxItems": 25,
+      "minItems": 1,
+      "type": "array"
+    },
+    "StandardsSubscriptionRequest": {
+      "description": "The standard that you want to enable.",
+      "properties": {
+        "StandardsArn": {
+          "$ref": "#/definitions/NonEmptyString",
+          "description": "The ARN of the standard that you want to enable."
+        },
+        "StandardsInput": {
+          "$ref": "#/definitions/StandardsInputParameterMap",
+          "description": "<p/>"
+        }
+      },
+      "required": [
+        "StandardsArn"
+      ],
+      "type": "object"
+    },
+    "StandardsSubscriptionRequests": {
+      "items": {
+        "$ref": "#/definitions/StandardsSubscriptionRequest"
+      },
+      "maxItems": 25,
+      "minItems": 1,
+      "type": "array"
+    },
+    "StandardsSubscriptions": {
+      "items": {
+        "$ref": "#/definitions/StandardsSubscription"
+      },
+      "type": "array"
+    },
+    "StringFilter": {
+      "description": "A string filter for querying findings.",
+      "properties": {
+        "Comparison": {
+          "$ref": "#/definitions/StringFilterComparison",
+          "description": "Represents the condition to be applied to a string value when querying for findings. "
+        },
+        "Value": {
+          "$ref": "#/definitions/NonEmptyString",
+          "description": "The string filter value."
+        }
+      },
+      "type": "object"
+    },
+    "StringFilterComparison": {
+      "enum": [
+        "EQUALS",
+        "CONTAINS",
+        "PREFIX"
+      ],
+      "type": "string"
+    },
+    "StringFilterList": {
+      "items": {
+        "$ref": "#/definitions/StringFilter"
+      },
+      "type": "array"
+    },
+    "StringList": {
+      "items": {
+        "$ref": "#/definitions/NonEmptyString"
+      },
+      "type": "array"
+    },
+    "ThreatIntelIndicator": {
+      "description": "Threat intel details related to a finding.",
+      "properties": {
+        "Category": {
+          "$ref": "#/definitions/ThreatIntelIndicatorCategory",
+          "description": "The category of a threat intel indicator."
+        },
+        "LastObservedAt": {
+          "$ref": "#/definitions/NonEmptyString",
+          "description": "The date/time of the last observation of a threat intel indicator."
+        },
+        "Source": {
+          "$ref": "#/definitions/NonEmptyString",
+          "description": "The source of the threat intel."
+        },
+        "SourceUrl": {
+          "$ref": "#/definitions/NonEmptyString",
+          "description": "The URL for more details from the source of the threat intel."
+        },
+        "Type": {
+          "$ref": "#/definitions/ThreatIntelIndicatorType",
+          "description": "The type of a threat intel indicator."
+        },
+        "Value": {
+          "$ref": "#/definitions/NonEmptyString",
+          "description": "The value of a threat intel indicator."
+        }
+      },
+      "type": "object"
+    },
+    "ThreatIntelIndicatorCategory": {
+      "enum": [
+        "BACKDOOR",
+        "CARD_STEALER",
+        "COMMAND_AND_CONTROL",
+        "DROP_SITE",
+        "EXPLOIT_SITE",
+        "KEYLOGGER"
+      ],
+      "type": "string"
+    },
+    "ThreatIntelIndicatorList": {
+      "items": {
+        "$ref": "#/definitions/ThreatIntelIndicator"
+      },
+      "type": "array"
+    },
+    "ThreatIntelIndicatorType": {
+      "enum": [
+        "DOMAIN",
+        "EMAIL_ADDRESS",
+        "HASH_MD5",
+        "HASH_SHA1",
+        "HASH_SHA256",
+        "HASH_SHA512",
+        "IPV4_ADDRESS",
+        "IPV6_ADDRESS",
+        "MUTEX",
+        "PROCESS",
+        "URL"
+      ],
+      "type": "string"
+    },
+    "Timestamp": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "TypeList": {
+      "items": {
+        "$ref": "#/definitions/NonEmptyString"
+      },
+      "type": "array"
+    },
+    "UpdateFindingsRequest": {
+      "properties": {
+        "Filters": {
+          "$ref": "#/definitions/AwsSecurityFindingFilters",
+          "description": "A collection of attributes that specify what findings you want to update."
+        },
+        "Note": {
+          "$ref": "#/definitions/NoteUpdate",
+          "description": "The updated note for the finding."
+        },
+        "RecordState": {
+          "$ref": "#/definitions/RecordState",
+          "description": "The updated record state for the finding."
+        }
+      },
+      "required": [
+        "Filters"
+      ],
+      "type": "object"
+    },
+    "UpdateFindingsResponse": {
+      "properties": {},
+      "type": "object"
+    },
+    "UpdateInsightRequest": {
+      "properties": {
+        "Filters": {
+          "$ref": "#/definitions/AwsSecurityFindingFilters",
+          "description": "The updated filters that define this insight."
+        },
+        "GroupByAttribute": {
+          "$ref": "#/definitions/NonEmptyString",
+          "description": "The updated GroupBy attribute that defines this insight."
+        },
+        "Name": {
+          "$ref": "#/definitions/NonEmptyString",
+          "description": "The updated name for the insight."
+        }
+      },
+      "type": "object"
+    },
+    "UpdateInsightResponse": {
+      "properties": {},
+      "type": "object"
+    },
+    "VerificationState": {
+      "enum": [
+        "UNKNOWN",
+        "TRUE_POSITIVE",
+        "FALSE_POSITIVE",
+        "BENIGN_POSITIVE"
+      ],
+      "type": "string"
+    },
+    "WorkflowState": {
+      "enum": [
+        "NEW",
+        "ASSIGNED",
+        "IN_PROGRESS",
+        "DEFERRED",
+        "RESOLVED"
+      ],
+      "type": "string"
+    }
+  }
+}

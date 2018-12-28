@@ -1,0 +1,2215 @@
+{
+  "swagger": "2.0",
+  "schemes": [
+    "https",
+    "http"
+  ],
+  "host": "globalaccelerator.amazonaws.com",
+  "basePath": "/",
+  "x-hasEquivalentPaths": true,
+  "info": {
+    "contact": {
+      "email": "mike.ralphson@gmail.com",
+      "name": "Mike Ralphson",
+      "url": "https://github.com/mermade/aws2openapi",
+      "x-twitter": "PermittedSoc"
+    },
+    "description": "<fullname>AWS Global Accelerator</fullname> <p>This is the <i>AWS Global Accelerator API Reference</i>. This guide is for developers who need detailed information about AWS Global Accelerator API actions, data types, and errors. For more information about Global Accelerator features, see the <a href=\"https://docs.aws.amazon.com/global-accelerator/latest/dg/Welcome.html\">AWS Global Accelerator Developer Guide</a>. </p> <p>AWS Global Accelerator is a network layer service in which you create accelerators to improve availability and performance for internet applications used by a global audience. </p> <p>Global Accelerator provides you with static IP addresses that you associate with your accelerator. These IP addresses are anycast from the AWS edge network and distribute incoming application traffic across multiple endpoint resources in multiple AWS Regions, which increases the availability of your applications. Endpoints can be Elastic IP addresses, Network Load Balancers, and Application Load Balancers that are located in one AWS Region or multiple Regions.</p> <p>Global Accelerator uses the AWS global network to route traffic to the optimal regional endpoint based on health, client location, and policies that you configure. The service reacts instantly to changes in health or configuration to ensure that internet traffic from clients is directed to only healthy endpoints.</p> <p>Global Accelerator includes components that work together to help you improve performance and availability for your applications:</p> <dl> <dt>Static IP address</dt> <dd> <p>AWS Global Accelerator provides you with a set of static IP addresses which are anycast from the AWS edge network and serve as the single fixed entry points for your clients. If you already have Elastic Load Balancing or Elastic IP address resources set up for your applications, you can easily add those to Global Accelerator to allow the resources to be accessed by a Global Accelerator static IP address.</p> </dd> <dt>Accelerator</dt> <dd> <p>An accelerator directs traffic to optimal endpoints over the AWS global network to improve availability and performance for your internet applications that have a global audience. Each accelerator includes one or more listeners.</p> </dd> <dt>Network zone</dt> <dd> <p>A network zone services the static IP addresses for your accelerator from a unique IP subnet. Similar to an AWS Availability Zone, a network zone is an isolated unit with its own set of physical infrastructure. When you configure an accelerator, Global Accelerator allocates two IPv4 addresses for it. If one IP address from a network zone becomes unavailable due to IP address blocking by certain client networks, or network disruptions, then client applications can retry on the healthy static IP address from the other isolated network zone.</p> </dd> <dt>Listener</dt> <dd> <p>A listener processes inbound connections from clients to Global Accelerator, based on the protocol and port that you configure. Each listener has one or more endpoint groups associated with it, and traffic is forwarded to endpoints in one of the groups. You associate endpoint groups with listeners by specifying the Regions that you want to distribute traffic to. Traffic is distributed to optimal endpoints within the endpoint groups associated with a listener.</p> </dd> <dt>Endpoint group</dt> <dd> <p>Each endpoint group is associated with a specific AWS Region. Endpoint groups include one or more endpoints in the Region. You can increase or reduce the percentage of traffic that would be otherwise directed to an endpoint group by adjusting a setting called a <i>traffic dial</i>. The traffic dial lets you easily do performance testing or blue/green deployment testing for new releases across different AWS Regions, for example. </p> </dd> <dt>Endpoint</dt> <dd> <p>An endpoint is an Elastic IP address, Network Load Balancer, or Application Load Balancer. Traffic is routed to endpoints based on several factors, including the geo-proximity to the user, the health of the endpoint, and the configuration options that you choose, such as endpoint weights. For each endpoint, you can configure weights, which are numbers that you can use to specify the proportion of traffic to route to each one. This can be useful, for example, to do performance testing within a Region.</p> </dd> </dl>",
+    "license": {
+      "name": "Apache 2.0 License",
+      "url": "http://www.apache.org/licenses/"
+    },
+    "termsOfService": "https://aws.amazon.com/service-terms/",
+    "title": "AWS Global Accelerator",
+    "version": "2018-08-08",
+    "x-apiClientRegistration": {
+      "url": "https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct"
+    },
+    "x-apisguru-categories": [
+      "cloud"
+    ],
+    "x-logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.jpeg"
+    },
+    "x-origin": [
+      {
+        "contentType": "application/json",
+        "converter": {
+          "url": "https://github.com/mermade/aws2openapi",
+          "version": "1.0.0"
+        },
+        "url": "https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/globalaccelerator-2018-08-08.normal.json",
+        "x-apisguru-direct": true
+      }
+    ],
+    "x-preferred": true,
+    "x-providerName": "amazonaws.com",
+    "x-release": "v4",
+    "x-serviceName": "globalaccelerator"
+  },
+  "externalDocs": {
+    "description": "Amazon Web Services documentation",
+    "url": "https://aws.amazon.com/globalaccelerator/"
+  },
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "securityDefinitions": {
+    "hmac": {
+      "description": "Amazon Signature authorization v4",
+      "in": "header",
+      "name": "Authorization",
+      "type": "apiKey",
+      "x-amazon-apigateway-authtype": "awsSigv4"
+    }
+  },
+  "security": [
+    {
+      "hmac": []
+    }
+  ],
+  "parameters": {
+    "Action": {
+      "in": "query",
+      "name": "Action",
+      "required": true,
+      "type": "string"
+    },
+    "Version": {
+      "in": "query",
+      "name": "Version",
+      "required": true,
+      "type": "string"
+    },
+    "X-Amz-Algorithm": {
+      "in": "header",
+      "name": "X-Amz-Algorithm",
+      "required": false,
+      "type": "string"
+    },
+    "X-Amz-Content-Sha256": {
+      "in": "header",
+      "name": "X-Amz-Content-Sha256",
+      "required": false,
+      "type": "string"
+    },
+    "X-Amz-Credential": {
+      "in": "header",
+      "name": "X-Amz-Credential",
+      "required": false,
+      "type": "string"
+    },
+    "X-Amz-Date": {
+      "in": "header",
+      "name": "X-Amz-Date",
+      "required": false,
+      "type": "string"
+    },
+    "X-Amz-Security-Token": {
+      "in": "header",
+      "name": "X-Amz-Security-Token",
+      "required": false,
+      "type": "string"
+    },
+    "X-Amz-Signature": {
+      "in": "header",
+      "name": "X-Amz-Signature",
+      "required": false,
+      "type": "string"
+    },
+    "X-Amz-SignedHeaders": {
+      "in": "header",
+      "name": "X-Amz-SignedHeaders",
+      "required": false,
+      "type": "string"
+    }
+  },
+  "paths": {
+    "/": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Create an accelerator. An accelerator includes one or more listeners that process inbound connections and direct traffic to one or more endpoint groups, each of which includes endpoints, such as Network Load Balancers. To see an AWS CLI example of creating an accelerator, scroll down to <b>Example</b>.",
+        "operationId": "CreateAccelerator",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CreateAcceleratorRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/CreateAcceleratorResponse"
+            }
+          },
+          "480": {
+            "description": "InternalServiceErrorException",
+            "schema": {
+              "$ref": "#/definitions/InternalServiceErrorException"
+            }
+          },
+          "481": {
+            "description": "InvalidArgumentException",
+            "schema": {
+              "$ref": "#/definitions/InvalidArgumentException"
+            }
+          },
+          "482": {
+            "description": "LimitExceededException",
+            "schema": {
+              "$ref": "#/definitions/LimitExceededException"
+            }
+          }
+        }
+      }
+    },
+    "/#CreateEndpointGroup": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Create an endpoint group for the specified listener. An endpoint group is a collection of endpoints in one AWS Region. To see an AWS CLI example of creating an endpoint group, scroll down to <b>Example</b>.",
+        "operationId": "CreateEndpointGroup",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CreateEndpointGroupRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/CreateEndpointGroupResponse"
+            }
+          },
+          "480": {
+            "description": "AcceleratorNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/AcceleratorNotFoundException"
+            }
+          },
+          "481": {
+            "description": "EndpointGroupAlreadyExistsException",
+            "schema": {
+              "$ref": "#/definitions/EndpointGroupAlreadyExistsException"
+            }
+          },
+          "482": {
+            "description": "ListenerNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ListenerNotFoundException"
+            }
+          },
+          "483": {
+            "description": "InternalServiceErrorException",
+            "schema": {
+              "$ref": "#/definitions/InternalServiceErrorException"
+            }
+          },
+          "484": {
+            "description": "InvalidArgumentException",
+            "schema": {
+              "$ref": "#/definitions/InvalidArgumentException"
+            }
+          },
+          "485": {
+            "description": "LimitExceededException",
+            "schema": {
+              "$ref": "#/definitions/LimitExceededException"
+            }
+          }
+        }
+      }
+    },
+    "/#CreateListener": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Create a listener to process inbound connections from clients to an accelerator. Connections arrive to assigned static IP addresses on a port, port range, or list of port ranges that you specify. To see an AWS CLI example of creating a listener, scroll down to <b>Example</b>.",
+        "operationId": "CreateListener",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CreateListenerRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/CreateListenerResponse"
+            }
+          },
+          "480": {
+            "description": "InvalidArgumentException",
+            "schema": {
+              "$ref": "#/definitions/InvalidArgumentException"
+            }
+          },
+          "481": {
+            "description": "AcceleratorNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/AcceleratorNotFoundException"
+            }
+          },
+          "482": {
+            "description": "InvalidPortRangeException",
+            "schema": {
+              "$ref": "#/definitions/InvalidPortRangeException"
+            }
+          },
+          "483": {
+            "description": "InternalServiceErrorException",
+            "schema": {
+              "$ref": "#/definitions/InternalServiceErrorException"
+            }
+          },
+          "484": {
+            "description": "LimitExceededException",
+            "schema": {
+              "$ref": "#/definitions/LimitExceededException"
+            }
+          }
+        }
+      }
+    },
+    "/#DeleteAccelerator": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Delete an accelerator. Note: before you can delete an accelerator, you must disable it and remove all dependent resources (listeners and endpoint groups).",
+        "operationId": "DeleteAccelerator",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DeleteAcceleratorRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "480": {
+            "description": "AcceleratorNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/AcceleratorNotFoundException"
+            }
+          },
+          "481": {
+            "description": "AcceleratorNotDisabledException",
+            "schema": {
+              "$ref": "#/definitions/AcceleratorNotDisabledException"
+            }
+          },
+          "482": {
+            "description": "AssociatedListenerFoundException",
+            "schema": {
+              "$ref": "#/definitions/AssociatedListenerFoundException"
+            }
+          },
+          "483": {
+            "description": "InternalServiceErrorException",
+            "schema": {
+              "$ref": "#/definitions/InternalServiceErrorException"
+            }
+          },
+          "484": {
+            "description": "InvalidArgumentException",
+            "schema": {
+              "$ref": "#/definitions/InvalidArgumentException"
+            }
+          }
+        }
+      }
+    },
+    "/#DeleteEndpointGroup": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Delete an endpoint group from a listener.",
+        "operationId": "DeleteEndpointGroup",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DeleteEndpointGroupRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "480": {
+            "description": "EndpointGroupNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/EndpointGroupNotFoundException"
+            }
+          },
+          "481": {
+            "description": "InternalServiceErrorException",
+            "schema": {
+              "$ref": "#/definitions/InternalServiceErrorException"
+            }
+          }
+        }
+      }
+    },
+    "/#DeleteListener": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Delete a listener from an accelerator.",
+        "operationId": "DeleteListener",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DeleteListenerRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "480": {
+            "description": "ListenerNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ListenerNotFoundException"
+            }
+          },
+          "481": {
+            "description": "AssociatedEndpointGroupFoundException",
+            "schema": {
+              "$ref": "#/definitions/AssociatedEndpointGroupFoundException"
+            }
+          },
+          "482": {
+            "description": "InternalServiceErrorException",
+            "schema": {
+              "$ref": "#/definitions/InternalServiceErrorException"
+            }
+          }
+        }
+      }
+    },
+    "/#DescribeAccelerator": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Describe an accelerator. To see an AWS CLI example of describing an accelerator, scroll down to <b>Example</b>.",
+        "operationId": "DescribeAccelerator",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DescribeAcceleratorRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DescribeAcceleratorResponse"
+            }
+          },
+          "480": {
+            "description": "AcceleratorNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/AcceleratorNotFoundException"
+            }
+          },
+          "481": {
+            "description": "InternalServiceErrorException",
+            "schema": {
+              "$ref": "#/definitions/InternalServiceErrorException"
+            }
+          },
+          "482": {
+            "description": "InvalidArgumentException",
+            "schema": {
+              "$ref": "#/definitions/InvalidArgumentException"
+            }
+          }
+        }
+      }
+    },
+    "/#DescribeAcceleratorAttributes": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Describe the attributes of an accelerator.",
+        "operationId": "DescribeAcceleratorAttributes",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DescribeAcceleratorAttributesRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DescribeAcceleratorAttributesResponse"
+            }
+          },
+          "480": {
+            "description": "AcceleratorNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/AcceleratorNotFoundException"
+            }
+          },
+          "481": {
+            "description": "InternalServiceErrorException",
+            "schema": {
+              "$ref": "#/definitions/InternalServiceErrorException"
+            }
+          },
+          "482": {
+            "description": "InvalidArgumentException",
+            "schema": {
+              "$ref": "#/definitions/InvalidArgumentException"
+            }
+          }
+        }
+      }
+    },
+    "/#DescribeEndpointGroup": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Describe an endpoint group.",
+        "operationId": "DescribeEndpointGroup",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DescribeEndpointGroupRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DescribeEndpointGroupResponse"
+            }
+          },
+          "480": {
+            "description": "EndpointGroupNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/EndpointGroupNotFoundException"
+            }
+          },
+          "481": {
+            "description": "InternalServiceErrorException",
+            "schema": {
+              "$ref": "#/definitions/InternalServiceErrorException"
+            }
+          }
+        }
+      }
+    },
+    "/#DescribeListener": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Describe a listener.",
+        "operationId": "DescribeListener",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DescribeListenerRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DescribeListenerResponse"
+            }
+          },
+          "480": {
+            "description": "InvalidArgumentException",
+            "schema": {
+              "$ref": "#/definitions/InvalidArgumentException"
+            }
+          },
+          "481": {
+            "description": "ListenerNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ListenerNotFoundException"
+            }
+          },
+          "482": {
+            "description": "InternalServiceErrorException",
+            "schema": {
+              "$ref": "#/definitions/InternalServiceErrorException"
+            }
+          }
+        }
+      }
+    },
+    "/#ListAccelerators": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "List the accelerators for an AWS account.",
+        "operationId": "ListAccelerators",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ListAcceleratorsRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ListAcceleratorsResponse"
+            }
+          },
+          "480": {
+            "description": "InvalidNextTokenException",
+            "schema": {
+              "$ref": "#/definitions/InvalidNextTokenException"
+            }
+          },
+          "481": {
+            "description": "InternalServiceErrorException",
+            "schema": {
+              "$ref": "#/definitions/InternalServiceErrorException"
+            }
+          }
+        }
+      }
+    },
+    "/#ListEndpointGroups": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "List the endpoint groups that are associated with a listener.",
+        "operationId": "ListEndpointGroups",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ListEndpointGroupsRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ListEndpointGroupsResponse"
+            }
+          },
+          "480": {
+            "description": "ListenerNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ListenerNotFoundException"
+            }
+          },
+          "481": {
+            "description": "InvalidNextTokenException",
+            "schema": {
+              "$ref": "#/definitions/InvalidNextTokenException"
+            }
+          },
+          "482": {
+            "description": "InvalidArgumentException",
+            "schema": {
+              "$ref": "#/definitions/InvalidArgumentException"
+            }
+          },
+          "483": {
+            "description": "InternalServiceErrorException",
+            "schema": {
+              "$ref": "#/definitions/InternalServiceErrorException"
+            }
+          }
+        }
+      }
+    },
+    "/#ListListeners": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "List the listeners for an accelerator.",
+        "operationId": "ListListeners",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ListListenersRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ListListenersResponse"
+            }
+          },
+          "480": {
+            "description": "AcceleratorNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/AcceleratorNotFoundException"
+            }
+          },
+          "481": {
+            "description": "InvalidNextTokenException",
+            "schema": {
+              "$ref": "#/definitions/InvalidNextTokenException"
+            }
+          },
+          "482": {
+            "description": "InternalServiceErrorException",
+            "schema": {
+              "$ref": "#/definitions/InternalServiceErrorException"
+            }
+          }
+        }
+      }
+    },
+    "/#UpdateAccelerator": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Update an accelerator.",
+        "operationId": "UpdateAccelerator",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/UpdateAcceleratorRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/UpdateAcceleratorResponse"
+            }
+          },
+          "480": {
+            "description": "AcceleratorNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/AcceleratorNotFoundException"
+            }
+          },
+          "481": {
+            "description": "InternalServiceErrorException",
+            "schema": {
+              "$ref": "#/definitions/InternalServiceErrorException"
+            }
+          },
+          "482": {
+            "description": "InvalidArgumentException",
+            "schema": {
+              "$ref": "#/definitions/InvalidArgumentException"
+            }
+          }
+        }
+      }
+    },
+    "/#UpdateAcceleratorAttributes": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Update the attributes for an accelerator. To see an AWS CLI example of updating an accelerator to enable flow logs, scroll down to <b>Example</b>.",
+        "operationId": "UpdateAcceleratorAttributes",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/UpdateAcceleratorAttributesRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/UpdateAcceleratorAttributesResponse"
+            }
+          },
+          "480": {
+            "description": "AcceleratorNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/AcceleratorNotFoundException"
+            }
+          },
+          "481": {
+            "description": "InternalServiceErrorException",
+            "schema": {
+              "$ref": "#/definitions/InternalServiceErrorException"
+            }
+          },
+          "482": {
+            "description": "InvalidArgumentException",
+            "schema": {
+              "$ref": "#/definitions/InvalidArgumentException"
+            }
+          }
+        }
+      }
+    },
+    "/#UpdateEndpointGroup": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Update an endpoint group. To see an AWS CLI example of updating an endpoint group, scroll down to <b>Example</b>.",
+        "operationId": "UpdateEndpointGroup",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/UpdateEndpointGroupRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/UpdateEndpointGroupResponse"
+            }
+          },
+          "480": {
+            "description": "InvalidArgumentException",
+            "schema": {
+              "$ref": "#/definitions/InvalidArgumentException"
+            }
+          },
+          "481": {
+            "description": "EndpointGroupNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/EndpointGroupNotFoundException"
+            }
+          },
+          "482": {
+            "description": "InternalServiceErrorException",
+            "schema": {
+              "$ref": "#/definitions/InternalServiceErrorException"
+            }
+          },
+          "483": {
+            "description": "LimitExceededException",
+            "schema": {
+              "$ref": "#/definitions/LimitExceededException"
+            }
+          }
+        }
+      }
+    },
+    "/#UpdateListener": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Update a listener.",
+        "operationId": "UpdateListener",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/UpdateListenerRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/UpdateListenerResponse"
+            }
+          },
+          "480": {
+            "description": "InvalidArgumentException",
+            "schema": {
+              "$ref": "#/definitions/InvalidArgumentException"
+            }
+          },
+          "481": {
+            "description": "InvalidPortRangeException",
+            "schema": {
+              "$ref": "#/definitions/InvalidPortRangeException"
+            }
+          },
+          "482": {
+            "description": "ListenerNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ListenerNotFoundException"
+            }
+          },
+          "483": {
+            "description": "InternalServiceErrorException",
+            "schema": {
+              "$ref": "#/definitions/InternalServiceErrorException"
+            }
+          },
+          "484": {
+            "description": "LimitExceededException",
+            "schema": {
+              "$ref": "#/definitions/LimitExceededException"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Accelerator": {
+      "description": "An accelerator is a complex type that includes one or more listeners that process inbound connections and then direct traffic to one or more endpoint groups, each of which includes endpoints, such as load balancers.",
+      "properties": {
+        "AcceleratorArn": {
+          "$ref": "#/definitions/GenericString",
+          "description": "The Amazon Resource Name (ARN) of the accelerator."
+        },
+        "CreatedTime": {
+          "$ref": "#/definitions/Timestamp",
+          "description": "The date and time that the accelerator was created."
+        },
+        "Enabled": {
+          "$ref": "#/definitions/GenericBoolean",
+          "description": "<p>Indicates whether theaccelerator is enabled. The value is true or false. The default value is true. </p> <p>If the value is set to true, the accelerator cannot be deleted. If set to false, accelerator can be deleted.</p>"
+        },
+        "IpAddressType": {
+          "$ref": "#/definitions/IpAddressType",
+          "description": "The value for the address type must be IPv4. "
+        },
+        "IpSets": {
+          "$ref": "#/definitions/IpSets",
+          "description": "IP address set associated with the accelerator."
+        },
+        "LastModifiedTime": {
+          "$ref": "#/definitions/Timestamp",
+          "description": "The date and time that the accelerator was last modified."
+        },
+        "Name": {
+          "$ref": "#/definitions/GenericString",
+          "description": "The name of the accelerator. The name can have a maximum of 32 characters, must contain only alphanumeric characters or hyphens (-), and must not begin or end with a hyphen."
+        },
+        "Status": {
+          "$ref": "#/definitions/AcceleratorStatus",
+          "description": "Describes the deployment status of the accelerator."
+        }
+      },
+      "type": "object"
+    },
+    "AcceleratorAttributes": {
+      "description": "Attributes of an accelerator.",
+      "properties": {
+        "FlowLogsEnabled": {
+          "$ref": "#/definitions/GenericBoolean",
+          "description": "<p>Indicates whether flow logs are enabled. The default value is false. If the value is true, <code>FlowLogsS3Bucket</code> and <code>FlowLogsS3Prefix</code> must be specified.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/global-accelerator/latest/dg/monitoring-global-accelerator.flow-logs.html\">Flow Logs</a> in the <i>AWS Global Accelerator Developer Guide</i>.</p>"
+        },
+        "FlowLogsS3Bucket": {
+          "$ref": "#/definitions/GenericString",
+          "description": "The name of the Amazon S3 bucket for the flow logs. Attribute is required if <code>FlowLogsEnabled</code> is <code>true</code>. The bucket must exist and have a bucket policy that grants AWS Global Accelerator permission to write to the bucket."
+        },
+        "FlowLogsS3Prefix": {
+          "$ref": "#/definitions/GenericString",
+          "description": "The prefix for the location in the Amazon S3 bucket for the flow logs. Attribute is required if <code>FlowLogsEnabled</code> is <code>true</code>. If you don’t specify a prefix, the flow logs are stored in the root of the bucket."
+        }
+      },
+      "type": "object"
+    },
+    "AcceleratorNotDisabledException": {},
+    "AcceleratorNotFoundException": {},
+    "AcceleratorStatus": {
+      "enum": [
+        "DEPLOYED",
+        "IN_PROGRESS"
+      ],
+      "type": "string"
+    },
+    "Accelerators": {
+      "items": {
+        "$ref": "#/definitions/Accelerator"
+      },
+      "type": "array"
+    },
+    "AssociatedEndpointGroupFoundException": {},
+    "AssociatedListenerFoundException": {},
+    "ClientAffinity": {
+      "enum": [
+        "NONE",
+        "SOURCE_IP"
+      ],
+      "type": "string"
+    },
+    "CreateAcceleratorRequest": {
+      "properties": {
+        "Enabled": {
+          "$ref": "#/definitions/GenericBoolean",
+          "description": "<p>Indicates whether an accelerator is enabled. The value is true or false. The default value is true. </p> <p>If the value is set to true, an accelerator cannot be deleted. If set to false, the accelerator can be deleted.</p>"
+        },
+        "IdempotencyToken": {
+          "$ref": "#/definitions/IdempotencyToken",
+          "description": "A unique, case-sensitive identifier that you provide to ensure the idempotency—that is, the uniqueness—of an accelerator."
+        },
+        "IpAddressType": {
+          "$ref": "#/definitions/IpAddressType",
+          "description": "The value for the address type must be IPv4. "
+        },
+        "Name": {
+          "$ref": "#/definitions/GenericString",
+          "description": "The name of an accelerator. The name can have a maximum of 32 characters, must contain only alphanumeric characters or hyphens (-), and must not begin or end with a hyphen."
+        }
+      },
+      "required": [
+        "Name",
+        "IdempotencyToken"
+      ],
+      "type": "object"
+    },
+    "CreateAcceleratorResponse": {
+      "properties": {
+        "Accelerator": {
+          "$ref": "#/definitions/Accelerator",
+          "description": "The accelerator that is created by specifying a listener and the supported IP address types."
+        }
+      },
+      "type": "object"
+    },
+    "CreateEndpointGroupRequest": {
+      "properties": {
+        "EndpointConfigurations": {
+          "$ref": "#/definitions/EndpointConfigurations",
+          "description": "The list of endpoint objects."
+        },
+        "EndpointGroupRegion": {
+          "$ref": "#/definitions/GenericString",
+          "description": "The name of the AWS Region where the endpoint group is located. A listener can have only one endpoint group in a specific Region."
+        },
+        "HealthCheckIntervalSeconds": {
+          "$ref": "#/definitions/HealthCheckIntervalSeconds",
+          "description": "The time—10 seconds or 30 seconds—between each health check for an endpoint. The default value is 30."
+        },
+        "HealthCheckPath": {
+          "$ref": "#/definitions/GenericString",
+          "description": "If the protocol is HTTP/S, then this specifies the path that is the destination for health check targets. The default value is slash (/)."
+        },
+        "HealthCheckPort": {
+          "$ref": "#/definitions/HealthCheckPort",
+          "description": "The port that AWS Global Accelerator uses to check the health of endpoints that are part of this endpoint group. The default port is the listener port that this endpoint group is associated with. If listener port is a list of ports, Global Accelerator uses the first port in the list."
+        },
+        "HealthCheckProtocol": {
+          "$ref": "#/definitions/HealthCheckProtocol",
+          "description": "The protocol that AWS Global Accelerator uses to check the health of endpoints that are part of this endpoint group. The default value is TCP."
+        },
+        "IdempotencyToken": {
+          "$ref": "#/definitions/IdempotencyToken",
+          "description": "A unique, case-sensitive identifier that you provide to ensure the idempotency—that is, the uniqueness—of the request."
+        },
+        "ListenerArn": {
+          "$ref": "#/definitions/GenericString",
+          "description": "The Amazon Resource Name (ARN) of the listener."
+        },
+        "ThresholdCount": {
+          "$ref": "#/definitions/ThresholdCount",
+          "description": "The number of consecutive health checks required to set the state of a healthy endpoint to unhealthy, or to set an unhealthy endpoint to healthy. The default value is 3."
+        },
+        "TrafficDialPercentage": {
+          "$ref": "#/definitions/TrafficDialPercentage",
+          "description": "<p>The percentage of traffic to send to an AWS Region. Additional traffic is distributed to other endpoint groups for this listener. </p> <p>Use this action to increase (dial up) or decrease (dial down) traffic to a specific Region. The percentage is applied to the traffic that would otherwise have been routed to the Region based on optimal routing.</p> <p>The default value is 100.</p>"
+        }
+      },
+      "required": [
+        "ListenerArn",
+        "EndpointGroupRegion",
+        "IdempotencyToken"
+      ],
+      "type": "object"
+    },
+    "CreateEndpointGroupResponse": {
+      "properties": {
+        "EndpointGroup": {
+          "$ref": "#/definitions/EndpointGroup",
+          "description": "The information about the endpoint group that was created."
+        }
+      },
+      "type": "object"
+    },
+    "CreateListenerRequest": {
+      "properties": {
+        "AcceleratorArn": {
+          "$ref": "#/definitions/GenericString",
+          "description": "The Amazon Resource Name (ARN) of your accelerator."
+        },
+        "ClientAffinity": {
+          "$ref": "#/definitions/ClientAffinity",
+          "description": "<p>Client affinity lets you direct all requests from a user to the same endpoint, if you have stateful applications, regardless of the port and protocol of the client request. Clienty affinity gives you control over whether to always route each client to the same specific endpoint.</p> <p>AWS Global Accelerator uses a consistent-flow hashing algorithm to choose the optimal endpoint for a connection. If client affinity is <code>NONE</code>, Global Accelerator uses the \"five-tuple\" (5-tuple) properties—source IP address, source port, destination IP address, destination port, and protocol—to select the hash value, and then chooses the best endpoint. However, with this setting, if someone uses different ports to connect to Global Accelerator, their connections might not be always routed to the same endpoint because the hash value changes. </p> <p>If you want a given client to always be routed to the same endpoint, set client affinity to <code>SOURCE_IP</code> instead. When you use the <code>SOURCE_IP</code> setting, Global Accelerator uses the \"two-tuple\" (2-tuple) properties— source (client) IP address and destination IP address—to select the hash value.</p> <p>The default value is <code>NONE</code>.</p>"
+        },
+        "IdempotencyToken": {
+          "$ref": "#/definitions/IdempotencyToken",
+          "description": "A unique, case-sensitive identifier that you provide to ensure the idempotency—that is, the uniqueness—of the request."
+        },
+        "PortRanges": {
+          "$ref": "#/definitions/PortRanges",
+          "description": "The list of port ranges to support for connections from clients to your accelerator."
+        },
+        "Protocol": {
+          "$ref": "#/definitions/Protocol",
+          "description": "The protocol for connections from clients to your accelerator."
+        }
+      },
+      "required": [
+        "AcceleratorArn",
+        "PortRanges",
+        "Protocol",
+        "IdempotencyToken"
+      ],
+      "type": "object"
+    },
+    "CreateListenerResponse": {
+      "properties": {
+        "Listener": {
+          "$ref": "#/definitions/Listener",
+          "description": "The listener that you've created."
+        }
+      },
+      "type": "object"
+    },
+    "DeleteAcceleratorRequest": {
+      "properties": {
+        "AcceleratorArn": {
+          "$ref": "#/definitions/GenericString",
+          "description": "The Amazon Resource Name (ARN) of an accelerator."
+        }
+      },
+      "required": [
+        "AcceleratorArn"
+      ],
+      "type": "object"
+    },
+    "DeleteEndpointGroupRequest": {
+      "properties": {
+        "EndpointGroupArn": {
+          "$ref": "#/definitions/GenericString",
+          "description": "The Amazon Resource Name (ARN) of the endpoint group to delete."
+        }
+      },
+      "required": [
+        "EndpointGroupArn"
+      ],
+      "type": "object"
+    },
+    "DeleteListenerRequest": {
+      "properties": {
+        "ListenerArn": {
+          "$ref": "#/definitions/GenericString",
+          "description": "The Amazon Resource Name (ARN) of the listener."
+        }
+      },
+      "required": [
+        "ListenerArn"
+      ],
+      "type": "object"
+    },
+    "DescribeAcceleratorAttributesRequest": {
+      "properties": {
+        "AcceleratorArn": {
+          "$ref": "#/definitions/GenericString",
+          "description": "The Amazon Resource Name (ARN) of the accelerator with the attributes that you want to describe. Value is required."
+        }
+      },
+      "type": "object"
+    },
+    "DescribeAcceleratorAttributesResponse": {
+      "properties": {
+        "AcceleratorAttributes": {
+          "$ref": "#/definitions/AcceleratorAttributes",
+          "description": "The attributes of the accelerator."
+        }
+      },
+      "type": "object"
+    },
+    "DescribeAcceleratorRequest": {
+      "properties": {
+        "AcceleratorArn": {
+          "$ref": "#/definitions/GenericString",
+          "description": "The Amazon Resource Name (ARN) of the accelerator to describe."
+        }
+      },
+      "required": [
+        "AcceleratorArn"
+      ],
+      "type": "object"
+    },
+    "DescribeAcceleratorResponse": {
+      "properties": {
+        "Accelerator": {
+          "$ref": "#/definitions/Accelerator",
+          "description": "The description of the accelerator."
+        }
+      },
+      "type": "object"
+    },
+    "DescribeEndpointGroupRequest": {
+      "properties": {
+        "EndpointGroupArn": {
+          "$ref": "#/definitions/GenericString",
+          "description": "The Amazon Resource Name (ARN) of the endpoint group to describe."
+        }
+      },
+      "required": [
+        "EndpointGroupArn"
+      ],
+      "type": "object"
+    },
+    "DescribeEndpointGroupResponse": {
+      "properties": {
+        "EndpointGroup": {
+          "$ref": "#/definitions/EndpointGroup",
+          "description": "The description of an endpoint group."
+        }
+      },
+      "type": "object"
+    },
+    "DescribeListenerRequest": {
+      "properties": {
+        "ListenerArn": {
+          "$ref": "#/definitions/GenericString",
+          "description": "The Amazon Resource Name (ARN) of the listener to describe."
+        }
+      },
+      "required": [
+        "ListenerArn"
+      ],
+      "type": "object"
+    },
+    "DescribeListenerResponse": {
+      "properties": {
+        "Listener": {
+          "$ref": "#/definitions/Listener",
+          "description": "The description of a listener."
+        }
+      },
+      "type": "object"
+    },
+    "EndpointConfiguration": {
+      "description": "A complex type for endpoints.",
+      "properties": {
+        "EndpointId": {
+          "$ref": "#/definitions/GenericString",
+          "description": "An ID for the endpoint. If the endpoint is a Network Load Balancer or Application Load Balancer, this is the Amazon Resource Name (ARN) of the resource. If the endpoint is an Elastic IP address, this is the Elastic IP address allocation ID."
+        },
+        "Weight": {
+          "$ref": "#/definitions/EndpointWeight",
+          "description": "The weight associated with the endpoint. When you add weights to endpoints, you configure AWS Global Accelerator to route traffic based on proportions that you specify. For example, you might specify endpoint weights of 4, 5, 5, and 6 (sum=20). The result is that 4/20 of your traffic, on average, is routed to the first endpoint, 5/20 is routed both to the second and third endpoints, and 6/20 is routed to the last endpoint. For more information, see <a href=\"https://docs.aws.amazon.com/global-accelerator/latest/dg/about-endpoints-endpoint-weights.html\">Endpoint Weights</a> in the <i>AWS Global Accelerator Developer Guide</i>."
+        }
+      },
+      "type": "object"
+    },
+    "EndpointConfigurations": {
+      "items": {
+        "$ref": "#/definitions/EndpointConfiguration"
+      },
+      "maxItems": 10,
+      "minItems": 0,
+      "type": "array"
+    },
+    "EndpointDescription": {
+      "description": "A complex type for an endpoint. Each endpoint group can include one or more endpoints, such as load balancers.",
+      "properties": {
+        "EndpointId": {
+          "$ref": "#/definitions/GenericString",
+          "description": "An ID for the endpoint. If the endpoint is a Network Load Balancer or Application Load Balancer, this is the Amazon Resource Name (ARN) of the resource. If the endpoint is an Elastic IP address, this is the Elastic IP address allocation ID."
+        },
+        "HealthReason": {
+          "$ref": "#/definitions/GenericString",
+          "description": "<p>The reason code associated with why the endpoint is not healthy. If the endpoint state is healthy, a reason code is not provided.</p> <p>If the endpoint state is <b>unhealthy</b>, the reason code can be one of the following values:</p> <ul> <li> <p> <b>Timeout</b>: The health check requests to the endpoint are timing out before returning a status.</p> </li> <li> <p> <b>Failed</b>: The health check failed, for example because the endpoint response was invalid (malformed).</p> </li> </ul> <p>If the endpoint state is <b>initial</b>, the reason code can be one of the following values:</p> <ul> <li> <p> <b>ProvisioningInProgress</b>: The endpoint is in the process of being provisioned.</p> </li> <li> <p> <b>InitialHealthChecking</b>: Global Accelerator is still setting up the minimum number of health checks for the endpoint that are required to determine its health status.</p> </li> </ul>"
+        },
+        "HealthState": {
+          "$ref": "#/definitions/HealthState",
+          "description": "The health status of the endpoint."
+        },
+        "Weight": {
+          "$ref": "#/definitions/EndpointWeight",
+          "description": "The weight associated with the endpoint. When you add weights to endpoints, you configure AWS Global Accelerator to route traffic based on proportions that you specify. For example, you might specify endpoint weights of 4, 5, 5, and 6 (sum=20). The result is that 4/20 of your traffic, on average, is routed to the first endpoint, 5/20 is routed both to the second and third endpoints, and 6/20 is routed to the last endpoint. For more information, see <a href=\"https://docs.aws.amazon.com/global-accelerator/latest/dg/about-endpoints-endpoint-weights.html\">Endpoint Weights</a> in the <i>AWS Global Accelerator Developer Guide</i>. "
+        }
+      },
+      "type": "object"
+    },
+    "EndpointDescriptions": {
+      "items": {
+        "$ref": "#/definitions/EndpointDescription"
+      },
+      "type": "array"
+    },
+    "EndpointGroup": {
+      "description": "A complex type for the endpoint group. An AWS Region can have only one endpoint group for a specific listener. ",
+      "properties": {
+        "EndpointDescriptions": {
+          "$ref": "#/definitions/EndpointDescriptions",
+          "description": "The list of endpoint objects."
+        },
+        "EndpointGroupArn": {
+          "$ref": "#/definitions/GenericString",
+          "description": "The Amazon Resource Name (ARN) of the endpoint group."
+        },
+        "EndpointGroupRegion": {
+          "$ref": "#/definitions/GenericString",
+          "description": "The AWS Region that this endpoint group belongs."
+        },
+        "HealthCheckIntervalSeconds": {
+          "$ref": "#/definitions/HealthCheckIntervalSeconds",
+          "description": "The time—10 seconds or 30 seconds—between health checks for each endpoint. The default value is 30."
+        },
+        "HealthCheckPath": {
+          "$ref": "#/definitions/GenericString",
+          "description": "If the protocol is HTTP/S, then this value provides the ping path that Global Accelerator uses for the destination on the endpoints for health checks. The default is slash (/)."
+        },
+        "HealthCheckPort": {
+          "$ref": "#/definitions/HealthCheckPort",
+          "description": "<p>The port that Global Accelerator uses to perform health checks on endpoints that are part of this endpoint group. </p> <p>The default port is the port for the listener that this endpoint group is associated with. If the listener port is a list, Global Accelerator uses the first specified port in the list of ports.</p>"
+        },
+        "HealthCheckProtocol": {
+          "$ref": "#/definitions/HealthCheckProtocol",
+          "description": "The protocol that Global Accelerator uses to perform health checks on endpoints that are part of this endpoint group. The default value is TCP."
+        },
+        "ThresholdCount": {
+          "$ref": "#/definitions/ThresholdCount",
+          "description": "The number of consecutive health checks required to set the state of a healthy endpoint to unhealthy, or to set an unhealthy endpoint to healthy. The default value is 3."
+        },
+        "TrafficDialPercentage": {
+          "$ref": "#/definitions/TrafficDialPercentage",
+          "description": "<p>The percentage of traffic to send to an AWS Region. Additional traffic is distributed to other endpoint groups for this listener. </p> <p>Use this action to increase (dial up) or decrease (dial down) traffic to a specific Region. The percentage is applied to the traffic that would otherwise have been routed to the Region based on optimal routing.</p> <p>The default value is 100.</p>"
+        }
+      },
+      "type": "object"
+    },
+    "EndpointGroupAlreadyExistsException": {},
+    "EndpointGroupNotFoundException": {},
+    "EndpointGroups": {
+      "items": {
+        "$ref": "#/definitions/EndpointGroup"
+      },
+      "type": "array"
+    },
+    "EndpointWeight": {
+      "maximum": 255,
+      "minimum": 0,
+      "type": "integer"
+    },
+    "GenericBoolean": {
+      "type": "boolean"
+    },
+    "GenericString": {
+      "maxLength": 255,
+      "type": "string"
+    },
+    "HealthCheckIntervalSeconds": {
+      "maximum": 30,
+      "minimum": 10,
+      "type": "integer"
+    },
+    "HealthCheckPort": {
+      "maximum": 65535,
+      "minimum": 1,
+      "type": "integer"
+    },
+    "HealthCheckProtocol": {
+      "enum": [
+        "TCP",
+        "HTTP",
+        "HTTPS"
+      ],
+      "type": "string"
+    },
+    "HealthState": {
+      "enum": [
+        "INITIAL",
+        "HEALTHY",
+        "UNHEALTHY"
+      ],
+      "type": "string"
+    },
+    "IdempotencyToken": {
+      "maxLength": 255,
+      "type": "string"
+    },
+    "InternalServiceErrorException": {},
+    "InvalidArgumentException": {},
+    "InvalidNextTokenException": {},
+    "InvalidPortRangeException": {},
+    "IpAddress": {
+      "type": "string"
+    },
+    "IpAddressType": {
+      "enum": [
+        "IPV4"
+      ],
+      "type": "string"
+    },
+    "IpAddresses": {
+      "items": {
+        "$ref": "#/definitions/IpAddress"
+      },
+      "maxItems": 2,
+      "minItems": 0,
+      "type": "array"
+    },
+    "IpSet": {
+      "description": "A complex type for the set of IP addresses for an accelerator.",
+      "properties": {
+        "IpAddresses": {
+          "$ref": "#/definitions/IpAddresses",
+          "description": "The array of IP addresses in the IP address set. An IP address set can have a maximum of two IP addresses."
+        },
+        "IpFamily": {
+          "$ref": "#/definitions/GenericString",
+          "description": "The types of IP addresses included in this IP set."
+        }
+      },
+      "type": "object"
+    },
+    "IpSets": {
+      "items": {
+        "$ref": "#/definitions/IpSet"
+      },
+      "type": "array"
+    },
+    "LimitExceededException": {},
+    "ListAcceleratorsRequest": {
+      "properties": {
+        "MaxResults": {
+          "$ref": "#/definitions/MaxResults",
+          "description": "The number of Global Accelerator objects that you want to return with this call. The default value is 10."
+        },
+        "NextToken": {
+          "$ref": "#/definitions/GenericString",
+          "description": "The token for the next set of results. You receive this token from a previous call."
+        }
+      },
+      "type": "object"
+    },
+    "ListAcceleratorsResponse": {
+      "properties": {
+        "Accelerators": {
+          "$ref": "#/definitions/Accelerators",
+          "description": "The list of accelerators for a customer account."
+        },
+        "NextToken": {
+          "$ref": "#/definitions/GenericString",
+          "description": "The token for the next set of results. You receive this token from a previous call."
+        }
+      },
+      "type": "object"
+    },
+    "ListEndpointGroupsRequest": {
+      "properties": {
+        "ListenerArn": {
+          "$ref": "#/definitions/GenericString",
+          "description": "The Amazon Resource Name (ARN) of the listener."
+        },
+        "MaxResults": {
+          "$ref": "#/definitions/MaxResults",
+          "description": "The number of endpoint group objects that you want to return with this call. The default value is 10."
+        },
+        "NextToken": {
+          "$ref": "#/definitions/GenericString",
+          "description": "The token for the next set of results. You receive this token from a previous call."
+        }
+      },
+      "required": [
+        "ListenerArn"
+      ],
+      "type": "object"
+    },
+    "ListEndpointGroupsResponse": {
+      "properties": {
+        "EndpointGroups": {
+          "$ref": "#/definitions/EndpointGroups",
+          "description": "The list of the endpoint groups associated with a listener."
+        },
+        "NextToken": {
+          "$ref": "#/definitions/GenericString",
+          "description": "The token for the next set of results. You receive this token from a previous call."
+        }
+      },
+      "type": "object"
+    },
+    "ListListenersRequest": {
+      "properties": {
+        "AcceleratorArn": {
+          "$ref": "#/definitions/GenericString",
+          "description": "The Amazon Resource Name (ARN) of the accelerator for which you want to list listener objects."
+        },
+        "MaxResults": {
+          "$ref": "#/definitions/MaxResults",
+          "description": "The number of listener objects that you want to return with this call. The default value is 10."
+        },
+        "NextToken": {
+          "$ref": "#/definitions/GenericString",
+          "description": "The token for the next set of results. You receive this token from a previous call."
+        }
+      },
+      "required": [
+        "AcceleratorArn"
+      ],
+      "type": "object"
+    },
+    "ListListenersResponse": {
+      "properties": {
+        "Listeners": {
+          "$ref": "#/definitions/Listeners",
+          "description": "The list of listeners for an accelerator."
+        },
+        "NextToken": {
+          "$ref": "#/definitions/GenericString",
+          "description": "The token for the next set of results. You receive this token from a previous call."
+        }
+      },
+      "type": "object"
+    },
+    "Listener": {
+      "description": "A complex type for a listener.",
+      "properties": {
+        "ClientAffinity": {
+          "$ref": "#/definitions/ClientAffinity",
+          "description": "<p>Client affinity lets you direct all requests from a user to the same endpoint, if you have stateful applications, regardless of the port and protocol of the client request. Clienty affinity gives you control over whether to always route each client to the same specific endpoint.</p> <p>AWS Global Accelerator uses a consistent-flow hashing algorithm to choose the optimal endpoint for a connection. If client affinity is <code>NONE</code>, Global Accelerator uses the \"five-tuple\" (5-tuple) properties—source IP address, source port, destination IP address, destination port, and protocol—to select the hash value, and then chooses the best endpoint. However, with this setting, if someone uses different ports to connect to Global Accelerator, their connections might not be always routed to the same endpoint because the hash value changes. </p> <p>If you want a given client to always be routed to the same endpoint, set client affinity to <code>SOURCE_IP</code> instead. When you use the <code>SOURCE_IP</code> setting, Global Accelerator uses the \"two-tuple\" (2-tuple) properties— source (client) IP address and destination IP address—to select the hash value.</p> <p>The default value is <code>NONE</code>.</p>"
+        },
+        "ListenerArn": {
+          "$ref": "#/definitions/GenericString",
+          "description": "The Amazon Resource Name (ARN) of the listener."
+        },
+        "PortRanges": {
+          "$ref": "#/definitions/PortRanges",
+          "description": "The list of port ranges for the connections from clients to the accelerator."
+        },
+        "Protocol": {
+          "$ref": "#/definitions/Protocol",
+          "description": "The protocol for the connections from clients to the accelerator."
+        }
+      },
+      "type": "object"
+    },
+    "ListenerNotFoundException": {},
+    "Listeners": {
+      "items": {
+        "$ref": "#/definitions/Listener"
+      },
+      "type": "array"
+    },
+    "MaxResults": {
+      "maximum": 100,
+      "minimum": 1,
+      "type": "integer"
+    },
+    "PortNumber": {
+      "maximum": 65535,
+      "minimum": 1,
+      "type": "integer"
+    },
+    "PortRange": {
+      "description": "A complex type for a range of ports for a listener.",
+      "properties": {
+        "FromPort": {
+          "$ref": "#/definitions/PortNumber",
+          "description": "The first port in the range of ports, inclusive."
+        },
+        "ToPort": {
+          "$ref": "#/definitions/PortNumber",
+          "description": "The last port in the range of ports, inclusive."
+        }
+      },
+      "type": "object"
+    },
+    "PortRanges": {
+      "items": {
+        "$ref": "#/definitions/PortRange"
+      },
+      "maxItems": 10,
+      "minItems": 1,
+      "type": "array"
+    },
+    "Protocol": {
+      "enum": [
+        "TCP",
+        "UDP"
+      ],
+      "type": "string"
+    },
+    "ThresholdCount": {
+      "maximum": 10,
+      "minimum": 1,
+      "type": "integer"
+    },
+    "Timestamp": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "TrafficDialPercentage": {
+      "format": "float",
+      "maximum": 100,
+      "minimum": 0,
+      "type": "number"
+    },
+    "UpdateAcceleratorAttributesRequest": {
+      "properties": {
+        "AcceleratorArn": {
+          "$ref": "#/definitions/GenericString",
+          "description": "The Amazon Resource Name (ARN) of the accelerator that you want to update. Attribute is required."
+        },
+        "FlowLogsEnabled": {
+          "$ref": "#/definitions/GenericBoolean",
+          "description": "<p>Update whether flow logs are enabled. The default value is false. If the value is true, <code>FlowLogsS3Bucket</code> and <code>FlowLogsS3Prefix</code> must be specified.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/global-accelerator/latest/dg/monitoring-global-accelerator.flow-logs.html\">Flow Logs</a> in the <i>AWS Global Accelerator Developer Guide</i>.</p>"
+        },
+        "FlowLogsS3Bucket": {
+          "$ref": "#/definitions/GenericString",
+          "description": "The name of the Amazon S3 bucket for the flow logs. Attribute is required if <code>FlowLogsEnabled</code> is <code>true</code>. The bucket must exist and have a bucket policy that grants AWS Global Accelerator permission to write to the bucket."
+        },
+        "FlowLogsS3Prefix": {
+          "$ref": "#/definitions/GenericString",
+          "description": "Update the prefix for the location in the Amazon S3 bucket for the flow logs. Attribute is required if <code>FlowLogsEnabled</code> is <code>true</code>. If you don’t specify a prefix, the flow logs are stored in the root of the bucket."
+        }
+      },
+      "type": "object"
+    },
+    "UpdateAcceleratorAttributesResponse": {
+      "properties": {
+        "AcceleratorAttributes": {
+          "$ref": "#/definitions/AcceleratorAttributes",
+          "description": "Updated attributes for the accelerator."
+        }
+      },
+      "type": "object"
+    },
+    "UpdateAcceleratorRequest": {
+      "properties": {
+        "AcceleratorArn": {
+          "$ref": "#/definitions/GenericString",
+          "description": "The Amazon Resource Name (ARN) of the accelerator to update."
+        },
+        "Enabled": {
+          "$ref": "#/definitions/GenericBoolean",
+          "description": "<p>Indicates whether an accelerator is enabled. The value is true or false. The default value is true. </p> <p>If the value is set to true, the accelerator cannot be deleted. If set to false, the accelerator can be deleted.</p>"
+        },
+        "IpAddressType": {
+          "$ref": "#/definitions/IpAddressType",
+          "description": "The value for the address type must be IPv4. "
+        },
+        "Name": {
+          "$ref": "#/definitions/GenericString",
+          "description": "The name of the accelerator. The name can have a maximum of 32 characters, must contain only alphanumeric characters or hyphens (-), and must not begin or end with a hyphen."
+        }
+      },
+      "required": [
+        "AcceleratorArn"
+      ],
+      "type": "object"
+    },
+    "UpdateAcceleratorResponse": {
+      "properties": {
+        "Accelerator": {
+          "$ref": "#/definitions/Accelerator",
+          "description": "Information about the updated accelerator."
+        }
+      },
+      "type": "object"
+    },
+    "UpdateEndpointGroupRequest": {
+      "properties": {
+        "EndpointConfigurations": {
+          "$ref": "#/definitions/EndpointConfigurations",
+          "description": "The list of endpoint objects."
+        },
+        "EndpointGroupArn": {
+          "$ref": "#/definitions/GenericString",
+          "description": "The Amazon Resource Name (ARN) of the endpoint group."
+        },
+        "HealthCheckIntervalSeconds": {
+          "$ref": "#/definitions/HealthCheckIntervalSeconds",
+          "description": "The time—10 seconds or 30 seconds—between each health check for an endpoint. The default value is 30."
+        },
+        "HealthCheckPath": {
+          "$ref": "#/definitions/GenericString",
+          "description": "If the protocol is HTTP/S, then this specifies the path that is the destination for health check targets. The default value is slash (/)."
+        },
+        "HealthCheckPort": {
+          "$ref": "#/definitions/HealthCheckPort",
+          "description": "The port that AWS Global Accelerator uses to check the health of endpoints that are part of this endpoint group. The default port is the listener port that this endpoint group is associated with. If the listener port is a list of ports, Global Accelerator uses the first port in the list."
+        },
+        "HealthCheckProtocol": {
+          "$ref": "#/definitions/HealthCheckProtocol",
+          "description": "The protocol that AWS Global Accelerator uses to check the health of endpoints that are part of this endpoint group. The default value is TCP."
+        },
+        "ThresholdCount": {
+          "$ref": "#/definitions/ThresholdCount",
+          "description": "The number of consecutive health checks required to set the state of a healthy endpoint to unhealthy, or to set an unhealthy endpoint to healthy. The default value is 3."
+        },
+        "TrafficDialPercentage": {
+          "$ref": "#/definitions/TrafficDialPercentage",
+          "description": "<p>The percentage of traffic to send to an AWS Region. Additional traffic is distributed to other endpoint groups for this listener. </p> <p>Use this action to increase (dial up) or decrease (dial down) traffic to a specific Region. The percentage is applied to the traffic that would otherwise have been routed to the Region based on optimal routing.</p> <p>The default value is 100.</p>"
+        }
+      },
+      "required": [
+        "EndpointGroupArn"
+      ],
+      "type": "object"
+    },
+    "UpdateEndpointGroupResponse": {
+      "properties": {
+        "EndpointGroup": {
+          "$ref": "#/definitions/EndpointGroup",
+          "description": "The information about the endpoint group that was updated."
+        }
+      },
+      "type": "object"
+    },
+    "UpdateListenerRequest": {
+      "properties": {
+        "ClientAffinity": {
+          "$ref": "#/definitions/ClientAffinity",
+          "description": "<p>Client affinity lets you direct all requests from a user to the same endpoint, if you have stateful applications, regardless of the port and protocol of the client request. Clienty affinity gives you control over whether to always route each client to the same specific endpoint.</p> <p>AWS Global Accelerator uses a consistent-flow hashing algorithm to choose the optimal endpoint for a connection. If client affinity is <code>NONE</code>, Global Accelerator uses the \"five-tuple\" (5-tuple) properties—source IP address, source port, destination IP address, destination port, and protocol—to select the hash value, and then chooses the best endpoint. However, with this setting, if someone uses different ports to connect to Global Accelerator, their connections might not be always routed to the same endpoint because the hash value changes. </p> <p>If you want a given client to always be routed to the same endpoint, set client affinity to <code>SOURCE_IP</code> instead. When you use the <code>SOURCE_IP</code> setting, Global Accelerator uses the \"two-tuple\" (2-tuple) properties— source (client) IP address and destination IP address—to select the hash value.</p> <p>The default value is <code>NONE</code>.</p>"
+        },
+        "ListenerArn": {
+          "$ref": "#/definitions/GenericString",
+          "description": "The Amazon Resource Name (ARN) of the listener to update."
+        },
+        "PortRanges": {
+          "$ref": "#/definitions/PortRanges",
+          "description": "The updated list of port ranges for the connections from clients to the accelerator."
+        },
+        "Protocol": {
+          "$ref": "#/definitions/Protocol",
+          "description": "The updated protocol for the connections from clients to the accelerator."
+        }
+      },
+      "required": [
+        "ListenerArn"
+      ],
+      "type": "object"
+    },
+    "UpdateListenerResponse": {
+      "properties": {
+        "Listener": {
+          "$ref": "#/definitions/Listener",
+          "description": "Information for the updated listener."
+        }
+      },
+      "type": "object"
+    }
+  }
+}

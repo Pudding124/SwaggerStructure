@@ -1,0 +1,5886 @@
+{
+  "swagger": "2.0",
+  "schemes": [
+    "https",
+    "http"
+  ],
+  "host": "appstream2.amazonaws.com",
+  "basePath": "/",
+  "x-hasEquivalentPaths": true,
+  "info": {
+    "contact": {
+      "email": "mike.ralphson@gmail.com",
+      "name": "Mike Ralphson",
+      "url": "https://github.com/mermade/aws2openapi",
+      "x-twitter": "PermittedSoc"
+    },
+    "description": "<fullname>Amazon AppStream 2.0</fullname> <p>You can use Amazon AppStream 2.0 to stream desktop applications to any device running a web browser, without rewriting them.</p>",
+    "license": {
+      "name": "Apache 2.0 License",
+      "url": "http://www.apache.org/licenses/"
+    },
+    "termsOfService": "https://aws.amazon.com/service-terms/",
+    "title": "Amazon AppStream",
+    "version": "2016-12-01",
+    "x-apiClientRegistration": {
+      "url": "https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct"
+    },
+    "x-apisguru-categories": [
+      "cloud"
+    ],
+    "x-logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.jpeg"
+    },
+    "x-origin": [
+      {
+        "contentType": "application/json",
+        "converter": {
+          "url": "https://github.com/mermade/aws2openapi",
+          "version": "1.0.0"
+        },
+        "url": "https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/appstream-2016-12-01.normal.json",
+        "x-apisguru-direct": true
+      }
+    ],
+    "x-preferred": true,
+    "x-providerName": "amazonaws.com",
+    "x-release": "v4",
+    "x-serviceName": "appstream"
+  },
+  "externalDocs": {
+    "description": "Amazon Web Services documentation",
+    "url": "https://aws.amazon.com/appstream2/"
+  },
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "securityDefinitions": {
+    "hmac": {
+      "description": "Amazon Signature authorization v4",
+      "in": "header",
+      "name": "Authorization",
+      "type": "apiKey",
+      "x-amazon-apigateway-authtype": "awsSigv4"
+    }
+  },
+  "security": [
+    {
+      "hmac": []
+    }
+  ],
+  "parameters": {
+    "Action": {
+      "in": "query",
+      "name": "Action",
+      "required": true,
+      "type": "string"
+    },
+    "Version": {
+      "in": "query",
+      "name": "Version",
+      "required": true,
+      "type": "string"
+    },
+    "X-Amz-Algorithm": {
+      "in": "header",
+      "name": "X-Amz-Algorithm",
+      "required": false,
+      "type": "string"
+    },
+    "X-Amz-Content-Sha256": {
+      "in": "header",
+      "name": "X-Amz-Content-Sha256",
+      "required": false,
+      "type": "string"
+    },
+    "X-Amz-Credential": {
+      "in": "header",
+      "name": "X-Amz-Credential",
+      "required": false,
+      "type": "string"
+    },
+    "X-Amz-Date": {
+      "in": "header",
+      "name": "X-Amz-Date",
+      "required": false,
+      "type": "string"
+    },
+    "X-Amz-Security-Token": {
+      "in": "header",
+      "name": "X-Amz-Security-Token",
+      "required": false,
+      "type": "string"
+    },
+    "X-Amz-Signature": {
+      "in": "header",
+      "name": "X-Amz-Signature",
+      "required": false,
+      "type": "string"
+    },
+    "X-Amz-SignedHeaders": {
+      "in": "header",
+      "name": "X-Amz-SignedHeaders",
+      "required": false,
+      "type": "string"
+    }
+  },
+  "paths": {
+    "/": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Associates the specified fleet with the specified stack.",
+        "operationId": "AssociateFleet",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/AssociateFleetRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/AssociateFleetResult"
+            }
+          },
+          "480": {
+            "description": "LimitExceededException",
+            "schema": {
+              "$ref": "#/definitions/LimitExceededException"
+            }
+          },
+          "481": {
+            "description": "InvalidAccountStatusException",
+            "schema": {
+              "$ref": "#/definitions/InvalidAccountStatusException"
+            }
+          },
+          "482": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "483": {
+            "description": "ConcurrentModificationException",
+            "schema": {
+              "$ref": "#/definitions/ConcurrentModificationException"
+            }
+          },
+          "484": {
+            "description": "IncompatibleImageException",
+            "schema": {
+              "$ref": "#/definitions/IncompatibleImageException"
+            }
+          },
+          "485": {
+            "description": "OperationNotPermittedException",
+            "schema": {
+              "$ref": "#/definitions/OperationNotPermittedException"
+            }
+          }
+        }
+      }
+    },
+    "/#BatchAssociateUserStack": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Associates the specified users with the specified stacks. Users in a user pool cannot be assigned to stacks with fleets that are joined to an Active Directory domain.",
+        "operationId": "BatchAssociateUserStack",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/BatchAssociateUserStackRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/BatchAssociateUserStackResult"
+            }
+          },
+          "480": {
+            "description": "OperationNotPermittedException",
+            "schema": {
+              "$ref": "#/definitions/OperationNotPermittedException"
+            }
+          }
+        }
+      }
+    },
+    "/#BatchDisassociateUserStack": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Disassociates the specified users from the specified stacks.",
+        "operationId": "BatchDisassociateUserStack",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/BatchDisassociateUserStackRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/BatchDisassociateUserStackResult"
+            }
+          }
+        }
+      }
+    },
+    "/#CopyImage": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Copies the image within the same region or to a new region within the same AWS account. Note that any tags you added to the image will not be copied.",
+        "operationId": "CopyImage",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CopyImageRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/CopyImageResponse"
+            }
+          },
+          "480": {
+            "description": "ResourceAlreadyExistsException",
+            "schema": {
+              "$ref": "#/definitions/ResourceAlreadyExistsException"
+            }
+          },
+          "481": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "482": {
+            "description": "ResourceNotAvailableException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotAvailableException"
+            }
+          },
+          "483": {
+            "description": "LimitExceededException",
+            "schema": {
+              "$ref": "#/definitions/LimitExceededException"
+            }
+          },
+          "484": {
+            "description": "InvalidAccountStatusException",
+            "schema": {
+              "$ref": "#/definitions/InvalidAccountStatusException"
+            }
+          },
+          "485": {
+            "description": "IncompatibleImageException",
+            "schema": {
+              "$ref": "#/definitions/IncompatibleImageException"
+            }
+          }
+        }
+      }
+    },
+    "/#CreateDirectoryConfig": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Creates a Directory Config object in AppStream 2.0. This object includes the information required to join streaming instances to an Active Directory domain.",
+        "operationId": "CreateDirectoryConfig",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CreateDirectoryConfigRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/CreateDirectoryConfigResult"
+            }
+          },
+          "480": {
+            "description": "ResourceAlreadyExistsException",
+            "schema": {
+              "$ref": "#/definitions/ResourceAlreadyExistsException"
+            }
+          },
+          "481": {
+            "description": "LimitExceededException",
+            "schema": {
+              "$ref": "#/definitions/LimitExceededException"
+            }
+          },
+          "482": {
+            "description": "InvalidAccountStatusException",
+            "schema": {
+              "$ref": "#/definitions/InvalidAccountStatusException"
+            }
+          }
+        }
+      }
+    },
+    "/#CreateFleet": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Creates a fleet. A fleet consists of streaming instances that run a specified image.",
+        "operationId": "CreateFleet",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CreateFleetRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/CreateFleetResult"
+            }
+          },
+          "480": {
+            "description": "ResourceAlreadyExistsException",
+            "schema": {
+              "$ref": "#/definitions/ResourceAlreadyExistsException"
+            }
+          },
+          "481": {
+            "description": "ResourceNotAvailableException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotAvailableException"
+            }
+          },
+          "482": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "483": {
+            "description": "LimitExceededException",
+            "schema": {
+              "$ref": "#/definitions/LimitExceededException"
+            }
+          },
+          "484": {
+            "description": "InvalidAccountStatusException",
+            "schema": {
+              "$ref": "#/definitions/InvalidAccountStatusException"
+            }
+          },
+          "485": {
+            "description": "InvalidRoleException",
+            "schema": {
+              "$ref": "#/definitions/InvalidRoleException"
+            }
+          },
+          "486": {
+            "description": "ConcurrentModificationException",
+            "schema": {
+              "$ref": "#/definitions/ConcurrentModificationException"
+            }
+          },
+          "487": {
+            "description": "InvalidParameterCombinationException",
+            "schema": {
+              "$ref": "#/definitions/InvalidParameterCombinationException"
+            }
+          },
+          "488": {
+            "description": "IncompatibleImageException",
+            "schema": {
+              "$ref": "#/definitions/IncompatibleImageException"
+            }
+          },
+          "489": {
+            "description": "OperationNotPermittedException",
+            "schema": {
+              "$ref": "#/definitions/OperationNotPermittedException"
+            }
+          }
+        }
+      }
+    },
+    "/#CreateImageBuilder": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "<p>Creates an image builder. An image builder is a virtual machine that is used to create an image.</p> <p>The initial state of the builder is <code>PENDING</code>. When it is ready, the state is <code>RUNNING</code>.</p>",
+        "operationId": "CreateImageBuilder",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CreateImageBuilderRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/CreateImageBuilderResult"
+            }
+          },
+          "480": {
+            "description": "LimitExceededException",
+            "schema": {
+              "$ref": "#/definitions/LimitExceededException"
+            }
+          },
+          "481": {
+            "description": "InvalidAccountStatusException",
+            "schema": {
+              "$ref": "#/definitions/InvalidAccountStatusException"
+            }
+          },
+          "482": {
+            "description": "ResourceAlreadyExistsException",
+            "schema": {
+              "$ref": "#/definitions/ResourceAlreadyExistsException"
+            }
+          },
+          "483": {
+            "description": "ResourceNotAvailableException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotAvailableException"
+            }
+          },
+          "484": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "485": {
+            "description": "InvalidRoleException",
+            "schema": {
+              "$ref": "#/definitions/InvalidRoleException"
+            }
+          },
+          "486": {
+            "description": "ConcurrentModificationException",
+            "schema": {
+              "$ref": "#/definitions/ConcurrentModificationException"
+            }
+          },
+          "487": {
+            "description": "InvalidParameterCombinationException",
+            "schema": {
+              "$ref": "#/definitions/InvalidParameterCombinationException"
+            }
+          },
+          "488": {
+            "description": "IncompatibleImageException",
+            "schema": {
+              "$ref": "#/definitions/IncompatibleImageException"
+            }
+          },
+          "489": {
+            "description": "OperationNotPermittedException",
+            "schema": {
+              "$ref": "#/definitions/OperationNotPermittedException"
+            }
+          }
+        }
+      }
+    },
+    "/#CreateImageBuilderStreamingURL": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Creates a URL to start an image builder streaming session.",
+        "operationId": "CreateImageBuilderStreamingURL",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CreateImageBuilderStreamingURLRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/CreateImageBuilderStreamingURLResult"
+            }
+          },
+          "480": {
+            "description": "OperationNotPermittedException",
+            "schema": {
+              "$ref": "#/definitions/OperationNotPermittedException"
+            }
+          },
+          "481": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          }
+        }
+      }
+    },
+    "/#CreateStack": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Creates a stack to start streaming applications to users. A stack consists of an associated fleet, user access policies, and storage configurations. ",
+        "operationId": "CreateStack",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CreateStackRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/CreateStackResult"
+            }
+          },
+          "480": {
+            "description": "LimitExceededException",
+            "schema": {
+              "$ref": "#/definitions/LimitExceededException"
+            }
+          },
+          "481": {
+            "description": "InvalidAccountStatusException",
+            "schema": {
+              "$ref": "#/definitions/InvalidAccountStatusException"
+            }
+          },
+          "482": {
+            "description": "ResourceAlreadyExistsException",
+            "schema": {
+              "$ref": "#/definitions/ResourceAlreadyExistsException"
+            }
+          },
+          "483": {
+            "description": "ConcurrentModificationException",
+            "schema": {
+              "$ref": "#/definitions/ConcurrentModificationException"
+            }
+          },
+          "484": {
+            "description": "InvalidRoleException",
+            "schema": {
+              "$ref": "#/definitions/InvalidRoleException"
+            }
+          },
+          "485": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "486": {
+            "description": "InvalidParameterCombinationException",
+            "schema": {
+              "$ref": "#/definitions/InvalidParameterCombinationException"
+            }
+          }
+        }
+      }
+    },
+    "/#CreateStreamingURL": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Creates a temporary URL to start an AppStream 2.0 streaming session for the specified user. A streaming URL enables application streaming to be tested without user setup. ",
+        "operationId": "CreateStreamingURL",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CreateStreamingURLRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/CreateStreamingURLResult"
+            }
+          },
+          "480": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "481": {
+            "description": "ResourceNotAvailableException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotAvailableException"
+            }
+          },
+          "482": {
+            "description": "OperationNotPermittedException",
+            "schema": {
+              "$ref": "#/definitions/OperationNotPermittedException"
+            }
+          },
+          "483": {
+            "description": "InvalidParameterCombinationException",
+            "schema": {
+              "$ref": "#/definitions/InvalidParameterCombinationException"
+            }
+          }
+        }
+      }
+    },
+    "/#CreateUser": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Creates a new user in the user pool.",
+        "operationId": "CreateUser",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CreateUserRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/CreateUserResult"
+            }
+          },
+          "480": {
+            "description": "ResourceAlreadyExistsException",
+            "schema": {
+              "$ref": "#/definitions/ResourceAlreadyExistsException"
+            }
+          },
+          "481": {
+            "description": "InvalidAccountStatusException",
+            "schema": {
+              "$ref": "#/definitions/InvalidAccountStatusException"
+            }
+          },
+          "482": {
+            "description": "InvalidParameterCombinationException",
+            "schema": {
+              "$ref": "#/definitions/InvalidParameterCombinationException"
+            }
+          },
+          "483": {
+            "description": "LimitExceededException",
+            "schema": {
+              "$ref": "#/definitions/LimitExceededException"
+            }
+          },
+          "484": {
+            "description": "OperationNotPermittedException",
+            "schema": {
+              "$ref": "#/definitions/OperationNotPermittedException"
+            }
+          }
+        }
+      }
+    },
+    "/#DeleteDirectoryConfig": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Deletes the specified Directory Config object from AppStream 2.0. This object includes the information required to join streaming instances to an Active Directory domain.",
+        "operationId": "DeleteDirectoryConfig",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DeleteDirectoryConfigRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DeleteDirectoryConfigResult"
+            }
+          },
+          "480": {
+            "description": "ResourceInUseException",
+            "schema": {
+              "$ref": "#/definitions/ResourceInUseException"
+            }
+          },
+          "481": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          }
+        }
+      }
+    },
+    "/#DeleteFleet": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Deletes the specified fleet.",
+        "operationId": "DeleteFleet",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DeleteFleetRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DeleteFleetResult"
+            }
+          },
+          "480": {
+            "description": "ResourceInUseException",
+            "schema": {
+              "$ref": "#/definitions/ResourceInUseException"
+            }
+          },
+          "481": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "482": {
+            "description": "ConcurrentModificationException",
+            "schema": {
+              "$ref": "#/definitions/ConcurrentModificationException"
+            }
+          }
+        }
+      }
+    },
+    "/#DeleteImage": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Deletes the specified image. You cannot delete an image when it is in use. After you delete an image, you cannot provision new capacity using the image.",
+        "operationId": "DeleteImage",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DeleteImageRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DeleteImageResult"
+            }
+          },
+          "480": {
+            "description": "ResourceInUseException",
+            "schema": {
+              "$ref": "#/definitions/ResourceInUseException"
+            }
+          },
+          "481": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "482": {
+            "description": "OperationNotPermittedException",
+            "schema": {
+              "$ref": "#/definitions/OperationNotPermittedException"
+            }
+          },
+          "483": {
+            "description": "ConcurrentModificationException",
+            "schema": {
+              "$ref": "#/definitions/ConcurrentModificationException"
+            }
+          }
+        }
+      }
+    },
+    "/#DeleteImageBuilder": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Deletes the specified image builder and releases the capacity.",
+        "operationId": "DeleteImageBuilder",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DeleteImageBuilderRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DeleteImageBuilderResult"
+            }
+          },
+          "480": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "481": {
+            "description": "OperationNotPermittedException",
+            "schema": {
+              "$ref": "#/definitions/OperationNotPermittedException"
+            }
+          },
+          "482": {
+            "description": "ConcurrentModificationException",
+            "schema": {
+              "$ref": "#/definitions/ConcurrentModificationException"
+            }
+          }
+        }
+      }
+    },
+    "/#DeleteImagePermissions": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Deletes permissions for the specified private image. After you delete permissions for an image, AWS accounts to which you previously granted these permissions can no longer use the image.",
+        "operationId": "DeleteImagePermissions",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DeleteImagePermissionsRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DeleteImagePermissionsResult"
+            }
+          },
+          "480": {
+            "description": "ResourceNotAvailableException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotAvailableException"
+            }
+          },
+          "481": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          }
+        }
+      }
+    },
+    "/#DeleteStack": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Deletes the specified stack. After the stack is deleted, the application streaming environment provided by the stack is no longer available to users. Also, any reservations made for application streaming sessions for the stack are released.",
+        "operationId": "DeleteStack",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DeleteStackRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DeleteStackResult"
+            }
+          },
+          "480": {
+            "description": "ResourceInUseException",
+            "schema": {
+              "$ref": "#/definitions/ResourceInUseException"
+            }
+          },
+          "481": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "482": {
+            "description": "ConcurrentModificationException",
+            "schema": {
+              "$ref": "#/definitions/ConcurrentModificationException"
+            }
+          }
+        }
+      }
+    },
+    "/#DeleteUser": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Deletes a user from the user pool.",
+        "operationId": "DeleteUser",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DeleteUserRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DeleteUserResult"
+            }
+          },
+          "480": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          }
+        }
+      }
+    },
+    "/#DescribeDirectoryConfigs": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "<p>Retrieves a list that describes one or more specified Directory Config objects for AppStream 2.0, if the names for these objects are provided. Otherwise, all Directory Config objects in the account are described. These objects include the information required to join streaming instances to an Active Directory domain. </p> <p>Although the response syntax in this topic includes the account password, this password is not returned in the actual response.</p>",
+        "operationId": "DescribeDirectoryConfigs",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DescribeDirectoryConfigsRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DescribeDirectoryConfigsResult"
+            }
+          },
+          "480": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          }
+        }
+      }
+    },
+    "/#DescribeFleets": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Retrieves a list that describes one or more specified fleets, if the fleet names are provided. Otherwise, all fleets in the account are described.",
+        "operationId": "DescribeFleets",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DescribeFleetsRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DescribeFleetsResult"
+            }
+          },
+          "480": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          }
+        }
+      }
+    },
+    "/#DescribeImageBuilders": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Retrieves a list that describes one or more specified image builders, if the image builder names are provided. Otherwise, all image builders in the account are described.",
+        "operationId": "DescribeImageBuilders",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DescribeImageBuildersRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DescribeImageBuildersResult"
+            }
+          },
+          "480": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          }
+        }
+      }
+    },
+    "/#DescribeImagePermissions": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Retrieves a list that describes the permissions for shared AWS account IDs on a private image that you own. ",
+        "operationId": "DescribeImagePermissions",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DescribeImagePermissionsRequest"
+            }
+          },
+          {
+            "description": "Pagination limit",
+            "in": "query",
+            "name": "MaxResults",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Pagination token",
+            "in": "query",
+            "name": "NextToken",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DescribeImagePermissionsResult"
+            }
+          },
+          "480": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          }
+        }
+      }
+    },
+    "/#DescribeImages": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Retrieves a list that describes one or more specified images, if the image names or image ARNs are provided. Otherwise, all images in the account are described.",
+        "operationId": "DescribeImages",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DescribeImagesRequest"
+            }
+          },
+          {
+            "description": "Pagination limit",
+            "in": "query",
+            "name": "MaxResults",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Pagination token",
+            "in": "query",
+            "name": "NextToken",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DescribeImagesResult"
+            }
+          },
+          "480": {
+            "description": "InvalidParameterCombinationException",
+            "schema": {
+              "$ref": "#/definitions/InvalidParameterCombinationException"
+            }
+          },
+          "481": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          }
+        }
+      }
+    },
+    "/#DescribeSessions": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Retrieves a list that describes the streaming sessions for a specified stack and fleet. If a user ID is provided for the stack and fleet, only streaming sessions for that user are described. If an authentication type is not provided, the default is to authenticate users using a streaming URL.",
+        "operationId": "DescribeSessions",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DescribeSessionsRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DescribeSessionsResult"
+            }
+          },
+          "480": {
+            "description": "InvalidParameterCombinationException",
+            "schema": {
+              "$ref": "#/definitions/InvalidParameterCombinationException"
+            }
+          }
+        }
+      }
+    },
+    "/#DescribeStacks": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Retrieves a list that describes one or more specified stacks, if the stack names are provided. Otherwise, all stacks in the account are described.",
+        "operationId": "DescribeStacks",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DescribeStacksRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DescribeStacksResult"
+            }
+          },
+          "480": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          }
+        }
+      }
+    },
+    "/#DescribeUserStackAssociations": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "<p>Retrieves a list that describes the UserStackAssociation objects. You must specify either or both of the following:</p> <ul> <li> <p>The stack name</p> </li> <li> <p>The user name (email address of the user associated with the stack) and the authentication type for the user</p> </li> </ul>",
+        "operationId": "DescribeUserStackAssociations",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DescribeUserStackAssociationsRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DescribeUserStackAssociationsResult"
+            }
+          },
+          "480": {
+            "description": "InvalidParameterCombinationException",
+            "schema": {
+              "$ref": "#/definitions/InvalidParameterCombinationException"
+            }
+          }
+        }
+      }
+    },
+    "/#DescribeUsers": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Retrieves a list that describes one or more specified users in the user pool, if user names are provided. Otherwise, all users in the user pool are described.",
+        "operationId": "DescribeUsers",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DescribeUsersRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DescribeUsersResult"
+            }
+          },
+          "480": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "481": {
+            "description": "InvalidParameterCombinationException",
+            "schema": {
+              "$ref": "#/definitions/InvalidParameterCombinationException"
+            }
+          }
+        }
+      }
+    },
+    "/#DisableUser": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Disables the specified user in the user pool. Users can't sign in to AppStream 2.0 until they are re-enabled. This action does not delete the user. ",
+        "operationId": "DisableUser",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DisableUserRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DisableUserResult"
+            }
+          },
+          "480": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          }
+        }
+      }
+    },
+    "/#DisassociateFleet": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Disassociates the specified fleet from the specified stack.",
+        "operationId": "DisassociateFleet",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DisassociateFleetRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DisassociateFleetResult"
+            }
+          },
+          "480": {
+            "description": "ResourceInUseException",
+            "schema": {
+              "$ref": "#/definitions/ResourceInUseException"
+            }
+          },
+          "481": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "482": {
+            "description": "ConcurrentModificationException",
+            "schema": {
+              "$ref": "#/definitions/ConcurrentModificationException"
+            }
+          }
+        }
+      }
+    },
+    "/#EnableUser": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Enables a user in the user pool. After being enabled, users can sign in to AppStream 2.0 and open applications from the stacks to which they are assigned.",
+        "operationId": "EnableUser",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/EnableUserRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/EnableUserResult"
+            }
+          },
+          "480": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "481": {
+            "description": "InvalidAccountStatusException",
+            "schema": {
+              "$ref": "#/definitions/InvalidAccountStatusException"
+            }
+          }
+        }
+      }
+    },
+    "/#ExpireSession": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Immediately stops the specified streaming session.",
+        "operationId": "ExpireSession",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ExpireSessionRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ExpireSessionResult"
+            }
+          }
+        }
+      }
+    },
+    "/#ListAssociatedFleets": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Retrieves the name of the fleet that is associated with the specified stack.",
+        "operationId": "ListAssociatedFleets",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ListAssociatedFleetsRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ListAssociatedFleetsResult"
+            }
+          }
+        }
+      }
+    },
+    "/#ListAssociatedStacks": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Retrieves the name of the stack with which the specified fleet is associated.",
+        "operationId": "ListAssociatedStacks",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ListAssociatedStacksRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ListAssociatedStacksResult"
+            }
+          }
+        }
+      }
+    },
+    "/#ListTagsForResource": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "<p>Retrieves a list of all tags for the specified AppStream 2.0 resource. You can tag AppStream 2.0 image builders, images, fleets, and stacks.</p> <p>For more information about tags, see <a href=\"http://docs.aws.amazon.com/appstream2/latest/developerguide/tagging-basic.html\">Tagging Your Resources</a> in the <i>Amazon AppStream 2.0 Developer Guide</i>.</p>",
+        "operationId": "ListTagsForResource",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ListTagsForResourceRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ListTagsForResourceResponse"
+            }
+          },
+          "480": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          }
+        }
+      }
+    },
+    "/#StartFleet": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Starts the specified fleet.",
+        "operationId": "StartFleet",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/StartFleetRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/StartFleetResult"
+            }
+          },
+          "480": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "481": {
+            "description": "OperationNotPermittedException",
+            "schema": {
+              "$ref": "#/definitions/OperationNotPermittedException"
+            }
+          },
+          "482": {
+            "description": "LimitExceededException",
+            "schema": {
+              "$ref": "#/definitions/LimitExceededException"
+            }
+          },
+          "483": {
+            "description": "InvalidAccountStatusException",
+            "schema": {
+              "$ref": "#/definitions/InvalidAccountStatusException"
+            }
+          },
+          "484": {
+            "description": "ConcurrentModificationException",
+            "schema": {
+              "$ref": "#/definitions/ConcurrentModificationException"
+            }
+          }
+        }
+      }
+    },
+    "/#StartImageBuilder": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Starts the specified image builder.",
+        "operationId": "StartImageBuilder",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/StartImageBuilderRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/StartImageBuilderResult"
+            }
+          },
+          "480": {
+            "description": "ResourceNotAvailableException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotAvailableException"
+            }
+          },
+          "481": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "482": {
+            "description": "ConcurrentModificationException",
+            "schema": {
+              "$ref": "#/definitions/ConcurrentModificationException"
+            }
+          },
+          "483": {
+            "description": "InvalidAccountStatusException",
+            "schema": {
+              "$ref": "#/definitions/InvalidAccountStatusException"
+            }
+          },
+          "484": {
+            "description": "IncompatibleImageException",
+            "schema": {
+              "$ref": "#/definitions/IncompatibleImageException"
+            }
+          }
+        }
+      }
+    },
+    "/#StopFleet": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Stops the specified fleet.",
+        "operationId": "StopFleet",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/StopFleetRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/StopFleetResult"
+            }
+          },
+          "480": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "481": {
+            "description": "ConcurrentModificationException",
+            "schema": {
+              "$ref": "#/definitions/ConcurrentModificationException"
+            }
+          }
+        }
+      }
+    },
+    "/#StopImageBuilder": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Stops the specified image builder.",
+        "operationId": "StopImageBuilder",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/StopImageBuilderRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/StopImageBuilderResult"
+            }
+          },
+          "480": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "481": {
+            "description": "OperationNotPermittedException",
+            "schema": {
+              "$ref": "#/definitions/OperationNotPermittedException"
+            }
+          },
+          "482": {
+            "description": "ConcurrentModificationException",
+            "schema": {
+              "$ref": "#/definitions/ConcurrentModificationException"
+            }
+          }
+        }
+      }
+    },
+    "/#TagResource": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "<p>Adds or overwrites one or more tags for the specified AppStream 2.0 resource. You can tag AppStream 2.0 image builders, images, fleets, and stacks.</p> <p>Each tag consists of a key and an optional value. If a resource already has a tag with the same key, this operation updates its value.</p> <p>To list the current tags for your resources, use <a>ListTagsForResource</a>. To disassociate tags from your resources, use <a>UntagResource</a>.</p> <p>For more information about tags, see <a href=\"http://docs.aws.amazon.com/appstream2/latest/developerguide/tagging-basic.html\">Tagging Your Resources</a> in the <i>Amazon AppStream 2.0 Developer Guide</i>.</p>",
+        "operationId": "TagResource",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/TagResourceRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/TagResourceResponse"
+            }
+          },
+          "480": {
+            "description": "LimitExceededException",
+            "schema": {
+              "$ref": "#/definitions/LimitExceededException"
+            }
+          },
+          "481": {
+            "description": "InvalidAccountStatusException",
+            "schema": {
+              "$ref": "#/definitions/InvalidAccountStatusException"
+            }
+          },
+          "482": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          }
+        }
+      }
+    },
+    "/#UntagResource": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "<p>Disassociates one or more specified tags from the specified AppStream 2.0 resource.</p> <p>To list the current tags for your resources, use <a>ListTagsForResource</a>.</p> <p>For more information about tags, see <a href=\"http://docs.aws.amazon.com/appstream2/latest/developerguide/tagging-basic.html\">Tagging Your Resources</a> in the <i>Amazon AppStream 2.0 Developer Guide</i>.</p>",
+        "operationId": "UntagResource",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/UntagResourceRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/UntagResourceResponse"
+            }
+          },
+          "480": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          }
+        }
+      }
+    },
+    "/#UpdateDirectoryConfig": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Updates the specified Directory Config object in AppStream 2.0. This object includes the information required to join streaming instances to an Active Directory domain.",
+        "operationId": "UpdateDirectoryConfig",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/UpdateDirectoryConfigRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/UpdateDirectoryConfigResult"
+            }
+          },
+          "480": {
+            "description": "ResourceInUseException",
+            "schema": {
+              "$ref": "#/definitions/ResourceInUseException"
+            }
+          },
+          "481": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "482": {
+            "description": "ConcurrentModificationException",
+            "schema": {
+              "$ref": "#/definitions/ConcurrentModificationException"
+            }
+          }
+        }
+      }
+    },
+    "/#UpdateFleet": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "<p>Updates the specified fleet.</p> <p>If the fleet is in the <code>STOPPED</code> state, you can update any attribute except the fleet name. If the fleet is in the <code>RUNNING</code> state, you can update the <code>DisplayName</code> and <code>ComputeCapacity</code> attributes. If the fleet is in the <code>STARTING</code> or <code>STOPPING</code> state, you can't update it.</p>",
+        "operationId": "UpdateFleet",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/UpdateFleetRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/UpdateFleetResult"
+            }
+          },
+          "480": {
+            "description": "ResourceInUseException",
+            "schema": {
+              "$ref": "#/definitions/ResourceInUseException"
+            }
+          },
+          "481": {
+            "description": "LimitExceededException",
+            "schema": {
+              "$ref": "#/definitions/LimitExceededException"
+            }
+          },
+          "482": {
+            "description": "InvalidAccountStatusException",
+            "schema": {
+              "$ref": "#/definitions/InvalidAccountStatusException"
+            }
+          },
+          "483": {
+            "description": "InvalidRoleException",
+            "schema": {
+              "$ref": "#/definitions/InvalidRoleException"
+            }
+          },
+          "484": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "485": {
+            "description": "ResourceNotAvailableException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotAvailableException"
+            }
+          },
+          "486": {
+            "description": "InvalidParameterCombinationException",
+            "schema": {
+              "$ref": "#/definitions/InvalidParameterCombinationException"
+            }
+          },
+          "487": {
+            "description": "ConcurrentModificationException",
+            "schema": {
+              "$ref": "#/definitions/ConcurrentModificationException"
+            }
+          },
+          "488": {
+            "description": "IncompatibleImageException",
+            "schema": {
+              "$ref": "#/definitions/IncompatibleImageException"
+            }
+          },
+          "489": {
+            "description": "OperationNotPermittedException",
+            "schema": {
+              "$ref": "#/definitions/OperationNotPermittedException"
+            }
+          }
+        }
+      }
+    },
+    "/#UpdateImagePermissions": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Adds or updates permissions for the specified private image. ",
+        "operationId": "UpdateImagePermissions",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/UpdateImagePermissionsRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/UpdateImagePermissionsResult"
+            }
+          },
+          "480": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "481": {
+            "description": "ResourceNotAvailableException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotAvailableException"
+            }
+          },
+          "482": {
+            "description": "LimitExceededException",
+            "schema": {
+              "$ref": "#/definitions/LimitExceededException"
+            }
+          }
+        }
+      }
+    },
+    "/#UpdateStack": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Updates the specified fields for the specified stack.",
+        "operationId": "UpdateStack",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/UpdateStackRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/UpdateStackResult"
+            }
+          },
+          "480": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "481": {
+            "description": "ResourceInUseException",
+            "schema": {
+              "$ref": "#/definitions/ResourceInUseException"
+            }
+          },
+          "482": {
+            "description": "InvalidRoleException",
+            "schema": {
+              "$ref": "#/definitions/InvalidRoleException"
+            }
+          },
+          "483": {
+            "description": "InvalidParameterCombinationException",
+            "schema": {
+              "$ref": "#/definitions/InvalidParameterCombinationException"
+            }
+          },
+          "484": {
+            "description": "LimitExceededException",
+            "schema": {
+              "$ref": "#/definitions/LimitExceededException"
+            }
+          },
+          "485": {
+            "description": "InvalidAccountStatusException",
+            "schema": {
+              "$ref": "#/definitions/InvalidAccountStatusException"
+            }
+          },
+          "486": {
+            "description": "IncompatibleImageException",
+            "schema": {
+              "$ref": "#/definitions/IncompatibleImageException"
+            }
+          },
+          "487": {
+            "description": "OperationNotPermittedException",
+            "schema": {
+              "$ref": "#/definitions/OperationNotPermittedException"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "AccountName": {
+      "format": "password",
+      "minLength": 1,
+      "type": "string"
+    },
+    "AccountPassword": {
+      "format": "password",
+      "maxLength": 127,
+      "minLength": 1,
+      "type": "string"
+    },
+    "Action": {
+      "enum": [
+        "CLIPBOARD_COPY_FROM_LOCAL_DEVICE",
+        "CLIPBOARD_COPY_TO_LOCAL_DEVICE",
+        "FILE_UPLOAD",
+        "FILE_DOWNLOAD",
+        "PRINTING_TO_LOCAL_DEVICE"
+      ],
+      "type": "string"
+    },
+    "Application": {
+      "description": "Describes an application in the application catalog.",
+      "properties": {
+        "DisplayName": {
+          "$ref": "#/definitions/String",
+          "description": "The application name for display."
+        },
+        "Enabled": {
+          "$ref": "#/definitions/Boolean",
+          "description": "If there is a problem, the application can be disabled after image creation."
+        },
+        "IconURL": {
+          "$ref": "#/definitions/String",
+          "description": "The URL for the application icon. This URL might be time-limited."
+        },
+        "LaunchParameters": {
+          "$ref": "#/definitions/String",
+          "description": "The arguments that are passed to the application at launch."
+        },
+        "LaunchPath": {
+          "$ref": "#/definitions/String",
+          "description": "The path to the application executable in the instance."
+        },
+        "Metadata": {
+          "$ref": "#/definitions/Metadata",
+          "description": "Additional attributes that describe the application."
+        },
+        "Name": {
+          "$ref": "#/definitions/String",
+          "description": "The name of the application."
+        }
+      },
+      "type": "object"
+    },
+    "ApplicationSettings": {
+      "description": "The persistent application settings for users of a stack.",
+      "properties": {
+        "Enabled": {
+          "$ref": "#/definitions/Boolean",
+          "description": "Enables or disables persistent application settings for users during their streaming sessions. "
+        },
+        "SettingsGroup": {
+          "$ref": "#/definitions/SettingsGroup",
+          "description": "The path prefix for the S3 bucket where users’ persistent application settings are stored. You can allow the same persistent application settings to be used across multiple stacks by specifying the same settings group for each stack. "
+        }
+      },
+      "required": [
+        "Enabled"
+      ],
+      "type": "object"
+    },
+    "ApplicationSettingsResponse": {
+      "description": "Describes the persistent application settings for users of a stack.",
+      "properties": {
+        "Enabled": {
+          "$ref": "#/definitions/Boolean",
+          "description": "Specifies whether persistent application settings are enabled for users during their streaming sessions."
+        },
+        "S3BucketName": {
+          "$ref": "#/definitions/String",
+          "description": "The S3 bucket where users’ persistent application settings are stored. When persistent application settings are enabled for the first time for an account in an AWS Region, an S3 bucket is created. The bucket is unique to the AWS account and the Region. "
+        },
+        "SettingsGroup": {
+          "$ref": "#/definitions/SettingsGroup",
+          "description": "The path prefix for the S3 bucket where users’ persistent application settings are stored."
+        }
+      },
+      "type": "object"
+    },
+    "Applications": {
+      "items": {
+        "$ref": "#/definitions/Application"
+      },
+      "type": "array"
+    },
+    "AppstreamAgentVersion": {
+      "maxLength": 100,
+      "minLength": 1,
+      "type": "string"
+    },
+    "Arn": {
+      "pattern": "^arn:aws:[A-Za-z0-9][A-Za-z0-9_/.-]{0,62}:[A-Za-z0-9_/.-]{0,63}:[A-Za-z0-9_/.-]{0,63}:[A-Za-z0-9][A-Za-z0-9:_/+=,@.-]{0,1023}$",
+      "type": "string"
+    },
+    "ArnList": {
+      "items": {
+        "$ref": "#/definitions/Arn"
+      },
+      "type": "array"
+    },
+    "AssociateFleetRequest": {
+      "properties": {
+        "FleetName": {
+          "$ref": "#/definitions/String",
+          "description": "The name of the fleet. "
+        },
+        "StackName": {
+          "$ref": "#/definitions/String",
+          "description": "The name of the stack."
+        }
+      },
+      "required": [
+        "FleetName",
+        "StackName"
+      ],
+      "type": "object"
+    },
+    "AssociateFleetResult": {
+      "properties": {},
+      "type": "object"
+    },
+    "AuthenticationType": {
+      "enum": [
+        "API",
+        "SAML",
+        "USERPOOL"
+      ],
+      "type": "string"
+    },
+    "AwsAccountId": {
+      "pattern": "^\\d+$",
+      "type": "string"
+    },
+    "AwsAccountIdList": {
+      "items": {
+        "$ref": "#/definitions/AwsAccountId"
+      },
+      "maxItems": 5,
+      "minItems": 1,
+      "type": "array"
+    },
+    "BatchAssociateUserStackRequest": {
+      "properties": {
+        "UserStackAssociations": {
+          "$ref": "#/definitions/UserStackAssociationList",
+          "description": "The list of UserStackAssociation objects."
+        }
+      },
+      "required": [
+        "UserStackAssociations"
+      ],
+      "type": "object"
+    },
+    "BatchAssociateUserStackResult": {
+      "properties": {
+        "errors": {
+          "$ref": "#/definitions/UserStackAssociationErrorList",
+          "description": "The list of UserStackAssociationError objects."
+        }
+      },
+      "type": "object"
+    },
+    "BatchDisassociateUserStackRequest": {
+      "properties": {
+        "UserStackAssociations": {
+          "$ref": "#/definitions/UserStackAssociationList",
+          "description": "The list of UserStackAssociation objects."
+        }
+      },
+      "required": [
+        "UserStackAssociations"
+      ],
+      "type": "object"
+    },
+    "BatchDisassociateUserStackResult": {
+      "properties": {
+        "errors": {
+          "$ref": "#/definitions/UserStackAssociationErrorList",
+          "description": "The list of UserStackAssociationError objects."
+        }
+      },
+      "type": "object"
+    },
+    "Boolean": {
+      "type": "boolean"
+    },
+    "BooleanObject": {
+      "type": "boolean"
+    },
+    "ComputeCapacity": {
+      "description": "Describes the capacity for a fleet.",
+      "properties": {
+        "DesiredInstances": {
+          "$ref": "#/definitions/Integer",
+          "description": "The desired number of streaming instances."
+        }
+      },
+      "required": [
+        "DesiredInstances"
+      ],
+      "type": "object"
+    },
+    "ComputeCapacityStatus": {
+      "description": "Describes the capacity status for a fleet.",
+      "properties": {
+        "Available": {
+          "$ref": "#/definitions/Integer",
+          "description": "The number of currently available instances that can be used to stream sessions."
+        },
+        "Desired": {
+          "$ref": "#/definitions/Integer",
+          "description": "The desired number of streaming instances."
+        },
+        "InUse": {
+          "$ref": "#/definitions/Integer",
+          "description": "The number of instances in use for streaming."
+        },
+        "Running": {
+          "$ref": "#/definitions/Integer",
+          "description": "The total number of simultaneous streaming instances that are running."
+        }
+      },
+      "required": [
+        "Desired"
+      ],
+      "type": "object"
+    },
+    "ConcurrentModificationException": {},
+    "CopyImageRequest": {
+      "properties": {
+        "DestinationImageDescription": {
+          "$ref": "#/definitions/Description",
+          "description": "The description that the image will have when it is copied to the destination."
+        },
+        "DestinationImageName": {
+          "$ref": "#/definitions/Name",
+          "description": "The name that the image will have when it is copied to the destination."
+        },
+        "DestinationRegion": {
+          "$ref": "#/definitions/RegionName",
+          "description": "The destination region to which the image will be copied. This parameter is required, even if you are copying an image within the same region."
+        },
+        "SourceImageName": {
+          "$ref": "#/definitions/Name",
+          "description": "The name of the image to copy."
+        }
+      },
+      "required": [
+        "SourceImageName",
+        "DestinationImageName",
+        "DestinationRegion"
+      ],
+      "type": "object"
+    },
+    "CopyImageResponse": {
+      "properties": {
+        "DestinationImageName": {
+          "$ref": "#/definitions/Name",
+          "description": "The name of the destination image."
+        }
+      },
+      "type": "object"
+    },
+    "CreateDirectoryConfigRequest": {
+      "properties": {
+        "DirectoryName": {
+          "$ref": "#/definitions/DirectoryName",
+          "description": "The fully qualified name of the directory (for example, corp.example.com)."
+        },
+        "OrganizationalUnitDistinguishedNames": {
+          "$ref": "#/definitions/OrganizationalUnitDistinguishedNamesList",
+          "description": "The distinguished names of the organizational units for computer accounts."
+        },
+        "ServiceAccountCredentials": {
+          "$ref": "#/definitions/ServiceAccountCredentials",
+          "description": "The credentials for the service account used by the streaming instance to connect to the directory."
+        }
+      },
+      "required": [
+        "DirectoryName",
+        "OrganizationalUnitDistinguishedNames",
+        "ServiceAccountCredentials"
+      ],
+      "type": "object"
+    },
+    "CreateDirectoryConfigResult": {
+      "properties": {
+        "DirectoryConfig": {
+          "$ref": "#/definitions/DirectoryConfig",
+          "description": "Information about the directory configuration."
+        }
+      },
+      "type": "object"
+    },
+    "CreateFleetRequest": {
+      "properties": {
+        "ComputeCapacity": {
+          "$ref": "#/definitions/ComputeCapacity",
+          "description": "The desired capacity for the fleet."
+        },
+        "Description": {
+          "$ref": "#/definitions/Description",
+          "description": "The description for display."
+        },
+        "DisconnectTimeoutInSeconds": {
+          "$ref": "#/definitions/Integer",
+          "description": "The time after disconnection when a session is considered to have ended, in seconds. If a user who was disconnected reconnects within this time interval, the user is connected to their previous session. Specify a value between 60 and 57600."
+        },
+        "DisplayName": {
+          "$ref": "#/definitions/DisplayName",
+          "description": "The fleet name for display."
+        },
+        "DomainJoinInfo": {
+          "$ref": "#/definitions/DomainJoinInfo",
+          "description": "The information needed to join a Microsoft Active Directory domain."
+        },
+        "EnableDefaultInternetAccess": {
+          "$ref": "#/definitions/BooleanObject",
+          "description": "Enables or disables default internet access for the fleet."
+        },
+        "FleetType": {
+          "$ref": "#/definitions/FleetType",
+          "description": "<p>The fleet type.</p> <dl> <dt>ALWAYS_ON</dt> <dd> <p>Provides users with instant-on access to their apps. You are charged for all running instances in your fleet, even if no users are streaming apps.</p> </dd> <dt>ON_DEMAND</dt> <dd> <p>Provide users with access to applications after they connect, which takes one to two minutes. You are charged for instance streaming when users are connected and a small hourly fee for instances that are not streaming apps.</p> </dd> </dl>"
+        },
+        "ImageArn": {
+          "$ref": "#/definitions/Arn",
+          "description": "The ARN of the public, private, or shared image to use."
+        },
+        "ImageName": {
+          "$ref": "#/definitions/String",
+          "description": "The name of the image used to create the fleet."
+        },
+        "InstanceType": {
+          "$ref": "#/definitions/String",
+          "description": "<p>The instance type to use when launching fleet instances. The following instance types are available:</p> <ul> <li> <p>stream.standard.medium</p> </li> <li> <p>stream.standard.large</p> </li> <li> <p>stream.compute.large</p> </li> <li> <p>stream.compute.xlarge</p> </li> <li> <p>stream.compute.2xlarge</p> </li> <li> <p>stream.compute.4xlarge</p> </li> <li> <p>stream.compute.8xlarge</p> </li> <li> <p>stream.memory.large</p> </li> <li> <p>stream.memory.xlarge</p> </li> <li> <p>stream.memory.2xlarge</p> </li> <li> <p>stream.memory.4xlarge</p> </li> <li> <p>stream.memory.8xlarge</p> </li> <li> <p>stream.graphics-design.large</p> </li> <li> <p>stream.graphics-design.xlarge</p> </li> <li> <p>stream.graphics-design.2xlarge</p> </li> <li> <p>stream.graphics-design.4xlarge</p> </li> <li> <p>stream.graphics-desktop.2xlarge</p> </li> <li> <p>stream.graphics-pro.4xlarge</p> </li> <li> <p>stream.graphics-pro.8xlarge</p> </li> <li> <p>stream.graphics-pro.16xlarge</p> </li> </ul>"
+        },
+        "MaxUserDurationInSeconds": {
+          "$ref": "#/definitions/Integer",
+          "description": "The maximum time that a streaming session can run, in seconds. Specify a value between 600 and 57600."
+        },
+        "Name": {
+          "$ref": "#/definitions/Name",
+          "description": "A unique name for the fleet."
+        },
+        "VpcConfig": {
+          "$ref": "#/definitions/VpcConfig",
+          "description": "The VPC configuration for the fleet."
+        }
+      },
+      "required": [
+        "Name",
+        "InstanceType",
+        "ComputeCapacity"
+      ],
+      "type": "object"
+    },
+    "CreateFleetResult": {
+      "properties": {
+        "Fleet": {
+          "$ref": "#/definitions/Fleet",
+          "description": "Information about the fleet."
+        }
+      },
+      "type": "object"
+    },
+    "CreateImageBuilderRequest": {
+      "properties": {
+        "AppstreamAgentVersion": {
+          "$ref": "#/definitions/AppstreamAgentVersion",
+          "description": "The version of the AppStream 2.0 agent to use for this image builder. To use the latest version of the AppStream 2.0 agent, specify [LATEST]. "
+        },
+        "Description": {
+          "$ref": "#/definitions/Description",
+          "description": "The description for display."
+        },
+        "DisplayName": {
+          "$ref": "#/definitions/DisplayName",
+          "description": "The image builder name for display."
+        },
+        "DomainJoinInfo": {
+          "$ref": "#/definitions/DomainJoinInfo",
+          "description": "The information needed to join a Microsoft Active Directory domain."
+        },
+        "EnableDefaultInternetAccess": {
+          "$ref": "#/definitions/BooleanObject",
+          "description": "Enables or disables default internet access for the image builder."
+        },
+        "ImageArn": {
+          "$ref": "#/definitions/Arn",
+          "description": "The ARN of the public, private, or shared image to use."
+        },
+        "ImageName": {
+          "$ref": "#/definitions/String",
+          "description": "The name of the image used to create the builder."
+        },
+        "InstanceType": {
+          "$ref": "#/definitions/String",
+          "description": "The instance type to use when launching the image builder."
+        },
+        "Name": {
+          "$ref": "#/definitions/Name",
+          "description": "A unique name for the image builder."
+        },
+        "VpcConfig": {
+          "$ref": "#/definitions/VpcConfig",
+          "description": "The VPC configuration for the image builder. You can specify only one subnet."
+        }
+      },
+      "required": [
+        "Name",
+        "InstanceType"
+      ],
+      "type": "object"
+    },
+    "CreateImageBuilderResult": {
+      "properties": {
+        "ImageBuilder": {
+          "$ref": "#/definitions/ImageBuilder",
+          "description": "Information about the image builder."
+        }
+      },
+      "type": "object"
+    },
+    "CreateImageBuilderStreamingURLRequest": {
+      "properties": {
+        "Name": {
+          "$ref": "#/definitions/String",
+          "description": "The name of the image builder."
+        },
+        "Validity": {
+          "$ref": "#/definitions/Long",
+          "description": "The time that the streaming URL will be valid, in seconds. Specify a value between 1 and 604800 seconds. The default is 3600 seconds."
+        }
+      },
+      "required": [
+        "Name"
+      ],
+      "type": "object"
+    },
+    "CreateImageBuilderStreamingURLResult": {
+      "properties": {
+        "Expires": {
+          "$ref": "#/definitions/Timestamp",
+          "description": "The elapsed time, in seconds after the Unix epoch, when this URL expires."
+        },
+        "StreamingURL": {
+          "$ref": "#/definitions/String",
+          "description": "The URL to start the AppStream 2.0 streaming session."
+        }
+      },
+      "type": "object"
+    },
+    "CreateStackRequest": {
+      "properties": {
+        "ApplicationSettings": {
+          "$ref": "#/definitions/ApplicationSettings",
+          "description": "The persistent application settings for users of a stack. When these settings are enabled, changes that users make to applications and Windows settings are automatically saved after each session and applied to the next session."
+        },
+        "Description": {
+          "$ref": "#/definitions/Description",
+          "description": "The description for display."
+        },
+        "DisplayName": {
+          "$ref": "#/definitions/DisplayName",
+          "description": "The stack name for display."
+        },
+        "FeedbackURL": {
+          "$ref": "#/definitions/FeedbackURL",
+          "description": "The URL that users are redirected to after they click the Send Feedback link. If no URL is specified, no Send Feedback link is displayed."
+        },
+        "Name": {
+          "$ref": "#/definitions/Name",
+          "description": "The name of the stack."
+        },
+        "RedirectURL": {
+          "$ref": "#/definitions/RedirectURL",
+          "description": "The URL that users are redirected to after their streaming session ends."
+        },
+        "StorageConnectors": {
+          "$ref": "#/definitions/StorageConnectorList",
+          "description": "The storage connectors to enable."
+        },
+        "UserSettings": {
+          "$ref": "#/definitions/UserSettingList",
+          "description": "The actions that are enabled or disabled for users during their streaming sessions. By default, these actions are enabled. "
+        }
+      },
+      "required": [
+        "Name"
+      ],
+      "type": "object"
+    },
+    "CreateStackResult": {
+      "properties": {
+        "Stack": {
+          "$ref": "#/definitions/Stack",
+          "description": "Information about the stack."
+        }
+      },
+      "type": "object"
+    },
+    "CreateStreamingURLRequest": {
+      "properties": {
+        "ApplicationId": {
+          "$ref": "#/definitions/String",
+          "description": "The name of the application to launch after the session starts. This is the name that you specified as <b>Name</b> in the Image Assistant."
+        },
+        "FleetName": {
+          "$ref": "#/definitions/String",
+          "description": "The name of the fleet."
+        },
+        "SessionContext": {
+          "$ref": "#/definitions/String",
+          "description": "The session context. For more information, see <a href=\"http://docs.aws.amazon.com/appstream2/latest/developerguide/managing-stacks-fleets.html#managing-stacks-fleets-parameters\">Session Context</a> in the <i>Amazon AppStream 2.0 Developer Guide</i>."
+        },
+        "StackName": {
+          "$ref": "#/definitions/String",
+          "description": "The name of the stack."
+        },
+        "UserId": {
+          "$ref": "#/definitions/StreamingUrlUserId",
+          "description": "The ID of the user."
+        },
+        "Validity": {
+          "$ref": "#/definitions/Long",
+          "description": "The time that the streaming URL will be valid, in seconds. Specify a value between 1 and 604800 seconds. The default is 60 seconds."
+        }
+      },
+      "required": [
+        "StackName",
+        "FleetName",
+        "UserId"
+      ],
+      "type": "object"
+    },
+    "CreateStreamingURLResult": {
+      "properties": {
+        "Expires": {
+          "$ref": "#/definitions/Timestamp",
+          "description": "The elapsed time, in seconds after the Unix epoch, when this URL expires."
+        },
+        "StreamingURL": {
+          "$ref": "#/definitions/String",
+          "description": "The URL to start the AppStream 2.0 streaming session."
+        }
+      },
+      "type": "object"
+    },
+    "CreateUserRequest": {
+      "properties": {
+        "AuthenticationType": {
+          "$ref": "#/definitions/AuthenticationType",
+          "description": "The authentication type for the user. You must specify USERPOOL. "
+        },
+        "FirstName": {
+          "$ref": "#/definitions/UserAttributeValue",
+          "description": "The first name, or given name, of the user."
+        },
+        "LastName": {
+          "$ref": "#/definitions/UserAttributeValue",
+          "description": "The last name, or surname, of the user."
+        },
+        "MessageAction": {
+          "$ref": "#/definitions/MessageAction",
+          "description": "<p>The action to take for the welcome email that is sent to a user after the user is created in the user pool. If you specify SUPPRESS, no email is sent. If you specify RESEND, do not specify the first name or last name of the user. If the value is null, the email is sent. </p> <note> <p>The temporary password in the welcome email is valid for only 7 days. If users don’t set their passwords within 7 days, you must send them a new welcome email.</p> </note>"
+        },
+        "UserName": {
+          "$ref": "#/definitions/Username",
+          "description": "The email address of the user."
+        }
+      },
+      "required": [
+        "UserName",
+        "AuthenticationType"
+      ],
+      "type": "object"
+    },
+    "CreateUserResult": {
+      "properties": {},
+      "type": "object"
+    },
+    "DeleteDirectoryConfigRequest": {
+      "properties": {
+        "DirectoryName": {
+          "$ref": "#/definitions/DirectoryName",
+          "description": "The name of the directory configuration."
+        }
+      },
+      "required": [
+        "DirectoryName"
+      ],
+      "type": "object"
+    },
+    "DeleteDirectoryConfigResult": {
+      "properties": {},
+      "type": "object"
+    },
+    "DeleteFleetRequest": {
+      "properties": {
+        "Name": {
+          "$ref": "#/definitions/String",
+          "description": "The name of the fleet."
+        }
+      },
+      "required": [
+        "Name"
+      ],
+      "type": "object"
+    },
+    "DeleteFleetResult": {
+      "properties": {},
+      "type": "object"
+    },
+    "DeleteImageBuilderRequest": {
+      "properties": {
+        "Name": {
+          "$ref": "#/definitions/Name",
+          "description": "The name of the image builder."
+        }
+      },
+      "required": [
+        "Name"
+      ],
+      "type": "object"
+    },
+    "DeleteImageBuilderResult": {
+      "properties": {
+        "ImageBuilder": {
+          "$ref": "#/definitions/ImageBuilder",
+          "description": "Information about the image builder."
+        }
+      },
+      "type": "object"
+    },
+    "DeleteImagePermissionsRequest": {
+      "properties": {
+        "Name": {
+          "$ref": "#/definitions/Name",
+          "description": "The name of the private image."
+        },
+        "SharedAccountId": {
+          "$ref": "#/definitions/AwsAccountId",
+          "description": "The 12-digit ID of the AWS account for which to delete image permissions."
+        }
+      },
+      "required": [
+        "Name",
+        "SharedAccountId"
+      ],
+      "type": "object"
+    },
+    "DeleteImagePermissionsResult": {
+      "properties": {},
+      "type": "object"
+    },
+    "DeleteImageRequest": {
+      "properties": {
+        "Name": {
+          "$ref": "#/definitions/Name",
+          "description": "The name of the image."
+        }
+      },
+      "required": [
+        "Name"
+      ],
+      "type": "object"
+    },
+    "DeleteImageResult": {
+      "properties": {
+        "Image": {
+          "$ref": "#/definitions/Image",
+          "description": "Information about the image."
+        }
+      },
+      "type": "object"
+    },
+    "DeleteStackRequest": {
+      "properties": {
+        "Name": {
+          "$ref": "#/definitions/String",
+          "description": "The name of the stack."
+        }
+      },
+      "required": [
+        "Name"
+      ],
+      "type": "object"
+    },
+    "DeleteStackResult": {
+      "properties": {},
+      "type": "object"
+    },
+    "DeleteUserRequest": {
+      "properties": {
+        "AuthenticationType": {
+          "$ref": "#/definitions/AuthenticationType",
+          "description": "The authentication type for the user. You must specify USERPOOL."
+        },
+        "UserName": {
+          "$ref": "#/definitions/Username",
+          "description": "The email address of the user."
+        }
+      },
+      "required": [
+        "UserName",
+        "AuthenticationType"
+      ],
+      "type": "object"
+    },
+    "DeleteUserResult": {
+      "properties": {},
+      "type": "object"
+    },
+    "DescribeDirectoryConfigsRequest": {
+      "properties": {
+        "DirectoryNames": {
+          "$ref": "#/definitions/DirectoryNameList",
+          "description": "The directory names."
+        },
+        "MaxResults": {
+          "$ref": "#/definitions/Integer",
+          "description": "The maximum size of each page of results."
+        },
+        "NextToken": {
+          "$ref": "#/definitions/String",
+          "description": "The pagination token to use to retrieve the next page of results for this operation. If this value is null, it retrieves the first page."
+        }
+      },
+      "type": "object"
+    },
+    "DescribeDirectoryConfigsResult": {
+      "properties": {
+        "DirectoryConfigs": {
+          "$ref": "#/definitions/DirectoryConfigList",
+          "description": "Information about the directory configurations. Note that although the response syntax in this topic includes the account password, this password is not returned in the actual response. "
+        },
+        "NextToken": {
+          "$ref": "#/definitions/String",
+          "description": "The pagination token to use to retrieve the next page of results for this operation. If there are no more pages, this value is null."
+        }
+      },
+      "type": "object"
+    },
+    "DescribeFleetsRequest": {
+      "properties": {
+        "Names": {
+          "$ref": "#/definitions/StringList",
+          "description": "The names of the fleets to describe."
+        },
+        "NextToken": {
+          "$ref": "#/definitions/String",
+          "description": "The pagination token to use to retrieve the next page of results for this operation. If this value is null, it retrieves the first page."
+        }
+      },
+      "type": "object"
+    },
+    "DescribeFleetsResult": {
+      "properties": {
+        "Fleets": {
+          "$ref": "#/definitions/FleetList",
+          "description": "Information about the fleets."
+        },
+        "NextToken": {
+          "$ref": "#/definitions/String",
+          "description": "The pagination token to use to retrieve the next page of results for this operation. If there are no more pages, this value is null."
+        }
+      },
+      "type": "object"
+    },
+    "DescribeImageBuildersRequest": {
+      "properties": {
+        "MaxResults": {
+          "$ref": "#/definitions/Integer",
+          "description": "The maximum size of each page of results."
+        },
+        "Names": {
+          "$ref": "#/definitions/StringList",
+          "description": "The names of the image builders to describe."
+        },
+        "NextToken": {
+          "$ref": "#/definitions/String",
+          "description": "The pagination token to use to retrieve the next page of results for this operation. If this value is null, it retrieves the first page."
+        }
+      },
+      "type": "object"
+    },
+    "DescribeImageBuildersResult": {
+      "properties": {
+        "ImageBuilders": {
+          "$ref": "#/definitions/ImageBuilderList",
+          "description": "Information about the image builders."
+        },
+        "NextToken": {
+          "$ref": "#/definitions/String",
+          "description": "The pagination token to use to retrieve the next page of results for this operation. If there are no more pages, this value is null."
+        }
+      },
+      "type": "object"
+    },
+    "DescribeImagePermissionsRequest": {
+      "properties": {
+        "MaxResults": {
+          "$ref": "#/definitions/MaxResults",
+          "description": "The maximum size of each page of results."
+        },
+        "Name": {
+          "$ref": "#/definitions/Name",
+          "description": "The name of the private image for which to describe permissions. The image must be one that you own. "
+        },
+        "NextToken": {
+          "$ref": "#/definitions/String",
+          "description": "The pagination token to use to retrieve the next page of results for this operation. If this value is null, it retrieves the first page."
+        },
+        "SharedAwsAccountIds": {
+          "$ref": "#/definitions/AwsAccountIdList",
+          "description": "The 12-digit ID of one or more AWS accounts with which the image is shared."
+        }
+      },
+      "required": [
+        "Name"
+      ],
+      "type": "object"
+    },
+    "DescribeImagePermissionsResult": {
+      "properties": {
+        "Name": {
+          "$ref": "#/definitions/Name",
+          "description": "The name of the private image."
+        },
+        "NextToken": {
+          "$ref": "#/definitions/String",
+          "description": "The pagination token to use to retrieve the next page of results for this operation. If there are no more pages, this value is null."
+        },
+        "SharedImagePermissionsList": {
+          "$ref": "#/definitions/SharedImagePermissionsList",
+          "description": "The permissions for a private image that you own. "
+        }
+      },
+      "type": "object"
+    },
+    "DescribeImagesMaxResults": {
+      "maximum": 25,
+      "minimum": 0,
+      "type": "integer"
+    },
+    "DescribeImagesRequest": {
+      "properties": {
+        "Arns": {
+          "$ref": "#/definitions/ArnList",
+          "description": "The ARNs of the public, private, and shared images to describe."
+        },
+        "MaxResults": {
+          "$ref": "#/definitions/DescribeImagesMaxResults",
+          "description": "The maximum size of each page of results."
+        },
+        "Names": {
+          "$ref": "#/definitions/StringList",
+          "description": "The names of the public or private images to describe."
+        },
+        "NextToken": {
+          "$ref": "#/definitions/String",
+          "description": "The pagination token to use to retrieve the next page of results for this operation. If this value is null, it retrieves the first page."
+        },
+        "Type": {
+          "$ref": "#/definitions/VisibilityType",
+          "description": "The type of image (public, private, or shared) to describe. "
+        }
+      },
+      "type": "object"
+    },
+    "DescribeImagesResult": {
+      "properties": {
+        "Images": {
+          "$ref": "#/definitions/ImageList",
+          "description": "Information about the images."
+        },
+        "NextToken": {
+          "$ref": "#/definitions/String",
+          "description": "The pagination token to use to retrieve the next page of results for this operation. If there are no more pages, this value is null."
+        }
+      },
+      "type": "object"
+    },
+    "DescribeSessionsRequest": {
+      "properties": {
+        "AuthenticationType": {
+          "$ref": "#/definitions/AuthenticationType",
+          "description": "The authentication method. Specify <code>API</code> for a user authenticated using a streaming URL or <code>SAML</code> for a SAML federated user. The default is to authenticate users using a streaming URL."
+        },
+        "FleetName": {
+          "$ref": "#/definitions/String",
+          "description": "The name of the fleet. This value is case-sensitive."
+        },
+        "Limit": {
+          "$ref": "#/definitions/Integer",
+          "description": "The size of each page of results. The default value is 20 and the maximum value is 50."
+        },
+        "NextToken": {
+          "$ref": "#/definitions/String",
+          "description": "The pagination token to use to retrieve the next page of results for this operation. If this value is null, it retrieves the first page."
+        },
+        "StackName": {
+          "$ref": "#/definitions/String",
+          "description": "The name of the stack. This value is case-sensitive."
+        },
+        "UserId": {
+          "$ref": "#/definitions/UserId",
+          "description": "The user ID."
+        }
+      },
+      "required": [
+        "StackName",
+        "FleetName"
+      ],
+      "type": "object"
+    },
+    "DescribeSessionsResult": {
+      "properties": {
+        "NextToken": {
+          "$ref": "#/definitions/String",
+          "description": "The pagination token to use to retrieve the next page of results for this operation. If there are no more pages, this value is null."
+        },
+        "Sessions": {
+          "$ref": "#/definitions/SessionList",
+          "description": "Information about the streaming sessions."
+        }
+      },
+      "type": "object"
+    },
+    "DescribeStacksRequest": {
+      "properties": {
+        "Names": {
+          "$ref": "#/definitions/StringList",
+          "description": "The names of the stacks to describe."
+        },
+        "NextToken": {
+          "$ref": "#/definitions/String",
+          "description": "The pagination token to use to retrieve the next page of results for this operation. If this value is null, it retrieves the first page."
+        }
+      },
+      "type": "object"
+    },
+    "DescribeStacksResult": {
+      "properties": {
+        "NextToken": {
+          "$ref": "#/definitions/String",
+          "description": "The pagination token to use to retrieve the next page of results for this operation. If there are no more pages, this value is null."
+        },
+        "Stacks": {
+          "$ref": "#/definitions/StackList",
+          "description": "Information about the stacks."
+        }
+      },
+      "type": "object"
+    },
+    "DescribeUserStackAssociationsRequest": {
+      "properties": {
+        "AuthenticationType": {
+          "$ref": "#/definitions/AuthenticationType",
+          "description": "The authentication type for the user who is associated with the stack. You must specify USERPOOL."
+        },
+        "MaxResults": {
+          "$ref": "#/definitions/MaxResults",
+          "description": "The maximum size of each page of results."
+        },
+        "NextToken": {
+          "$ref": "#/definitions/String",
+          "description": "The pagination token to use to retrieve the next page of results for this operation. If this value is null, it retrieves the first page."
+        },
+        "StackName": {
+          "$ref": "#/definitions/String",
+          "description": "The name of the stack that is associated with the user."
+        },
+        "UserName": {
+          "$ref": "#/definitions/Username",
+          "description": "The email address of the user who is associated with the stack."
+        }
+      },
+      "type": "object"
+    },
+    "DescribeUserStackAssociationsResult": {
+      "properties": {
+        "NextToken": {
+          "$ref": "#/definitions/String",
+          "description": "The pagination token to use to retrieve the next page of results for this operation. If there are no more pages, this value is null."
+        },
+        "UserStackAssociations": {
+          "$ref": "#/definitions/UserStackAssociationList",
+          "description": "The UserStackAssociation objects."
+        }
+      },
+      "type": "object"
+    },
+    "DescribeUsersRequest": {
+      "properties": {
+        "AuthenticationType": {
+          "$ref": "#/definitions/AuthenticationType",
+          "description": "The authentication type for the users in the user pool to describe. You must specify USERPOOL."
+        },
+        "MaxResults": {
+          "$ref": "#/definitions/Integer",
+          "description": "The maximum size of each page of results."
+        },
+        "NextToken": {
+          "$ref": "#/definitions/String",
+          "description": "The pagination token to use to retrieve the next page of results for this operation. If this value is null, it retrieves the first page."
+        }
+      },
+      "required": [
+        "AuthenticationType"
+      ],
+      "type": "object"
+    },
+    "DescribeUsersResult": {
+      "properties": {
+        "NextToken": {
+          "$ref": "#/definitions/String",
+          "description": "The pagination token to use to retrieve the next page of results for this operation. If there are no more pages, this value is null."
+        },
+        "Users": {
+          "$ref": "#/definitions/UserList",
+          "description": "Information about users in the user pool."
+        }
+      },
+      "type": "object"
+    },
+    "Description": {
+      "maxLength": 256,
+      "type": "string"
+    },
+    "DirectoryConfig": {
+      "description": "Configuration information for the directory used to join domains.",
+      "properties": {
+        "CreatedTime": {
+          "$ref": "#/definitions/Timestamp",
+          "description": "The time the directory configuration was created."
+        },
+        "DirectoryName": {
+          "$ref": "#/definitions/DirectoryName",
+          "description": "The fully qualified name of the directory (for example, corp.example.com)."
+        },
+        "OrganizationalUnitDistinguishedNames": {
+          "$ref": "#/definitions/OrganizationalUnitDistinguishedNamesList",
+          "description": "The distinguished names of the organizational units for computer accounts."
+        },
+        "ServiceAccountCredentials": {
+          "$ref": "#/definitions/ServiceAccountCredentials",
+          "description": "The credentials for the service account used by the streaming instance to connect to the directory."
+        }
+      },
+      "required": [
+        "DirectoryName"
+      ],
+      "type": "object"
+    },
+    "DirectoryConfigList": {
+      "items": {
+        "$ref": "#/definitions/DirectoryConfig"
+      },
+      "type": "array"
+    },
+    "DirectoryName": {
+      "type": "string"
+    },
+    "DirectoryNameList": {
+      "items": {
+        "$ref": "#/definitions/DirectoryName"
+      },
+      "type": "array"
+    },
+    "DisableUserRequest": {
+      "properties": {
+        "AuthenticationType": {
+          "$ref": "#/definitions/AuthenticationType",
+          "description": "The authentication type for the user. You must specify USERPOOL."
+        },
+        "UserName": {
+          "$ref": "#/definitions/Username",
+          "description": "The email address of the user."
+        }
+      },
+      "required": [
+        "UserName",
+        "AuthenticationType"
+      ],
+      "type": "object"
+    },
+    "DisableUserResult": {
+      "properties": {},
+      "type": "object"
+    },
+    "DisassociateFleetRequest": {
+      "properties": {
+        "FleetName": {
+          "$ref": "#/definitions/String",
+          "description": "The name of the fleet."
+        },
+        "StackName": {
+          "$ref": "#/definitions/String",
+          "description": "The name of the stack."
+        }
+      },
+      "required": [
+        "FleetName",
+        "StackName"
+      ],
+      "type": "object"
+    },
+    "DisassociateFleetResult": {
+      "properties": {},
+      "type": "object"
+    },
+    "DisplayName": {
+      "maxLength": 100,
+      "type": "string"
+    },
+    "Domain": {
+      "description": "GSuite domain for GDrive integration.",
+      "maxLength": 64,
+      "type": "string"
+    },
+    "DomainJoinInfo": {
+      "description": "Contains the information needed to join a Microsoft Active Directory domain.",
+      "properties": {
+        "DirectoryName": {
+          "$ref": "#/definitions/DirectoryName",
+          "description": "The fully qualified name of the directory (for example, corp.example.com)."
+        },
+        "OrganizationalUnitDistinguishedName": {
+          "$ref": "#/definitions/OrganizationalUnitDistinguishedName",
+          "description": "The distinguished name of the organizational unit for computer accounts."
+        }
+      },
+      "type": "object"
+    },
+    "DomainList": {
+      "items": {
+        "$ref": "#/definitions/Domain"
+      },
+      "maxItems": 10,
+      "type": "array"
+    },
+    "EnableUserRequest": {
+      "properties": {
+        "AuthenticationType": {
+          "$ref": "#/definitions/AuthenticationType",
+          "description": "The authentication type for the user. You must specify USERPOOL."
+        },
+        "UserName": {
+          "$ref": "#/definitions/Username",
+          "description": "The email address of the user."
+        }
+      },
+      "required": [
+        "UserName",
+        "AuthenticationType"
+      ],
+      "type": "object"
+    },
+    "EnableUserResult": {
+      "properties": {},
+      "type": "object"
+    },
+    "ExpireSessionRequest": {
+      "properties": {
+        "SessionId": {
+          "$ref": "#/definitions/String",
+          "description": "The ID of the streaming session."
+        }
+      },
+      "required": [
+        "SessionId"
+      ],
+      "type": "object"
+    },
+    "ExpireSessionResult": {
+      "properties": {},
+      "type": "object"
+    },
+    "FeedbackURL": {
+      "maxLength": 1000,
+      "type": "string"
+    },
+    "Fleet": {
+      "description": "Contains the parameters for a fleet.",
+      "properties": {
+        "Arn": {
+          "$ref": "#/definitions/Arn",
+          "description": "The ARN for the fleet."
+        },
+        "ComputeCapacityStatus": {
+          "$ref": "#/definitions/ComputeCapacityStatus",
+          "description": "The capacity status for the fleet."
+        },
+        "CreatedTime": {
+          "$ref": "#/definitions/Timestamp",
+          "description": "The time the fleet was created."
+        },
+        "Description": {
+          "$ref": "#/definitions/String",
+          "description": "The description for display."
+        },
+        "DisconnectTimeoutInSeconds": {
+          "$ref": "#/definitions/Integer",
+          "description": "The time after disconnection when a session is considered to have ended, in seconds. If a user who was disconnected reconnects within this time interval, the user is connected to their previous session. Specify a value between 60 and 57600."
+        },
+        "DisplayName": {
+          "$ref": "#/definitions/String",
+          "description": "The fleet name for display."
+        },
+        "DomainJoinInfo": {
+          "$ref": "#/definitions/DomainJoinInfo",
+          "description": "The information needed to join a Microsoft Active Directory domain."
+        },
+        "EnableDefaultInternetAccess": {
+          "$ref": "#/definitions/BooleanObject",
+          "description": "Indicates whether default internet access is enabled for the fleet."
+        },
+        "FleetErrors": {
+          "$ref": "#/definitions/FleetErrors",
+          "description": "The fleet errors."
+        },
+        "FleetType": {
+          "$ref": "#/definitions/FleetType",
+          "description": "<p>The fleet type.</p> <dl> <dt>ALWAYS_ON</dt> <dd> <p>Provides users with instant-on access to their apps. You are charged for all running instances in your fleet, even if no users are streaming apps.</p> </dd> <dt>ON_DEMAND</dt> <dd> <p>Provide users with access to applications after they connect, which takes one to two minutes. You are charged for instance streaming when users are connected and a small hourly fee for instances that are not streaming apps.</p> </dd> </dl>"
+        },
+        "ImageArn": {
+          "$ref": "#/definitions/Arn",
+          "description": "The ARN for the public, private, or shared image."
+        },
+        "ImageName": {
+          "$ref": "#/definitions/String",
+          "description": "The name of the image used to create the fleet."
+        },
+        "InstanceType": {
+          "$ref": "#/definitions/String",
+          "description": "The instance type to use when launching fleet instances."
+        },
+        "MaxUserDurationInSeconds": {
+          "$ref": "#/definitions/Integer",
+          "description": "The maximum time that a streaming session can run, in seconds. Specify a value between 600 and 57600."
+        },
+        "Name": {
+          "$ref": "#/definitions/String",
+          "description": "The name of the fleet."
+        },
+        "State": {
+          "$ref": "#/definitions/FleetState",
+          "description": "The current state for the fleet."
+        },
+        "VpcConfig": {
+          "$ref": "#/definitions/VpcConfig",
+          "description": "The VPC configuration for the fleet."
+        }
+      },
+      "required": [
+        "Arn",
+        "Name",
+        "InstanceType",
+        "ComputeCapacityStatus",
+        "State"
+      ],
+      "type": "object"
+    },
+    "FleetAttribute": {
+      "description": "The fleet attribute.",
+      "enum": [
+        "VPC_CONFIGURATION",
+        "VPC_CONFIGURATION_SECURITY_GROUP_IDS",
+        "DOMAIN_JOIN_INFO"
+      ],
+      "type": "string"
+    },
+    "FleetAttributes": {
+      "description": "The fleet attributes.",
+      "items": {
+        "$ref": "#/definitions/FleetAttribute"
+      },
+      "type": "array"
+    },
+    "FleetError": {
+      "description": "Describes a fleet error.",
+      "properties": {
+        "ErrorCode": {
+          "$ref": "#/definitions/FleetErrorCode",
+          "description": "The error code."
+        },
+        "ErrorMessage": {
+          "$ref": "#/definitions/String",
+          "description": "The error message."
+        }
+      },
+      "type": "object"
+    },
+    "FleetErrorCode": {
+      "enum": [
+        "IAM_SERVICE_ROLE_MISSING_ENI_DESCRIBE_ACTION",
+        "IAM_SERVICE_ROLE_MISSING_ENI_CREATE_ACTION",
+        "IAM_SERVICE_ROLE_MISSING_ENI_DELETE_ACTION",
+        "NETWORK_INTERFACE_LIMIT_EXCEEDED",
+        "INTERNAL_SERVICE_ERROR",
+        "IAM_SERVICE_ROLE_IS_MISSING",
+        "SUBNET_HAS_INSUFFICIENT_IP_ADDRESSES",
+        "IAM_SERVICE_ROLE_MISSING_DESCRIBE_SUBNET_ACTION",
+        "SUBNET_NOT_FOUND",
+        "IMAGE_NOT_FOUND",
+        "INVALID_SUBNET_CONFIGURATION",
+        "SECURITY_GROUPS_NOT_FOUND",
+        "IGW_NOT_ATTACHED",
+        "IAM_SERVICE_ROLE_MISSING_DESCRIBE_SECURITY_GROUPS_ACTION",
+        "DOMAIN_JOIN_ERROR_FILE_NOT_FOUND",
+        "DOMAIN_JOIN_ERROR_ACCESS_DENIED",
+        "DOMAIN_JOIN_ERROR_LOGON_FAILURE",
+        "DOMAIN_JOIN_ERROR_INVALID_PARAMETER",
+        "DOMAIN_JOIN_ERROR_MORE_DATA",
+        "DOMAIN_JOIN_ERROR_NO_SUCH_DOMAIN",
+        "DOMAIN_JOIN_ERROR_NOT_SUPPORTED",
+        "DOMAIN_JOIN_NERR_INVALID_WORKGROUP_NAME",
+        "DOMAIN_JOIN_NERR_WORKSTATION_NOT_STARTED",
+        "DOMAIN_JOIN_ERROR_DS_MACHINE_ACCOUNT_QUOTA_EXCEEDED",
+        "DOMAIN_JOIN_NERR_PASSWORD_EXPIRED",
+        "DOMAIN_JOIN_INTERNAL_SERVICE_ERROR"
+      ],
+      "type": "string"
+    },
+    "FleetErrors": {
+      "items": {
+        "$ref": "#/definitions/FleetError"
+      },
+      "type": "array"
+    },
+    "FleetList": {
+      "description": "The fleets.",
+      "items": {
+        "$ref": "#/definitions/Fleet"
+      },
+      "type": "array"
+    },
+    "FleetState": {
+      "enum": [
+        "STARTING",
+        "RUNNING",
+        "STOPPING",
+        "STOPPED"
+      ],
+      "type": "string"
+    },
+    "FleetType": {
+      "enum": [
+        "ALWAYS_ON",
+        "ON_DEMAND"
+      ],
+      "type": "string"
+    },
+    "Image": {
+      "description": "Describes an image.",
+      "properties": {
+        "Applications": {
+          "$ref": "#/definitions/Applications",
+          "description": "The applications associated with the image."
+        },
+        "AppstreamAgentVersion": {
+          "$ref": "#/definitions/AppstreamAgentVersion",
+          "description": "The version of the AppStream 2.0 agent to use for instances that are launched from this image. "
+        },
+        "Arn": {
+          "$ref": "#/definitions/Arn",
+          "description": "The ARN of the image."
+        },
+        "BaseImageArn": {
+          "$ref": "#/definitions/Arn",
+          "description": "The ARN of the image from which this image was created."
+        },
+        "CreatedTime": {
+          "$ref": "#/definitions/Timestamp",
+          "description": "The time the image was created."
+        },
+        "Description": {
+          "$ref": "#/definitions/String",
+          "description": "The description for display."
+        },
+        "DisplayName": {
+          "$ref": "#/definitions/String",
+          "description": "The image name for display."
+        },
+        "ImageBuilderSupported": {
+          "$ref": "#/definitions/Boolean",
+          "description": "Indicates whether an image builder can be launched from this image."
+        },
+        "ImagePermissions": {
+          "$ref": "#/definitions/ImagePermissions",
+          "description": "The permissions to provide to the destination AWS account for the specified image."
+        },
+        "Name": {
+          "$ref": "#/definitions/String",
+          "description": "The name of the image."
+        },
+        "Platform": {
+          "$ref": "#/definitions/PlatformType",
+          "description": "The operating system platform of the image."
+        },
+        "PublicBaseImageReleasedDate": {
+          "$ref": "#/definitions/Timestamp",
+          "description": "The release date of the public base image. For private images, this date is the release date of the base image from which the image was created."
+        },
+        "State": {
+          "$ref": "#/definitions/ImageState",
+          "description": "The image starts in the <code>PENDING</code> state. If image creation succeeds, the state is <code>AVAILABLE</code>. If image creation fails, the state is <code>FAILED</code>."
+        },
+        "StateChangeReason": {
+          "$ref": "#/definitions/ImageStateChangeReason",
+          "description": "The reason why the last state change occurred."
+        },
+        "Visibility": {
+          "$ref": "#/definitions/VisibilityType",
+          "description": "Indicates whether the image is public or private."
+        }
+      },
+      "required": [
+        "Name"
+      ],
+      "type": "object"
+    },
+    "ImageBuilder": {
+      "description": "Describes a streaming instance used for editing an image. New images are created from a snapshot through an image builder.",
+      "properties": {
+        "AppstreamAgentVersion": {
+          "$ref": "#/definitions/AppstreamAgentVersion",
+          "description": "The version of the AppStream 2.0 agent that is currently being used by this image builder. "
+        },
+        "Arn": {
+          "$ref": "#/definitions/Arn",
+          "description": "The ARN for the image builder."
+        },
+        "CreatedTime": {
+          "$ref": "#/definitions/Timestamp",
+          "description": "The time stamp when the image builder was created."
+        },
+        "Description": {
+          "$ref": "#/definitions/String",
+          "description": "The description for display."
+        },
+        "DisplayName": {
+          "$ref": "#/definitions/String",
+          "description": "The image builder name for display."
+        },
+        "DomainJoinInfo": {
+          "$ref": "#/definitions/DomainJoinInfo",
+          "description": "The information needed to join a Microsoft Active Directory domain."
+        },
+        "EnableDefaultInternetAccess": {
+          "$ref": "#/definitions/BooleanObject",
+          "description": "Enables or disables default internet access for the image builder."
+        },
+        "ImageArn": {
+          "$ref": "#/definitions/Arn",
+          "description": "The ARN of the image from which this builder was created."
+        },
+        "ImageBuilderErrors": {
+          "$ref": "#/definitions/ResourceErrors",
+          "description": "The image builder errors."
+        },
+        "InstanceType": {
+          "$ref": "#/definitions/String",
+          "description": "The instance type for the image builder."
+        },
+        "Name": {
+          "$ref": "#/definitions/String",
+          "description": "The name of the image builder."
+        },
+        "Platform": {
+          "$ref": "#/definitions/PlatformType",
+          "description": "The operating system platform of the image builder."
+        },
+        "State": {
+          "$ref": "#/definitions/ImageBuilderState",
+          "description": "The state of the image builder."
+        },
+        "StateChangeReason": {
+          "$ref": "#/definitions/ImageBuilderStateChangeReason",
+          "description": "The reason why the last state change occurred."
+        },
+        "VpcConfig": {
+          "$ref": "#/definitions/VpcConfig",
+          "description": "The VPC configuration of the image builder."
+        }
+      },
+      "required": [
+        "Name"
+      ],
+      "type": "object"
+    },
+    "ImageBuilderList": {
+      "items": {
+        "$ref": "#/definitions/ImageBuilder"
+      },
+      "type": "array"
+    },
+    "ImageBuilderState": {
+      "enum": [
+        "PENDING",
+        "UPDATING_AGENT",
+        "RUNNING",
+        "STOPPING",
+        "STOPPED",
+        "REBOOTING",
+        "SNAPSHOTTING",
+        "DELETING",
+        "FAILED"
+      ],
+      "type": "string"
+    },
+    "ImageBuilderStateChangeReason": {
+      "description": "Describes the reason why the last image builder state change occurred.",
+      "properties": {
+        "Code": {
+          "$ref": "#/definitions/ImageBuilderStateChangeReasonCode",
+          "description": "The state change reason code."
+        },
+        "Message": {
+          "$ref": "#/definitions/String",
+          "description": "The state change reason message."
+        }
+      },
+      "type": "object"
+    },
+    "ImageBuilderStateChangeReasonCode": {
+      "enum": [
+        "INTERNAL_ERROR",
+        "IMAGE_UNAVAILABLE"
+      ],
+      "type": "string"
+    },
+    "ImageList": {
+      "items": {
+        "$ref": "#/definitions/Image"
+      },
+      "type": "array"
+    },
+    "ImagePermissions": {
+      "description": "Describes the permissions for an image. ",
+      "properties": {
+        "allowFleet": {
+          "$ref": "#/definitions/BooleanObject",
+          "description": "Indicates whether the image can be used for a fleet."
+        },
+        "allowImageBuilder": {
+          "$ref": "#/definitions/BooleanObject",
+          "description": "Indicates whether the image can be used for an image builder."
+        }
+      },
+      "type": "object"
+    },
+    "ImageState": {
+      "enum": [
+        "PENDING",
+        "AVAILABLE",
+        "FAILED",
+        "COPYING",
+        "DELETING"
+      ],
+      "type": "string"
+    },
+    "ImageStateChangeReason": {
+      "description": "Describes the reason why the last image state change occurred.",
+      "properties": {
+        "Code": {
+          "$ref": "#/definitions/ImageStateChangeReasonCode",
+          "description": "The state change reason code."
+        },
+        "Message": {
+          "$ref": "#/definitions/String",
+          "description": "The state change reason message."
+        }
+      },
+      "type": "object"
+    },
+    "ImageStateChangeReasonCode": {
+      "enum": [
+        "INTERNAL_ERROR",
+        "IMAGE_BUILDER_NOT_AVAILABLE",
+        "IMAGE_COPY_FAILURE"
+      ],
+      "type": "string"
+    },
+    "IncompatibleImageException": {},
+    "Integer": {
+      "type": "integer"
+    },
+    "InvalidAccountStatusException": {},
+    "InvalidParameterCombinationException": {},
+    "InvalidRoleException": {},
+    "LimitExceededException": {},
+    "ListAssociatedFleetsRequest": {
+      "properties": {
+        "NextToken": {
+          "$ref": "#/definitions/String",
+          "description": "The pagination token to use to retrieve the next page of results for this operation. If this value is null, it retrieves the first page."
+        },
+        "StackName": {
+          "$ref": "#/definitions/String",
+          "description": "The name of the stack."
+        }
+      },
+      "required": [
+        "StackName"
+      ],
+      "type": "object"
+    },
+    "ListAssociatedFleetsResult": {
+      "properties": {
+        "Names": {
+          "$ref": "#/definitions/StringList",
+          "description": "The name of the fleet."
+        },
+        "NextToken": {
+          "$ref": "#/definitions/String",
+          "description": "The pagination token to use to retrieve the next page of results for this operation. If there are no more pages, this value is null."
+        }
+      },
+      "type": "object"
+    },
+    "ListAssociatedStacksRequest": {
+      "properties": {
+        "FleetName": {
+          "$ref": "#/definitions/String",
+          "description": "The name of the fleet."
+        },
+        "NextToken": {
+          "$ref": "#/definitions/String",
+          "description": "The pagination token to use to retrieve the next page of results for this operation. If this value is null, it retrieves the first page."
+        }
+      },
+      "required": [
+        "FleetName"
+      ],
+      "type": "object"
+    },
+    "ListAssociatedStacksResult": {
+      "properties": {
+        "Names": {
+          "$ref": "#/definitions/StringList",
+          "description": "The name of the stack."
+        },
+        "NextToken": {
+          "$ref": "#/definitions/String",
+          "description": "The pagination token to use to retrieve the next page of results for this operation. If there are no more pages, this value is null."
+        }
+      },
+      "type": "object"
+    },
+    "ListTagsForResourceRequest": {
+      "properties": {
+        "ResourceArn": {
+          "$ref": "#/definitions/Arn",
+          "description": "The Amazon Resource Name (ARN) of the resource."
+        }
+      },
+      "required": [
+        "ResourceArn"
+      ],
+      "type": "object"
+    },
+    "ListTagsForResourceResponse": {
+      "properties": {
+        "Tags": {
+          "$ref": "#/definitions/Tags",
+          "description": "The information about the tags."
+        }
+      },
+      "type": "object"
+    },
+    "Long": {
+      "type": "integer"
+    },
+    "MaxResults": {
+      "maximum": 500,
+      "minimum": 0,
+      "type": "integer"
+    },
+    "MessageAction": {
+      "enum": [
+        "SUPPRESS",
+        "RESEND"
+      ],
+      "type": "string"
+    },
+    "Metadata": {
+      "items": {
+        "properties": {
+          "key": {
+            "$ref": "#/definitions/String"
+          },
+          "value": {
+            "$ref": "#/definitions/String"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "Name": {
+      "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_.-]{0,100}$",
+      "type": "string"
+    },
+    "NetworkAccessConfiguration": {
+      "description": "The network details of the fleet instance for the streaming session.",
+      "properties": {
+        "EniId": {
+          "$ref": "#/definitions/String",
+          "description": "The resource identifier of the elastic network interface that is attached to instances in your VPC. All network interfaces have the eni-xxxxxxxx resource identifier."
+        },
+        "EniPrivateIpAddress": {
+          "$ref": "#/definitions/String",
+          "description": "The private IP address of the elastic network interface that is attached to instances in your VPC."
+        }
+      },
+      "type": "object"
+    },
+    "OperationNotPermittedException": {},
+    "OrganizationalUnitDistinguishedName": {
+      "maxLength": 2000,
+      "type": "string"
+    },
+    "OrganizationalUnitDistinguishedNamesList": {
+      "items": {
+        "$ref": "#/definitions/OrganizationalUnitDistinguishedName"
+      },
+      "type": "array"
+    },
+    "Permission": {
+      "enum": [
+        "ENABLED",
+        "DISABLED"
+      ],
+      "type": "string"
+    },
+    "PlatformType": {
+      "enum": [
+        "WINDOWS"
+      ],
+      "type": "string"
+    },
+    "RedirectURL": {
+      "maxLength": 1000,
+      "type": "string"
+    },
+    "RegionName": {
+      "maxLength": 32,
+      "minLength": 1,
+      "type": "string"
+    },
+    "ResourceAlreadyExistsException": {},
+    "ResourceError": {
+      "description": "Describes a resource error.",
+      "properties": {
+        "ErrorCode": {
+          "$ref": "#/definitions/FleetErrorCode",
+          "description": "The error code."
+        },
+        "ErrorMessage": {
+          "$ref": "#/definitions/String",
+          "description": "The error message."
+        },
+        "ErrorTimestamp": {
+          "$ref": "#/definitions/Timestamp",
+          "description": "The time the error occurred."
+        }
+      },
+      "type": "object"
+    },
+    "ResourceErrors": {
+      "items": {
+        "$ref": "#/definitions/ResourceError"
+      },
+      "type": "array"
+    },
+    "ResourceIdentifier": {
+      "description": "The ARN of the resource.",
+      "minLength": 1,
+      "type": "string"
+    },
+    "ResourceInUseException": {},
+    "ResourceNotAvailableException": {},
+    "ResourceNotFoundException": {},
+    "SecurityGroupIdList": {
+      "description": "The security group IDs.",
+      "items": {
+        "$ref": "#/definitions/String"
+      },
+      "maxItems": 5,
+      "type": "array"
+    },
+    "ServiceAccountCredentials": {
+      "description": "Describes the credentials for the service account used by the streaming instance to connect to the directory.",
+      "properties": {
+        "AccountName": {
+          "$ref": "#/definitions/AccountName",
+          "description": "The user name of the account. This account must have the following privileges: create computer objects, join computers to the domain, and change/reset the password on descendant computer objects for the organizational units specified."
+        },
+        "AccountPassword": {
+          "$ref": "#/definitions/AccountPassword",
+          "description": "The password for the account."
+        }
+      },
+      "required": [
+        "AccountName",
+        "AccountPassword"
+      ],
+      "type": "object"
+    },
+    "Session": {
+      "description": "Describes a streaming session.",
+      "properties": {
+        "AuthenticationType": {
+          "$ref": "#/definitions/AuthenticationType",
+          "description": "The authentication method. The user is authenticated using a streaming URL (<code>API</code>) or SAML federation (<code>SAML</code>)."
+        },
+        "FleetName": {
+          "$ref": "#/definitions/String",
+          "description": "The name of the fleet for the streaming session."
+        },
+        "Id": {
+          "$ref": "#/definitions/String",
+          "description": "The ID of the streaming session."
+        },
+        "NetworkAccessConfiguration": {
+          "$ref": "#/definitions/NetworkAccessConfiguration",
+          "description": "The network details for the streaming session."
+        },
+        "StackName": {
+          "$ref": "#/definitions/String",
+          "description": "The name of the stack for the streaming session."
+        },
+        "State": {
+          "$ref": "#/definitions/SessionState",
+          "description": "The current state of the streaming session."
+        },
+        "UserId": {
+          "$ref": "#/definitions/UserId",
+          "description": "The identifier of the user for whom the session was created."
+        }
+      },
+      "required": [
+        "Id",
+        "UserId",
+        "StackName",
+        "FleetName",
+        "State"
+      ],
+      "type": "object"
+    },
+    "SessionList": {
+      "description": "List of sessions.",
+      "items": {
+        "$ref": "#/definitions/Session"
+      },
+      "type": "array"
+    },
+    "SessionState": {
+      "description": "Possible values for the state of a streaming session.",
+      "enum": [
+        "ACTIVE",
+        "PENDING",
+        "EXPIRED"
+      ],
+      "type": "string"
+    },
+    "SettingsGroup": {
+      "maxLength": 100,
+      "type": "string"
+    },
+    "SharedImagePermissions": {
+      "description": "Describes the permissions that are available to the specified AWS account for a shared image.",
+      "properties": {
+        "imagePermissions": {
+          "$ref": "#/definitions/ImagePermissions",
+          "description": "Describes the permissions for a shared image."
+        },
+        "sharedAccountId": {
+          "$ref": "#/definitions/AwsAccountId",
+          "description": "The 12-digit ID of the AWS account with which the image is shared."
+        }
+      },
+      "required": [
+        "sharedAccountId",
+        "imagePermissions"
+      ],
+      "type": "object"
+    },
+    "SharedImagePermissionsList": {
+      "items": {
+        "$ref": "#/definitions/SharedImagePermissions"
+      },
+      "type": "array"
+    },
+    "Stack": {
+      "description": "Describes a stack.",
+      "properties": {
+        "ApplicationSettings": {
+          "$ref": "#/definitions/ApplicationSettingsResponse",
+          "description": "The persistent application settings for users of the stack."
+        },
+        "Arn": {
+          "$ref": "#/definitions/Arn",
+          "description": "The ARN of the stack."
+        },
+        "CreatedTime": {
+          "$ref": "#/definitions/Timestamp",
+          "description": "The time the stack was created."
+        },
+        "Description": {
+          "$ref": "#/definitions/String",
+          "description": "The description for display."
+        },
+        "DisplayName": {
+          "$ref": "#/definitions/String",
+          "description": "The stack name for display."
+        },
+        "FeedbackURL": {
+          "$ref": "#/definitions/FeedbackURL",
+          "description": "The URL that users are redirected to after they click the Send Feedback link. If no URL is specified, no Send Feedback link is displayed."
+        },
+        "Name": {
+          "$ref": "#/definitions/String",
+          "description": "The name of the stack."
+        },
+        "RedirectURL": {
+          "$ref": "#/definitions/RedirectURL",
+          "description": "The URL that users are redirected to after their streaming session ends."
+        },
+        "StackErrors": {
+          "$ref": "#/definitions/StackErrors",
+          "description": "The errors for the stack."
+        },
+        "StorageConnectors": {
+          "$ref": "#/definitions/StorageConnectorList",
+          "description": "The storage connectors to enable."
+        },
+        "UserSettings": {
+          "$ref": "#/definitions/UserSettingList",
+          "description": "The actions that are enabled or disabled for users during their streaming sessions. By default these actions are enabled."
+        }
+      },
+      "required": [
+        "Name"
+      ],
+      "type": "object"
+    },
+    "StackAttribute": {
+      "enum": [
+        "STORAGE_CONNECTORS",
+        "STORAGE_CONNECTOR_HOMEFOLDERS",
+        "STORAGE_CONNECTOR_GOOGLE_DRIVE",
+        "STORAGE_CONNECTOR_ONE_DRIVE",
+        "REDIRECT_URL",
+        "FEEDBACK_URL",
+        "THEME_NAME",
+        "USER_SETTINGS"
+      ],
+      "type": "string"
+    },
+    "StackAttributes": {
+      "items": {
+        "$ref": "#/definitions/StackAttribute"
+      },
+      "type": "array"
+    },
+    "StackError": {
+      "description": "Describes a stack error.",
+      "properties": {
+        "ErrorCode": {
+          "$ref": "#/definitions/StackErrorCode",
+          "description": "The error code."
+        },
+        "ErrorMessage": {
+          "$ref": "#/definitions/String",
+          "description": "The error message."
+        }
+      },
+      "type": "object"
+    },
+    "StackErrorCode": {
+      "enum": [
+        "STORAGE_CONNECTOR_ERROR",
+        "INTERNAL_SERVICE_ERROR"
+      ],
+      "type": "string"
+    },
+    "StackErrors": {
+      "description": "The stack errors.",
+      "items": {
+        "$ref": "#/definitions/StackError"
+      },
+      "type": "array"
+    },
+    "StackList": {
+      "description": "The stacks.",
+      "items": {
+        "$ref": "#/definitions/Stack"
+      },
+      "type": "array"
+    },
+    "StartFleetRequest": {
+      "properties": {
+        "Name": {
+          "$ref": "#/definitions/String",
+          "description": "The name of the fleet."
+        }
+      },
+      "required": [
+        "Name"
+      ],
+      "type": "object"
+    },
+    "StartFleetResult": {
+      "properties": {},
+      "type": "object"
+    },
+    "StartImageBuilderRequest": {
+      "properties": {
+        "AppstreamAgentVersion": {
+          "$ref": "#/definitions/AppstreamAgentVersion",
+          "description": "The version of the AppStream 2.0 agent to use for this image builder. To use the latest version of the AppStream 2.0 agent, specify [LATEST]. "
+        },
+        "Name": {
+          "$ref": "#/definitions/String",
+          "description": "The name of the image builder."
+        }
+      },
+      "required": [
+        "Name"
+      ],
+      "type": "object"
+    },
+    "StartImageBuilderResult": {
+      "properties": {
+        "ImageBuilder": {
+          "$ref": "#/definitions/ImageBuilder",
+          "description": "Information about the image builder."
+        }
+      },
+      "type": "object"
+    },
+    "StopFleetRequest": {
+      "properties": {
+        "Name": {
+          "$ref": "#/definitions/String",
+          "description": "The name of the fleet."
+        }
+      },
+      "required": [
+        "Name"
+      ],
+      "type": "object"
+    },
+    "StopFleetResult": {
+      "properties": {},
+      "type": "object"
+    },
+    "StopImageBuilderRequest": {
+      "properties": {
+        "Name": {
+          "$ref": "#/definitions/String",
+          "description": "The name of the image builder."
+        }
+      },
+      "required": [
+        "Name"
+      ],
+      "type": "object"
+    },
+    "StopImageBuilderResult": {
+      "properties": {
+        "ImageBuilder": {
+          "$ref": "#/definitions/ImageBuilder",
+          "description": "Information about the image builder."
+        }
+      },
+      "type": "object"
+    },
+    "StorageConnector": {
+      "description": "Describes a connector to enable persistent storage for users.",
+      "properties": {
+        "ConnectorType": {
+          "$ref": "#/definitions/StorageConnectorType",
+          "description": "The type of storage connector."
+        },
+        "Domains": {
+          "$ref": "#/definitions/DomainList",
+          "description": "The names of the domains for the G Suite account."
+        },
+        "ResourceIdentifier": {
+          "$ref": "#/definitions/ResourceIdentifier",
+          "description": "The ARN of the storage connector."
+        }
+      },
+      "required": [
+        "ConnectorType"
+      ],
+      "type": "object"
+    },
+    "StorageConnectorList": {
+      "description": "The storage connectors.",
+      "items": {
+        "$ref": "#/definitions/StorageConnector"
+      },
+      "type": "array"
+    },
+    "StorageConnectorType": {
+      "description": "The type of storage connector.",
+      "enum": [
+        "HOMEFOLDERS",
+        "GOOGLE_DRIVE",
+        "ONE_DRIVE"
+      ],
+      "type": "string"
+    },
+    "StreamingUrlUserId": {
+      "maxLength": 32,
+      "minLength": 2,
+      "pattern": "[\\w+=,.@-]*",
+      "type": "string"
+    },
+    "String": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "StringList": {
+      "items": {
+        "$ref": "#/definitions/String"
+      },
+      "type": "array"
+    },
+    "SubnetIdList": {
+      "description": "The subnet IDs.",
+      "items": {
+        "$ref": "#/definitions/String"
+      },
+      "type": "array"
+    },
+    "TagKey": {
+      "maxLength": 128,
+      "minLength": 1,
+      "pattern": "^(^(?!aws:).[\\p{L}\\p{Z}\\p{N}_.:/=+\\-@]*)$",
+      "type": "string"
+    },
+    "TagKeyList": {
+      "items": {
+        "$ref": "#/definitions/TagKey"
+      },
+      "maxItems": 50,
+      "minItems": 1,
+      "type": "array"
+    },
+    "TagResourceRequest": {
+      "properties": {
+        "ResourceArn": {
+          "$ref": "#/definitions/Arn",
+          "description": "The Amazon Resource Name (ARN) of the resource."
+        },
+        "Tags": {
+          "$ref": "#/definitions/Tags",
+          "description": "<p>The tags to associate. A tag is a key-value pair (the value is optional). For example, <code>Environment=Test</code>, or, if you do not specify a value, <code>Environment=</code>. </p> <p>If you do not specify a value, we set the value to an empty string.</p>"
+        }
+      },
+      "required": [
+        "ResourceArn",
+        "Tags"
+      ],
+      "type": "object"
+    },
+    "TagResourceResponse": {
+      "properties": {},
+      "type": "object"
+    },
+    "TagValue": {
+      "maxLength": 256,
+      "minLength": 0,
+      "pattern": "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-@]*)$",
+      "type": "string"
+    },
+    "Tags": {
+      "items": {
+        "properties": {
+          "key": {
+            "$ref": "#/definitions/TagKey"
+          },
+          "value": {
+            "$ref": "#/definitions/TagValue"
+          }
+        },
+        "type": "object"
+      },
+      "maxItems": 50,
+      "minItems": 1,
+      "type": "array"
+    },
+    "Timestamp": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "UntagResourceRequest": {
+      "properties": {
+        "ResourceArn": {
+          "$ref": "#/definitions/Arn",
+          "description": "The Amazon Resource Name (ARN) of the resource."
+        },
+        "TagKeys": {
+          "$ref": "#/definitions/TagKeyList",
+          "description": "The tag keys for the tags to disassociate."
+        }
+      },
+      "required": [
+        "ResourceArn",
+        "TagKeys"
+      ],
+      "type": "object"
+    },
+    "UntagResourceResponse": {
+      "properties": {},
+      "type": "object"
+    },
+    "UpdateDirectoryConfigRequest": {
+      "properties": {
+        "DirectoryName": {
+          "$ref": "#/definitions/DirectoryName",
+          "description": "The name of the Directory Config object."
+        },
+        "OrganizationalUnitDistinguishedNames": {
+          "$ref": "#/definitions/OrganizationalUnitDistinguishedNamesList",
+          "description": "The distinguished names of the organizational units for computer accounts."
+        },
+        "ServiceAccountCredentials": {
+          "$ref": "#/definitions/ServiceAccountCredentials",
+          "description": "The credentials for the service account used by the streaming instance to connect to the directory."
+        }
+      },
+      "required": [
+        "DirectoryName"
+      ],
+      "type": "object"
+    },
+    "UpdateDirectoryConfigResult": {
+      "properties": {
+        "DirectoryConfig": {
+          "$ref": "#/definitions/DirectoryConfig",
+          "description": "Information about the Directory Config object."
+        }
+      },
+      "type": "object"
+    },
+    "UpdateFleetRequest": {
+      "properties": {
+        "AttributesToDelete": {
+          "$ref": "#/definitions/FleetAttributes",
+          "description": "The fleet attributes to delete."
+        },
+        "ComputeCapacity": {
+          "$ref": "#/definitions/ComputeCapacity",
+          "description": "The desired capacity for the fleet."
+        },
+        "DeleteVpcConfig": {
+          "$ref": "#/definitions/Boolean",
+          "description": "Deletes the VPC association for the specified fleet."
+        },
+        "Description": {
+          "$ref": "#/definitions/Description",
+          "description": "The description for display."
+        },
+        "DisconnectTimeoutInSeconds": {
+          "$ref": "#/definitions/Integer",
+          "description": "The time after disconnection when a session is considered to have ended, in seconds. If a user who was disconnected reconnects within this time interval, the user is connected to their previous session. Specify a value between 60 and 57600."
+        },
+        "DisplayName": {
+          "$ref": "#/definitions/DisplayName",
+          "description": "The fleet name for display."
+        },
+        "DomainJoinInfo": {
+          "$ref": "#/definitions/DomainJoinInfo",
+          "description": "The information needed to join a Microsoft Active Directory domain."
+        },
+        "EnableDefaultInternetAccess": {
+          "$ref": "#/definitions/BooleanObject",
+          "description": "Enables or disables default internet access for the fleet."
+        },
+        "ImageArn": {
+          "$ref": "#/definitions/Arn",
+          "description": "The ARN of the public, private, or shared image to use."
+        },
+        "ImageName": {
+          "$ref": "#/definitions/String",
+          "description": "The name of the image used to create the fleet."
+        },
+        "InstanceType": {
+          "$ref": "#/definitions/String",
+          "description": "<p>The instance type to use when launching fleet instances. The following instance types are available:</p> <ul> <li> <p>stream.standard.medium</p> </li> <li> <p>stream.standard.large</p> </li> <li> <p>stream.compute.large</p> </li> <li> <p>stream.compute.xlarge</p> </li> <li> <p>stream.compute.2xlarge</p> </li> <li> <p>stream.compute.4xlarge</p> </li> <li> <p>stream.compute.8xlarge</p> </li> <li> <p>stream.memory.large</p> </li> <li> <p>stream.memory.xlarge</p> </li> <li> <p>stream.memory.2xlarge</p> </li> <li> <p>stream.memory.4xlarge</p> </li> <li> <p>stream.memory.8xlarge</p> </li> <li> <p>stream.graphics-design.large</p> </li> <li> <p>stream.graphics-design.xlarge</p> </li> <li> <p>stream.graphics-design.2xlarge</p> </li> <li> <p>stream.graphics-design.4xlarge</p> </li> <li> <p>stream.graphics-desktop.2xlarge</p> </li> <li> <p>stream.graphics-pro.4xlarge</p> </li> <li> <p>stream.graphics-pro.8xlarge</p> </li> <li> <p>stream.graphics-pro.16xlarge</p> </li> </ul>"
+        },
+        "MaxUserDurationInSeconds": {
+          "$ref": "#/definitions/Integer",
+          "description": "The maximum time that a streaming session can run, in seconds. Specify a value between 600 and 57600."
+        },
+        "Name": {
+          "$ref": "#/definitions/String",
+          "description": "A unique name for the fleet."
+        },
+        "VpcConfig": {
+          "$ref": "#/definitions/VpcConfig",
+          "description": "The VPC configuration for the fleet."
+        }
+      },
+      "type": "object"
+    },
+    "UpdateFleetResult": {
+      "properties": {
+        "Fleet": {
+          "$ref": "#/definitions/Fleet",
+          "description": "Information about the fleet."
+        }
+      },
+      "type": "object"
+    },
+    "UpdateImagePermissionsRequest": {
+      "properties": {
+        "ImagePermissions": {
+          "$ref": "#/definitions/ImagePermissions",
+          "description": "The permissions for the image."
+        },
+        "Name": {
+          "$ref": "#/definitions/Name",
+          "description": "The name of the private image."
+        },
+        "SharedAccountId": {
+          "$ref": "#/definitions/AwsAccountId",
+          "description": "The 12-digit ID of the AWS account for which you want add or update image permissions."
+        }
+      },
+      "required": [
+        "Name",
+        "SharedAccountId",
+        "ImagePermissions"
+      ],
+      "type": "object"
+    },
+    "UpdateImagePermissionsResult": {
+      "properties": {},
+      "type": "object"
+    },
+    "UpdateStackRequest": {
+      "properties": {
+        "ApplicationSettings": {
+          "$ref": "#/definitions/ApplicationSettings",
+          "description": "The persistent application settings for users of a stack. When these settings are enabled, changes that users make to applications and Windows settings are automatically saved after each session and applied to the next session."
+        },
+        "AttributesToDelete": {
+          "$ref": "#/definitions/StackAttributes",
+          "description": "The stack attributes to delete."
+        },
+        "DeleteStorageConnectors": {
+          "$ref": "#/definitions/Boolean",
+          "description": "Deletes the storage connectors currently enabled for the stack."
+        },
+        "Description": {
+          "$ref": "#/definitions/Description",
+          "description": "The description for display."
+        },
+        "DisplayName": {
+          "$ref": "#/definitions/DisplayName",
+          "description": "The stack name for display."
+        },
+        "FeedbackURL": {
+          "$ref": "#/definitions/FeedbackURL",
+          "description": "The URL that users are redirected to after they click the Send Feedback link. If no URL is specified, no Send Feedback link is displayed."
+        },
+        "Name": {
+          "$ref": "#/definitions/String",
+          "description": "The name of the stack."
+        },
+        "RedirectURL": {
+          "$ref": "#/definitions/RedirectURL",
+          "description": "The URL that users are redirected to after their streaming session ends."
+        },
+        "StorageConnectors": {
+          "$ref": "#/definitions/StorageConnectorList",
+          "description": "The storage connectors to enable."
+        },
+        "UserSettings": {
+          "$ref": "#/definitions/UserSettingList",
+          "description": "The actions that are enabled or disabled for users during their streaming sessions. By default, these actions are enabled."
+        }
+      },
+      "required": [
+        "Name"
+      ],
+      "type": "object"
+    },
+    "UpdateStackResult": {
+      "properties": {
+        "Stack": {
+          "$ref": "#/definitions/Stack",
+          "description": "Information about the stack."
+        }
+      },
+      "type": "object"
+    },
+    "User": {
+      "description": "Describes a user in the user pool.",
+      "properties": {
+        "Arn": {
+          "$ref": "#/definitions/Arn",
+          "description": "The ARN of the user."
+        },
+        "AuthenticationType": {
+          "$ref": "#/definitions/AuthenticationType",
+          "description": "The authentication type for the user."
+        },
+        "CreatedTime": {
+          "$ref": "#/definitions/Timestamp",
+          "description": "The date and time the user was created in the user pool."
+        },
+        "Enabled": {
+          "$ref": "#/definitions/Boolean",
+          "description": "Specifies whether the user in the user pool is enabled."
+        },
+        "FirstName": {
+          "$ref": "#/definitions/UserAttributeValue",
+          "description": "The first name, or given name, of the user."
+        },
+        "LastName": {
+          "$ref": "#/definitions/UserAttributeValue",
+          "description": "The last name, or surname, of the user."
+        },
+        "Status": {
+          "$ref": "#/definitions/String",
+          "description": "<p>The status of the user in the user pool. The status can be one of the following:</p> <ul> <li> <p>UNCONFIRMED – The user is created but not confirmed.</p> </li> <li> <p>CONFIRMED – The user is confirmed.</p> </li> <li> <p>ARCHIVED – The user is no longer active.</p> </li> <li> <p>COMPROMISED – The user is disabled because of a potential security threat.</p> </li> <li> <p>UNKNOWN – The user status is not known.</p> </li> </ul>"
+        },
+        "UserName": {
+          "$ref": "#/definitions/Username",
+          "description": "The email address of the user."
+        }
+      },
+      "required": [
+        "AuthenticationType"
+      ],
+      "type": "object"
+    },
+    "UserAttributeValue": {
+      "format": "password",
+      "maxLength": 2048,
+      "pattern": "^[A-Za-z0-9_\\-\\s]+$",
+      "type": "string"
+    },
+    "UserId": {
+      "maxLength": 32,
+      "minLength": 2,
+      "type": "string"
+    },
+    "UserList": {
+      "items": {
+        "$ref": "#/definitions/User"
+      },
+      "type": "array"
+    },
+    "UserSetting": {
+      "description": "Describes an action and whether the action is enabled or disabled for users during their streaming sessions.",
+      "properties": {
+        "Action": {
+          "$ref": "#/definitions/Action",
+          "description": "The action that is enabled or disabled."
+        },
+        "Permission": {
+          "$ref": "#/definitions/Permission",
+          "description": "Indicates whether the action is enabled or disabled."
+        }
+      },
+      "required": [
+        "Action",
+        "Permission"
+      ],
+      "type": "object"
+    },
+    "UserSettingList": {
+      "items": {
+        "$ref": "#/definitions/UserSetting"
+      },
+      "minItems": 1,
+      "type": "array"
+    },
+    "UserStackAssociation": {
+      "description": "Describes a user in the user pool and the associated stack.",
+      "properties": {
+        "AuthenticationType": {
+          "$ref": "#/definitions/AuthenticationType",
+          "description": "The authentication type for the user."
+        },
+        "SendEmailNotification": {
+          "$ref": "#/definitions/Boolean",
+          "description": "Specifies whether a welcome email is sent to a user after the user is created in the user pool."
+        },
+        "StackName": {
+          "$ref": "#/definitions/String",
+          "description": "The name of the stack that is associated with the user."
+        },
+        "UserName": {
+          "$ref": "#/definitions/Username",
+          "description": "The email address of the user who is associated with the stack."
+        }
+      },
+      "required": [
+        "StackName",
+        "UserName",
+        "AuthenticationType"
+      ],
+      "type": "object"
+    },
+    "UserStackAssociationError": {
+      "description": "Describes the error that is returned when a user can’t be associated with or disassociated from a stack. ",
+      "properties": {
+        "ErrorCode": {
+          "$ref": "#/definitions/UserStackAssociationErrorCode",
+          "description": "The error code for the error that is returned when a user can’t be associated with or disassociated from a stack."
+        },
+        "ErrorMessage": {
+          "$ref": "#/definitions/String",
+          "description": "The error message for the error that is returned when a user can’t be associated with or disassociated from a stack."
+        },
+        "UserStackAssociation": {
+          "$ref": "#/definitions/UserStackAssociation",
+          "description": "Information about the user and associated stack."
+        }
+      },
+      "type": "object"
+    },
+    "UserStackAssociationErrorCode": {
+      "enum": [
+        "STACK_NOT_FOUND",
+        "USER_NAME_NOT_FOUND",
+        "INTERNAL_ERROR"
+      ],
+      "type": "string"
+    },
+    "UserStackAssociationErrorList": {
+      "items": {
+        "$ref": "#/definitions/UserStackAssociationError"
+      },
+      "type": "array"
+    },
+    "UserStackAssociationList": {
+      "items": {
+        "$ref": "#/definitions/UserStackAssociation"
+      },
+      "type": "array"
+    },
+    "Username": {
+      "format": "password",
+      "maxLength": 128,
+      "minLength": 1,
+      "pattern": "[\\p{L}\\p{M}\\p{S}\\p{N}\\p{P}]+",
+      "type": "string"
+    },
+    "VisibilityType": {
+      "enum": [
+        "PUBLIC",
+        "PRIVATE",
+        "SHARED"
+      ],
+      "type": "string"
+    },
+    "VpcConfig": {
+      "description": "Describes VPC configuration information.",
+      "properties": {
+        "SecurityGroupIds": {
+          "$ref": "#/definitions/SecurityGroupIdList",
+          "description": "The security groups for the fleet."
+        },
+        "SubnetIds": {
+          "$ref": "#/definitions/SubnetIdList",
+          "description": "The subnets to which a network interface is established from the fleet instance."
+        }
+      },
+      "type": "object"
+    }
+  }
+}

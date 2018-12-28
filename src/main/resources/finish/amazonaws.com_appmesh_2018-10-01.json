@@ -1,0 +1,2825 @@
+{
+  "swagger": "2.0",
+  "schemes": [
+    "https",
+    "http"
+  ],
+  "host": "appmesh.amazonaws.com",
+  "basePath": "/",
+  "x-hasEquivalentPaths": true,
+  "info": {
+    "contact": {
+      "email": "mike.ralphson@gmail.com",
+      "name": "Mike Ralphson",
+      "url": "https://github.com/mermade/aws2openapi",
+      "x-twitter": "PermittedSoc"
+    },
+    "description": "<p>AWS App Mesh is a service mesh based on the Envoy proxy that makes it easy to monitor and\n         control containerized microservices. App Mesh standardizes how your microservices\n         communicate, giving you end-to-end visibility and helping to ensure high-availability for\n         your applications.</p>\n         <p>App Mesh gives you consistent visibility and network traffic controls for every\n         microservice in an application. You can use App Mesh with Amazon ECS\n         (using the Amazon EC2 launch type), Amazon EKS, and Kubernetes on AWS.</p>\n         <note>\n            <p>App Mesh supports containerized microservice applications that use service discovery\n            naming for their components. To use App Mesh, you must have a containerized application\n            running on Amazon EC2 instances, hosted in either Amazon ECS, Amazon EKS, or Kubernetes on AWS. For\n            more information about service discovery on Amazon ECS, see <a href=\"http://docs.aws.amazon.com/AmazonECS/latest/developerguideservice-discovery.html\">Service Discovery</a> in the\n               <i>Amazon Elastic Container Service Developer Guide</i>. Kubernetes <code>kube-dns</code> is supported.\n            For more information, see <a href=\"https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/\">DNS\n               for Services and Pods</a> in the Kubernetes documentation.</p>\n         </note>",
+    "license": {
+      "name": "Apache 2.0 License",
+      "url": "http://www.apache.org/licenses/"
+    },
+    "termsOfService": "https://aws.amazon.com/service-terms/",
+    "title": "AWS App Mesh",
+    "version": "2018-10-01",
+    "x-apiClientRegistration": {
+      "url": "https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct"
+    },
+    "x-apisguru-categories": [
+      "cloud"
+    ],
+    "x-logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.jpeg"
+    },
+    "x-origin": [
+      {
+        "contentType": "application/json",
+        "converter": {
+          "url": "https://github.com/mermade/aws2openapi",
+          "version": "1.0.0"
+        },
+        "url": "https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/appmesh-2018-10-01.normal.json",
+        "x-apisguru-direct": true
+      }
+    ],
+    "x-preferred": true,
+    "x-providerName": "amazonaws.com",
+    "x-release": "v4",
+    "x-serviceName": "appmesh"
+  },
+  "externalDocs": {
+    "description": "Amazon Web Services documentation",
+    "url": "https://aws.amazon.com/appmesh/"
+  },
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "securityDefinitions": {
+    "hmac": {
+      "description": "Amazon Signature authorization v4",
+      "in": "header",
+      "name": "Authorization",
+      "type": "apiKey",
+      "x-amazon-apigateway-authtype": "awsSigv4"
+    }
+  },
+  "security": [
+    {
+      "hmac": []
+    }
+  ],
+  "parameters": {
+    "Action": {
+      "in": "query",
+      "name": "Action",
+      "required": true,
+      "type": "string"
+    },
+    "Version": {
+      "in": "query",
+      "name": "Version",
+      "required": true,
+      "type": "string"
+    },
+    "X-Amz-Algorithm": {
+      "in": "header",
+      "name": "X-Amz-Algorithm",
+      "required": false,
+      "type": "string"
+    },
+    "X-Amz-Content-Sha256": {
+      "in": "header",
+      "name": "X-Amz-Content-Sha256",
+      "required": false,
+      "type": "string"
+    },
+    "X-Amz-Credential": {
+      "in": "header",
+      "name": "X-Amz-Credential",
+      "required": false,
+      "type": "string"
+    },
+    "X-Amz-Date": {
+      "in": "header",
+      "name": "X-Amz-Date",
+      "required": false,
+      "type": "string"
+    },
+    "X-Amz-Security-Token": {
+      "in": "header",
+      "name": "X-Amz-Security-Token",
+      "required": false,
+      "type": "string"
+    },
+    "X-Amz-Signature": {
+      "in": "header",
+      "name": "X-Amz-Signature",
+      "required": false,
+      "type": "string"
+    },
+    "X-Amz-SignedHeaders": {
+      "in": "header",
+      "name": "X-Amz-SignedHeaders",
+      "required": false,
+      "type": "string"
+    }
+  },
+  "paths": {
+    "/meshes": {
+      "get": {
+        "description": "Returns a list of existing service meshes.",
+        "operationId": "ListMeshes",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ListMeshesInput"
+            }
+          },
+          {
+            "description": "Pagination limit",
+            "in": "query",
+            "name": "limit",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Pagination token",
+            "in": "query",
+            "name": "nextToken",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ListMeshesOutput"
+            }
+          },
+          "480": {
+            "description": "BadRequestException",
+            "schema": {
+              "$ref": "#/definitions/BadRequestException"
+            }
+          },
+          "481": {
+            "description": "ForbiddenException",
+            "schema": {
+              "$ref": "#/definitions/ForbiddenException"
+            }
+          },
+          "482": {
+            "description": "InternalServerErrorException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerErrorException"
+            }
+          },
+          "483": {
+            "description": "NotFoundException",
+            "schema": {
+              "$ref": "#/definitions/NotFoundException"
+            }
+          },
+          "484": {
+            "description": "ServiceUnavailableException",
+            "schema": {
+              "$ref": "#/definitions/ServiceUnavailableException"
+            }
+          },
+          "485": {
+            "description": "TooManyRequestsException",
+            "schema": {
+              "$ref": "#/definitions/TooManyRequestsException"
+            }
+          }
+        }
+      },
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "put": {
+        "description": "<p>Creates a new service mesh. A service mesh is a logical boundary for network traffic\n         between the services that reside within it.</p>\n         <p>After you create your service mesh, you can create virtual nodes, virtual routers, and\n         routes to distribute traffic between the applications in your mesh.</p>",
+        "operationId": "CreateMesh",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CreateMeshInput"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/CreateMeshOutput"
+            }
+          },
+          "480": {
+            "description": "BadRequestException",
+            "schema": {
+              "$ref": "#/definitions/BadRequestException"
+            }
+          },
+          "481": {
+            "description": "ConflictException",
+            "schema": {
+              "$ref": "#/definitions/ConflictException"
+            }
+          },
+          "482": {
+            "description": "ForbiddenException",
+            "schema": {
+              "$ref": "#/definitions/ForbiddenException"
+            }
+          },
+          "483": {
+            "description": "InternalServerErrorException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerErrorException"
+            }
+          },
+          "484": {
+            "description": "LimitExceededException",
+            "schema": {
+              "$ref": "#/definitions/LimitExceededException"
+            }
+          },
+          "485": {
+            "description": "NotFoundException",
+            "schema": {
+              "$ref": "#/definitions/NotFoundException"
+            }
+          },
+          "486": {
+            "description": "ServiceUnavailableException",
+            "schema": {
+              "$ref": "#/definitions/ServiceUnavailableException"
+            }
+          },
+          "487": {
+            "description": "TooManyRequestsException",
+            "schema": {
+              "$ref": "#/definitions/TooManyRequestsException"
+            }
+          }
+        }
+      }
+    },
+    "/meshes/{meshName}": {
+      "delete": {
+        "description": "<p>Deletes an existing service mesh.</p>\n         <p>You must delete all resources (routes, virtual routers, virtual nodes) in the service\n         mesh before you can delete the mesh itself.</p>",
+        "operationId": "DeleteMesh",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DeleteMeshInput"
+            }
+          },
+          {
+            "in": "path",
+            "name": "meshName",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DeleteMeshOutput"
+            }
+          },
+          "480": {
+            "description": "BadRequestException",
+            "schema": {
+              "$ref": "#/definitions/BadRequestException"
+            }
+          },
+          "481": {
+            "description": "ForbiddenException",
+            "schema": {
+              "$ref": "#/definitions/ForbiddenException"
+            }
+          },
+          "482": {
+            "description": "InternalServerErrorException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerErrorException"
+            }
+          },
+          "483": {
+            "description": "NotFoundException",
+            "schema": {
+              "$ref": "#/definitions/NotFoundException"
+            }
+          },
+          "484": {
+            "description": "ResourceInUseException",
+            "schema": {
+              "$ref": "#/definitions/ResourceInUseException"
+            }
+          },
+          "485": {
+            "description": "ServiceUnavailableException",
+            "schema": {
+              "$ref": "#/definitions/ServiceUnavailableException"
+            }
+          },
+          "486": {
+            "description": "TooManyRequestsException",
+            "schema": {
+              "$ref": "#/definitions/TooManyRequestsException"
+            }
+          }
+        }
+      },
+      "get": {
+        "description": "Describes an existing cluster.",
+        "operationId": "DescribeMesh",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DescribeMeshInput"
+            }
+          },
+          {
+            "in": "path",
+            "name": "meshName",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DescribeMeshOutput"
+            }
+          },
+          "480": {
+            "description": "BadRequestException",
+            "schema": {
+              "$ref": "#/definitions/BadRequestException"
+            }
+          },
+          "481": {
+            "description": "ForbiddenException",
+            "schema": {
+              "$ref": "#/definitions/ForbiddenException"
+            }
+          },
+          "482": {
+            "description": "InternalServerErrorException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerErrorException"
+            }
+          },
+          "483": {
+            "description": "NotFoundException",
+            "schema": {
+              "$ref": "#/definitions/NotFoundException"
+            }
+          },
+          "484": {
+            "description": "ServiceUnavailableException",
+            "schema": {
+              "$ref": "#/definitions/ServiceUnavailableException"
+            }
+          },
+          "485": {
+            "description": "TooManyRequestsException",
+            "schema": {
+              "$ref": "#/definitions/TooManyRequestsException"
+            }
+          }
+        }
+      },
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ]
+    },
+    "/meshes/{meshName}/virtualNodes": {
+      "get": {
+        "description": "Returns a list of existing virtual nodes.",
+        "operationId": "ListVirtualNodes",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ListVirtualNodesInput"
+            }
+          },
+          {
+            "description": "Pagination limit",
+            "in": "query",
+            "name": "limit",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Pagination token",
+            "in": "query",
+            "name": "nextToken",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "meshName",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ListVirtualNodesOutput"
+            }
+          },
+          "480": {
+            "description": "BadRequestException",
+            "schema": {
+              "$ref": "#/definitions/BadRequestException"
+            }
+          },
+          "481": {
+            "description": "ForbiddenException",
+            "schema": {
+              "$ref": "#/definitions/ForbiddenException"
+            }
+          },
+          "482": {
+            "description": "InternalServerErrorException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerErrorException"
+            }
+          },
+          "483": {
+            "description": "NotFoundException",
+            "schema": {
+              "$ref": "#/definitions/NotFoundException"
+            }
+          },
+          "484": {
+            "description": "ServiceUnavailableException",
+            "schema": {
+              "$ref": "#/definitions/ServiceUnavailableException"
+            }
+          },
+          "485": {
+            "description": "TooManyRequestsException",
+            "schema": {
+              "$ref": "#/definitions/TooManyRequestsException"
+            }
+          }
+        }
+      },
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "put": {
+        "description": "<p>Creates a new virtual node within a service mesh.</p>\n         <p>A virtual node acts as logical pointer to a particular task group, such as an Amazon ECS\n         service or a Kubernetes deployment. When you create a virtual node, you must specify the\n         DNS service discovery name for your task group.</p>\n         <p>Any inbound traffic that your virtual node expects should be specified as a\n            <code>listener</code>. Any outbound traffic that your virtual node expects to reach\n         should be specified as a <code>backend</code>.</p>\n         <p>The response metadata for your new virtual node contains the <code>arn</code> that is\n         associated with the virtual node. Set this value (either the full ARN or the truncated\n         resource name, for example, <code>mesh/default/virtualNode/simpleapp</code>, as the\n            <code>APPMESH_VIRTUAL_NODE_NAME</code> environment variable for your task group's Envoy\n         proxy container in your task definition or pod spec. This is then mapped to the\n            <code>node.id</code> and <code>node.cluster</code> Envoy parameters.</p>\n         <note>\n            <p>If you require your Envoy stats or tracing to use a different name, you can override\n            the <code>node.cluster</code> value that is set by\n               <code>APPMESH_VIRTUAL_NODE_NAME</code> with the\n               <code>APPMESH_VIRTUAL_NODE_CLUSTER</code> environment variable.</p>\n         </note>",
+        "operationId": "CreateVirtualNode",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CreateVirtualNodeInput"
+            }
+          },
+          {
+            "in": "path",
+            "name": "meshName",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/CreateVirtualNodeOutput"
+            }
+          },
+          "480": {
+            "description": "BadRequestException",
+            "schema": {
+              "$ref": "#/definitions/BadRequestException"
+            }
+          },
+          "481": {
+            "description": "ConflictException",
+            "schema": {
+              "$ref": "#/definitions/ConflictException"
+            }
+          },
+          "482": {
+            "description": "ForbiddenException",
+            "schema": {
+              "$ref": "#/definitions/ForbiddenException"
+            }
+          },
+          "483": {
+            "description": "InternalServerErrorException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerErrorException"
+            }
+          },
+          "484": {
+            "description": "LimitExceededException",
+            "schema": {
+              "$ref": "#/definitions/LimitExceededException"
+            }
+          },
+          "485": {
+            "description": "NotFoundException",
+            "schema": {
+              "$ref": "#/definitions/NotFoundException"
+            }
+          },
+          "486": {
+            "description": "ServiceUnavailableException",
+            "schema": {
+              "$ref": "#/definitions/ServiceUnavailableException"
+            }
+          },
+          "487": {
+            "description": "TooManyRequestsException",
+            "schema": {
+              "$ref": "#/definitions/TooManyRequestsException"
+            }
+          }
+        }
+      }
+    },
+    "/meshes/{meshName}/virtualNodes/{virtualNodeName}": {
+      "delete": {
+        "description": "Deletes an existing virtual node.",
+        "operationId": "DeleteVirtualNode",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DeleteVirtualNodeInput"
+            }
+          },
+          {
+            "in": "path",
+            "name": "meshName",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "virtualNodeName",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DeleteVirtualNodeOutput"
+            }
+          },
+          "480": {
+            "description": "BadRequestException",
+            "schema": {
+              "$ref": "#/definitions/BadRequestException"
+            }
+          },
+          "481": {
+            "description": "ForbiddenException",
+            "schema": {
+              "$ref": "#/definitions/ForbiddenException"
+            }
+          },
+          "482": {
+            "description": "InternalServerErrorException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerErrorException"
+            }
+          },
+          "483": {
+            "description": "NotFoundException",
+            "schema": {
+              "$ref": "#/definitions/NotFoundException"
+            }
+          },
+          "484": {
+            "description": "ResourceInUseException",
+            "schema": {
+              "$ref": "#/definitions/ResourceInUseException"
+            }
+          },
+          "485": {
+            "description": "ServiceUnavailableException",
+            "schema": {
+              "$ref": "#/definitions/ServiceUnavailableException"
+            }
+          },
+          "486": {
+            "description": "TooManyRequestsException",
+            "schema": {
+              "$ref": "#/definitions/TooManyRequestsException"
+            }
+          }
+        }
+      },
+      "get": {
+        "description": "Describes an existing virtual node.",
+        "operationId": "DescribeVirtualNode",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DescribeVirtualNodeInput"
+            }
+          },
+          {
+            "in": "path",
+            "name": "meshName",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "virtualNodeName",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DescribeVirtualNodeOutput"
+            }
+          },
+          "480": {
+            "description": "BadRequestException",
+            "schema": {
+              "$ref": "#/definitions/BadRequestException"
+            }
+          },
+          "481": {
+            "description": "ForbiddenException",
+            "schema": {
+              "$ref": "#/definitions/ForbiddenException"
+            }
+          },
+          "482": {
+            "description": "InternalServerErrorException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerErrorException"
+            }
+          },
+          "483": {
+            "description": "NotFoundException",
+            "schema": {
+              "$ref": "#/definitions/NotFoundException"
+            }
+          },
+          "484": {
+            "description": "ServiceUnavailableException",
+            "schema": {
+              "$ref": "#/definitions/ServiceUnavailableException"
+            }
+          },
+          "485": {
+            "description": "TooManyRequestsException",
+            "schema": {
+              "$ref": "#/definitions/TooManyRequestsException"
+            }
+          }
+        }
+      },
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "put": {
+        "description": "Updates an existing virtual node in a specified service mesh.",
+        "operationId": "UpdateVirtualNode",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/UpdateVirtualNodeInput"
+            }
+          },
+          {
+            "in": "path",
+            "name": "meshName",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "virtualNodeName",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/UpdateVirtualNodeOutput"
+            }
+          },
+          "480": {
+            "description": "BadRequestException",
+            "schema": {
+              "$ref": "#/definitions/BadRequestException"
+            }
+          },
+          "481": {
+            "description": "ConflictException",
+            "schema": {
+              "$ref": "#/definitions/ConflictException"
+            }
+          },
+          "482": {
+            "description": "ForbiddenException",
+            "schema": {
+              "$ref": "#/definitions/ForbiddenException"
+            }
+          },
+          "483": {
+            "description": "InternalServerErrorException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerErrorException"
+            }
+          },
+          "484": {
+            "description": "LimitExceededException",
+            "schema": {
+              "$ref": "#/definitions/LimitExceededException"
+            }
+          },
+          "485": {
+            "description": "NotFoundException",
+            "schema": {
+              "$ref": "#/definitions/NotFoundException"
+            }
+          },
+          "486": {
+            "description": "ServiceUnavailableException",
+            "schema": {
+              "$ref": "#/definitions/ServiceUnavailableException"
+            }
+          },
+          "487": {
+            "description": "TooManyRequestsException",
+            "schema": {
+              "$ref": "#/definitions/TooManyRequestsException"
+            }
+          }
+        }
+      }
+    },
+    "/meshes/{meshName}/virtualRouter/{virtualRouterName}/routes": {
+      "get": {
+        "description": "Returns a list of existing routes in a service mesh.",
+        "operationId": "ListRoutes",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ListRoutesInput"
+            }
+          },
+          {
+            "description": "Pagination limit",
+            "in": "query",
+            "name": "limit",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Pagination token",
+            "in": "query",
+            "name": "nextToken",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "meshName",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "virtualRouterName",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ListRoutesOutput"
+            }
+          },
+          "480": {
+            "description": "BadRequestException",
+            "schema": {
+              "$ref": "#/definitions/BadRequestException"
+            }
+          },
+          "481": {
+            "description": "ForbiddenException",
+            "schema": {
+              "$ref": "#/definitions/ForbiddenException"
+            }
+          },
+          "482": {
+            "description": "InternalServerErrorException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerErrorException"
+            }
+          },
+          "483": {
+            "description": "NotFoundException",
+            "schema": {
+              "$ref": "#/definitions/NotFoundException"
+            }
+          },
+          "484": {
+            "description": "ServiceUnavailableException",
+            "schema": {
+              "$ref": "#/definitions/ServiceUnavailableException"
+            }
+          },
+          "485": {
+            "description": "TooManyRequestsException",
+            "schema": {
+              "$ref": "#/definitions/TooManyRequestsException"
+            }
+          }
+        }
+      },
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "put": {
+        "description": "<p>Creates a new route that is associated with a virtual router.</p>\n         <p>You can use the <code>prefix</code> parameter in your route specification for path-based\n         routing of requests. For example, if your virtual router service name is\n            <code>my-service.local</code>, and you want the route to match requests to\n            <code>my-service.local/metrics</code>, then your prefix should be\n         <code>/metrics</code>.</p>\n         <p>If your route matches a request, you can distribute traffic to one or more target\n         virtual nodes with relative weighting.</p>",
+        "operationId": "CreateRoute",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CreateRouteInput"
+            }
+          },
+          {
+            "in": "path",
+            "name": "meshName",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "virtualRouterName",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/CreateRouteOutput"
+            }
+          },
+          "480": {
+            "description": "BadRequestException",
+            "schema": {
+              "$ref": "#/definitions/BadRequestException"
+            }
+          },
+          "481": {
+            "description": "ConflictException",
+            "schema": {
+              "$ref": "#/definitions/ConflictException"
+            }
+          },
+          "482": {
+            "description": "ForbiddenException",
+            "schema": {
+              "$ref": "#/definitions/ForbiddenException"
+            }
+          },
+          "483": {
+            "description": "InternalServerErrorException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerErrorException"
+            }
+          },
+          "484": {
+            "description": "LimitExceededException",
+            "schema": {
+              "$ref": "#/definitions/LimitExceededException"
+            }
+          },
+          "485": {
+            "description": "NotFoundException",
+            "schema": {
+              "$ref": "#/definitions/NotFoundException"
+            }
+          },
+          "486": {
+            "description": "ServiceUnavailableException",
+            "schema": {
+              "$ref": "#/definitions/ServiceUnavailableException"
+            }
+          },
+          "487": {
+            "description": "TooManyRequestsException",
+            "schema": {
+              "$ref": "#/definitions/TooManyRequestsException"
+            }
+          }
+        }
+      }
+    },
+    "/meshes/{meshName}/virtualRouter/{virtualRouterName}/routes/{routeName}": {
+      "delete": {
+        "description": "Deletes an existing route.",
+        "operationId": "DeleteRoute",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DeleteRouteInput"
+            }
+          },
+          {
+            "in": "path",
+            "name": "meshName",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "virtualRouterName",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "routeName",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DeleteRouteOutput"
+            }
+          },
+          "480": {
+            "description": "BadRequestException",
+            "schema": {
+              "$ref": "#/definitions/BadRequestException"
+            }
+          },
+          "481": {
+            "description": "ForbiddenException",
+            "schema": {
+              "$ref": "#/definitions/ForbiddenException"
+            }
+          },
+          "482": {
+            "description": "InternalServerErrorException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerErrorException"
+            }
+          },
+          "483": {
+            "description": "NotFoundException",
+            "schema": {
+              "$ref": "#/definitions/NotFoundException"
+            }
+          },
+          "484": {
+            "description": "ResourceInUseException",
+            "schema": {
+              "$ref": "#/definitions/ResourceInUseException"
+            }
+          },
+          "485": {
+            "description": "ServiceUnavailableException",
+            "schema": {
+              "$ref": "#/definitions/ServiceUnavailableException"
+            }
+          },
+          "486": {
+            "description": "TooManyRequestsException",
+            "schema": {
+              "$ref": "#/definitions/TooManyRequestsException"
+            }
+          }
+        }
+      },
+      "get": {
+        "description": "Describes an existing route.",
+        "operationId": "DescribeRoute",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DescribeRouteInput"
+            }
+          },
+          {
+            "in": "path",
+            "name": "meshName",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "virtualRouterName",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "routeName",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DescribeRouteOutput"
+            }
+          },
+          "480": {
+            "description": "BadRequestException",
+            "schema": {
+              "$ref": "#/definitions/BadRequestException"
+            }
+          },
+          "481": {
+            "description": "ForbiddenException",
+            "schema": {
+              "$ref": "#/definitions/ForbiddenException"
+            }
+          },
+          "482": {
+            "description": "InternalServerErrorException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerErrorException"
+            }
+          },
+          "483": {
+            "description": "NotFoundException",
+            "schema": {
+              "$ref": "#/definitions/NotFoundException"
+            }
+          },
+          "484": {
+            "description": "ServiceUnavailableException",
+            "schema": {
+              "$ref": "#/definitions/ServiceUnavailableException"
+            }
+          },
+          "485": {
+            "description": "TooManyRequestsException",
+            "schema": {
+              "$ref": "#/definitions/TooManyRequestsException"
+            }
+          }
+        }
+      },
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "put": {
+        "description": "Updates an existing route for a specified service mesh and virtual router.",
+        "operationId": "UpdateRoute",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/UpdateRouteInput"
+            }
+          },
+          {
+            "in": "path",
+            "name": "meshName",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "virtualRouterName",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "routeName",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/UpdateRouteOutput"
+            }
+          },
+          "480": {
+            "description": "BadRequestException",
+            "schema": {
+              "$ref": "#/definitions/BadRequestException"
+            }
+          },
+          "481": {
+            "description": "ConflictException",
+            "schema": {
+              "$ref": "#/definitions/ConflictException"
+            }
+          },
+          "482": {
+            "description": "ForbiddenException",
+            "schema": {
+              "$ref": "#/definitions/ForbiddenException"
+            }
+          },
+          "483": {
+            "description": "InternalServerErrorException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerErrorException"
+            }
+          },
+          "484": {
+            "description": "LimitExceededException",
+            "schema": {
+              "$ref": "#/definitions/LimitExceededException"
+            }
+          },
+          "485": {
+            "description": "NotFoundException",
+            "schema": {
+              "$ref": "#/definitions/NotFoundException"
+            }
+          },
+          "486": {
+            "description": "ServiceUnavailableException",
+            "schema": {
+              "$ref": "#/definitions/ServiceUnavailableException"
+            }
+          },
+          "487": {
+            "description": "TooManyRequestsException",
+            "schema": {
+              "$ref": "#/definitions/TooManyRequestsException"
+            }
+          }
+        }
+      }
+    },
+    "/meshes/{meshName}/virtualRouters": {
+      "get": {
+        "description": "Returns a list of existing virtual routers in a service mesh.",
+        "operationId": "ListVirtualRouters",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ListVirtualRoutersInput"
+            }
+          },
+          {
+            "description": "Pagination limit",
+            "in": "query",
+            "name": "limit",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Pagination token",
+            "in": "query",
+            "name": "nextToken",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "meshName",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ListVirtualRoutersOutput"
+            }
+          },
+          "480": {
+            "description": "BadRequestException",
+            "schema": {
+              "$ref": "#/definitions/BadRequestException"
+            }
+          },
+          "481": {
+            "description": "ForbiddenException",
+            "schema": {
+              "$ref": "#/definitions/ForbiddenException"
+            }
+          },
+          "482": {
+            "description": "InternalServerErrorException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerErrorException"
+            }
+          },
+          "483": {
+            "description": "NotFoundException",
+            "schema": {
+              "$ref": "#/definitions/NotFoundException"
+            }
+          },
+          "484": {
+            "description": "ServiceUnavailableException",
+            "schema": {
+              "$ref": "#/definitions/ServiceUnavailableException"
+            }
+          },
+          "485": {
+            "description": "TooManyRequestsException",
+            "schema": {
+              "$ref": "#/definitions/TooManyRequestsException"
+            }
+          }
+        }
+      },
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "put": {
+        "description": "<p>Creates a new virtual router within a service mesh.</p>\n         <p>Virtual routers handle traffic for one or more service names within your mesh. After you\n         create your virtual router, create and associate routes for your virtual router that direct\n         incoming requests to different virtual nodes.</p>",
+        "operationId": "CreateVirtualRouter",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CreateVirtualRouterInput"
+            }
+          },
+          {
+            "in": "path",
+            "name": "meshName",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/CreateVirtualRouterOutput"
+            }
+          },
+          "480": {
+            "description": "BadRequestException",
+            "schema": {
+              "$ref": "#/definitions/BadRequestException"
+            }
+          },
+          "481": {
+            "description": "ConflictException",
+            "schema": {
+              "$ref": "#/definitions/ConflictException"
+            }
+          },
+          "482": {
+            "description": "ForbiddenException",
+            "schema": {
+              "$ref": "#/definitions/ForbiddenException"
+            }
+          },
+          "483": {
+            "description": "InternalServerErrorException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerErrorException"
+            }
+          },
+          "484": {
+            "description": "LimitExceededException",
+            "schema": {
+              "$ref": "#/definitions/LimitExceededException"
+            }
+          },
+          "485": {
+            "description": "NotFoundException",
+            "schema": {
+              "$ref": "#/definitions/NotFoundException"
+            }
+          },
+          "486": {
+            "description": "ServiceUnavailableException",
+            "schema": {
+              "$ref": "#/definitions/ServiceUnavailableException"
+            }
+          },
+          "487": {
+            "description": "TooManyRequestsException",
+            "schema": {
+              "$ref": "#/definitions/TooManyRequestsException"
+            }
+          }
+        }
+      }
+    },
+    "/meshes/{meshName}/virtualRouters/{virtualRouterName}": {
+      "delete": {
+        "description": "<p>Deletes an existing virtual router.</p>\n         <p>You must delete any routes associated with the virtual router before you can delete the\n         router itself.</p>",
+        "operationId": "DeleteVirtualRouter",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DeleteVirtualRouterInput"
+            }
+          },
+          {
+            "in": "path",
+            "name": "meshName",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "virtualRouterName",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DeleteVirtualRouterOutput"
+            }
+          },
+          "480": {
+            "description": "BadRequestException",
+            "schema": {
+              "$ref": "#/definitions/BadRequestException"
+            }
+          },
+          "481": {
+            "description": "ForbiddenException",
+            "schema": {
+              "$ref": "#/definitions/ForbiddenException"
+            }
+          },
+          "482": {
+            "description": "InternalServerErrorException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerErrorException"
+            }
+          },
+          "483": {
+            "description": "NotFoundException",
+            "schema": {
+              "$ref": "#/definitions/NotFoundException"
+            }
+          },
+          "484": {
+            "description": "ResourceInUseException",
+            "schema": {
+              "$ref": "#/definitions/ResourceInUseException"
+            }
+          },
+          "485": {
+            "description": "ServiceUnavailableException",
+            "schema": {
+              "$ref": "#/definitions/ServiceUnavailableException"
+            }
+          },
+          "486": {
+            "description": "TooManyRequestsException",
+            "schema": {
+              "$ref": "#/definitions/TooManyRequestsException"
+            }
+          }
+        }
+      },
+      "get": {
+        "description": "Describes an existing virtual router.",
+        "operationId": "DescribeVirtualRouter",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DescribeVirtualRouterInput"
+            }
+          },
+          {
+            "in": "path",
+            "name": "meshName",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "virtualRouterName",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DescribeVirtualRouterOutput"
+            }
+          },
+          "480": {
+            "description": "BadRequestException",
+            "schema": {
+              "$ref": "#/definitions/BadRequestException"
+            }
+          },
+          "481": {
+            "description": "ForbiddenException",
+            "schema": {
+              "$ref": "#/definitions/ForbiddenException"
+            }
+          },
+          "482": {
+            "description": "InternalServerErrorException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerErrorException"
+            }
+          },
+          "483": {
+            "description": "NotFoundException",
+            "schema": {
+              "$ref": "#/definitions/NotFoundException"
+            }
+          },
+          "484": {
+            "description": "ServiceUnavailableException",
+            "schema": {
+              "$ref": "#/definitions/ServiceUnavailableException"
+            }
+          },
+          "485": {
+            "description": "TooManyRequestsException",
+            "schema": {
+              "$ref": "#/definitions/TooManyRequestsException"
+            }
+          }
+        }
+      },
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "put": {
+        "description": "Updates an existing virtual router in a specified service mesh.",
+        "operationId": "UpdateVirtualRouter",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/UpdateVirtualRouterInput"
+            }
+          },
+          {
+            "in": "path",
+            "name": "meshName",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "virtualRouterName",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/UpdateVirtualRouterOutput"
+            }
+          },
+          "480": {
+            "description": "BadRequestException",
+            "schema": {
+              "$ref": "#/definitions/BadRequestException"
+            }
+          },
+          "481": {
+            "description": "ConflictException",
+            "schema": {
+              "$ref": "#/definitions/ConflictException"
+            }
+          },
+          "482": {
+            "description": "ForbiddenException",
+            "schema": {
+              "$ref": "#/definitions/ForbiddenException"
+            }
+          },
+          "483": {
+            "description": "InternalServerErrorException",
+            "schema": {
+              "$ref": "#/definitions/InternalServerErrorException"
+            }
+          },
+          "484": {
+            "description": "LimitExceededException",
+            "schema": {
+              "$ref": "#/definitions/LimitExceededException"
+            }
+          },
+          "485": {
+            "description": "NotFoundException",
+            "schema": {
+              "$ref": "#/definitions/NotFoundException"
+            }
+          },
+          "486": {
+            "description": "ServiceUnavailableException",
+            "schema": {
+              "$ref": "#/definitions/ServiceUnavailableException"
+            }
+          },
+          "487": {
+            "description": "TooManyRequestsException",
+            "schema": {
+              "$ref": "#/definitions/TooManyRequestsException"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Arn": {
+      "type": "string"
+    },
+    "Backends": {
+      "items": {
+        "$ref": "#/definitions/ServiceName"
+      },
+      "type": "array"
+    },
+    "BadRequestException": {},
+    "ConflictException": {},
+    "CreateMeshInput": {
+      "description": "",
+      "properties": {
+        "clientToken": {
+          "$ref": "#/definitions/String",
+          "description": "Unique, case-sensitive identifier that you provide to ensure the idempotency of the\nrequest. Up to 36 letters, numbers, hyphens, and underscores are allowed."
+        },
+        "meshName": {
+          "$ref": "#/definitions/ResourceName",
+          "description": "The name to use for the service mesh."
+        }
+      },
+      "required": [
+        "meshName"
+      ],
+      "type": "object"
+    },
+    "CreateMeshOutput": {
+      "description": "",
+      "properties": {
+        "mesh": {
+          "$ref": "#/definitions/MeshData",
+          "description": "The full description of your service mesh following the create call."
+        }
+      },
+      "type": "object"
+    },
+    "CreateRouteInput": {
+      "description": "",
+      "properties": {
+        "clientToken": {
+          "$ref": "#/definitions/String",
+          "description": "Unique, case-sensitive identifier that you provide to ensure the idempotency of the\nrequest. Up to 36 letters, numbers, hyphens, and underscores are allowed."
+        },
+        "routeName": {
+          "$ref": "#/definitions/ResourceName",
+          "description": "The name to use for the route."
+        },
+        "spec": {
+          "$ref": "#/definitions/RouteSpec",
+          "description": "The route specification to apply."
+        }
+      },
+      "required": [
+        "routeName",
+        "spec"
+      ],
+      "type": "object"
+    },
+    "CreateRouteOutput": {
+      "description": "",
+      "properties": {
+        "route": {
+          "$ref": "#/definitions/RouteData",
+          "description": "The full description of your mesh following the create call."
+        }
+      },
+      "type": "object"
+    },
+    "CreateVirtualNodeInput": {
+      "description": "",
+      "properties": {
+        "clientToken": {
+          "$ref": "#/definitions/String",
+          "description": "Unique, case-sensitive identifier that you provide to ensure the idempotency of the\nrequest. Up to 36 letters, numbers, hyphens, and underscores are allowed."
+        },
+        "spec": {
+          "$ref": "#/definitions/VirtualNodeSpec",
+          "description": "The virtual node specification to apply."
+        },
+        "virtualNodeName": {
+          "$ref": "#/definitions/ResourceName",
+          "description": "The name to use for the virtual node."
+        }
+      },
+      "required": [
+        "spec",
+        "virtualNodeName"
+      ],
+      "type": "object"
+    },
+    "CreateVirtualNodeOutput": {
+      "description": "",
+      "properties": {
+        "virtualNode": {
+          "$ref": "#/definitions/VirtualNodeData",
+          "description": "The full description of your virtual node following the create call."
+        }
+      },
+      "type": "object"
+    },
+    "CreateVirtualRouterInput": {
+      "description": "",
+      "properties": {
+        "clientToken": {
+          "$ref": "#/definitions/String",
+          "description": "Unique, case-sensitive identifier that you provide to ensure the idempotency of the\nrequest. Up to 36 letters, numbers, hyphens, and underscores are allowed."
+        },
+        "spec": {
+          "$ref": "#/definitions/VirtualRouterSpec",
+          "description": "The virtual router specification to apply."
+        },
+        "virtualRouterName": {
+          "$ref": "#/definitions/ResourceName",
+          "description": "The name to use for the virtual router."
+        }
+      },
+      "required": [
+        "spec",
+        "virtualRouterName"
+      ],
+      "type": "object"
+    },
+    "CreateVirtualRouterOutput": {
+      "description": "",
+      "properties": {
+        "virtualRouter": {
+          "$ref": "#/definitions/VirtualRouterData",
+          "description": "The full description of your virtual router following the create call."
+        }
+      },
+      "type": "object"
+    },
+    "DeleteMeshInput": {
+      "description": "",
+      "properties": {},
+      "type": "object"
+    },
+    "DeleteMeshOutput": {
+      "description": "",
+      "properties": {
+        "mesh": {
+          "$ref": "#/definitions/MeshData",
+          "description": "The service mesh that was deleted."
+        }
+      },
+      "type": "object"
+    },
+    "DeleteRouteInput": {
+      "description": "",
+      "properties": {},
+      "type": "object"
+    },
+    "DeleteRouteOutput": {
+      "description": "",
+      "properties": {
+        "route": {
+          "$ref": "#/definitions/RouteData",
+          "description": "The route that was deleted."
+        }
+      },
+      "type": "object"
+    },
+    "DeleteVirtualNodeInput": {
+      "description": "",
+      "properties": {},
+      "type": "object"
+    },
+    "DeleteVirtualNodeOutput": {
+      "description": "",
+      "properties": {
+        "virtualNode": {
+          "$ref": "#/definitions/VirtualNodeData",
+          "description": "The virtual node that was deleted."
+        }
+      },
+      "type": "object"
+    },
+    "DeleteVirtualRouterInput": {
+      "description": "",
+      "properties": {},
+      "type": "object"
+    },
+    "DeleteVirtualRouterOutput": {
+      "description": "",
+      "properties": {
+        "virtualRouter": {
+          "$ref": "#/definitions/VirtualRouterData",
+          "description": "The virtual router that was deleted."
+        }
+      },
+      "type": "object"
+    },
+    "DescribeMeshInput": {
+      "description": "",
+      "properties": {},
+      "type": "object"
+    },
+    "DescribeMeshOutput": {
+      "description": "",
+      "properties": {
+        "mesh": {
+          "$ref": "#/definitions/MeshData",
+          "description": "The full description of your service mesh."
+        }
+      },
+      "type": "object"
+    },
+    "DescribeRouteInput": {
+      "description": "",
+      "properties": {},
+      "type": "object"
+    },
+    "DescribeRouteOutput": {
+      "description": "",
+      "properties": {
+        "route": {
+          "$ref": "#/definitions/RouteData",
+          "description": "The full description of your route."
+        }
+      },
+      "type": "object"
+    },
+    "DescribeVirtualNodeInput": {
+      "description": "",
+      "properties": {},
+      "type": "object"
+    },
+    "DescribeVirtualNodeOutput": {
+      "description": "",
+      "properties": {
+        "virtualNode": {
+          "$ref": "#/definitions/VirtualNodeData",
+          "description": "The full description of your virtual node."
+        }
+      },
+      "type": "object"
+    },
+    "DescribeVirtualRouterInput": {
+      "description": "",
+      "properties": {},
+      "type": "object"
+    },
+    "DescribeVirtualRouterOutput": {
+      "description": "",
+      "properties": {
+        "virtualRouter": {
+          "$ref": "#/definitions/VirtualRouterData",
+          "description": "The full description of your virtual router."
+        }
+      },
+      "type": "object"
+    },
+    "DnsServiceDiscovery": {
+      "description": "The DNS service discovery information for your virtual node.",
+      "properties": {
+        "serviceName": {
+          "$ref": "#/definitions/ServiceName",
+          "description": "The DNS service name for your virtual node."
+        }
+      },
+      "type": "object"
+    },
+    "DurationMillis": {
+      "type": "integer"
+    },
+    "ForbiddenException": {},
+    "HealthCheckPolicy": {
+      "description": "<p>An object representing the health check policy for a virtual node's listener.</p>\n         <note>\n            <p>Listener health checks are not available during the App Mesh preview.</p>\n         </note>",
+      "properties": {
+        "healthyThreshold": {
+          "$ref": "#/definitions/NonNegativeInt",
+          "description": "The number of consecutive successful health checks that must occur before declaring\n         listener healthy."
+        },
+        "intervalMillis": {
+          "$ref": "#/definitions/DurationMillis",
+          "description": "The time period in milliseconds between each health check execution."
+        },
+        "path": {
+          "$ref": "#/definitions/String",
+          "description": "The destination path for the health check request."
+        },
+        "port": {
+          "$ref": "#/definitions/PortNumber",
+          "description": "The destination port for the health check request."
+        },
+        "protocol": {
+          "$ref": "#/definitions/PortProtocol",
+          "description": "The protocol for the health check request."
+        },
+        "timeoutMillis": {
+          "$ref": "#/definitions/DurationMillis",
+          "description": "The amount of time to wait when receiving a response from the health check, in\n         milliseconds."
+        },
+        "unhealthyThreshold": {
+          "$ref": "#/definitions/NonNegativeInt",
+          "description": "The number of consecutive failed health checks that must occur before declaring a\n         virtual node unhealthy. "
+        }
+      },
+      "type": "object"
+    },
+    "HttpRoute": {
+      "description": "An object representing the HTTP routing specification for a route.",
+      "properties": {
+        "action": {
+          "$ref": "#/definitions/HttpRouteAction",
+          "description": "The action to take if a match is determined."
+        },
+        "match": {
+          "$ref": "#/definitions/HttpRouteMatch",
+          "description": "The criteria for determining an HTTP request match."
+        }
+      },
+      "type": "object"
+    },
+    "HttpRouteAction": {
+      "description": "An object representing the traffic distribution requirements for matched HTTP\n         requests.",
+      "properties": {
+        "weightedTargets": {
+          "$ref": "#/definitions/WeightedTargets",
+          "description": "The targets that traffic is routed to when a request matches the route. You can specify\n         one or more targets and their relative weights with which to distribute traffic."
+        }
+      },
+      "type": "object"
+    },
+    "HttpRouteMatch": {
+      "description": "An object representing the requirements for a route to match HTTP requests for a virtual\n         router.",
+      "properties": {
+        "prefix": {
+          "$ref": "#/definitions/String",
+          "description": "Specifies the path with which to match requests. This parameter must always start with\n            <code>/</code>, which by itself matches all requests to the virtual router service name.\n         You can also match for path-based routing of requests. For example, if your virtual router\n         service name is <code>my-service.local</code>, and you want the route to match requests to\n            <code>my-service.local/metrics</code>, then your prefix should be\n         <code>/metrics</code>."
+        }
+      },
+      "type": "object"
+    },
+    "InternalServerErrorException": {},
+    "LimitExceededException": {},
+    "ListMeshesInput": {
+      "description": "",
+      "properties": {},
+      "type": "object"
+    },
+    "ListMeshesLimit": {
+      "maximum": 100,
+      "minimum": 1,
+      "type": "integer"
+    },
+    "ListMeshesOutput": {
+      "description": "",
+      "properties": {
+        "meshes": {
+          "$ref": "#/definitions/MeshList",
+          "description": "The list of existing service meshes."
+        },
+        "nextToken": {
+          "$ref": "#/definitions/String",
+          "description": "The <code>nextToken</code> value to include in a future <code>ListMeshes</code>\n         request. When the results of a <code>ListMeshes</code> request exceed\n         <code>limit</code>, this value can be used to retrieve the next page of\n         results. This value is <code>null</code> when there are no more results to\n         return."
+        }
+      },
+      "required": [
+        "meshes"
+      ],
+      "type": "object"
+    },
+    "ListRoutesInput": {
+      "description": "",
+      "properties": {},
+      "type": "object"
+    },
+    "ListRoutesLimit": {
+      "maximum": 100,
+      "minimum": 1,
+      "type": "integer"
+    },
+    "ListRoutesOutput": {
+      "description": "",
+      "properties": {
+        "nextToken": {
+          "$ref": "#/definitions/String",
+          "description": "The <code>nextToken</code> value to include in a future <code>ListRoutes</code>\n         request. When the results of a <code>ListRoutes</code> request exceed\n         <code>limit</code>, this value can be used to retrieve the next page of\n         results. This value is <code>null</code> when there are no more results to\n         return."
+        },
+        "routes": {
+          "$ref": "#/definitions/RouteList",
+          "description": "The list of existing routes for the specified service mesh and virtual router."
+        }
+      },
+      "required": [
+        "routes"
+      ],
+      "type": "object"
+    },
+    "ListVirtualNodesInput": {
+      "description": "",
+      "properties": {},
+      "type": "object"
+    },
+    "ListVirtualNodesLimit": {
+      "maximum": 100,
+      "minimum": 1,
+      "type": "integer"
+    },
+    "ListVirtualNodesOutput": {
+      "description": "",
+      "properties": {
+        "nextToken": {
+          "$ref": "#/definitions/String",
+          "description": "The <code>nextToken</code> value to include in a future <code>ListVirtualNodes</code>\n         request. When the results of a <code>ListVirtualNodes</code> request exceed\n         <code>limit</code>, this value can be used to retrieve the next page of\n         results. This value is <code>null</code> when there are no more results to\n         return."
+        },
+        "virtualNodes": {
+          "$ref": "#/definitions/VirtualNodeList",
+          "description": "The list of existing virtual nodes for the specified service mesh."
+        }
+      },
+      "required": [
+        "virtualNodes"
+      ],
+      "type": "object"
+    },
+    "ListVirtualRoutersInput": {
+      "description": "",
+      "properties": {},
+      "type": "object"
+    },
+    "ListVirtualRoutersLimit": {
+      "maximum": 100,
+      "minimum": 1,
+      "type": "integer"
+    },
+    "ListVirtualRoutersOutput": {
+      "description": "",
+      "properties": {
+        "nextToken": {
+          "$ref": "#/definitions/String",
+          "description": "The <code>nextToken</code> value to include in a future <code>ListVirtualRouters</code>\n         request. When the results of a <code>ListVirtualRouters</code> request exceed\n         <code>limit</code>, this value can be used to retrieve the next page of\n         results. This value is <code>null</code> when there are no more results to\n         return."
+        },
+        "virtualRouters": {
+          "$ref": "#/definitions/VirtualRouterList",
+          "description": "The list of existing virtual routers for the specified service mesh."
+        }
+      },
+      "required": [
+        "virtualRouters"
+      ],
+      "type": "object"
+    },
+    "Listener": {
+      "description": "An object representing a listener for a virtual node.",
+      "properties": {
+        "healthCheck": {
+          "$ref": "#/definitions/HealthCheckPolicy",
+          "description": "<p>The health check information for the listener.</p>\n         <note>\n            <p>Listener health checks are not available during the App Mesh preview.</p>\n         </note>"
+        },
+        "portMapping": {
+          "$ref": "#/definitions/PortMapping",
+          "description": "The port mapping information for the listener."
+        }
+      },
+      "type": "object"
+    },
+    "Listeners": {
+      "items": {
+        "$ref": "#/definitions/Listener"
+      },
+      "type": "array"
+    },
+    "Long": {
+      "type": "integer"
+    },
+    "MeshData": {
+      "description": "An object representing a service mesh returned by a describe operation.",
+      "properties": {
+        "meshName": {
+          "$ref": "#/definitions/ResourceName",
+          "description": "The name of the service mesh."
+        },
+        "metadata": {
+          "$ref": "#/definitions/ResourceMetadata",
+          "description": "The associated metadata for the service mesh."
+        },
+        "status": {
+          "$ref": "#/definitions/MeshStatus",
+          "description": "The status of the service mesh."
+        }
+      },
+      "required": [
+        "meshName",
+        "metadata"
+      ],
+      "type": "object"
+    },
+    "MeshList": {
+      "items": {
+        "$ref": "#/definitions/MeshRef"
+      },
+      "type": "array"
+    },
+    "MeshRef": {
+      "description": "An object representing a service mesh returned by a list operation.",
+      "properties": {
+        "arn": {
+          "$ref": "#/definitions/Arn",
+          "description": "The full Amazon Resource Name (ARN) of the service mesh."
+        },
+        "meshName": {
+          "$ref": "#/definitions/ResourceName",
+          "description": "The name of the service mesh."
+        }
+      },
+      "type": "object"
+    },
+    "MeshStatus": {
+      "description": "An object representing the status of a service mesh.",
+      "properties": {
+        "status": {
+          "$ref": "#/definitions/MeshStatusCode",
+          "description": "The current mesh status."
+        }
+      },
+      "type": "object"
+    },
+    "MeshStatusCode": {
+      "enum": [
+        "ACTIVE",
+        "DELETED",
+        "INACTIVE"
+      ],
+      "type": "string"
+    },
+    "NonNegativeInt": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "NotFoundException": {},
+    "PercentInt": {
+      "maximum": 100,
+      "minimum": 0,
+      "type": "integer"
+    },
+    "PortMapping": {
+      "description": "An object representing a virtual node listener port mapping.",
+      "properties": {
+        "port": {
+          "$ref": "#/definitions/PortNumber",
+          "description": "The port used for the port mapping."
+        },
+        "protocol": {
+          "$ref": "#/definitions/PortProtocol",
+          "description": "The protocol used for the port mapping."
+        }
+      },
+      "type": "object"
+    },
+    "PortNumber": {
+      "maximum": 65535,
+      "minimum": 1,
+      "type": "integer"
+    },
+    "PortProtocol": {
+      "enum": [
+        "http",
+        "tcp"
+      ],
+      "type": "string"
+    },
+    "ResourceInUseException": {},
+    "ResourceMetadata": {
+      "description": "An object representing metadata for a resource.",
+      "properties": {
+        "arn": {
+          "$ref": "#/definitions/Arn",
+          "description": "<p>The full Amazon Resource Name (ARN) for the resource.</p>\n         <note>\n            <p>After you create a virtual node, set this value (either the full ARN or the\n            truncated resource name, for example, <code>mesh/default/virtualNode/simpleapp</code>,\n            as the <code>APPMESH_VIRTUAL_NODE_NAME</code> environment variable for your task group's\n            Envoy proxy container in your task definition or pod spec. This is then mapped to the\n               <code>node.id</code> and <code>node.cluster</code> Envoy parameters.</p>\n            <p>If you require your Envoy stats or tracing to use a different name, you can override\n            the <code>node.cluster</code> value that is set by\n               <code>APPMESH_VIRTUAL_NODE_NAME</code> with the\n               <code>APPMESH_VIRTUAL_NODE_CLUSTER</code> environment variable.</p>\n         </note>"
+        },
+        "createdAt": {
+          "$ref": "#/definitions/Timestamp",
+          "description": "The Unix epoch timestamp in seconds for when the cluster was created."
+        },
+        "lastUpdatedAt": {
+          "$ref": "#/definitions/Timestamp",
+          "description": "The Unix epoch timestamp in seconds for when the cluster was last updated."
+        },
+        "uid": {
+          "$ref": "#/definitions/String",
+          "description": "The unique identifier for the resource."
+        },
+        "version": {
+          "$ref": "#/definitions/Long",
+          "description": "The version of the resource. Resources are created at version 1, and this version is\n         incremented each time they are updated."
+        }
+      },
+      "type": "object"
+    },
+    "ResourceName": {
+      "maxLength": 255,
+      "minLength": 1,
+      "type": "string"
+    },
+    "RouteData": {
+      "description": "An object representing a route returned by a describe operation.",
+      "properties": {
+        "meshName": {
+          "$ref": "#/definitions/ResourceName",
+          "description": "The name of the service mesh in which the route resides."
+        },
+        "metadata": {
+          "$ref": "#/definitions/ResourceMetadata",
+          "description": "The associated metadata for the route."
+        },
+        "routeName": {
+          "$ref": "#/definitions/ResourceName",
+          "description": "The name of the route."
+        },
+        "spec": {
+          "$ref": "#/definitions/RouteSpec",
+          "description": "The specifications of the route."
+        },
+        "status": {
+          "$ref": "#/definitions/RouteStatus",
+          "description": "The status of the route."
+        },
+        "virtualRouterName": {
+          "$ref": "#/definitions/ResourceName",
+          "description": "The virtual router with which the route is associated."
+        }
+      },
+      "required": [
+        "meshName",
+        "routeName",
+        "virtualRouterName"
+      ],
+      "type": "object"
+    },
+    "RouteList": {
+      "items": {
+        "$ref": "#/definitions/RouteRef"
+      },
+      "type": "array"
+    },
+    "RouteRef": {
+      "description": "An object representing a route returned by a list operation.",
+      "properties": {
+        "arn": {
+          "$ref": "#/definitions/Arn",
+          "description": "The full Amazon Resource Name (ARN) for the route."
+        },
+        "meshName": {
+          "$ref": "#/definitions/ResourceName",
+          "description": "The name of the service mesh in which the route resides."
+        },
+        "routeName": {
+          "$ref": "#/definitions/ResourceName",
+          "description": "The name of the route."
+        },
+        "virtualRouterName": {
+          "$ref": "#/definitions/ResourceName",
+          "description": "The virtual router with which the route is associated."
+        }
+      },
+      "type": "object"
+    },
+    "RouteSpec": {
+      "description": "An object representing the specification of a route.",
+      "properties": {
+        "httpRoute": {
+          "$ref": "#/definitions/HttpRoute",
+          "description": "The HTTP routing information for the route."
+        }
+      },
+      "type": "object"
+    },
+    "RouteStatus": {
+      "description": "An object representing the current status of a route.",
+      "properties": {
+        "status": {
+          "$ref": "#/definitions/RouteStatusCode",
+          "description": "The current status for the route."
+        }
+      },
+      "type": "object"
+    },
+    "RouteStatusCode": {
+      "enum": [
+        "ACTIVE",
+        "DELETED",
+        "INACTIVE"
+      ],
+      "type": "string"
+    },
+    "ServiceDiscovery": {
+      "description": "An object representing the service discovery information for a virtual node.",
+      "properties": {
+        "dns": {
+          "$ref": "#/definitions/DnsServiceDiscovery",
+          "description": "Specifies the DNS service name for the virtual node."
+        }
+      },
+      "type": "object"
+    },
+    "ServiceName": {
+      "type": "string"
+    },
+    "ServiceNames": {
+      "items": {
+        "$ref": "#/definitions/ServiceName"
+      },
+      "maxItems": 10,
+      "type": "array"
+    },
+    "ServiceUnavailableException": {},
+    "String": {
+      "type": "string"
+    },
+    "Timestamp": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "TooManyRequestsException": {},
+    "UpdateRouteInput": {
+      "description": "",
+      "properties": {
+        "clientToken": {
+          "$ref": "#/definitions/String",
+          "description": "Unique, case-sensitive identifier that you provide to ensure the idempotency of the\nrequest. Up to 36 letters, numbers, hyphens, and underscores are allowed."
+        },
+        "spec": {
+          "$ref": "#/definitions/RouteSpec",
+          "description": "The new route specification to apply. This overwrites the existing data."
+        }
+      },
+      "required": [
+        "spec"
+      ],
+      "type": "object"
+    },
+    "UpdateRouteOutput": {
+      "description": "",
+      "properties": {
+        "route": {
+          "$ref": "#/definitions/RouteData",
+          "description": "A full description of the route that was updated."
+        }
+      },
+      "type": "object"
+    },
+    "UpdateVirtualNodeInput": {
+      "description": "",
+      "properties": {
+        "clientToken": {
+          "$ref": "#/definitions/String",
+          "description": "Unique, case-sensitive identifier that you provide to ensure the idempotency of the\nrequest. Up to 36 letters, numbers, hyphens, and underscores are allowed."
+        },
+        "spec": {
+          "$ref": "#/definitions/VirtualNodeSpec",
+          "description": "The new virtual node specification to apply. This overwrites the existing data."
+        }
+      },
+      "required": [
+        "spec"
+      ],
+      "type": "object"
+    },
+    "UpdateVirtualNodeOutput": {
+      "description": "",
+      "properties": {
+        "virtualNode": {
+          "$ref": "#/definitions/VirtualNodeData",
+          "description": "A full description of the virtual node that was updated."
+        }
+      },
+      "type": "object"
+    },
+    "UpdateVirtualRouterInput": {
+      "description": "",
+      "properties": {
+        "clientToken": {
+          "$ref": "#/definitions/String",
+          "description": "Unique, case-sensitive identifier that you provide to ensure the idempotency of the\nrequest. Up to 36 letters, numbers, hyphens, and underscores are allowed."
+        },
+        "spec": {
+          "$ref": "#/definitions/VirtualRouterSpec",
+          "description": "The new virtual router specification to apply. This overwrites the existing data."
+        }
+      },
+      "required": [
+        "spec"
+      ],
+      "type": "object"
+    },
+    "UpdateVirtualRouterOutput": {
+      "description": "",
+      "properties": {
+        "virtualRouter": {
+          "$ref": "#/definitions/VirtualRouterData",
+          "description": "A full description of the virtual router that was updated."
+        }
+      },
+      "type": "object"
+    },
+    "VirtualNodeData": {
+      "description": "An object representing a virtual node returned by a describe operation.",
+      "properties": {
+        "meshName": {
+          "$ref": "#/definitions/ResourceName",
+          "description": "The name of the service mesh in which the virtual node resides."
+        },
+        "metadata": {
+          "$ref": "#/definitions/ResourceMetadata",
+          "description": "The associated metadata for the virtual node."
+        },
+        "spec": {
+          "$ref": "#/definitions/VirtualNodeSpec",
+          "description": "The specifications of the virtual node."
+        },
+        "status": {
+          "$ref": "#/definitions/VirtualNodeStatus",
+          "description": "The current status for the virtual node."
+        },
+        "virtualNodeName": {
+          "$ref": "#/definitions/ResourceName",
+          "description": "The name of the virtual node."
+        }
+      },
+      "required": [
+        "meshName",
+        "virtualNodeName"
+      ],
+      "type": "object"
+    },
+    "VirtualNodeList": {
+      "items": {
+        "$ref": "#/definitions/VirtualNodeRef"
+      },
+      "type": "array"
+    },
+    "VirtualNodeRef": {
+      "description": "An object representing a virtual node returned by a list operation.",
+      "properties": {
+        "arn": {
+          "$ref": "#/definitions/Arn",
+          "description": "The full Amazon Resource Name (ARN) for the virtual node."
+        },
+        "meshName": {
+          "$ref": "#/definitions/ResourceName",
+          "description": "The name of the service mesh in which the virtual node resides."
+        },
+        "virtualNodeName": {
+          "$ref": "#/definitions/ResourceName",
+          "description": "The name of the virtual node."
+        }
+      },
+      "type": "object"
+    },
+    "VirtualNodeSpec": {
+      "description": "An object representing the specification of a virtual node.",
+      "properties": {
+        "backends": {
+          "$ref": "#/definitions/Backends",
+          "description": "The backends to which the virtual node is expected to send outbound traffic."
+        },
+        "listeners": {
+          "$ref": "#/definitions/Listeners",
+          "description": "The listeners from which the virtual node is expected to receive inbound traffic."
+        },
+        "serviceDiscovery": {
+          "$ref": "#/definitions/ServiceDiscovery",
+          "description": "The service discovery information for the virtual node."
+        }
+      },
+      "type": "object"
+    },
+    "VirtualNodeStatus": {
+      "description": "An object representing the current status of the virtual node.",
+      "properties": {
+        "status": {
+          "$ref": "#/definitions/VirtualNodeStatusCode",
+          "description": "The current status of the virtual node."
+        }
+      },
+      "type": "object"
+    },
+    "VirtualNodeStatusCode": {
+      "enum": [
+        "ACTIVE",
+        "DELETED",
+        "INACTIVE"
+      ],
+      "type": "string"
+    },
+    "VirtualRouterData": {
+      "description": "An object representing a virtual router returned by a describe operation.",
+      "properties": {
+        "meshName": {
+          "$ref": "#/definitions/ResourceName",
+          "description": "The name of the service mesh in which the virtual router resides."
+        },
+        "metadata": {
+          "$ref": "#/definitions/ResourceMetadata",
+          "description": "The associated metadata for the virtual router."
+        },
+        "spec": {
+          "$ref": "#/definitions/VirtualRouterSpec",
+          "description": "The specifications of the virtual router."
+        },
+        "status": {
+          "$ref": "#/definitions/VirtualRouterStatus",
+          "description": "The current status of the virtual router."
+        },
+        "virtualRouterName": {
+          "$ref": "#/definitions/ResourceName",
+          "description": "The name of the virtual router."
+        }
+      },
+      "required": [
+        "meshName",
+        "virtualRouterName"
+      ],
+      "type": "object"
+    },
+    "VirtualRouterList": {
+      "items": {
+        "$ref": "#/definitions/VirtualRouterRef"
+      },
+      "type": "array"
+    },
+    "VirtualRouterRef": {
+      "description": "An object representing a virtual router returned by a list operation.",
+      "properties": {
+        "arn": {
+          "$ref": "#/definitions/Arn",
+          "description": "The full Amazon Resource Name (ARN) for the virtual router."
+        },
+        "meshName": {
+          "$ref": "#/definitions/ResourceName",
+          "description": "The name of the service mesh in which the virtual router resides."
+        },
+        "virtualRouterName": {
+          "$ref": "#/definitions/ResourceName",
+          "description": "The name of the virtual router."
+        }
+      },
+      "type": "object"
+    },
+    "VirtualRouterSpec": {
+      "description": "An object representing the specification of a virtual router.",
+      "properties": {
+        "serviceNames": {
+          "$ref": "#/definitions/ServiceNames",
+          "description": "The service mesh service names to associate with the virtual router."
+        }
+      },
+      "type": "object"
+    },
+    "VirtualRouterStatus": {
+      "description": "An object representing the status of a virtual router. ",
+      "properties": {
+        "status": {
+          "$ref": "#/definitions/VirtualRouterStatusCode",
+          "description": "The current status of the virtual router."
+        }
+      },
+      "type": "object"
+    },
+    "VirtualRouterStatusCode": {
+      "enum": [
+        "ACTIVE",
+        "DELETED",
+        "INACTIVE"
+      ],
+      "type": "string"
+    },
+    "WeightedTarget": {
+      "description": "An object representing a target and its relative weight. Traffic is distributed across\n         targets according to their relative weight. For example, a weighted target with a relative\n         weight of 50 receives five times as much traffic as one with a relative weight of\n         10.",
+      "properties": {
+        "virtualNode": {
+          "$ref": "#/definitions/ResourceName",
+          "description": "The virtual node to associate with the weighted target."
+        },
+        "weight": {
+          "$ref": "#/definitions/PercentInt",
+          "description": "The relative weight of the weighted target."
+        }
+      },
+      "type": "object"
+    },
+    "WeightedTargets": {
+      "items": {
+        "$ref": "#/definitions/WeightedTarget"
+      },
+      "type": "array"
+    }
+  }
+}

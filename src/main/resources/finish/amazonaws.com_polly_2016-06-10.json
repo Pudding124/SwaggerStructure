@@ -1,0 +1,1523 @@
+{
+  "swagger": "2.0",
+  "schemes": [
+    "https",
+    "http"
+  ],
+  "host": "polly.amazonaws.com",
+  "basePath": "/",
+  "x-hasEquivalentPaths": true,
+  "info": {
+    "contact": {
+      "email": "mike.ralphson@gmail.com",
+      "name": "Mike Ralphson",
+      "url": "https://github.com/mermade/aws2openapi",
+      "x-twitter": "PermittedSoc"
+    },
+    "description": "<p>Amazon Polly is a web service that makes it easy to synthesize speech from text.</p> <p>The Amazon Polly service provides API operations for synthesizing high-quality speech from plain text and Speech Synthesis Markup Language (SSML), along with managing pronunciations lexicons that enable you to get the best results for your application domain.</p>",
+    "license": {
+      "name": "Apache 2.0 License",
+      "url": "http://www.apache.org/licenses/"
+    },
+    "termsOfService": "https://aws.amazon.com/service-terms/",
+    "title": "Amazon Polly",
+    "version": "2016-06-10",
+    "x-apiClientRegistration": {
+      "url": "https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct"
+    },
+    "x-apisguru-categories": [
+      "cloud"
+    ],
+    "x-logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.jpeg"
+    },
+    "x-origin": [
+      {
+        "contentType": "application/json",
+        "converter": {
+          "url": "https://github.com/mermade/aws2openapi",
+          "version": "1.0.0"
+        },
+        "url": "https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/polly-2016-06-10.normal.json",
+        "x-apisguru-direct": true
+      }
+    ],
+    "x-preferred": true,
+    "x-providerName": "amazonaws.com",
+    "x-release": "v4",
+    "x-serviceName": "polly"
+  },
+  "externalDocs": {
+    "description": "Amazon Web Services documentation",
+    "url": "https://aws.amazon.com/polly/"
+  },
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "securityDefinitions": {
+    "hmac": {
+      "description": "Amazon Signature authorization v4",
+      "in": "header",
+      "name": "Authorization",
+      "type": "apiKey",
+      "x-amazon-apigateway-authtype": "awsSigv4"
+    }
+  },
+  "security": [
+    {
+      "hmac": []
+    }
+  ],
+  "parameters": {
+    "Action": {
+      "in": "query",
+      "name": "Action",
+      "required": true,
+      "type": "string"
+    },
+    "Version": {
+      "in": "query",
+      "name": "Version",
+      "required": true,
+      "type": "string"
+    },
+    "X-Amz-Algorithm": {
+      "in": "header",
+      "name": "X-Amz-Algorithm",
+      "required": false,
+      "type": "string"
+    },
+    "X-Amz-Content-Sha256": {
+      "in": "header",
+      "name": "X-Amz-Content-Sha256",
+      "required": false,
+      "type": "string"
+    },
+    "X-Amz-Credential": {
+      "in": "header",
+      "name": "X-Amz-Credential",
+      "required": false,
+      "type": "string"
+    },
+    "X-Amz-Date": {
+      "in": "header",
+      "name": "X-Amz-Date",
+      "required": false,
+      "type": "string"
+    },
+    "X-Amz-Security-Token": {
+      "in": "header",
+      "name": "X-Amz-Security-Token",
+      "required": false,
+      "type": "string"
+    },
+    "X-Amz-Signature": {
+      "in": "header",
+      "name": "X-Amz-Signature",
+      "required": false,
+      "type": "string"
+    },
+    "X-Amz-SignedHeaders": {
+      "in": "header",
+      "name": "X-Amz-SignedHeaders",
+      "required": false,
+      "type": "string"
+    }
+  },
+  "paths": {
+    "/v1/lexicons": {
+      "get": {
+        "description": "Returns a list of pronunciation lexicons stored in an AWS Region. For more information, see <a href=\"http://docs.aws.amazon.com/polly/latest/dg/managing-lexicons.html\">Managing Lexicons</a>.",
+        "operationId": "ListLexicons",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ListLexiconsInput"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ListLexiconsOutput"
+            }
+          },
+          "480": {
+            "description": "InvalidNextTokenException",
+            "schema": {
+              "$ref": "#/definitions/InvalidNextTokenException"
+            }
+          },
+          "481": {
+            "description": "ServiceFailureException",
+            "schema": {
+              "$ref": "#/definitions/ServiceFailureException"
+            }
+          }
+        }
+      },
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ]
+    },
+    "/v1/lexicons/{LexiconName}": {
+      "delete": {
+        "description": "<p>Deletes the specified pronunciation lexicon stored in an AWS Region. A lexicon which has been deleted is not available for speech synthesis, nor is it possible to retrieve it using either the <code>GetLexicon</code> or <code>ListLexicon</code> APIs.</p> <p>For more information, see <a href=\"http://docs.aws.amazon.com/polly/latest/dg/managing-lexicons.html\">Managing Lexicons</a>.</p>",
+        "operationId": "DeleteLexicon",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DeleteLexiconInput"
+            }
+          },
+          {
+            "in": "path",
+            "name": "LexiconName",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DeleteLexiconOutput"
+            }
+          },
+          "480": {
+            "description": "LexiconNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/LexiconNotFoundException"
+            }
+          },
+          "481": {
+            "description": "ServiceFailureException",
+            "schema": {
+              "$ref": "#/definitions/ServiceFailureException"
+            }
+          }
+        }
+      },
+      "get": {
+        "description": "Returns the content of the specified pronunciation lexicon stored in an AWS Region. For more information, see <a href=\"http://docs.aws.amazon.com/polly/latest/dg/managing-lexicons.html\">Managing Lexicons</a>.",
+        "operationId": "GetLexicon",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/GetLexiconInput"
+            }
+          },
+          {
+            "in": "path",
+            "name": "LexiconName",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/GetLexiconOutput"
+            }
+          },
+          "480": {
+            "description": "LexiconNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/LexiconNotFoundException"
+            }
+          },
+          "481": {
+            "description": "ServiceFailureException",
+            "schema": {
+              "$ref": "#/definitions/ServiceFailureException"
+            }
+          }
+        }
+      },
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "put": {
+        "description": "<p>Stores a pronunciation lexicon in an AWS Region. If a lexicon with the same name already exists in the region, it is overwritten by the new lexicon. Lexicon operations have eventual consistency, therefore, it might take some time before the lexicon is available to the SynthesizeSpeech operation.</p> <p>For more information, see <a href=\"http://docs.aws.amazon.com/polly/latest/dg/managing-lexicons.html\">Managing Lexicons</a>.</p>",
+        "operationId": "PutLexicon",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/PutLexiconInput"
+            }
+          },
+          {
+            "in": "path",
+            "name": "LexiconName",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/PutLexiconOutput"
+            }
+          },
+          "480": {
+            "description": "InvalidLexiconException",
+            "schema": {
+              "$ref": "#/definitions/InvalidLexiconException"
+            }
+          },
+          "481": {
+            "description": "UnsupportedPlsAlphabetException",
+            "schema": {
+              "$ref": "#/definitions/UnsupportedPlsAlphabetException"
+            }
+          },
+          "482": {
+            "description": "UnsupportedPlsLanguageException",
+            "schema": {
+              "$ref": "#/definitions/UnsupportedPlsLanguageException"
+            }
+          },
+          "483": {
+            "description": "LexiconSizeExceededException",
+            "schema": {
+              "$ref": "#/definitions/LexiconSizeExceededException"
+            }
+          },
+          "484": {
+            "description": "MaxLexemeLengthExceededException",
+            "schema": {
+              "$ref": "#/definitions/MaxLexemeLengthExceededException"
+            }
+          },
+          "485": {
+            "description": "MaxLexiconsNumberExceededException",
+            "schema": {
+              "$ref": "#/definitions/MaxLexiconsNumberExceededException"
+            }
+          },
+          "486": {
+            "description": "ServiceFailureException",
+            "schema": {
+              "$ref": "#/definitions/ServiceFailureException"
+            }
+          }
+        }
+      }
+    },
+    "/v1/speech": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Synthesizes UTF-8 input, plain text or SSML, to a stream of bytes. SSML input must be valid, well-formed SSML. Some alphabets might not be available with all the voices (for example, Cyrillic might not be read at all by English voices) unless phoneme mapping is used. For more information, see <a href=\"http://docs.aws.amazon.com/polly/latest/dg/how-text-to-speech-works.html\">How it Works</a>.",
+        "operationId": "SynthesizeSpeech",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/SynthesizeSpeechInput"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/SynthesizeSpeechOutput"
+            }
+          },
+          "480": {
+            "description": "TextLengthExceededException",
+            "schema": {
+              "$ref": "#/definitions/TextLengthExceededException"
+            }
+          },
+          "481": {
+            "description": "InvalidSampleRateException",
+            "schema": {
+              "$ref": "#/definitions/InvalidSampleRateException"
+            }
+          },
+          "482": {
+            "description": "InvalidSsmlException",
+            "schema": {
+              "$ref": "#/definitions/InvalidSsmlException"
+            }
+          },
+          "483": {
+            "description": "LexiconNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/LexiconNotFoundException"
+            }
+          },
+          "484": {
+            "description": "ServiceFailureException",
+            "schema": {
+              "$ref": "#/definitions/ServiceFailureException"
+            }
+          },
+          "485": {
+            "description": "MarksNotSupportedForFormatException",
+            "schema": {
+              "$ref": "#/definitions/MarksNotSupportedForFormatException"
+            }
+          },
+          "486": {
+            "description": "SsmlMarksNotSupportedForTextTypeException",
+            "schema": {
+              "$ref": "#/definitions/SsmlMarksNotSupportedForTextTypeException"
+            }
+          },
+          "487": {
+            "description": "LanguageNotSupportedException",
+            "schema": {
+              "$ref": "#/definitions/LanguageNotSupportedException"
+            }
+          }
+        }
+      }
+    },
+    "/v1/synthesisTasks": {
+      "get": {
+        "description": "Returns a list of SpeechSynthesisTask objects ordered by their creation date. This operation can filter the tasks by their status, for example, allowing users to list only tasks that are completed.",
+        "operationId": "ListSpeechSynthesisTasks",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ListSpeechSynthesisTasksInput"
+            }
+          },
+          {
+            "description": "Pagination limit",
+            "in": "query",
+            "name": "MaxResults",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Pagination token",
+            "in": "query",
+            "name": "NextToken",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ListSpeechSynthesisTasksOutput"
+            }
+          },
+          "480": {
+            "description": "InvalidNextTokenException",
+            "schema": {
+              "$ref": "#/definitions/InvalidNextTokenException"
+            }
+          },
+          "481": {
+            "description": "ServiceFailureException",
+            "schema": {
+              "$ref": "#/definitions/ServiceFailureException"
+            }
+          }
+        }
+      },
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Allows the creation of an asynchronous synthesis task, by starting a new <code>SpeechSynthesisTask</code>. This operation requires all the standard information needed for speech synthesis, plus the name of an Amazon S3 bucket for the service to store the output of the synthesis task and two optional parameters (OutputS3KeyPrefix and SnsTopicArn). Once the synthesis task is created, this operation will return a SpeechSynthesisTask object, which will include an identifier of this task as well as the current status.",
+        "operationId": "StartSpeechSynthesisTask",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/StartSpeechSynthesisTaskInput"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/StartSpeechSynthesisTaskOutput"
+            }
+          },
+          "480": {
+            "description": "TextLengthExceededException",
+            "schema": {
+              "$ref": "#/definitions/TextLengthExceededException"
+            }
+          },
+          "481": {
+            "description": "InvalidS3BucketException",
+            "schema": {
+              "$ref": "#/definitions/InvalidS3BucketException"
+            }
+          },
+          "482": {
+            "description": "InvalidS3KeyException",
+            "schema": {
+              "$ref": "#/definitions/InvalidS3KeyException"
+            }
+          },
+          "483": {
+            "description": "InvalidSampleRateException",
+            "schema": {
+              "$ref": "#/definitions/InvalidSampleRateException"
+            }
+          },
+          "484": {
+            "description": "InvalidSnsTopicArnException",
+            "schema": {
+              "$ref": "#/definitions/InvalidSnsTopicArnException"
+            }
+          },
+          "485": {
+            "description": "InvalidSsmlException",
+            "schema": {
+              "$ref": "#/definitions/InvalidSsmlException"
+            }
+          },
+          "486": {
+            "description": "LexiconNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/LexiconNotFoundException"
+            }
+          },
+          "487": {
+            "description": "ServiceFailureException",
+            "schema": {
+              "$ref": "#/definitions/ServiceFailureException"
+            }
+          },
+          "488": {
+            "description": "MarksNotSupportedForFormatException",
+            "schema": {
+              "$ref": "#/definitions/MarksNotSupportedForFormatException"
+            }
+          },
+          "489": {
+            "description": "SsmlMarksNotSupportedForTextTypeException",
+            "schema": {
+              "$ref": "#/definitions/SsmlMarksNotSupportedForTextTypeException"
+            }
+          },
+          "490": {
+            "description": "LanguageNotSupportedException",
+            "schema": {
+              "$ref": "#/definitions/LanguageNotSupportedException"
+            }
+          }
+        }
+      }
+    },
+    "/v1/synthesisTasks/{TaskId}": {
+      "get": {
+        "description": "Retrieves a specific SpeechSynthesisTask object based on its TaskID. This object contains information about the given speech synthesis task, including the status of the task, and a link to the S3 bucket containing the output of the task.",
+        "operationId": "GetSpeechSynthesisTask",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/GetSpeechSynthesisTaskInput"
+            }
+          },
+          {
+            "in": "path",
+            "name": "TaskId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/GetSpeechSynthesisTaskOutput"
+            }
+          },
+          "480": {
+            "description": "InvalidTaskIdException",
+            "schema": {
+              "$ref": "#/definitions/InvalidTaskIdException"
+            }
+          },
+          "481": {
+            "description": "ServiceFailureException",
+            "schema": {
+              "$ref": "#/definitions/ServiceFailureException"
+            }
+          },
+          "482": {
+            "description": "SynthesisTaskNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/SynthesisTaskNotFoundException"
+            }
+          }
+        }
+      },
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ]
+    },
+    "/v1/voices": {
+      "get": {
+        "description": "<p>Returns the list of voices that are available for use when requesting speech synthesis. Each voice speaks a specified language, is either male or female, and is identified by an ID, which is the ASCII version of the voice name. </p> <p>When synthesizing speech ( <code>SynthesizeSpeech</code> ), you provide the voice ID for the voice you want from the list of voices returned by <code>DescribeVoices</code>.</p> <p>For example, you want your news reader application to read news in a specific language, but giving a user the option to choose the voice. Using the <code>DescribeVoices</code> operation you can provide the user with a list of available voices to select from.</p> <p> You can optionally specify a language code to filter the available voices. For example, if you specify <code>en-US</code>, the operation returns a list of all available US English voices. </p> <p>This operation requires permissions to perform the <code>polly:DescribeVoices</code> action.</p>",
+        "operationId": "DescribeVoices",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DescribeVoicesInput"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DescribeVoicesOutput"
+            }
+          },
+          "480": {
+            "description": "InvalidNextTokenException",
+            "schema": {
+              "$ref": "#/definitions/InvalidNextTokenException"
+            }
+          },
+          "481": {
+            "description": "ServiceFailureException",
+            "schema": {
+              "$ref": "#/definitions/ServiceFailureException"
+            }
+          }
+        }
+      },
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ]
+    }
+  },
+  "definitions": {
+    "Alphabet": {
+      "type": "string"
+    },
+    "AudioStream": {
+      "type": "string"
+    },
+    "ContentType": {
+      "type": "string"
+    },
+    "DateTime": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "DeleteLexiconInput": {
+      "example": {
+        "Name": "example"
+      },
+      "properties": {},
+      "type": "object"
+    },
+    "DeleteLexiconOutput": {
+      "example": {},
+      "properties": {},
+      "type": "object"
+    },
+    "DescribeVoicesInput": {
+      "example": {
+        "LanguageCode": "en-GB"
+      },
+      "properties": {},
+      "type": "object"
+    },
+    "DescribeVoicesOutput": {
+      "example": {
+        "Voices": [
+          {
+            "Gender": "Female",
+            "Id": "Emma",
+            "LanguageCode": "en-GB",
+            "LanguageName": "British English",
+            "Name": "Emma"
+          },
+          {
+            "Gender": "Male",
+            "Id": "Brian",
+            "LanguageCode": "en-GB",
+            "LanguageName": "British English",
+            "Name": "Brian"
+          },
+          {
+            "Gender": "Female",
+            "Id": "Amy",
+            "LanguageCode": "en-GB",
+            "LanguageName": "British English",
+            "Name": "Amy"
+          }
+        ]
+      },
+      "properties": {
+        "NextToken": {
+          "$ref": "#/definitions/NextToken",
+          "description": "The pagination token to use in the next request to continue the listing of voices. <code>NextToken</code> is returned only if the response is truncated."
+        },
+        "Voices": {
+          "$ref": "#/definitions/VoiceList",
+          "description": "A list of voices with their properties."
+        }
+      },
+      "type": "object"
+    },
+    "Gender": {
+      "enum": [
+        "Female",
+        "Male"
+      ],
+      "type": "string"
+    },
+    "GetLexiconInput": {
+      "example": {
+        "Name": ""
+      },
+      "properties": {},
+      "type": "object"
+    },
+    "GetLexiconOutput": {
+      "example": {
+        "Lexicon": {
+          "Content": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<lexicon version=\"1.0\" \r\n      xmlns=\"http://www.w3.org/2005/01/pronunciation-lexicon\"\r\n      xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" \r\n      xsi:schemaLocation=\"http://www.w3.org/2005/01/pronunciation-lexicon \r\n        http://www.w3.org/TR/2007/CR-pronunciation-lexicon-20071212/pls.xsd\"\r\n      alphabet=\"ipa\" \r\n      xml:lang=\"en-US\">\r\n  <lexeme>\r\n    <grapheme>W3C</grapheme>\r\n    <alias>World Wide Web Consortium</alias>\r\n  </lexeme>\r\n</lexicon>",
+          "Name": "example"
+        },
+        "LexiconAttributes": {
+          "Alphabet": "ipa",
+          "LanguageCode": "en-US",
+          "LastModified": 1478542980.117,
+          "LexemesCount": 1,
+          "LexiconArn": "arn:aws:polly:us-east-1:123456789012:lexicon/example",
+          "Size": 503
+        }
+      },
+      "properties": {
+        "Lexicon": {
+          "$ref": "#/definitions/Lexicon",
+          "description": "Lexicon object that provides name and the string content of the lexicon. "
+        },
+        "LexiconAttributes": {
+          "$ref": "#/definitions/LexiconAttributes",
+          "description": "Metadata of the lexicon, including phonetic alphabetic used, language code, lexicon ARN, number of lexemes defined in the lexicon, and size of lexicon in bytes."
+        }
+      },
+      "type": "object"
+    },
+    "GetSpeechSynthesisTaskInput": {
+      "properties": {},
+      "type": "object"
+    },
+    "GetSpeechSynthesisTaskOutput": {
+      "properties": {
+        "SynthesisTask": {
+          "$ref": "#/definitions/SynthesisTask",
+          "description": "SynthesisTask object that provides information from the requested task, including output format, creation time, task status, and so on."
+        }
+      },
+      "type": "object"
+    },
+    "IncludeAdditionalLanguageCodes": {
+      "type": "boolean"
+    },
+    "InvalidLexiconException": {},
+    "InvalidNextTokenException": {},
+    "InvalidS3BucketException": {},
+    "InvalidS3KeyException": {},
+    "InvalidSampleRateException": {},
+    "InvalidSnsTopicArnException": {},
+    "InvalidSsmlException": {},
+    "InvalidTaskIdException": {},
+    "LanguageCode": {
+      "enum": [
+        "cmn-CN",
+        "cy-GB",
+        "da-DK",
+        "de-DE",
+        "en-AU",
+        "en-GB",
+        "en-GB-WLS",
+        "en-IN",
+        "en-US",
+        "es-ES",
+        "es-MX",
+        "es-US",
+        "fr-CA",
+        "fr-FR",
+        "is-IS",
+        "it-IT",
+        "ja-JP",
+        "hi-IN",
+        "ko-KR",
+        "nb-NO",
+        "nl-NL",
+        "pl-PL",
+        "pt-BR",
+        "pt-PT",
+        "ro-RO",
+        "ru-RU",
+        "sv-SE",
+        "tr-TR"
+      ],
+      "type": "string"
+    },
+    "LanguageCodeList": {
+      "items": {
+        "$ref": "#/definitions/LanguageCode"
+      },
+      "type": "array"
+    },
+    "LanguageName": {
+      "type": "string"
+    },
+    "LanguageNotSupportedException": {},
+    "LastModified": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "LexemesCount": {
+      "type": "integer"
+    },
+    "Lexicon": {
+      "description": "Provides lexicon name and lexicon content in string format. For more information, see <a href=\"https://www.w3.org/TR/pronunciation-lexicon/\">Pronunciation Lexicon Specification (PLS) Version 1.0</a>.",
+      "properties": {
+        "Content": {
+          "$ref": "#/definitions/LexiconContent",
+          "description": "Lexicon content in string format. The content of a lexicon must be in PLS format."
+        },
+        "Name": {
+          "$ref": "#/definitions/LexiconName",
+          "description": "Name of the lexicon."
+        }
+      },
+      "type": "object"
+    },
+    "LexiconArn": {
+      "type": "string"
+    },
+    "LexiconAttributes": {
+      "description": "Contains metadata describing the lexicon such as the number of lexemes, language code, and so on. For more information, see <a href=\"http://docs.aws.amazon.com/polly/latest/dg/managing-lexicons.html\">Managing Lexicons</a>.",
+      "properties": {
+        "Alphabet": {
+          "$ref": "#/definitions/Alphabet",
+          "description": "Phonetic alphabet used in the lexicon. Valid values are <code>ipa</code> and <code>x-sampa</code>."
+        },
+        "LanguageCode": {
+          "$ref": "#/definitions/LanguageCode",
+          "description": "Language code that the lexicon applies to. A lexicon with a language code such as \"en\" would be applied to all English languages (en-GB, en-US, en-AUS, en-WLS, and so on."
+        },
+        "LastModified": {
+          "$ref": "#/definitions/LastModified",
+          "description": "Date lexicon was last modified (a timestamp value)."
+        },
+        "LexemesCount": {
+          "$ref": "#/definitions/LexemesCount",
+          "description": "Number of lexemes in the lexicon."
+        },
+        "LexiconArn": {
+          "$ref": "#/definitions/LexiconArn",
+          "description": "Amazon Resource Name (ARN) of the lexicon."
+        },
+        "Size": {
+          "$ref": "#/definitions/Size",
+          "description": "Total size of the lexicon, in characters."
+        }
+      },
+      "type": "object"
+    },
+    "LexiconContent": {
+      "type": "string"
+    },
+    "LexiconDescription": {
+      "description": "Describes the content of the lexicon.",
+      "properties": {
+        "Attributes": {
+          "$ref": "#/definitions/LexiconAttributes",
+          "description": "Provides lexicon metadata."
+        },
+        "Name": {
+          "$ref": "#/definitions/LexiconName",
+          "description": "Name of the lexicon."
+        }
+      },
+      "type": "object"
+    },
+    "LexiconDescriptionList": {
+      "items": {
+        "$ref": "#/definitions/LexiconDescription"
+      },
+      "type": "array"
+    },
+    "LexiconName": {
+      "format": "password",
+      "pattern": "[0-9A-Za-z]{1,20}",
+      "type": "string"
+    },
+    "LexiconNameList": {
+      "items": {
+        "$ref": "#/definitions/LexiconName"
+      },
+      "maxItems": 5,
+      "type": "array"
+    },
+    "LexiconNotFoundException": {},
+    "LexiconSizeExceededException": {},
+    "ListLexiconsInput": {
+      "example": {},
+      "properties": {},
+      "type": "object"
+    },
+    "ListLexiconsOutput": {
+      "example": {
+        "Lexicons": [
+          {
+            "Attributes": {
+              "Alphabet": "ipa",
+              "LanguageCode": "en-US",
+              "LastModified": 1478542980.117,
+              "LexemesCount": 1,
+              "LexiconArn": "arn:aws:polly:us-east-1:123456789012:lexicon/example",
+              "Size": 503
+            },
+            "Name": "example"
+          }
+        ]
+      },
+      "properties": {
+        "Lexicons": {
+          "$ref": "#/definitions/LexiconDescriptionList",
+          "description": "A list of lexicon names and attributes."
+        },
+        "NextToken": {
+          "$ref": "#/definitions/NextToken",
+          "description": "The pagination token to use in the next request to continue the listing of lexicons. <code>NextToken</code> is returned only if the response is truncated."
+        }
+      },
+      "type": "object"
+    },
+    "ListSpeechSynthesisTasksInput": {
+      "properties": {},
+      "type": "object"
+    },
+    "ListSpeechSynthesisTasksOutput": {
+      "properties": {
+        "NextToken": {
+          "$ref": "#/definitions/NextToken",
+          "description": "An opaque pagination token returned from the previous List operation in this request. If present, this indicates where to continue the listing."
+        },
+        "SynthesisTasks": {
+          "$ref": "#/definitions/SynthesisTasks",
+          "description": "List of SynthesisTask objects that provides information from the specified task in the list request, including output format, creation time, task status, and so on."
+        }
+      },
+      "type": "object"
+    },
+    "MarksNotSupportedForFormatException": {},
+    "MaxLexemeLengthExceededException": {},
+    "MaxLexiconsNumberExceededException": {},
+    "MaxResults": {
+      "maximum": 100,
+      "minimum": 1,
+      "type": "integer"
+    },
+    "NextToken": {
+      "type": "string"
+    },
+    "OutputFormat": {
+      "enum": [
+        "json",
+        "mp3",
+        "ogg_vorbis",
+        "pcm"
+      ],
+      "type": "string"
+    },
+    "OutputS3BucketName": {
+      "pattern": "^[a-z0-9][\\.\\-a-z0-9]{1,61}[a-z0-9]$",
+      "type": "string"
+    },
+    "OutputS3KeyPrefix": {
+      "pattern": "^[0-9a-zA-Z\\/\\!\\-_\\.\\*\\'\\(\\)]{0,800}$",
+      "type": "string"
+    },
+    "OutputUri": {
+      "type": "string"
+    },
+    "PutLexiconInput": {
+      "example": {
+        "Content": "file://example.pls",
+        "Name": "W3C"
+      },
+      "properties": {
+        "Content": {
+          "$ref": "#/definitions/LexiconContent",
+          "description": "Content of the PLS lexicon as string data."
+        }
+      },
+      "required": [
+        "Content"
+      ],
+      "type": "object"
+    },
+    "PutLexiconOutput": {
+      "example": {},
+      "properties": {},
+      "type": "object"
+    },
+    "RequestCharacters": {
+      "type": "integer"
+    },
+    "SampleRate": {
+      "type": "string"
+    },
+    "ServiceFailureException": {},
+    "Size": {
+      "type": "integer"
+    },
+    "SnsTopicArn": {
+      "pattern": "^arn:aws(-(cn|iso(-b)?|us-gov))?:sns:.*:\\w{12}:.+$",
+      "type": "string"
+    },
+    "SpeechMarkType": {
+      "enum": [
+        "sentence",
+        "ssml",
+        "viseme",
+        "word"
+      ],
+      "type": "string"
+    },
+    "SpeechMarkTypeList": {
+      "items": {
+        "$ref": "#/definitions/SpeechMarkType"
+      },
+      "maxItems": 4,
+      "type": "array"
+    },
+    "SsmlMarksNotSupportedForTextTypeException": {},
+    "StartSpeechSynthesisTaskInput": {
+      "properties": {
+        "LanguageCode": {
+          "$ref": "#/definitions/LanguageCode",
+          "description": "<p>Optional language code for the Speech Synthesis request. This is only necessary if using a bilingual voice, such as Aditi, which can be used for either Indian English (en-IN) or Hindi (hi-IN). </p> <p>If a bilingual voice is used and no language code is specified, Amazon Polly will use the default language of the bilingual voice. The default language for any voice is the one returned by the <a href=\"https://docs.aws.amazon.com/polly/latest/dg/API_DescribeVoices.html\">DescribeVoices</a> operation for the <code>LanguageCode</code> parameter. For example, if no language code is specified, Aditi will use Indian English rather than Hindi.</p>"
+        },
+        "LexiconNames": {
+          "$ref": "#/definitions/LexiconNameList",
+          "description": "List of one or more pronunciation lexicon names you want the service to apply during synthesis. Lexicons are applied only if the language of the lexicon is the same as the language of the voice. "
+        },
+        "OutputFormat": {
+          "$ref": "#/definitions/OutputFormat",
+          "description": "The format in which the returned output will be encoded. For audio stream, this will be mp3, ogg_vorbis, or pcm. For speech marks, this will be json. "
+        },
+        "OutputS3BucketName": {
+          "$ref": "#/definitions/OutputS3BucketName",
+          "description": "Amazon S3 bucket name to which the output file will be saved."
+        },
+        "OutputS3KeyPrefix": {
+          "$ref": "#/definitions/OutputS3KeyPrefix",
+          "description": "The Amazon S3 key prefix for the output speech file."
+        },
+        "SampleRate": {
+          "$ref": "#/definitions/SampleRate",
+          "description": "<p>The audio frequency specified in Hz.</p> <p>The valid values for mp3 and ogg_vorbis are \"8000\", \"16000\", and \"22050\". The default value is \"22050\".</p> <p>Valid values for pcm are \"8000\" and \"16000\" The default value is \"16000\". </p>"
+        },
+        "SnsTopicArn": {
+          "$ref": "#/definitions/SnsTopicArn",
+          "description": "ARN for the SNS topic optionally used for providing status notification for a speech synthesis task."
+        },
+        "SpeechMarkTypes": {
+          "$ref": "#/definitions/SpeechMarkTypeList",
+          "description": "The type of speech marks returned for the input text."
+        },
+        "Text": {
+          "$ref": "#/definitions/Text",
+          "description": "The input text to synthesize. If you specify ssml as the TextType, follow the SSML format for the input text. "
+        },
+        "TextType": {
+          "$ref": "#/definitions/TextType",
+          "description": "Specifies whether the input text is plain text or SSML. The default value is plain text. "
+        },
+        "VoiceId": {
+          "$ref": "#/definitions/VoiceId",
+          "description": "Voice ID to use for the synthesis. "
+        }
+      },
+      "required": [
+        "OutputFormat",
+        "OutputS3BucketName",
+        "Text",
+        "VoiceId"
+      ],
+      "type": "object"
+    },
+    "StartSpeechSynthesisTaskOutput": {
+      "properties": {
+        "SynthesisTask": {
+          "$ref": "#/definitions/SynthesisTask",
+          "description": "SynthesisTask object that provides information and attributes about a newly submitted speech synthesis task."
+        }
+      },
+      "type": "object"
+    },
+    "SynthesisTask": {
+      "description": "SynthesisTask object that provides information about a speech synthesis task.",
+      "properties": {
+        "CreationTime": {
+          "$ref": "#/definitions/DateTime",
+          "description": "Timestamp for the time the synthesis task was started."
+        },
+        "LanguageCode": {
+          "$ref": "#/definitions/LanguageCode",
+          "description": "<p>Optional language code for a synthesis task. This is only necessary if using a bilingual voice, such as Aditi, which can be used for either Indian English (en-IN) or Hindi (hi-IN). </p> <p>If a bilingual voice is used and no language code is specified, Amazon Polly will use the default language of the bilingual voice. The default language for any voice is the one returned by the <a href=\"https://docs.aws.amazon.com/polly/latest/dg/API_DescribeVoices.html\">DescribeVoices</a> operation for the <code>LanguageCode</code> parameter. For example, if no language code is specified, Aditi will use Indian English rather than Hindi.</p>"
+        },
+        "LexiconNames": {
+          "$ref": "#/definitions/LexiconNameList",
+          "description": "List of one or more pronunciation lexicon names you want the service to apply during synthesis. Lexicons are applied only if the language of the lexicon is the same as the language of the voice. "
+        },
+        "OutputFormat": {
+          "$ref": "#/definitions/OutputFormat",
+          "description": "The format in which the returned output will be encoded. For audio stream, this will be mp3, ogg_vorbis, or pcm. For speech marks, this will be json. "
+        },
+        "OutputUri": {
+          "$ref": "#/definitions/OutputUri",
+          "description": "Pathway for the output speech file."
+        },
+        "RequestCharacters": {
+          "$ref": "#/definitions/RequestCharacters",
+          "description": "Number of billable characters synthesized."
+        },
+        "SampleRate": {
+          "$ref": "#/definitions/SampleRate",
+          "description": "<p>The audio frequency specified in Hz.</p> <p>The valid values for mp3 and ogg_vorbis are \"8000\", \"16000\", and \"22050\". The default value is \"22050\".</p> <p>Valid values for pcm are \"8000\" and \"16000\" The default value is \"16000\". </p>"
+        },
+        "SnsTopicArn": {
+          "$ref": "#/definitions/SnsTopicArn",
+          "description": "ARN for the SNS topic optionally used for providing status notification for a speech synthesis task."
+        },
+        "SpeechMarkTypes": {
+          "$ref": "#/definitions/SpeechMarkTypeList",
+          "description": "The type of speech marks returned for the input text."
+        },
+        "TaskId": {
+          "$ref": "#/definitions/TaskId",
+          "description": "The Amazon Polly generated identifier for a speech synthesis task."
+        },
+        "TaskStatus": {
+          "$ref": "#/definitions/TaskStatus",
+          "description": "Current status of the individual speech synthesis task."
+        },
+        "TaskStatusReason": {
+          "$ref": "#/definitions/TaskStatusReason",
+          "description": "Reason for the current status of a specific speech synthesis task, including errors if the task has failed."
+        },
+        "TextType": {
+          "$ref": "#/definitions/TextType",
+          "description": "Specifies whether the input text is plain text or SSML. The default value is plain text. "
+        },
+        "VoiceId": {
+          "$ref": "#/definitions/VoiceId",
+          "description": "Voice ID to use for the synthesis. "
+        }
+      },
+      "type": "object"
+    },
+    "SynthesisTaskNotFoundException": {},
+    "SynthesisTasks": {
+      "items": {
+        "$ref": "#/definitions/SynthesisTask"
+      },
+      "type": "array"
+    },
+    "SynthesizeSpeechInput": {
+      "example": {
+        "LexiconNames": [
+          "example"
+        ],
+        "OutputFormat": "mp3",
+        "SampleRate": "8000",
+        "Text": "All Gaul is divided into three parts",
+        "TextType": "text",
+        "VoiceId": "Joanna"
+      },
+      "properties": {
+        "LanguageCode": {
+          "$ref": "#/definitions/LanguageCode",
+          "description": "<p>Optional language code for the Synthesize Speech request. This is only necessary if using a bilingual voice, such as Aditi, which can be used for either Indian English (en-IN) or Hindi (hi-IN). </p> <p>If a bilingual voice is used and no language code is specified, Amazon Polly will use the default language of the bilingual voice. The default language for any voice is the one returned by the <a href=\"https://docs.aws.amazon.com/polly/latest/dg/API_DescribeVoices.html\">DescribeVoices</a> operation for the <code>LanguageCode</code> parameter. For example, if no language code is specified, Aditi will use Indian English rather than Hindi.</p>"
+        },
+        "LexiconNames": {
+          "$ref": "#/definitions/LexiconNameList",
+          "description": "List of one or more pronunciation lexicon names you want the service to apply during synthesis. Lexicons are applied only if the language of the lexicon is the same as the language of the voice. For information about storing lexicons, see <a href=\"http://docs.aws.amazon.com/polly/latest/dg/API_PutLexicon.html\">PutLexicon</a>."
+        },
+        "OutputFormat": {
+          "$ref": "#/definitions/OutputFormat",
+          "description": "<p> The format in which the returned output will be encoded. For audio stream, this will be mp3, ogg_vorbis, or pcm. For speech marks, this will be json. </p> <p>When pcm is used, the content returned is audio/pcm in a signed 16-bit, 1 channel (mono), little-endian format. </p>"
+        },
+        "SampleRate": {
+          "$ref": "#/definitions/SampleRate",
+          "description": "<p> The audio frequency specified in Hz. </p> <p>The valid values for <code>mp3</code> and <code>ogg_vorbis</code> are \"8000\", \"16000\", and \"22050\". The default value is \"22050\". </p> <p> Valid values for <code>pcm</code> are \"8000\" and \"16000\" The default value is \"16000\". </p>"
+        },
+        "SpeechMarkTypes": {
+          "$ref": "#/definitions/SpeechMarkTypeList",
+          "description": "The type of speech marks returned for the input text."
+        },
+        "Text": {
+          "$ref": "#/definitions/Text",
+          "description": " Input text to synthesize. If you specify <code>ssml</code> as the <code>TextType</code>, follow the SSML format for the input text. "
+        },
+        "TextType": {
+          "$ref": "#/definitions/TextType",
+          "description": " Specifies whether the input text is plain text or SSML. The default value is plain text. For more information, see <a href=\"http://docs.aws.amazon.com/polly/latest/dg/ssml.html\">Using SSML</a>."
+        },
+        "VoiceId": {
+          "$ref": "#/definitions/VoiceId",
+          "description": " Voice ID to use for the synthesis. You can get a list of available voice IDs by calling the <a href=\"http://docs.aws.amazon.com/polly/latest/dg/API_DescribeVoices.html\">DescribeVoices</a> operation. "
+        }
+      },
+      "required": [
+        "OutputFormat",
+        "Text",
+        "VoiceId"
+      ],
+      "type": "object"
+    },
+    "SynthesizeSpeechOutput": {
+      "example": {
+        "AudioStream": "TEXT",
+        "ContentType": "audio/mpeg",
+        "RequestCharacters": 37
+      },
+      "properties": {
+        "AudioStream": {
+          "$ref": "#/definitions/AudioStream",
+          "description": " Stream containing the synthesized speech. "
+        }
+      },
+      "type": "object"
+    },
+    "TaskId": {
+      "maxLength": 128,
+      "minLength": 1,
+      "type": "string"
+    },
+    "TaskStatus": {
+      "enum": [
+        "scheduled",
+        "inProgress",
+        "completed",
+        "failed"
+      ],
+      "type": "string"
+    },
+    "TaskStatusReason": {
+      "type": "string"
+    },
+    "Text": {
+      "type": "string"
+    },
+    "TextLengthExceededException": {},
+    "TextType": {
+      "enum": [
+        "ssml",
+        "text"
+      ],
+      "type": "string"
+    },
+    "UnsupportedPlsAlphabetException": {},
+    "UnsupportedPlsLanguageException": {},
+    "Voice": {
+      "description": "Description of the voice.",
+      "properties": {
+        "AdditionalLanguageCodes": {
+          "$ref": "#/definitions/LanguageCodeList",
+          "description": "<p>Additional codes for languages available for the specified voice in addition to its default language. </p> <p>For example, the default language for Aditi is Indian English (en-IN) because it was first used for that language. Since Aditi is bilingual and fluent in both Indian English and Hindi, this parameter would show the code <code>hi-IN</code>.</p>"
+        },
+        "Gender": {
+          "$ref": "#/definitions/Gender",
+          "description": "Gender of the voice."
+        },
+        "Id": {
+          "$ref": "#/definitions/VoiceId",
+          "description": "Amazon Polly assigned voice ID. This is the ID that you specify when calling the <code>SynthesizeSpeech</code> operation."
+        },
+        "LanguageCode": {
+          "$ref": "#/definitions/LanguageCode",
+          "description": "Language code of the voice."
+        },
+        "LanguageName": {
+          "$ref": "#/definitions/LanguageName",
+          "description": "Human readable name of the language in English."
+        },
+        "Name": {
+          "$ref": "#/definitions/VoiceName",
+          "description": "Name of the voice (for example, Salli, Kendra, etc.). This provides a human readable voice name that you might display in your application."
+        }
+      },
+      "type": "object"
+    },
+    "VoiceId": {
+      "enum": [
+        "Geraint",
+        "Gwyneth",
+        "Mads",
+        "Naja",
+        "Hans",
+        "Marlene",
+        "Nicole",
+        "Russell",
+        "Amy",
+        "Brian",
+        "Emma",
+        "Raveena",
+        "Ivy",
+        "Joanna",
+        "Joey",
+        "Justin",
+        "Kendra",
+        "Kimberly",
+        "Matthew",
+        "Salli",
+        "Conchita",
+        "Enrique",
+        "Miguel",
+        "Penelope",
+        "Chantal",
+        "Celine",
+        "Lea",
+        "Mathieu",
+        "Dora",
+        "Karl",
+        "Carla",
+        "Giorgio",
+        "Mizuki",
+        "Liv",
+        "Lotte",
+        "Ruben",
+        "Ewa",
+        "Jacek",
+        "Jan",
+        "Maja",
+        "Ricardo",
+        "Vitoria",
+        "Cristiano",
+        "Ines",
+        "Carmen",
+        "Maxim",
+        "Tatyana",
+        "Astrid",
+        "Filiz",
+        "Vicki",
+        "Takumi",
+        "Seoyeon",
+        "Aditi",
+        "Zhiyu",
+        "Bianca",
+        "Lucia",
+        "Mia"
+      ],
+      "type": "string"
+    },
+    "VoiceList": {
+      "items": {
+        "$ref": "#/definitions/Voice"
+      },
+      "type": "array"
+    },
+    "VoiceName": {
+      "type": "string"
+    }
+  }
+}

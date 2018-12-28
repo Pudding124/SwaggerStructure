@@ -1,0 +1,5080 @@
+{
+  "swagger": "2.0",
+  "schemes": [
+    "https",
+    "http"
+  ],
+  "host": "directconnect.amazonaws.com",
+  "basePath": "/",
+  "x-hasEquivalentPaths": true,
+  "info": {
+    "contact": {
+      "email": "mike.ralphson@gmail.com",
+      "name": "Mike Ralphson",
+      "url": "https://github.com/mermade/aws2openapi",
+      "x-twitter": "PermittedSoc"
+    },
+    "description": "AWS Direct Connect links your internal network to an AWS Direct Connect location over a standard Ethernet fiber-optic cable. One end of the cable is connected to your router, the other to an AWS Direct Connect router. With this connection in place, you can create virtual interfaces directly to the AWS cloud (for example, to Amazon EC2 and Amazon S3) and to Amazon VPC, bypassing Internet service providers in your network path. A connection provides access to all AWS Regions except the China (Beijing) and (China) Ningxia Regions. AWS resources in the China Regions can only be accessed through locations associated with those Regions.",
+    "license": {
+      "name": "Apache 2.0 License",
+      "url": "http://www.apache.org/licenses/"
+    },
+    "termsOfService": "https://aws.amazon.com/service-terms/",
+    "title": "AWS Direct Connect",
+    "version": "2012-10-25",
+    "x-apiClientRegistration": {
+      "url": "https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct"
+    },
+    "x-apisguru-categories": [
+      "cloud"
+    ],
+    "x-logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.jpeg"
+    },
+    "x-origin": [
+      {
+        "contentType": "application/json",
+        "converter": {
+          "url": "https://github.com/mermade/aws2openapi",
+          "version": "1.0.0"
+        },
+        "url": "https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/directconnect-2012-10-25.normal.json",
+        "x-apisguru-direct": true
+      }
+    ],
+    "x-preferred": true,
+    "x-providerName": "amazonaws.com",
+    "x-release": "v4",
+    "x-serviceName": "directconnect"
+  },
+  "externalDocs": {
+    "description": "Amazon Web Services documentation",
+    "url": "https://aws.amazon.com/directconnect/"
+  },
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "securityDefinitions": {
+    "hmac": {
+      "description": "Amazon Signature authorization v4",
+      "in": "header",
+      "name": "Authorization",
+      "type": "apiKey",
+      "x-amazon-apigateway-authtype": "awsSigv4"
+    }
+  },
+  "security": [
+    {
+      "hmac": []
+    }
+  ],
+  "parameters": {
+    "Action": {
+      "in": "query",
+      "name": "Action",
+      "required": true,
+      "type": "string"
+    },
+    "Version": {
+      "in": "query",
+      "name": "Version",
+      "required": true,
+      "type": "string"
+    },
+    "X-Amz-Algorithm": {
+      "in": "header",
+      "name": "X-Amz-Algorithm",
+      "required": false,
+      "type": "string"
+    },
+    "X-Amz-Content-Sha256": {
+      "in": "header",
+      "name": "X-Amz-Content-Sha256",
+      "required": false,
+      "type": "string"
+    },
+    "X-Amz-Credential": {
+      "in": "header",
+      "name": "X-Amz-Credential",
+      "required": false,
+      "type": "string"
+    },
+    "X-Amz-Date": {
+      "in": "header",
+      "name": "X-Amz-Date",
+      "required": false,
+      "type": "string"
+    },
+    "X-Amz-Security-Token": {
+      "in": "header",
+      "name": "X-Amz-Security-Token",
+      "required": false,
+      "type": "string"
+    },
+    "X-Amz-Signature": {
+      "in": "header",
+      "name": "X-Amz-Signature",
+      "required": false,
+      "type": "string"
+    },
+    "X-Amz-SignedHeaders": {
+      "in": "header",
+      "name": "X-Amz-SignedHeaders",
+      "required": false,
+      "type": "string"
+    }
+  },
+  "paths": {
+    "/": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "<p>Deprecated. Use <a>AllocateHostedConnection</a> instead.</p> <p>Creates a hosted connection on an interconnect.</p> <p>Allocates a VLAN number and a specified amount of bandwidth for use by a hosted connection on the specified interconnect.</p> <note> <p>Intended for use by AWS Direct Connect partners only.</p> </note>",
+        "operationId": "AllocateConnectionOnInterconnect",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/AllocateConnectionOnInterconnectRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/Connection"
+            }
+          },
+          "480": {
+            "description": "DirectConnectServerException",
+            "schema": {
+              "$ref": "#/definitions/DirectConnectServerException"
+            }
+          },
+          "481": {
+            "description": "DirectConnectClientException",
+            "schema": {
+              "$ref": "#/definitions/DirectConnectClientException"
+            }
+          }
+        }
+      }
+    },
+    "/#AllocateHostedConnection": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "<p>Creates a hosted connection on the specified interconnect or a link aggregation group (LAG).</p> <p>Allocates a VLAN number and a specified amount of bandwidth for use by a hosted connection on the specified interconnect or LAG.</p> <note> <p>Intended for use by AWS Direct Connect partners only.</p> </note>",
+        "operationId": "AllocateHostedConnection",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/AllocateHostedConnectionRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/Connection"
+            }
+          },
+          "480": {
+            "description": "DirectConnectServerException",
+            "schema": {
+              "$ref": "#/definitions/DirectConnectServerException"
+            }
+          },
+          "481": {
+            "description": "DirectConnectClientException",
+            "schema": {
+              "$ref": "#/definitions/DirectConnectClientException"
+            }
+          }
+        }
+      }
+    },
+    "/#AllocatePrivateVirtualInterface": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "<p>Provisions a private virtual interface to be owned by the specified AWS account.</p> <p>Virtual interfaces created using this action must be confirmed by the owner using <a>ConfirmPrivateVirtualInterface</a>. Until then, the virtual interface is in the <code>Confirming</code> state and is not available to handle traffic.</p>",
+        "operationId": "AllocatePrivateVirtualInterface",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/AllocatePrivateVirtualInterfaceRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/VirtualInterface"
+            }
+          },
+          "480": {
+            "description": "DirectConnectServerException",
+            "schema": {
+              "$ref": "#/definitions/DirectConnectServerException"
+            }
+          },
+          "481": {
+            "description": "DirectConnectClientException",
+            "schema": {
+              "$ref": "#/definitions/DirectConnectClientException"
+            }
+          }
+        }
+      }
+    },
+    "/#AllocatePublicVirtualInterface": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "<p>Provisions a public virtual interface to be owned by the specified AWS account.</p> <p>The owner of a connection calls this function to provision a public virtual interface to be owned by the specified AWS account.</p> <p>Virtual interfaces created using this function must be confirmed by the owner using <a>ConfirmPublicVirtualInterface</a>. Until this step has been completed, the virtual interface is in the <code>confirming</code> state and is not available to handle traffic.</p> <p>When creating an IPv6 public virtual interface, omit the Amazon address and customer address. IPv6 addresses are automatically assigned from the Amazon pool of IPv6 addresses; you cannot specify custom IPv6 addresses.</p>",
+        "operationId": "AllocatePublicVirtualInterface",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/AllocatePublicVirtualInterfaceRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/VirtualInterface"
+            }
+          },
+          "480": {
+            "description": "DirectConnectServerException",
+            "schema": {
+              "$ref": "#/definitions/DirectConnectServerException"
+            }
+          },
+          "481": {
+            "description": "DirectConnectClientException",
+            "schema": {
+              "$ref": "#/definitions/DirectConnectClientException"
+            }
+          }
+        }
+      }
+    },
+    "/#AssociateConnectionWithLag": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "<p>Associates an existing connection with a link aggregation group (LAG). The connection is interrupted and re-established as a member of the LAG (connectivity to AWS is interrupted). The connection must be hosted on the same AWS Direct Connect endpoint as the LAG, and its bandwidth must match the bandwidth for the LAG. You can re-associate a connection that's currently associated with a different LAG; however, if removing the connection would cause the original LAG to fall below its setting for minimum number of operational connections, the request fails.</p> <p>Any virtual interfaces that are directly associated with the connection are automatically re-associated with the LAG. If the connection was originally associated with a different LAG, the virtual interfaces remain associated with the original LAG.</p> <p>For interconnects, any hosted connections are automatically re-associated with the LAG. If the interconnect was originally associated with a different LAG, the hosted connections remain associated with the original LAG.</p>",
+        "operationId": "AssociateConnectionWithLag",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/AssociateConnectionWithLagRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/Connection"
+            }
+          },
+          "480": {
+            "description": "DirectConnectServerException",
+            "schema": {
+              "$ref": "#/definitions/DirectConnectServerException"
+            }
+          },
+          "481": {
+            "description": "DirectConnectClientException",
+            "schema": {
+              "$ref": "#/definitions/DirectConnectClientException"
+            }
+          }
+        }
+      }
+    },
+    "/#AssociateHostedConnection": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "<p>Associates a hosted connection and its virtual interfaces with a link aggregation group (LAG) or interconnect. If the target interconnect or LAG has an existing hosted connection with a conflicting VLAN number or IP address, the operation fails. This action temporarily interrupts the hosted connection's connectivity to AWS as it is being migrated.</p> <note> <p>Intended for use by AWS Direct Connect partners only.</p> </note>",
+        "operationId": "AssociateHostedConnection",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/AssociateHostedConnectionRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/Connection"
+            }
+          },
+          "480": {
+            "description": "DirectConnectServerException",
+            "schema": {
+              "$ref": "#/definitions/DirectConnectServerException"
+            }
+          },
+          "481": {
+            "description": "DirectConnectClientException",
+            "schema": {
+              "$ref": "#/definitions/DirectConnectClientException"
+            }
+          }
+        }
+      }
+    },
+    "/#AssociateVirtualInterface": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "<p>Associates a virtual interface with a specified link aggregation group (LAG) or connection. Connectivity to AWS is temporarily interrupted as the virtual interface is being migrated. If the target connection or LAG has an associated virtual interface with a conflicting VLAN number or a conflicting IP address, the operation fails.</p> <p>Virtual interfaces associated with a hosted connection cannot be associated with a LAG; hosted connections must be migrated along with their virtual interfaces using <a>AssociateHostedConnection</a>.</p> <p>To reassociate a virtual interface to a new connection or LAG, the requester must own either the virtual interface itself or the connection to which the virtual interface is currently associated. Additionally, the requester must own the connection or LAG for the association.</p>",
+        "operationId": "AssociateVirtualInterface",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/AssociateVirtualInterfaceRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/VirtualInterface"
+            }
+          },
+          "480": {
+            "description": "DirectConnectServerException",
+            "schema": {
+              "$ref": "#/definitions/DirectConnectServerException"
+            }
+          },
+          "481": {
+            "description": "DirectConnectClientException",
+            "schema": {
+              "$ref": "#/definitions/DirectConnectClientException"
+            }
+          }
+        }
+      }
+    },
+    "/#ConfirmConnection": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "<p>Confirms the creation of the specified hosted connection on an interconnect.</p> <p>Upon creation, the hosted connection is initially in the <code>Ordering</code> state, and remains in this state until the owner confirms creation of the hosted connection.</p>",
+        "operationId": "ConfirmConnection",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ConfirmConnectionRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ConfirmConnectionResponse"
+            }
+          },
+          "480": {
+            "description": "DirectConnectServerException",
+            "schema": {
+              "$ref": "#/definitions/DirectConnectServerException"
+            }
+          },
+          "481": {
+            "description": "DirectConnectClientException",
+            "schema": {
+              "$ref": "#/definitions/DirectConnectClientException"
+            }
+          }
+        }
+      }
+    },
+    "/#ConfirmPrivateVirtualInterface": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "<p>Accepts ownership of a private virtual interface created by another AWS account.</p> <p>After the virtual interface owner makes this call, the virtual interface is created and attached to the specified virtual private gateway or Direct Connect gateway, and is made available to handle traffic.</p>",
+        "operationId": "ConfirmPrivateVirtualInterface",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ConfirmPrivateVirtualInterfaceRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ConfirmPrivateVirtualInterfaceResponse"
+            }
+          },
+          "480": {
+            "description": "DirectConnectServerException",
+            "schema": {
+              "$ref": "#/definitions/DirectConnectServerException"
+            }
+          },
+          "481": {
+            "description": "DirectConnectClientException",
+            "schema": {
+              "$ref": "#/definitions/DirectConnectClientException"
+            }
+          }
+        }
+      }
+    },
+    "/#ConfirmPublicVirtualInterface": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "<p>Accepts ownership of a public virtual interface created by another AWS account.</p> <p>After the virtual interface owner makes this call, the specified virtual interface is created and made available to handle traffic.</p>",
+        "operationId": "ConfirmPublicVirtualInterface",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ConfirmPublicVirtualInterfaceRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ConfirmPublicVirtualInterfaceResponse"
+            }
+          },
+          "480": {
+            "description": "DirectConnectServerException",
+            "schema": {
+              "$ref": "#/definitions/DirectConnectServerException"
+            }
+          },
+          "481": {
+            "description": "DirectConnectClientException",
+            "schema": {
+              "$ref": "#/definitions/DirectConnectClientException"
+            }
+          }
+        }
+      }
+    },
+    "/#CreateBGPPeer": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "<p>Creates a BGP peer on the specified virtual interface.</p> <p>You must create a BGP peer for the corresponding address family (IPv4/IPv6) in order to access AWS resources that also use that address family.</p> <p>If logical redundancy is not supported by the connection, interconnect, or LAG, the BGP peer cannot be in the same address family as an existing BGP peer on the virtual interface.</p> <p>When creating a IPv6 BGP peer, omit the Amazon address and customer address. IPv6 addresses are automatically assigned from the Amazon pool of IPv6 addresses; you cannot specify custom IPv6 addresses.</p> <p>For a public virtual interface, the Autonomous System Number (ASN) must be private or already whitelisted for the virtual interface.</p>",
+        "operationId": "CreateBGPPeer",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CreateBGPPeerRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/CreateBGPPeerResponse"
+            }
+          },
+          "480": {
+            "description": "DirectConnectServerException",
+            "schema": {
+              "$ref": "#/definitions/DirectConnectServerException"
+            }
+          },
+          "481": {
+            "description": "DirectConnectClientException",
+            "schema": {
+              "$ref": "#/definitions/DirectConnectClientException"
+            }
+          }
+        }
+      }
+    },
+    "/#CreateConnection": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "<p>Creates a connection between a customer network and a specific AWS Direct Connect location.</p> <p>A connection links your internal network to an AWS Direct Connect location over a standard Ethernet fiber-optic cable. One end of the cable is connected to your router, the other to an AWS Direct Connect router.</p> <p>To find the locations for your Region, use <a>DescribeLocations</a>.</p> <p>You can automatically add the new connection to a link aggregation group (LAG) by specifying a LAG ID in the request. This ensures that the new connection is allocated on the same AWS Direct Connect endpoint that hosts the specified LAG. If there are no available ports on the endpoint, the request fails and no connection is created.</p>",
+        "operationId": "CreateConnection",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CreateConnectionRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/Connection"
+            }
+          },
+          "480": {
+            "description": "DirectConnectServerException",
+            "schema": {
+              "$ref": "#/definitions/DirectConnectServerException"
+            }
+          },
+          "481": {
+            "description": "DirectConnectClientException",
+            "schema": {
+              "$ref": "#/definitions/DirectConnectClientException"
+            }
+          }
+        }
+      }
+    },
+    "/#CreateDirectConnectGateway": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Creates a Direct Connect gateway, which is an intermediate object that enables you to connect a set of virtual interfaces and virtual private gateways. A Direct Connect gateway is global and visible in any AWS Region after it is created. The virtual interfaces and virtual private gateways that are connected through a Direct Connect gateway can be in different AWS Regions. This enables you to connect to a VPC in any Region, regardless of the Region in which the virtual interfaces are located, and pass traffic between them.",
+        "operationId": "CreateDirectConnectGateway",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CreateDirectConnectGatewayRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/CreateDirectConnectGatewayResult"
+            }
+          },
+          "480": {
+            "description": "DirectConnectServerException",
+            "schema": {
+              "$ref": "#/definitions/DirectConnectServerException"
+            }
+          },
+          "481": {
+            "description": "DirectConnectClientException",
+            "schema": {
+              "$ref": "#/definitions/DirectConnectClientException"
+            }
+          }
+        }
+      }
+    },
+    "/#CreateDirectConnectGatewayAssociation": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Creates an association between a Direct Connect gateway and a virtual private gateway. The virtual private gateway must be attached to a VPC and must not be associated with another Direct Connect gateway.",
+        "operationId": "CreateDirectConnectGatewayAssociation",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CreateDirectConnectGatewayAssociationRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/CreateDirectConnectGatewayAssociationResult"
+            }
+          },
+          "480": {
+            "description": "DirectConnectServerException",
+            "schema": {
+              "$ref": "#/definitions/DirectConnectServerException"
+            }
+          },
+          "481": {
+            "description": "DirectConnectClientException",
+            "schema": {
+              "$ref": "#/definitions/DirectConnectClientException"
+            }
+          }
+        }
+      }
+    },
+    "/#CreateInterconnect": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "<p>Creates an interconnect between an AWS Direct Connect partner's network and a specific AWS Direct Connect location.</p> <p>An interconnect is a connection which is capable of hosting other connections. The partner can use an interconnect to provide sub-1Gbps AWS Direct Connect service to tier 2 customers who do not have their own connections. Like a standard connection, an interconnect links the partner's network to an AWS Direct Connect location over a standard Ethernet fiber-optic cable. One end is connected to the partner's router, the other to an AWS Direct Connect router.</p> <p>You can automatically add the new interconnect to a link aggregation group (LAG) by specifying a LAG ID in the request. This ensures that the new interconnect is allocated on the same AWS Direct Connect endpoint that hosts the specified LAG. If there are no available ports on the endpoint, the request fails and no interconnect is created.</p> <p>For each end customer, the AWS Direct Connect partner provisions a connection on their interconnect by calling <a>AllocateConnectionOnInterconnect</a>. The end customer can then connect to AWS resources by creating a virtual interface on their connection, using the VLAN assigned to them by the partner.</p> <note> <p>Intended for use by AWS Direct Connect partners only.</p> </note>",
+        "operationId": "CreateInterconnect",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CreateInterconnectRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/Interconnect"
+            }
+          },
+          "480": {
+            "description": "DirectConnectServerException",
+            "schema": {
+              "$ref": "#/definitions/DirectConnectServerException"
+            }
+          },
+          "481": {
+            "description": "DirectConnectClientException",
+            "schema": {
+              "$ref": "#/definitions/DirectConnectClientException"
+            }
+          }
+        }
+      }
+    },
+    "/#CreateLag": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "<p>Creates a link aggregation group (LAG) with the specified number of bundled physical connections between the customer network and a specific AWS Direct Connect location. A LAG is a logical interface that uses the Link Aggregation Control Protocol (LACP) to aggregate multiple interfaces, enabling you to treat them as a single interface.</p> <p>All connections in a LAG must use the same bandwidth and must terminate at the same AWS Direct Connect endpoint.</p> <p>You can have up to 10 connections per LAG. Regardless of this limit, if you request more connections for the LAG than AWS Direct Connect can allocate on a single endpoint, no LAG is created.</p> <p>You can specify an existing physical connection or interconnect to include in the LAG (which counts towards the total number of connections). Doing so interrupts the current physical connection or hosted connections, and re-establishes them as a member of the LAG. The LAG will be created on the same AWS Direct Connect endpoint to which the connection terminates. Any virtual interfaces associated with the connection are automatically disassociated and re-associated with the LAG. The connection ID does not change.</p> <p>If the AWS account used to create a LAG is a registered AWS Direct Connect partner, the LAG is automatically enabled to host sub-connections. For a LAG owned by a partner, any associated virtual interfaces cannot be directly configured.</p>",
+        "operationId": "CreateLag",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CreateLagRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/Lag"
+            }
+          },
+          "480": {
+            "description": "DirectConnectServerException",
+            "schema": {
+              "$ref": "#/definitions/DirectConnectServerException"
+            }
+          },
+          "481": {
+            "description": "DirectConnectClientException",
+            "schema": {
+              "$ref": "#/definitions/DirectConnectClientException"
+            }
+          }
+        }
+      }
+    },
+    "/#CreatePrivateVirtualInterface": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Creates a private virtual interface. A virtual interface is the VLAN that transports AWS Direct Connect traffic. A private virtual interface can be connected to either a Direct Connect gateway or a Virtual Private Gateway (VGW). Connecting the private virtual interface to a Direct Connect gateway enables the possibility for connecting to multiple VPCs, including VPCs in different AWS Regions. Connecting the private virtual interface to a VGW only provides access to a single VPC within the same Region.",
+        "operationId": "CreatePrivateVirtualInterface",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CreatePrivateVirtualInterfaceRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/VirtualInterface"
+            }
+          },
+          "480": {
+            "description": "DirectConnectServerException",
+            "schema": {
+              "$ref": "#/definitions/DirectConnectServerException"
+            }
+          },
+          "481": {
+            "description": "DirectConnectClientException",
+            "schema": {
+              "$ref": "#/definitions/DirectConnectClientException"
+            }
+          }
+        }
+      }
+    },
+    "/#CreatePublicVirtualInterface": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "<p>Creates a public virtual interface. A virtual interface is the VLAN that transports AWS Direct Connect traffic. A public virtual interface supports sending traffic to public services of AWS such as Amazon S3.</p> <p>When creating an IPv6 public virtual interface (<code>addressFamily</code> is <code>ipv6</code>), leave the <code>customer</code> and <code>amazon</code> address fields blank to use auto-assigned IPv6 space. Custom IPv6 addresses are not supported.</p>",
+        "operationId": "CreatePublicVirtualInterface",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CreatePublicVirtualInterfaceRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/VirtualInterface"
+            }
+          },
+          "480": {
+            "description": "DirectConnectServerException",
+            "schema": {
+              "$ref": "#/definitions/DirectConnectServerException"
+            }
+          },
+          "481": {
+            "description": "DirectConnectClientException",
+            "schema": {
+              "$ref": "#/definitions/DirectConnectClientException"
+            }
+          }
+        }
+      }
+    },
+    "/#DeleteBGPPeer": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "<p>Deletes the specified BGP peer on the specified virtual interface with the specified customer address and ASN.</p> <p>You cannot delete the last BGP peer from a virtual interface.</p>",
+        "operationId": "DeleteBGPPeer",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DeleteBGPPeerRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DeleteBGPPeerResponse"
+            }
+          },
+          "480": {
+            "description": "DirectConnectServerException",
+            "schema": {
+              "$ref": "#/definitions/DirectConnectServerException"
+            }
+          },
+          "481": {
+            "description": "DirectConnectClientException",
+            "schema": {
+              "$ref": "#/definitions/DirectConnectClientException"
+            }
+          }
+        }
+      }
+    },
+    "/#DeleteConnection": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "<p>Deletes the specified connection.</p> <p>Deleting a connection only stops the AWS Direct Connect port hour and data transfer charges. If you are partnering with any third parties to connect with the AWS Direct Connect location, you must cancel your service with them separately.</p>",
+        "operationId": "DeleteConnection",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DeleteConnectionRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/Connection"
+            }
+          },
+          "480": {
+            "description": "DirectConnectServerException",
+            "schema": {
+              "$ref": "#/definitions/DirectConnectServerException"
+            }
+          },
+          "481": {
+            "description": "DirectConnectClientException",
+            "schema": {
+              "$ref": "#/definitions/DirectConnectClientException"
+            }
+          }
+        }
+      }
+    },
+    "/#DeleteDirectConnectGateway": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Deletes the specified Direct Connect gateway. You must first delete all virtual interfaces that are attached to the Direct Connect gateway and disassociate all virtual private gateways that are associated with the Direct Connect gateway.",
+        "operationId": "DeleteDirectConnectGateway",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DeleteDirectConnectGatewayRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DeleteDirectConnectGatewayResult"
+            }
+          },
+          "480": {
+            "description": "DirectConnectServerException",
+            "schema": {
+              "$ref": "#/definitions/DirectConnectServerException"
+            }
+          },
+          "481": {
+            "description": "DirectConnectClientException",
+            "schema": {
+              "$ref": "#/definitions/DirectConnectClientException"
+            }
+          }
+        }
+      }
+    },
+    "/#DeleteDirectConnectGatewayAssociation": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Deletes the association between the specified Direct Connect gateway and virtual private gateway.",
+        "operationId": "DeleteDirectConnectGatewayAssociation",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DeleteDirectConnectGatewayAssociationRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DeleteDirectConnectGatewayAssociationResult"
+            }
+          },
+          "480": {
+            "description": "DirectConnectServerException",
+            "schema": {
+              "$ref": "#/definitions/DirectConnectServerException"
+            }
+          },
+          "481": {
+            "description": "DirectConnectClientException",
+            "schema": {
+              "$ref": "#/definitions/DirectConnectClientException"
+            }
+          }
+        }
+      }
+    },
+    "/#DeleteInterconnect": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "<p>Deletes the specified interconnect.</p> <note> <p>Intended for use by AWS Direct Connect partners only.</p> </note>",
+        "operationId": "DeleteInterconnect",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DeleteInterconnectRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DeleteInterconnectResponse"
+            }
+          },
+          "480": {
+            "description": "DirectConnectServerException",
+            "schema": {
+              "$ref": "#/definitions/DirectConnectServerException"
+            }
+          },
+          "481": {
+            "description": "DirectConnectClientException",
+            "schema": {
+              "$ref": "#/definitions/DirectConnectClientException"
+            }
+          }
+        }
+      }
+    },
+    "/#DeleteLag": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Deletes the specified link aggregation group (LAG). You cannot delete a LAG if it has active virtual interfaces or hosted connections.",
+        "operationId": "DeleteLag",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DeleteLagRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/Lag"
+            }
+          },
+          "480": {
+            "description": "DirectConnectServerException",
+            "schema": {
+              "$ref": "#/definitions/DirectConnectServerException"
+            }
+          },
+          "481": {
+            "description": "DirectConnectClientException",
+            "schema": {
+              "$ref": "#/definitions/DirectConnectClientException"
+            }
+          }
+        }
+      }
+    },
+    "/#DeleteVirtualInterface": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Deletes a virtual interface.",
+        "operationId": "DeleteVirtualInterface",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DeleteVirtualInterfaceRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DeleteVirtualInterfaceResponse"
+            }
+          },
+          "480": {
+            "description": "DirectConnectServerException",
+            "schema": {
+              "$ref": "#/definitions/DirectConnectServerException"
+            }
+          },
+          "481": {
+            "description": "DirectConnectClientException",
+            "schema": {
+              "$ref": "#/definitions/DirectConnectClientException"
+            }
+          }
+        }
+      }
+    },
+    "/#DescribeConnectionLoa": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "<p>Deprecated. Use <a>DescribeLoa</a> instead.</p> <p>Gets the LOA-CFA for a connection.</p> <p>The Letter of Authorization - Connecting Facility Assignment (LOA-CFA) is a document that your APN partner or service provider uses when establishing your cross connect to AWS at the colocation facility. For more information, see <a href=\"http://docs.aws.amazon.com/directconnect/latest/UserGuide/Colocation.html\">Requesting Cross Connects at AWS Direct Connect Locations</a> in the <i>AWS Direct Connect User Guide</i>.</p>",
+        "operationId": "DescribeConnectionLoa",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DescribeConnectionLoaRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DescribeConnectionLoaResponse"
+            }
+          },
+          "480": {
+            "description": "DirectConnectServerException",
+            "schema": {
+              "$ref": "#/definitions/DirectConnectServerException"
+            }
+          },
+          "481": {
+            "description": "DirectConnectClientException",
+            "schema": {
+              "$ref": "#/definitions/DirectConnectClientException"
+            }
+          }
+        }
+      }
+    },
+    "/#DescribeConnections": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Displays the specified connection or all connections in this Region.",
+        "operationId": "DescribeConnections",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DescribeConnectionsRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/Connections"
+            }
+          },
+          "480": {
+            "description": "DirectConnectServerException",
+            "schema": {
+              "$ref": "#/definitions/DirectConnectServerException"
+            }
+          },
+          "481": {
+            "description": "DirectConnectClientException",
+            "schema": {
+              "$ref": "#/definitions/DirectConnectClientException"
+            }
+          }
+        }
+      }
+    },
+    "/#DescribeConnectionsOnInterconnect": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "<p>Deprecated. Use <a>DescribeHostedConnections</a> instead.</p> <p>Lists the connections that have been provisioned on the specified interconnect.</p> <note> <p>Intended for use by AWS Direct Connect partners only.</p> </note>",
+        "operationId": "DescribeConnectionsOnInterconnect",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DescribeConnectionsOnInterconnectRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/Connections"
+            }
+          },
+          "480": {
+            "description": "DirectConnectServerException",
+            "schema": {
+              "$ref": "#/definitions/DirectConnectServerException"
+            }
+          },
+          "481": {
+            "description": "DirectConnectClientException",
+            "schema": {
+              "$ref": "#/definitions/DirectConnectClientException"
+            }
+          }
+        }
+      }
+    },
+    "/#DescribeDirectConnectGatewayAssociations": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Lists the associations between your Direct Connect gateways and virtual private gateways. You must specify a Direct Connect gateway, a virtual private gateway, or both. If you specify a Direct Connect gateway, the response contains all virtual private gateways associated with the Direct Connect gateway. If you specify a virtual private gateway, the response contains all Direct Connect gateways associated with the virtual private gateway. If you specify both, the response contains the association between the Direct Connect gateway and the virtual private gateway.",
+        "operationId": "DescribeDirectConnectGatewayAssociations",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DescribeDirectConnectGatewayAssociationsRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DescribeDirectConnectGatewayAssociationsResult"
+            }
+          },
+          "480": {
+            "description": "DirectConnectServerException",
+            "schema": {
+              "$ref": "#/definitions/DirectConnectServerException"
+            }
+          },
+          "481": {
+            "description": "DirectConnectClientException",
+            "schema": {
+              "$ref": "#/definitions/DirectConnectClientException"
+            }
+          }
+        }
+      }
+    },
+    "/#DescribeDirectConnectGatewayAttachments": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Lists the attachments between your Direct Connect gateways and virtual interfaces. You must specify a Direct Connect gateway, a virtual interface, or both. If you specify a Direct Connect gateway, the response contains all virtual interfaces attached to the Direct Connect gateway. If you specify a virtual interface, the response contains all Direct Connect gateways attached to the virtual interface. If you specify both, the response contains the attachment between the Direct Connect gateway and the virtual interface.",
+        "operationId": "DescribeDirectConnectGatewayAttachments",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DescribeDirectConnectGatewayAttachmentsRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DescribeDirectConnectGatewayAttachmentsResult"
+            }
+          },
+          "480": {
+            "description": "DirectConnectServerException",
+            "schema": {
+              "$ref": "#/definitions/DirectConnectServerException"
+            }
+          },
+          "481": {
+            "description": "DirectConnectClientException",
+            "schema": {
+              "$ref": "#/definitions/DirectConnectClientException"
+            }
+          }
+        }
+      }
+    },
+    "/#DescribeDirectConnectGateways": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Lists all your Direct Connect gateways or only the specified Direct Connect gateway. Deleted Direct Connect gateways are not returned.",
+        "operationId": "DescribeDirectConnectGateways",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DescribeDirectConnectGatewaysRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DescribeDirectConnectGatewaysResult"
+            }
+          },
+          "480": {
+            "description": "DirectConnectServerException",
+            "schema": {
+              "$ref": "#/definitions/DirectConnectServerException"
+            }
+          },
+          "481": {
+            "description": "DirectConnectClientException",
+            "schema": {
+              "$ref": "#/definitions/DirectConnectClientException"
+            }
+          }
+        }
+      }
+    },
+    "/#DescribeHostedConnections": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "<p>Lists the hosted connections that have been provisioned on the specified interconnect or link aggregation group (LAG).</p> <note> <p>Intended for use by AWS Direct Connect partners only.</p> </note>",
+        "operationId": "DescribeHostedConnections",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DescribeHostedConnectionsRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/Connections"
+            }
+          },
+          "480": {
+            "description": "DirectConnectServerException",
+            "schema": {
+              "$ref": "#/definitions/DirectConnectServerException"
+            }
+          },
+          "481": {
+            "description": "DirectConnectClientException",
+            "schema": {
+              "$ref": "#/definitions/DirectConnectClientException"
+            }
+          }
+        }
+      }
+    },
+    "/#DescribeInterconnectLoa": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "<p>Deprecated. Use <a>DescribeLoa</a> instead.</p> <p>Gets the LOA-CFA for the specified interconnect.</p> <p>The Letter of Authorization - Connecting Facility Assignment (LOA-CFA) is a document that is used when establishing your cross connect to AWS at the colocation facility. For more information, see <a href=\"http://docs.aws.amazon.com/directconnect/latest/UserGuide/Colocation.html\">Requesting Cross Connects at AWS Direct Connect Locations</a> in the <i>AWS Direct Connect User Guide</i>.</p>",
+        "operationId": "DescribeInterconnectLoa",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DescribeInterconnectLoaRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DescribeInterconnectLoaResponse"
+            }
+          },
+          "480": {
+            "description": "DirectConnectServerException",
+            "schema": {
+              "$ref": "#/definitions/DirectConnectServerException"
+            }
+          },
+          "481": {
+            "description": "DirectConnectClientException",
+            "schema": {
+              "$ref": "#/definitions/DirectConnectClientException"
+            }
+          }
+        }
+      }
+    },
+    "/#DescribeInterconnects": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Lists the interconnects owned by the AWS account or only the specified interconnect.",
+        "operationId": "DescribeInterconnects",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DescribeInterconnectsRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/Interconnects"
+            }
+          },
+          "480": {
+            "description": "DirectConnectServerException",
+            "schema": {
+              "$ref": "#/definitions/DirectConnectServerException"
+            }
+          },
+          "481": {
+            "description": "DirectConnectClientException",
+            "schema": {
+              "$ref": "#/definitions/DirectConnectClientException"
+            }
+          }
+        }
+      }
+    },
+    "/#DescribeLags": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Describes all your link aggregation groups (LAG) or the specified LAG.",
+        "operationId": "DescribeLags",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DescribeLagsRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/Lags"
+            }
+          },
+          "480": {
+            "description": "DirectConnectServerException",
+            "schema": {
+              "$ref": "#/definitions/DirectConnectServerException"
+            }
+          },
+          "481": {
+            "description": "DirectConnectClientException",
+            "schema": {
+              "$ref": "#/definitions/DirectConnectClientException"
+            }
+          }
+        }
+      }
+    },
+    "/#DescribeLoa": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "<p>Gets the LOA-CFA for a connection, interconnect, or link aggregation group (LAG).</p> <p>The Letter of Authorization - Connecting Facility Assignment (LOA-CFA) is a document that is used when establishing your cross connect to AWS at the colocation facility. For more information, see <a href=\"http://docs.aws.amazon.com/directconnect/latest/UserGuide/Colocation.html\">Requesting Cross Connects at AWS Direct Connect Locations</a> in the <i>AWS Direct Connect User Guide</i>.</p>",
+        "operationId": "DescribeLoa",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DescribeLoaRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/Loa"
+            }
+          },
+          "480": {
+            "description": "DirectConnectServerException",
+            "schema": {
+              "$ref": "#/definitions/DirectConnectServerException"
+            }
+          },
+          "481": {
+            "description": "DirectConnectClientException",
+            "schema": {
+              "$ref": "#/definitions/DirectConnectClientException"
+            }
+          }
+        }
+      }
+    },
+    "/#DescribeLocations": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Lists the AWS Direct Connect locations in the current AWS Region. These are the locations that can be selected when calling <a>CreateConnection</a> or <a>CreateInterconnect</a>.",
+        "operationId": "DescribeLocations",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/Locations"
+            }
+          },
+          "480": {
+            "description": "DirectConnectServerException",
+            "schema": {
+              "$ref": "#/definitions/DirectConnectServerException"
+            }
+          },
+          "481": {
+            "description": "DirectConnectClientException",
+            "schema": {
+              "$ref": "#/definitions/DirectConnectClientException"
+            }
+          }
+        }
+      }
+    },
+    "/#DescribeTags": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Describes the tags associated with the specified AWS Direct Connect resources.",
+        "operationId": "DescribeTags",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DescribeTagsRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DescribeTagsResponse"
+            }
+          },
+          "480": {
+            "description": "DirectConnectServerException",
+            "schema": {
+              "$ref": "#/definitions/DirectConnectServerException"
+            }
+          },
+          "481": {
+            "description": "DirectConnectClientException",
+            "schema": {
+              "$ref": "#/definitions/DirectConnectClientException"
+            }
+          }
+        }
+      }
+    },
+    "/#DescribeVirtualGateways": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "<p>Lists the virtual private gateways owned by the AWS account.</p> <p>You can create one or more AWS Direct Connect private virtual interfaces linked to a virtual private gateway.</p>",
+        "operationId": "DescribeVirtualGateways",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/VirtualGateways"
+            }
+          },
+          "480": {
+            "description": "DirectConnectServerException",
+            "schema": {
+              "$ref": "#/definitions/DirectConnectServerException"
+            }
+          },
+          "481": {
+            "description": "DirectConnectClientException",
+            "schema": {
+              "$ref": "#/definitions/DirectConnectClientException"
+            }
+          }
+        }
+      }
+    },
+    "/#DescribeVirtualInterfaces": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "<p>Displays all virtual interfaces for an AWS account. Virtual interfaces deleted fewer than 15 minutes before you make the request are also returned. If you specify a connection ID, only the virtual interfaces associated with the connection are returned. If you specify a virtual interface ID, then only a single virtual interface is returned.</p> <p>A virtual interface (VLAN) transmits the traffic between the AWS Direct Connect location and the customer network.</p>",
+        "operationId": "DescribeVirtualInterfaces",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DescribeVirtualInterfacesRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/VirtualInterfaces"
+            }
+          },
+          "480": {
+            "description": "DirectConnectServerException",
+            "schema": {
+              "$ref": "#/definitions/DirectConnectServerException"
+            }
+          },
+          "481": {
+            "description": "DirectConnectClientException",
+            "schema": {
+              "$ref": "#/definitions/DirectConnectClientException"
+            }
+          }
+        }
+      }
+    },
+    "/#DisassociateConnectionFromLag": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "<p>Disassociates a connection from a link aggregation group (LAG). The connection is interrupted and re-established as a standalone connection (the connection is not deleted; to delete the connection, use the <a>DeleteConnection</a> request). If the LAG has associated virtual interfaces or hosted connections, they remain associated with the LAG. A disassociated connection owned by an AWS Direct Connect partner is automatically converted to an interconnect.</p> <p>If disassociating the connection would cause the LAG to fall below its setting for minimum number of operational connections, the request fails, except when it's the last member of the LAG. If all connections are disassociated, the LAG continues to exist as an empty LAG with no physical connections. </p>",
+        "operationId": "DisassociateConnectionFromLag",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DisassociateConnectionFromLagRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/Connection"
+            }
+          },
+          "480": {
+            "description": "DirectConnectServerException",
+            "schema": {
+              "$ref": "#/definitions/DirectConnectServerException"
+            }
+          },
+          "481": {
+            "description": "DirectConnectClientException",
+            "schema": {
+              "$ref": "#/definitions/DirectConnectClientException"
+            }
+          }
+        }
+      }
+    },
+    "/#TagResource": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "<p>Adds the specified tags to the specified AWS Direct Connect resource. Each resource can have a maximum of 50 tags.</p> <p>Each tag consists of a key and an optional value. If a tag with the same key is already associated with the resource, this action updates its value.</p>",
+        "operationId": "TagResource",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/TagResourceRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/TagResourceResponse"
+            }
+          },
+          "480": {
+            "description": "DuplicateTagKeysException",
+            "schema": {
+              "$ref": "#/definitions/DuplicateTagKeysException"
+            }
+          },
+          "481": {
+            "description": "TooManyTagsException",
+            "schema": {
+              "$ref": "#/definitions/TooManyTagsException"
+            }
+          },
+          "482": {
+            "description": "DirectConnectServerException",
+            "schema": {
+              "$ref": "#/definitions/DirectConnectServerException"
+            }
+          },
+          "483": {
+            "description": "DirectConnectClientException",
+            "schema": {
+              "$ref": "#/definitions/DirectConnectClientException"
+            }
+          }
+        }
+      }
+    },
+    "/#UntagResource": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Removes one or more tags from the specified AWS Direct Connect resource.",
+        "operationId": "UntagResource",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/UntagResourceRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/UntagResourceResponse"
+            }
+          },
+          "480": {
+            "description": "DirectConnectServerException",
+            "schema": {
+              "$ref": "#/definitions/DirectConnectServerException"
+            }
+          },
+          "481": {
+            "description": "DirectConnectClientException",
+            "schema": {
+              "$ref": "#/definitions/DirectConnectClientException"
+            }
+          }
+        }
+      }
+    },
+    "/#UpdateLag": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "<p>Updates the attributes of the specified link aggregation group (LAG).</p> <p>You can update the following attributes:</p> <ul> <li> <p>The name of the LAG.</p> </li> <li> <p>The value for the minimum number of connections that must be operational for the LAG itself to be operational. </p> </li> </ul> <p>When you create a LAG, the default value for the minimum number of operational connections is zero (0). If you update this value and the number of operational connections falls below the specified value, the LAG automatically goes down to avoid over-utilization of the remaining connections. Adjust this value with care, as it could force the LAG down if it is set higher than the current number of operational connections.</p>",
+        "operationId": "UpdateLag",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/UpdateLagRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/Lag"
+            }
+          },
+          "480": {
+            "description": "DirectConnectServerException",
+            "schema": {
+              "$ref": "#/definitions/DirectConnectServerException"
+            }
+          },
+          "481": {
+            "description": "DirectConnectClientException",
+            "schema": {
+              "$ref": "#/definitions/DirectConnectClientException"
+            }
+          }
+        }
+      }
+    },
+    "/#UpdateVirtualInterfaceAttributes": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "<p>Updates the specified attributes of the specified virtual private interface.</p> <p>Setting the MTU of a virtual interface to 9001 (jumbo frames) can cause an update to the underlying physical connection if it wasn't updated to support jumbo frames. Updating the connection disrupts network connectivity for all virtual interfaces associated with the connection for up to 30 seconds. To check whether your connection supports jumbo frames, call <a>DescribeConnections</a>. To check whether your virtual interface supports jumbo frames, call <a>DescribeVirtualInterfaces</a>.</p>",
+        "operationId": "UpdateVirtualInterfaceAttributes",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/UpdateVirtualInterfaceAttributesRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/VirtualInterface"
+            }
+          },
+          "480": {
+            "description": "DirectConnectServerException",
+            "schema": {
+              "$ref": "#/definitions/DirectConnectServerException"
+            }
+          },
+          "481": {
+            "description": "DirectConnectClientException",
+            "schema": {
+              "$ref": "#/definitions/DirectConnectClientException"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "ASN": {
+      "type": "integer"
+    },
+    "AddressFamily": {
+      "enum": [
+        "ipv4",
+        "ipv6"
+      ],
+      "type": "string"
+    },
+    "AllocateConnectionOnInterconnectRequest": {
+      "properties": {
+        "bandwidth": {
+          "$ref": "#/definitions/Bandwidth",
+          "description": "The bandwidth of the connection, in Mbps. The possible values are 50Mbps, 100Mbps, 200Mbps, 300Mbps, 400Mbps, and 500Mbps."
+        },
+        "connectionName": {
+          "$ref": "#/definitions/ConnectionName",
+          "description": "The name of the provisioned connection."
+        },
+        "interconnectId": {
+          "$ref": "#/definitions/InterconnectId",
+          "description": "The ID of the interconnect on which the connection will be provisioned. For example, dxcon-456abc78."
+        },
+        "ownerAccount": {
+          "$ref": "#/definitions/OwnerAccount",
+          "description": "The ID of the AWS account of the customer for whom the connection will be provisioned."
+        },
+        "vlan": {
+          "$ref": "#/definitions/VLAN",
+          "description": "The dedicated VLAN provisioned to the connection."
+        }
+      },
+      "required": [
+        "bandwidth",
+        "connectionName",
+        "ownerAccount",
+        "interconnectId",
+        "vlan"
+      ],
+      "type": "object"
+    },
+    "AllocateHostedConnectionRequest": {
+      "properties": {
+        "bandwidth": {
+          "$ref": "#/definitions/Bandwidth",
+          "description": "The bandwidth of the hosted connection, in Mbps. The possible values are 50Mbps, 100Mbps, 200Mbps, 300Mbps, 400Mbps, and 500Mbps."
+        },
+        "connectionId": {
+          "$ref": "#/definitions/ConnectionId",
+          "description": "The ID of the interconnect or LAG."
+        },
+        "connectionName": {
+          "$ref": "#/definitions/ConnectionName",
+          "description": "The name of the hosted connection."
+        },
+        "ownerAccount": {
+          "$ref": "#/definitions/OwnerAccount",
+          "description": "The ID of the AWS account ID of the customer for the connection."
+        },
+        "vlan": {
+          "$ref": "#/definitions/VLAN",
+          "description": "The dedicated VLAN provisioned to the hosted connection."
+        }
+      },
+      "required": [
+        "connectionId",
+        "ownerAccount",
+        "bandwidth",
+        "connectionName",
+        "vlan"
+      ],
+      "type": "object"
+    },
+    "AllocatePrivateVirtualInterfaceRequest": {
+      "properties": {
+        "connectionId": {
+          "$ref": "#/definitions/ConnectionId",
+          "description": "The ID of the connection on which the private virtual interface is provisioned."
+        },
+        "newPrivateVirtualInterfaceAllocation": {
+          "$ref": "#/definitions/NewPrivateVirtualInterfaceAllocation",
+          "description": "Information about the private virtual interface."
+        },
+        "ownerAccount": {
+          "$ref": "#/definitions/OwnerAccount",
+          "description": "The ID of the AWS account that owns the virtual private interface."
+        }
+      },
+      "required": [
+        "connectionId",
+        "ownerAccount",
+        "newPrivateVirtualInterfaceAllocation"
+      ],
+      "type": "object"
+    },
+    "AllocatePublicVirtualInterfaceRequest": {
+      "properties": {
+        "connectionId": {
+          "$ref": "#/definitions/ConnectionId",
+          "description": "The ID of the connection on which the public virtual interface is provisioned."
+        },
+        "newPublicVirtualInterfaceAllocation": {
+          "$ref": "#/definitions/NewPublicVirtualInterfaceAllocation",
+          "description": "Information about the public virtual interface."
+        },
+        "ownerAccount": {
+          "$ref": "#/definitions/OwnerAccount",
+          "description": "The ID of the AWS account that owns the public virtual interface."
+        }
+      },
+      "required": [
+        "connectionId",
+        "ownerAccount",
+        "newPublicVirtualInterfaceAllocation"
+      ],
+      "type": "object"
+    },
+    "AmazonAddress": {
+      "type": "string"
+    },
+    "AssociateConnectionWithLagRequest": {
+      "properties": {
+        "connectionId": {
+          "$ref": "#/definitions/ConnectionId",
+          "description": "The ID of the connection. For example, dxcon-abc123."
+        },
+        "lagId": {
+          "$ref": "#/definitions/LagId",
+          "description": "The ID of the LAG with which to associate the connection. For example, dxlag-abc123."
+        }
+      },
+      "required": [
+        "connectionId",
+        "lagId"
+      ],
+      "type": "object"
+    },
+    "AssociateHostedConnectionRequest": {
+      "properties": {
+        "connectionId": {
+          "$ref": "#/definitions/ConnectionId",
+          "description": "The ID of the hosted connection."
+        },
+        "parentConnectionId": {
+          "$ref": "#/definitions/ConnectionId",
+          "description": "The ID of the interconnect or the LAG."
+        }
+      },
+      "required": [
+        "connectionId",
+        "parentConnectionId"
+      ],
+      "type": "object"
+    },
+    "AssociateVirtualInterfaceRequest": {
+      "properties": {
+        "connectionId": {
+          "$ref": "#/definitions/ConnectionId",
+          "description": "The ID of the LAG or connection."
+        },
+        "virtualInterfaceId": {
+          "$ref": "#/definitions/VirtualInterfaceId",
+          "description": "The ID of the virtual interface."
+        }
+      },
+      "required": [
+        "virtualInterfaceId",
+        "connectionId"
+      ],
+      "type": "object"
+    },
+    "AwsDevice": {
+      "type": "string"
+    },
+    "AwsDeviceV2": {
+      "type": "string"
+    },
+    "BGPAuthKey": {
+      "type": "string"
+    },
+    "BGPPeer": {
+      "description": "Information about a BGP peer.",
+      "properties": {
+        "addressFamily": {
+          "$ref": "#/definitions/AddressFamily",
+          "description": "The address family for the BGP peer."
+        },
+        "amazonAddress": {
+          "$ref": "#/definitions/AmazonAddress",
+          "description": "The IP address assigned to the Amazon interface."
+        },
+        "asn": {
+          "$ref": "#/definitions/ASN",
+          "description": "The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration."
+        },
+        "authKey": {
+          "$ref": "#/definitions/BGPAuthKey",
+          "description": "The authentication key for BGP configuration."
+        },
+        "awsDeviceV2": {
+          "$ref": "#/definitions/AwsDeviceV2",
+          "description": "The Direct Connect endpoint on which the BGP peer terminates."
+        },
+        "bgpPeerId": {
+          "$ref": "#/definitions/BGPPeerId",
+          "description": "The ID of the BGP peer."
+        },
+        "bgpPeerState": {
+          "$ref": "#/definitions/BGPPeerState",
+          "description": "<p>The state of the BGP peer. The following are the possible values:</p> <ul> <li> <p> <code>verifying</code>: The BGP peering addresses or ASN require validation before the BGP peer can be created. This state applies only to public virtual interfaces.</p> </li> <li> <p> <code>pending</code>: The BGP peer is created, and remains in this state until it is ready to be established.</p> </li> <li> <p> <code>available</code>: The BGP peer is ready to be established.</p> </li> <li> <p> <code>deleting</code>: The BGP peer is being deleted.</p> </li> <li> <p> <code>deleted</code>: The BGP peer is deleted and cannot be established.</p> </li> </ul>"
+        },
+        "bgpStatus": {
+          "$ref": "#/definitions/BGPStatus",
+          "description": "<p>The status of the BGP peer. The following are the possible values:</p> <ul> <li> <p> <code>up</code>: The BGP peer is established. This state does not indicate the state of the routing function. Ensure that you are receiving routes over the BGP session.</p> </li> <li> <p> <code>down</code>: The BGP peer is down.</p> </li> <li> <p> <code>unknown</code>: The BGP peer status is unknown.</p> </li> </ul>"
+        },
+        "customerAddress": {
+          "$ref": "#/definitions/CustomerAddress",
+          "description": "The IP address assigned to the customer interface."
+        }
+      },
+      "type": "object"
+    },
+    "BGPPeerId": {
+      "type": "string"
+    },
+    "BGPPeerList": {
+      "items": {
+        "$ref": "#/definitions/BGPPeer"
+      },
+      "type": "array"
+    },
+    "BGPPeerState": {
+      "enum": [
+        "verifying",
+        "pending",
+        "available",
+        "deleting",
+        "deleted"
+      ],
+      "type": "string"
+    },
+    "BGPStatus": {
+      "enum": [
+        "up",
+        "down"
+      ],
+      "type": "string"
+    },
+    "Bandwidth": {
+      "type": "string"
+    },
+    "BooleanFlag": {
+      "type": "boolean"
+    },
+    "CIDR": {
+      "type": "string"
+    },
+    "ConfirmConnectionRequest": {
+      "properties": {
+        "connectionId": {
+          "$ref": "#/definitions/ConnectionId",
+          "description": "The ID of the hosted connection."
+        }
+      },
+      "required": [
+        "connectionId"
+      ],
+      "type": "object"
+    },
+    "ConfirmConnectionResponse": {
+      "properties": {
+        "connectionState": {
+          "$ref": "#/definitions/ConnectionState",
+          "description": "<p>The state of the connection. The following are the possible values:</p> <ul> <li> <p> <code>ordering</code>: The initial state of a hosted connection provisioned on an interconnect. The connection stays in the ordering state until the owner of the hosted connection confirms or declines the connection order.</p> </li> <li> <p> <code>requested</code>: The initial state of a standard connection. The connection stays in the requested state until the Letter of Authorization (LOA) is sent to the customer.</p> </li> <li> <p> <code>pending</code>: The connection has been approved and is being initialized.</p> </li> <li> <p> <code>available</code>: The network link is up and the connection is ready for use.</p> </li> <li> <p> <code>down</code>: The network link is down.</p> </li> <li> <p> <code>deleting</code>: The connection is being deleted.</p> </li> <li> <p> <code>deleted</code>: The connection has been deleted.</p> </li> <li> <p> <code>rejected</code>: A hosted connection in the <code>ordering</code> state enters the <code>rejected</code> state if it is deleted by the customer.</p> </li> </ul>"
+        }
+      },
+      "type": "object"
+    },
+    "ConfirmPrivateVirtualInterfaceRequest": {
+      "properties": {
+        "directConnectGatewayId": {
+          "$ref": "#/definitions/DirectConnectGatewayId",
+          "description": "The ID of the Direct Connect gateway."
+        },
+        "virtualGatewayId": {
+          "$ref": "#/definitions/VirtualGatewayId",
+          "description": "The ID of the virtual private gateway."
+        },
+        "virtualInterfaceId": {
+          "$ref": "#/definitions/VirtualInterfaceId",
+          "description": "The ID of the virtual interface."
+        }
+      },
+      "required": [
+        "virtualInterfaceId"
+      ],
+      "type": "object"
+    },
+    "ConfirmPrivateVirtualInterfaceResponse": {
+      "properties": {
+        "virtualInterfaceState": {
+          "$ref": "#/definitions/VirtualInterfaceState",
+          "description": "<p>The state of the virtual interface. The following are the possible values:</p> <ul> <li> <p> <code>confirming</code>: The creation of the virtual interface is pending confirmation from the virtual interface owner. If the owner of the virtual interface is different from the owner of the connection on which it is provisioned, then the virtual interface will remain in this state until it is confirmed by the virtual interface owner.</p> </li> <li> <p> <code>verifying</code>: This state only applies to public virtual interfaces. Each public virtual interface needs validation before the virtual interface can be created.</p> </li> <li> <p> <code>pending</code>: A virtual interface is in this state from the time that it is created until the virtual interface is ready to forward traffic.</p> </li> <li> <p> <code>available</code>: A virtual interface that is able to forward traffic.</p> </li> <li> <p> <code>down</code>: A virtual interface that is BGP down.</p> </li> <li> <p> <code>deleting</code>: A virtual interface is in this state immediately after calling <a>DeleteVirtualInterface</a> until it can no longer forward traffic.</p> </li> <li> <p> <code>deleted</code>: A virtual interface that cannot forward traffic.</p> </li> <li> <p> <code>rejected</code>: The virtual interface owner has declined creation of the virtual interface. If a virtual interface in the <code>Confirming</code> state is deleted by the virtual interface owner, the virtual interface enters the <code>Rejected</code> state.</p> </li> </ul>"
+        }
+      },
+      "type": "object"
+    },
+    "ConfirmPublicVirtualInterfaceRequest": {
+      "properties": {
+        "virtualInterfaceId": {
+          "$ref": "#/definitions/VirtualInterfaceId",
+          "description": "The ID of the virtual interface."
+        }
+      },
+      "required": [
+        "virtualInterfaceId"
+      ],
+      "type": "object"
+    },
+    "ConfirmPublicVirtualInterfaceResponse": {
+      "properties": {
+        "virtualInterfaceState": {
+          "$ref": "#/definitions/VirtualInterfaceState",
+          "description": "<p>The state of the virtual interface. The following are the possible values:</p> <ul> <li> <p> <code>confirming</code>: The creation of the virtual interface is pending confirmation from the virtual interface owner. If the owner of the virtual interface is different from the owner of the connection on which it is provisioned, then the virtual interface will remain in this state until it is confirmed by the virtual interface owner.</p> </li> <li> <p> <code>verifying</code>: This state only applies to public virtual interfaces. Each public virtual interface needs validation before the virtual interface can be created.</p> </li> <li> <p> <code>pending</code>: A virtual interface is in this state from the time that it is created until the virtual interface is ready to forward traffic.</p> </li> <li> <p> <code>available</code>: A virtual interface that is able to forward traffic.</p> </li> <li> <p> <code>down</code>: A virtual interface that is BGP down.</p> </li> <li> <p> <code>deleting</code>: A virtual interface is in this state immediately after calling <a>DeleteVirtualInterface</a> until it can no longer forward traffic.</p> </li> <li> <p> <code>deleted</code>: A virtual interface that cannot forward traffic.</p> </li> <li> <p> <code>rejected</code>: The virtual interface owner has declined creation of the virtual interface. If a virtual interface in the <code>Confirming</code> state is deleted by the virtual interface owner, the virtual interface enters the <code>Rejected</code> state.</p> </li> </ul>"
+        }
+      },
+      "type": "object"
+    },
+    "Connection": {
+      "description": "Information about an AWS Direct Connect connection.",
+      "properties": {
+        "awsDevice": {
+          "$ref": "#/definitions/AwsDevice",
+          "description": "The Direct Connect endpoint on which the physical connection terminates."
+        },
+        "awsDeviceV2": {
+          "$ref": "#/definitions/AwsDeviceV2",
+          "description": "The Direct Connect endpoint on which the physical connection terminates."
+        },
+        "bandwidth": {
+          "$ref": "#/definitions/Bandwidth",
+          "description": "The bandwidth of the connection."
+        },
+        "connectionId": {
+          "$ref": "#/definitions/ConnectionId",
+          "description": "The ID of the connection."
+        },
+        "connectionName": {
+          "$ref": "#/definitions/ConnectionName",
+          "description": "The name of the connection."
+        },
+        "connectionState": {
+          "$ref": "#/definitions/ConnectionState",
+          "description": "<p>The state of the connection. The following are the possible values:</p> <ul> <li> <p> <code>ordering</code>: The initial state of a hosted connection provisioned on an interconnect. The connection stays in the ordering state until the owner of the hosted connection confirms or declines the connection order.</p> </li> <li> <p> <code>requested</code>: The initial state of a standard connection. The connection stays in the requested state until the Letter of Authorization (LOA) is sent to the customer.</p> </li> <li> <p> <code>pending</code>: The connection has been approved and is being initialized.</p> </li> <li> <p> <code>available</code>: The network link is up and the connection is ready for use.</p> </li> <li> <p> <code>down</code>: The network link is down.</p> </li> <li> <p> <code>deleting</code>: The connection is being deleted.</p> </li> <li> <p> <code>deleted</code>: The connection has been deleted.</p> </li> <li> <p> <code>rejected</code>: A hosted connection in the <code>ordering</code> state enters the <code>rejected</code> state if it is deleted by the customer.</p> </li> </ul>"
+        },
+        "hasLogicalRedundancy": {
+          "$ref": "#/definitions/HasLogicalRedundancy",
+          "description": "Indicates whether the connection supports a secondary BGP peer in the same address family (IPv4/IPv6)."
+        },
+        "jumboFrameCapable": {
+          "$ref": "#/definitions/JumboFrameCapable",
+          "description": "Indicates whether jumbo frames (9001 MTU) are supported."
+        },
+        "lagId": {
+          "$ref": "#/definitions/LagId",
+          "description": "The ID of the LAG."
+        },
+        "loaIssueTime": {
+          "$ref": "#/definitions/LoaIssueTime",
+          "description": "The time of the most recent call to <a>DescribeLoa</a> for this connection."
+        },
+        "location": {
+          "$ref": "#/definitions/LocationCode",
+          "description": "The location of the connection."
+        },
+        "ownerAccount": {
+          "$ref": "#/definitions/OwnerAccount",
+          "description": "The ID of the AWS account that owns the connection."
+        },
+        "partnerName": {
+          "$ref": "#/definitions/PartnerName",
+          "description": "The name of the AWS Direct Connect service provider associated with the connection."
+        },
+        "region": {
+          "$ref": "#/definitions/Region",
+          "description": "The AWS Region where the connection is located."
+        },
+        "vlan": {
+          "$ref": "#/definitions/VLAN",
+          "description": "The ID of the VLAN."
+        }
+      },
+      "type": "object"
+    },
+    "ConnectionId": {
+      "type": "string"
+    },
+    "ConnectionList": {
+      "items": {
+        "$ref": "#/definitions/Connection"
+      },
+      "type": "array"
+    },
+    "ConnectionName": {
+      "type": "string"
+    },
+    "ConnectionState": {
+      "enum": [
+        "ordering",
+        "requested",
+        "pending",
+        "available",
+        "down",
+        "deleting",
+        "deleted",
+        "rejected"
+      ],
+      "type": "string"
+    },
+    "Connections": {
+      "properties": {
+        "connections": {
+          "$ref": "#/definitions/ConnectionList",
+          "description": "The connections."
+        }
+      },
+      "type": "object"
+    },
+    "Count": {
+      "type": "integer"
+    },
+    "CreateBGPPeerRequest": {
+      "properties": {
+        "newBGPPeer": {
+          "$ref": "#/definitions/NewBGPPeer",
+          "description": "Information about the BGP peer."
+        },
+        "virtualInterfaceId": {
+          "$ref": "#/definitions/VirtualInterfaceId",
+          "description": "The ID of the virtual interface."
+        }
+      },
+      "type": "object"
+    },
+    "CreateBGPPeerResponse": {
+      "properties": {
+        "virtualInterface": {
+          "$ref": "#/definitions/VirtualInterface",
+          "description": "The virtual interface."
+        }
+      },
+      "type": "object"
+    },
+    "CreateConnectionRequest": {
+      "properties": {
+        "bandwidth": {
+          "$ref": "#/definitions/Bandwidth",
+          "description": "The bandwidth of the connection."
+        },
+        "connectionName": {
+          "$ref": "#/definitions/ConnectionName",
+          "description": "The name of the connection."
+        },
+        "lagId": {
+          "$ref": "#/definitions/LagId",
+          "description": "The ID of the LAG."
+        },
+        "location": {
+          "$ref": "#/definitions/LocationCode",
+          "description": "The location of the connection."
+        }
+      },
+      "required": [
+        "location",
+        "bandwidth",
+        "connectionName"
+      ],
+      "type": "object"
+    },
+    "CreateDirectConnectGatewayAssociationRequest": {
+      "properties": {
+        "directConnectGatewayId": {
+          "$ref": "#/definitions/DirectConnectGatewayId",
+          "description": "The ID of the Direct Connect gateway."
+        },
+        "virtualGatewayId": {
+          "$ref": "#/definitions/VirtualGatewayId",
+          "description": "The ID of the virtual private gateway."
+        }
+      },
+      "required": [
+        "directConnectGatewayId",
+        "virtualGatewayId"
+      ],
+      "type": "object"
+    },
+    "CreateDirectConnectGatewayAssociationResult": {
+      "properties": {
+        "directConnectGatewayAssociation": {
+          "$ref": "#/definitions/DirectConnectGatewayAssociation",
+          "description": "The association to be created."
+        }
+      },
+      "type": "object"
+    },
+    "CreateDirectConnectGatewayRequest": {
+      "properties": {
+        "amazonSideAsn": {
+          "$ref": "#/definitions/LongAsn",
+          "description": "The autonomous system number (ASN) for Border Gateway Protocol (BGP) to be configured on the Amazon side of the connection. The ASN must be in the private range of 64,512 to 65,534 or 4,200,000,000 to 4,294,967,294. The default is 64512."
+        },
+        "directConnectGatewayName": {
+          "$ref": "#/definitions/DirectConnectGatewayName",
+          "description": "The name of the Direct Connect gateway."
+        }
+      },
+      "required": [
+        "directConnectGatewayName"
+      ],
+      "type": "object"
+    },
+    "CreateDirectConnectGatewayResult": {
+      "properties": {
+        "directConnectGateway": {
+          "$ref": "#/definitions/DirectConnectGateway",
+          "description": "The Direct Connect gateway."
+        }
+      },
+      "type": "object"
+    },
+    "CreateInterconnectRequest": {
+      "properties": {
+        "bandwidth": {
+          "$ref": "#/definitions/Bandwidth",
+          "description": "The port bandwidth, in Gbps. The possible values are 1 and 10."
+        },
+        "interconnectName": {
+          "$ref": "#/definitions/InterconnectName",
+          "description": "The name of the interconnect."
+        },
+        "lagId": {
+          "$ref": "#/definitions/LagId",
+          "description": "The ID of the LAG."
+        },
+        "location": {
+          "$ref": "#/definitions/LocationCode",
+          "description": "The location of the interconnect."
+        }
+      },
+      "required": [
+        "interconnectName",
+        "bandwidth",
+        "location"
+      ],
+      "type": "object"
+    },
+    "CreateLagRequest": {
+      "properties": {
+        "connectionId": {
+          "$ref": "#/definitions/ConnectionId",
+          "description": "The ID of an existing connection to migrate to the LAG."
+        },
+        "connectionsBandwidth": {
+          "$ref": "#/definitions/Bandwidth",
+          "description": "The bandwidth of the individual physical connections bundled by the LAG. The possible values are 1Gbps and 10Gbps."
+        },
+        "lagName": {
+          "$ref": "#/definitions/LagName",
+          "description": "The name of the LAG."
+        },
+        "location": {
+          "$ref": "#/definitions/LocationCode",
+          "description": "The location for the LAG."
+        },
+        "numberOfConnections": {
+          "$ref": "#/definitions/Count",
+          "description": "The number of physical connections initially provisioned and bundled by the LAG."
+        }
+      },
+      "required": [
+        "numberOfConnections",
+        "location",
+        "connectionsBandwidth",
+        "lagName"
+      ],
+      "type": "object"
+    },
+    "CreatePrivateVirtualInterfaceRequest": {
+      "properties": {
+        "connectionId": {
+          "$ref": "#/definitions/ConnectionId",
+          "description": "The ID of the connection."
+        },
+        "newPrivateVirtualInterface": {
+          "$ref": "#/definitions/NewPrivateVirtualInterface",
+          "description": "Information about the private virtual interface."
+        }
+      },
+      "required": [
+        "connectionId",
+        "newPrivateVirtualInterface"
+      ],
+      "type": "object"
+    },
+    "CreatePublicVirtualInterfaceRequest": {
+      "properties": {
+        "connectionId": {
+          "$ref": "#/definitions/ConnectionId",
+          "description": "The ID of the connection."
+        },
+        "newPublicVirtualInterface": {
+          "$ref": "#/definitions/NewPublicVirtualInterface",
+          "description": "Information about the public virtual interface."
+        }
+      },
+      "required": [
+        "connectionId",
+        "newPublicVirtualInterface"
+      ],
+      "type": "object"
+    },
+    "CustomerAddress": {
+      "type": "string"
+    },
+    "DeleteBGPPeerRequest": {
+      "properties": {
+        "asn": {
+          "$ref": "#/definitions/ASN",
+          "description": "The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration."
+        },
+        "bgpPeerId": {
+          "$ref": "#/definitions/BGPPeerId",
+          "description": "The ID of the BGP peer."
+        },
+        "customerAddress": {
+          "$ref": "#/definitions/CustomerAddress",
+          "description": "The IP address assigned to the customer interface."
+        },
+        "virtualInterfaceId": {
+          "$ref": "#/definitions/VirtualInterfaceId",
+          "description": "The ID of the virtual interface."
+        }
+      },
+      "type": "object"
+    },
+    "DeleteBGPPeerResponse": {
+      "properties": {
+        "virtualInterface": {
+          "$ref": "#/definitions/VirtualInterface",
+          "description": "The virtual interface."
+        }
+      },
+      "type": "object"
+    },
+    "DeleteConnectionRequest": {
+      "properties": {
+        "connectionId": {
+          "$ref": "#/definitions/ConnectionId",
+          "description": "The ID of the connection."
+        }
+      },
+      "required": [
+        "connectionId"
+      ],
+      "type": "object"
+    },
+    "DeleteDirectConnectGatewayAssociationRequest": {
+      "properties": {
+        "directConnectGatewayId": {
+          "$ref": "#/definitions/DirectConnectGatewayId",
+          "description": "The ID of the Direct Connect gateway."
+        },
+        "virtualGatewayId": {
+          "$ref": "#/definitions/VirtualGatewayId",
+          "description": "The ID of the virtual private gateway."
+        }
+      },
+      "required": [
+        "directConnectGatewayId",
+        "virtualGatewayId"
+      ],
+      "type": "object"
+    },
+    "DeleteDirectConnectGatewayAssociationResult": {
+      "properties": {
+        "directConnectGatewayAssociation": {
+          "$ref": "#/definitions/DirectConnectGatewayAssociation",
+          "description": "The association to be deleted."
+        }
+      },
+      "type": "object"
+    },
+    "DeleteDirectConnectGatewayRequest": {
+      "properties": {
+        "directConnectGatewayId": {
+          "$ref": "#/definitions/DirectConnectGatewayId",
+          "description": "The ID of the Direct Connect gateway."
+        }
+      },
+      "required": [
+        "directConnectGatewayId"
+      ],
+      "type": "object"
+    },
+    "DeleteDirectConnectGatewayResult": {
+      "properties": {
+        "directConnectGateway": {
+          "$ref": "#/definitions/DirectConnectGateway",
+          "description": "The Direct Connect gateway."
+        }
+      },
+      "type": "object"
+    },
+    "DeleteInterconnectRequest": {
+      "properties": {
+        "interconnectId": {
+          "$ref": "#/definitions/InterconnectId",
+          "description": "The ID of the interconnect."
+        }
+      },
+      "required": [
+        "interconnectId"
+      ],
+      "type": "object"
+    },
+    "DeleteInterconnectResponse": {
+      "properties": {
+        "interconnectState": {
+          "$ref": "#/definitions/InterconnectState",
+          "description": "<p>The state of the interconnect. The following are the possible values:</p> <ul> <li> <p> <code>requested</code>: The initial state of an interconnect. The interconnect stays in the requested state until the Letter of Authorization (LOA) is sent to the customer.</p> </li> <li> <p> <code>pending</code>: The interconnect is approved, and is being initialized.</p> </li> <li> <p> <code>available</code>: The network link is up, and the interconnect is ready for use.</p> </li> <li> <p> <code>down</code>: The network link is down.</p> </li> <li> <p> <code>deleting</code>: The interconnect is being deleted.</p> </li> <li> <p> <code>deleted</code>: The interconnect is deleted.</p> </li> </ul>"
+        }
+      },
+      "type": "object"
+    },
+    "DeleteLagRequest": {
+      "properties": {
+        "lagId": {
+          "$ref": "#/definitions/LagId",
+          "description": "The ID of the LAG."
+        }
+      },
+      "required": [
+        "lagId"
+      ],
+      "type": "object"
+    },
+    "DeleteVirtualInterfaceRequest": {
+      "properties": {
+        "virtualInterfaceId": {
+          "$ref": "#/definitions/VirtualInterfaceId",
+          "description": "The ID of the virtual interface."
+        }
+      },
+      "required": [
+        "virtualInterfaceId"
+      ],
+      "type": "object"
+    },
+    "DeleteVirtualInterfaceResponse": {
+      "properties": {
+        "virtualInterfaceState": {
+          "$ref": "#/definitions/VirtualInterfaceState",
+          "description": "<p>The state of the virtual interface. The following are the possible values:</p> <ul> <li> <p> <code>confirming</code>: The creation of the virtual interface is pending confirmation from the virtual interface owner. If the owner of the virtual interface is different from the owner of the connection on which it is provisioned, then the virtual interface will remain in this state until it is confirmed by the virtual interface owner.</p> </li> <li> <p> <code>verifying</code>: This state only applies to public virtual interfaces. Each public virtual interface needs validation before the virtual interface can be created.</p> </li> <li> <p> <code>pending</code>: A virtual interface is in this state from the time that it is created until the virtual interface is ready to forward traffic.</p> </li> <li> <p> <code>available</code>: A virtual interface that is able to forward traffic.</p> </li> <li> <p> <code>down</code>: A virtual interface that is BGP down.</p> </li> <li> <p> <code>deleting</code>: A virtual interface is in this state immediately after calling <a>DeleteVirtualInterface</a> until it can no longer forward traffic.</p> </li> <li> <p> <code>deleted</code>: A virtual interface that cannot forward traffic.</p> </li> <li> <p> <code>rejected</code>: The virtual interface owner has declined creation of the virtual interface. If a virtual interface in the <code>Confirming</code> state is deleted by the virtual interface owner, the virtual interface enters the <code>Rejected</code> state.</p> </li> </ul>"
+        }
+      },
+      "type": "object"
+    },
+    "DescribeConnectionLoaRequest": {
+      "properties": {
+        "connectionId": {
+          "$ref": "#/definitions/ConnectionId",
+          "description": "The ID of the connection."
+        },
+        "loaContentType": {
+          "$ref": "#/definitions/LoaContentType",
+          "description": "The standard media type for the LOA-CFA document. The only supported value is application/pdf."
+        },
+        "providerName": {
+          "$ref": "#/definitions/ProviderName",
+          "description": "The name of the APN partner or service provider who establishes connectivity on your behalf. If you specify this parameter, the LOA-CFA lists the provider name alongside your company name as the requester of the cross connect."
+        }
+      },
+      "required": [
+        "connectionId"
+      ],
+      "type": "object"
+    },
+    "DescribeConnectionLoaResponse": {
+      "properties": {
+        "loa": {
+          "$ref": "#/definitions/Loa",
+          "description": "The Letter of Authorization - Connecting Facility Assignment (LOA-CFA)."
+        }
+      },
+      "type": "object"
+    },
+    "DescribeConnectionsOnInterconnectRequest": {
+      "properties": {
+        "interconnectId": {
+          "$ref": "#/definitions/InterconnectId",
+          "description": "The ID of the interconnect."
+        }
+      },
+      "required": [
+        "interconnectId"
+      ],
+      "type": "object"
+    },
+    "DescribeConnectionsRequest": {
+      "properties": {
+        "connectionId": {
+          "$ref": "#/definitions/ConnectionId",
+          "description": "The ID of the connection."
+        }
+      },
+      "type": "object"
+    },
+    "DescribeDirectConnectGatewayAssociationsRequest": {
+      "properties": {
+        "directConnectGatewayId": {
+          "$ref": "#/definitions/DirectConnectGatewayId",
+          "description": "The ID of the Direct Connect gateway."
+        },
+        "maxResults": {
+          "$ref": "#/definitions/MaxResultSetSize",
+          "description": "The maximum number of associations to return per page."
+        },
+        "nextToken": {
+          "$ref": "#/definitions/PaginationToken",
+          "description": "The token provided in the previous call to retrieve the next page."
+        },
+        "virtualGatewayId": {
+          "$ref": "#/definitions/VirtualGatewayId",
+          "description": "The ID of the virtual private gateway."
+        }
+      },
+      "type": "object"
+    },
+    "DescribeDirectConnectGatewayAssociationsResult": {
+      "properties": {
+        "directConnectGatewayAssociations": {
+          "$ref": "#/definitions/DirectConnectGatewayAssociationList",
+          "description": "The associations."
+        },
+        "nextToken": {
+          "$ref": "#/definitions/PaginationToken",
+          "description": "The token to retrieve the next page."
+        }
+      },
+      "type": "object"
+    },
+    "DescribeDirectConnectGatewayAttachmentsRequest": {
+      "properties": {
+        "directConnectGatewayId": {
+          "$ref": "#/definitions/DirectConnectGatewayId",
+          "description": "The ID of the Direct Connect gateway."
+        },
+        "maxResults": {
+          "$ref": "#/definitions/MaxResultSetSize",
+          "description": "The maximum number of attachments to return per page."
+        },
+        "nextToken": {
+          "$ref": "#/definitions/PaginationToken",
+          "description": "The token provided in the previous call to retrieve the next page."
+        },
+        "virtualInterfaceId": {
+          "$ref": "#/definitions/VirtualInterfaceId",
+          "description": "The ID of the virtual interface."
+        }
+      },
+      "type": "object"
+    },
+    "DescribeDirectConnectGatewayAttachmentsResult": {
+      "properties": {
+        "directConnectGatewayAttachments": {
+          "$ref": "#/definitions/DirectConnectGatewayAttachmentList",
+          "description": "The attachments."
+        },
+        "nextToken": {
+          "$ref": "#/definitions/PaginationToken",
+          "description": "The token to retrieve the next page."
+        }
+      },
+      "type": "object"
+    },
+    "DescribeDirectConnectGatewaysRequest": {
+      "properties": {
+        "directConnectGatewayId": {
+          "$ref": "#/definitions/DirectConnectGatewayId",
+          "description": "The ID of the Direct Connect gateway."
+        },
+        "maxResults": {
+          "$ref": "#/definitions/MaxResultSetSize",
+          "description": "The maximum number of Direct Connect gateways to return per page."
+        },
+        "nextToken": {
+          "$ref": "#/definitions/PaginationToken",
+          "description": "The token provided in the previous call to retrieve the next page."
+        }
+      },
+      "type": "object"
+    },
+    "DescribeDirectConnectGatewaysResult": {
+      "properties": {
+        "directConnectGateways": {
+          "$ref": "#/definitions/DirectConnectGatewayList",
+          "description": "The Direct Connect gateways."
+        },
+        "nextToken": {
+          "$ref": "#/definitions/PaginationToken",
+          "description": "The token to retrieve the next page."
+        }
+      },
+      "type": "object"
+    },
+    "DescribeHostedConnectionsRequest": {
+      "properties": {
+        "connectionId": {
+          "$ref": "#/definitions/ConnectionId",
+          "description": "The ID of the interconnect or LAG."
+        }
+      },
+      "required": [
+        "connectionId"
+      ],
+      "type": "object"
+    },
+    "DescribeInterconnectLoaRequest": {
+      "properties": {
+        "interconnectId": {
+          "$ref": "#/definitions/InterconnectId",
+          "description": "The ID of the interconnect."
+        },
+        "loaContentType": {
+          "$ref": "#/definitions/LoaContentType",
+          "description": "The standard media type for the LOA-CFA document. The only supported value is application/pdf."
+        },
+        "providerName": {
+          "$ref": "#/definitions/ProviderName",
+          "description": "The name of the service provider who establishes connectivity on your behalf. If you supply this parameter, the LOA-CFA lists the provider name alongside your company name as the requester of the cross connect."
+        }
+      },
+      "required": [
+        "interconnectId"
+      ],
+      "type": "object"
+    },
+    "DescribeInterconnectLoaResponse": {
+      "properties": {
+        "loa": {
+          "$ref": "#/definitions/Loa",
+          "description": "The Letter of Authorization - Connecting Facility Assignment (LOA-CFA)."
+        }
+      },
+      "type": "object"
+    },
+    "DescribeInterconnectsRequest": {
+      "properties": {
+        "interconnectId": {
+          "$ref": "#/definitions/InterconnectId",
+          "description": "The ID of the interconnect."
+        }
+      },
+      "type": "object"
+    },
+    "DescribeLagsRequest": {
+      "properties": {
+        "lagId": {
+          "$ref": "#/definitions/LagId",
+          "description": "The ID of the LAG."
+        }
+      },
+      "type": "object"
+    },
+    "DescribeLoaRequest": {
+      "properties": {
+        "connectionId": {
+          "$ref": "#/definitions/ConnectionId",
+          "description": "The ID of a connection, LAG, or interconnect."
+        },
+        "loaContentType": {
+          "$ref": "#/definitions/LoaContentType",
+          "description": "The standard media type for the LOA-CFA document. The only supported value is application/pdf."
+        },
+        "providerName": {
+          "$ref": "#/definitions/ProviderName",
+          "description": "The name of the service provider who establishes connectivity on your behalf. If you specify this parameter, the LOA-CFA lists the provider name alongside your company name as the requester of the cross connect."
+        }
+      },
+      "required": [
+        "connectionId"
+      ],
+      "type": "object"
+    },
+    "DescribeTagsRequest": {
+      "properties": {
+        "resourceArns": {
+          "$ref": "#/definitions/ResourceArnList",
+          "description": "The Amazon Resource Names (ARNs) of the resources."
+        }
+      },
+      "required": [
+        "resourceArns"
+      ],
+      "type": "object"
+    },
+    "DescribeTagsResponse": {
+      "properties": {
+        "resourceTags": {
+          "$ref": "#/definitions/ResourceTagList",
+          "description": "Information about the tags."
+        }
+      },
+      "type": "object"
+    },
+    "DescribeVirtualInterfacesRequest": {
+      "properties": {
+        "connectionId": {
+          "$ref": "#/definitions/ConnectionId",
+          "description": "The ID of the connection."
+        },
+        "virtualInterfaceId": {
+          "$ref": "#/definitions/VirtualInterfaceId",
+          "description": "The ID of the virtual interface."
+        }
+      },
+      "type": "object"
+    },
+    "DirectConnectClientException": {},
+    "DirectConnectGateway": {
+      "description": "Information about a Direct Connect gateway, which enables you to connect virtual interfaces and virtual private gateways.",
+      "properties": {
+        "amazonSideAsn": {
+          "$ref": "#/definitions/LongAsn",
+          "description": "The autonomous system number (ASN) for the Amazon side of the connection."
+        },
+        "directConnectGatewayId": {
+          "$ref": "#/definitions/DirectConnectGatewayId",
+          "description": "The ID of the Direct Connect gateway."
+        },
+        "directConnectGatewayName": {
+          "$ref": "#/definitions/DirectConnectGatewayName",
+          "description": "The name of the Direct Connect gateway."
+        },
+        "directConnectGatewayState": {
+          "$ref": "#/definitions/DirectConnectGatewayState",
+          "description": "<p>The state of the Direct Connect gateway. The following are the possible values:</p> <ul> <li> <p> <code>pending</code>: The initial state after calling <a>CreateDirectConnectGateway</a>.</p> </li> <li> <p> <code>available</code>: The Direct Connect gateway is ready for use.</p> </li> <li> <p> <code>deleting</code>: The initial state after calling <a>DeleteDirectConnectGateway</a>.</p> </li> <li> <p> <code>deleted</code>: The Direct Connect gateway is deleted and cannot pass traffic.</p> </li> </ul>"
+        },
+        "ownerAccount": {
+          "$ref": "#/definitions/OwnerAccount",
+          "description": "The ID of the AWS account that owns the Direct Connect gateway."
+        },
+        "stateChangeError": {
+          "$ref": "#/definitions/StateChangeError",
+          "description": "The error message if the state of an object failed to advance."
+        }
+      },
+      "type": "object"
+    },
+    "DirectConnectGatewayAssociation": {
+      "description": "Information about an association between a Direct Connect gateway and a virtual private gateway.",
+      "properties": {
+        "associationState": {
+          "$ref": "#/definitions/DirectConnectGatewayAssociationState",
+          "description": "<p>The state of the association. The following are the possible values:</p> <ul> <li> <p> <code>associating</code>: The initial state after calling <a>CreateDirectConnectGatewayAssociation</a>.</p> </li> <li> <p> <code>associated</code>: The Direct Connect gateway and virtual private gateway are successfully associated and ready to pass traffic.</p> </li> <li> <p> <code>disassociating</code>: The initial state after calling <a>DeleteDirectConnectGatewayAssociation</a>.</p> </li> <li> <p> <code>disassociated</code>: The virtual private gateway is disassociated from the Direct Connect gateway. Traffic flow between the Direct Connect gateway and virtual private gateway is stopped.</p> </li> </ul>"
+        },
+        "directConnectGatewayId": {
+          "$ref": "#/definitions/DirectConnectGatewayId",
+          "description": "The ID of the Direct Connect gateway."
+        },
+        "stateChangeError": {
+          "$ref": "#/definitions/StateChangeError",
+          "description": "The error message if the state of an object failed to advance."
+        },
+        "virtualGatewayId": {
+          "$ref": "#/definitions/VirtualGatewayId",
+          "description": "The ID of the virtual private gateway. Applies only to private virtual interfaces."
+        },
+        "virtualGatewayOwnerAccount": {
+          "$ref": "#/definitions/OwnerAccount",
+          "description": "The ID of the AWS account that owns the virtual private gateway."
+        },
+        "virtualGatewayRegion": {
+          "$ref": "#/definitions/VirtualGatewayRegion",
+          "description": "The AWS Region where the virtual private gateway is located."
+        }
+      },
+      "type": "object"
+    },
+    "DirectConnectGatewayAssociationList": {
+      "items": {
+        "$ref": "#/definitions/DirectConnectGatewayAssociation"
+      },
+      "type": "array"
+    },
+    "DirectConnectGatewayAssociationState": {
+      "enum": [
+        "associating",
+        "associated",
+        "disassociating",
+        "disassociated"
+      ],
+      "type": "string"
+    },
+    "DirectConnectGatewayAttachment": {
+      "description": "Information about an attachment between a Direct Connect gateway and a virtual interface.",
+      "properties": {
+        "attachmentState": {
+          "$ref": "#/definitions/DirectConnectGatewayAttachmentState",
+          "description": "<p>The state of the attachment. The following are the possible values:</p> <ul> <li> <p> <code>attaching</code>: The initial state after a virtual interface is created using the Direct Connect gateway.</p> </li> <li> <p> <code>attached</code>: The Direct Connect gateway and virtual interface are attached and ready to pass traffic.</p> </li> <li> <p> <code>detaching</code>: The initial state after calling <a>DeleteVirtualInterface</a>.</p> </li> <li> <p> <code>detached</code>: The virtual interface is detached from the Direct Connect gateway. Traffic flow between the Direct Connect gateway and virtual interface is stopped.</p> </li> </ul>"
+        },
+        "directConnectGatewayId": {
+          "$ref": "#/definitions/DirectConnectGatewayId",
+          "description": "The ID of the Direct Connect gateway."
+        },
+        "stateChangeError": {
+          "$ref": "#/definitions/StateChangeError",
+          "description": "The error message if the state of an object failed to advance."
+        },
+        "virtualInterfaceId": {
+          "$ref": "#/definitions/VirtualInterfaceId",
+          "description": "The ID of the virtual interface."
+        },
+        "virtualInterfaceOwnerAccount": {
+          "$ref": "#/definitions/OwnerAccount",
+          "description": "The ID of the AWS account that owns the virtual interface."
+        },
+        "virtualInterfaceRegion": {
+          "$ref": "#/definitions/VirtualInterfaceRegion",
+          "description": "The AWS Region where the virtual interface is located."
+        }
+      },
+      "type": "object"
+    },
+    "DirectConnectGatewayAttachmentList": {
+      "items": {
+        "$ref": "#/definitions/DirectConnectGatewayAttachment"
+      },
+      "type": "array"
+    },
+    "DirectConnectGatewayAttachmentState": {
+      "enum": [
+        "attaching",
+        "attached",
+        "detaching",
+        "detached"
+      ],
+      "type": "string"
+    },
+    "DirectConnectGatewayId": {
+      "type": "string"
+    },
+    "DirectConnectGatewayList": {
+      "items": {
+        "$ref": "#/definitions/DirectConnectGateway"
+      },
+      "type": "array"
+    },
+    "DirectConnectGatewayName": {
+      "type": "string"
+    },
+    "DirectConnectGatewayState": {
+      "enum": [
+        "pending",
+        "available",
+        "deleting",
+        "deleted"
+      ],
+      "type": "string"
+    },
+    "DirectConnectServerException": {},
+    "DisassociateConnectionFromLagRequest": {
+      "properties": {
+        "connectionId": {
+          "$ref": "#/definitions/ConnectionId",
+          "description": "The ID of the connection. For example, dxcon-abc123."
+        },
+        "lagId": {
+          "$ref": "#/definitions/LagId",
+          "description": "The ID of the LAG. For example, dxlag-abc123."
+        }
+      },
+      "required": [
+        "connectionId",
+        "lagId"
+      ],
+      "type": "object"
+    },
+    "DuplicateTagKeysException": {},
+    "HasLogicalRedundancy": {
+      "enum": [
+        "unknown",
+        "yes",
+        "no"
+      ],
+      "type": "string"
+    },
+    "Interconnect": {
+      "description": "Information about an interconnect.",
+      "properties": {
+        "awsDevice": {
+          "$ref": "#/definitions/AwsDevice",
+          "description": "The Direct Connect endpoint on which the physical connection terminates."
+        },
+        "awsDeviceV2": {
+          "$ref": "#/definitions/AwsDeviceV2",
+          "description": "The Direct Connect endpoint on which the physical connection terminates."
+        },
+        "bandwidth": {
+          "$ref": "#/definitions/Bandwidth",
+          "description": "The bandwidth of the connection."
+        },
+        "hasLogicalRedundancy": {
+          "$ref": "#/definitions/HasLogicalRedundancy",
+          "description": "Indicates whether the interconnect supports a secondary BGP in the same address family (IPv4/IPv6)."
+        },
+        "interconnectId": {
+          "$ref": "#/definitions/InterconnectId",
+          "description": "The ID of the interconnect."
+        },
+        "interconnectName": {
+          "$ref": "#/definitions/InterconnectName",
+          "description": "The name of the interconnect."
+        },
+        "interconnectState": {
+          "$ref": "#/definitions/InterconnectState",
+          "description": "<p>The state of the interconnect. The following are the possible values:</p> <ul> <li> <p> <code>requested</code>: The initial state of an interconnect. The interconnect stays in the requested state until the Letter of Authorization (LOA) is sent to the customer.</p> </li> <li> <p> <code>pending</code>: The interconnect is approved, and is being initialized.</p> </li> <li> <p> <code>available</code>: The network link is up, and the interconnect is ready for use.</p> </li> <li> <p> <code>down</code>: The network link is down.</p> </li> <li> <p> <code>deleting</code>: The interconnect is being deleted.</p> </li> <li> <p> <code>deleted</code>: The interconnect is deleted.</p> </li> </ul>"
+        },
+        "jumboFrameCapable": {
+          "$ref": "#/definitions/JumboFrameCapable",
+          "description": "Indicates whether jumbo frames (9001 MTU) are supported."
+        },
+        "lagId": {
+          "$ref": "#/definitions/LagId",
+          "description": "The ID of the LAG."
+        },
+        "loaIssueTime": {
+          "$ref": "#/definitions/LoaIssueTime",
+          "description": "The time of the most recent call to <a>DescribeLoa</a> for this connection."
+        },
+        "location": {
+          "$ref": "#/definitions/LocationCode",
+          "description": "The location of the connection."
+        },
+        "region": {
+          "$ref": "#/definitions/Region",
+          "description": "The AWS Region where the connection is located."
+        }
+      },
+      "type": "object"
+    },
+    "InterconnectId": {
+      "type": "string"
+    },
+    "InterconnectList": {
+      "items": {
+        "$ref": "#/definitions/Interconnect"
+      },
+      "type": "array"
+    },
+    "InterconnectName": {
+      "type": "string"
+    },
+    "InterconnectState": {
+      "enum": [
+        "requested",
+        "pending",
+        "available",
+        "down",
+        "deleting",
+        "deleted"
+      ],
+      "type": "string"
+    },
+    "Interconnects": {
+      "properties": {
+        "interconnects": {
+          "$ref": "#/definitions/InterconnectList",
+          "description": "The interconnects."
+        }
+      },
+      "type": "object"
+    },
+    "JumboFrameCapable": {
+      "type": "boolean"
+    },
+    "Lag": {
+      "description": "Information about a link aggregation group (LAG).",
+      "properties": {
+        "allowsHostedConnections": {
+          "$ref": "#/definitions/BooleanFlag",
+          "description": "Indicates whether the LAG can host other connections."
+        },
+        "awsDevice": {
+          "$ref": "#/definitions/AwsDevice",
+          "description": "The Direct Connect endpoint that hosts the LAG."
+        },
+        "awsDeviceV2": {
+          "$ref": "#/definitions/AwsDeviceV2",
+          "description": "The Direct Connect endpoint that hosts the LAG."
+        },
+        "connections": {
+          "$ref": "#/definitions/ConnectionList",
+          "description": "The connections bundled by the LAG."
+        },
+        "connectionsBandwidth": {
+          "$ref": "#/definitions/Bandwidth",
+          "description": "The individual bandwidth of the physical connections bundled by the LAG. The possible values are 1Gbps and 10Gbps."
+        },
+        "hasLogicalRedundancy": {
+          "$ref": "#/definitions/HasLogicalRedundancy",
+          "description": "Indicates whether the LAG supports a secondary BGP peer in the same address family (IPv4/IPv6)."
+        },
+        "jumboFrameCapable": {
+          "$ref": "#/definitions/JumboFrameCapable",
+          "description": "Indicates whether jumbo frames (9001 MTU) are supported."
+        },
+        "lagId": {
+          "$ref": "#/definitions/LagId",
+          "description": "The ID of the LAG."
+        },
+        "lagName": {
+          "$ref": "#/definitions/LagName",
+          "description": "The name of the LAG."
+        },
+        "lagState": {
+          "$ref": "#/definitions/LagState",
+          "description": "<p>The state of the LAG. The following are the possible values:</p> <ul> <li> <p> <code>requested</code>: The initial state of a LAG. The LAG stays in the requested state until the Letter of Authorization (LOA) is available.</p> </li> <li> <p> <code>pending</code>: The LAG has been approved and is being initialized.</p> </li> <li> <p> <code>available</code>: The network link is established and the LAG is ready for use.</p> </li> <li> <p> <code>down</code>: The network link is down.</p> </li> <li> <p> <code>deleting</code>: The LAG is being deleted.</p> </li> <li> <p> <code>deleted</code>: The LAG is deleted.</p> </li> </ul>"
+        },
+        "location": {
+          "$ref": "#/definitions/LocationCode",
+          "description": "The location of the LAG."
+        },
+        "minimumLinks": {
+          "$ref": "#/definitions/Count",
+          "description": "The minimum number of physical connections that must be operational for the LAG itself to be operational."
+        },
+        "numberOfConnections": {
+          "$ref": "#/definitions/Count",
+          "description": "The number of physical connections bundled by the LAG, up to a maximum of 10."
+        },
+        "ownerAccount": {
+          "$ref": "#/definitions/OwnerAccount",
+          "description": "The ID of the AWS account that owns the LAG."
+        },
+        "region": {
+          "$ref": "#/definitions/Region",
+          "description": "The AWS Region where the connection is located."
+        }
+      },
+      "type": "object"
+    },
+    "LagId": {
+      "type": "string"
+    },
+    "LagList": {
+      "items": {
+        "$ref": "#/definitions/Lag"
+      },
+      "type": "array"
+    },
+    "LagName": {
+      "type": "string"
+    },
+    "LagState": {
+      "enum": [
+        "requested",
+        "pending",
+        "available",
+        "down",
+        "deleting",
+        "deleted"
+      ],
+      "type": "string"
+    },
+    "Lags": {
+      "properties": {
+        "lags": {
+          "$ref": "#/definitions/LagList",
+          "description": "The LAGs."
+        }
+      },
+      "type": "object"
+    },
+    "Loa": {
+      "description": "Information about a Letter of Authorization - Connecting Facility Assignment (LOA-CFA) for a connection.",
+      "properties": {
+        "loaContent": {
+          "$ref": "#/definitions/LoaContent",
+          "description": "The binary contents of the LOA-CFA document."
+        },
+        "loaContentType": {
+          "$ref": "#/definitions/LoaContentType",
+          "description": "The standard media type for the LOA-CFA document. The only supported value is application/pdf."
+        }
+      },
+      "type": "object"
+    },
+    "LoaContent": {
+      "type": "string"
+    },
+    "LoaContentType": {
+      "enum": [
+        "application/pdf"
+      ],
+      "type": "string"
+    },
+    "LoaIssueTime": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "Location": {
+      "description": "Information about an AWS Direct Connect location.",
+      "properties": {
+        "locationCode": {
+          "$ref": "#/definitions/LocationCode",
+          "description": "The code for the location."
+        },
+        "region": {
+          "$ref": "#/definitions/Region",
+          "description": "The AWS Region for the location."
+        }
+      },
+      "type": "object"
+    },
+    "LocationCode": {
+      "type": "string"
+    },
+    "LocationList": {
+      "items": {
+        "$ref": "#/definitions/Location"
+      },
+      "type": "array"
+    },
+    "LocationName": {
+      "type": "string"
+    },
+    "Locations": {
+      "properties": {
+        "locations": {
+          "$ref": "#/definitions/LocationList",
+          "description": "The locations."
+        }
+      },
+      "type": "object"
+    },
+    "LongAsn": {
+      "type": "integer"
+    },
+    "MTU": {
+      "type": "integer"
+    },
+    "MaxResultSetSize": {
+      "type": "integer"
+    },
+    "NewBGPPeer": {
+      "description": "Information about a new BGP peer.",
+      "properties": {
+        "addressFamily": {
+          "$ref": "#/definitions/AddressFamily",
+          "description": "The address family for the BGP peer."
+        },
+        "amazonAddress": {
+          "$ref": "#/definitions/AmazonAddress",
+          "description": "The IP address assigned to the Amazon interface."
+        },
+        "asn": {
+          "$ref": "#/definitions/ASN",
+          "description": "The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration."
+        },
+        "authKey": {
+          "$ref": "#/definitions/BGPAuthKey",
+          "description": "The authentication key for BGP configuration."
+        },
+        "customerAddress": {
+          "$ref": "#/definitions/CustomerAddress",
+          "description": "The IP address assigned to the customer interface."
+        }
+      },
+      "type": "object"
+    },
+    "NewPrivateVirtualInterface": {
+      "description": "Information about a private virtual interface.",
+      "properties": {
+        "addressFamily": {
+          "$ref": "#/definitions/AddressFamily",
+          "description": "The address family for the BGP peer."
+        },
+        "amazonAddress": {
+          "$ref": "#/definitions/AmazonAddress",
+          "description": "The IP address assigned to the Amazon interface."
+        },
+        "asn": {
+          "$ref": "#/definitions/ASN",
+          "description": "The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration."
+        },
+        "authKey": {
+          "$ref": "#/definitions/BGPAuthKey",
+          "description": "The authentication key for BGP configuration."
+        },
+        "customerAddress": {
+          "$ref": "#/definitions/CustomerAddress",
+          "description": "The IP address assigned to the customer interface."
+        },
+        "directConnectGatewayId": {
+          "$ref": "#/definitions/DirectConnectGatewayId",
+          "description": "The ID of the Direct Connect gateway."
+        },
+        "mtu": {
+          "$ref": "#/definitions/MTU",
+          "description": "The maximum transmission unit (MTU), in bytes. The supported values are 1500 and 9001. The default value is 1500."
+        },
+        "virtualGatewayId": {
+          "$ref": "#/definitions/VirtualGatewayId",
+          "description": "The ID of the virtual private gateway."
+        },
+        "virtualInterfaceName": {
+          "$ref": "#/definitions/VirtualInterfaceName",
+          "description": "The name of the virtual interface assigned by the customer network."
+        },
+        "vlan": {
+          "$ref": "#/definitions/VLAN",
+          "description": "The ID of the VLAN."
+        }
+      },
+      "required": [
+        "virtualInterfaceName",
+        "vlan",
+        "asn"
+      ],
+      "type": "object"
+    },
+    "NewPrivateVirtualInterfaceAllocation": {
+      "description": "Information about a private virtual interface to be provisioned on a connection.",
+      "properties": {
+        "addressFamily": {
+          "$ref": "#/definitions/AddressFamily",
+          "description": "The address family for the BGP peer."
+        },
+        "amazonAddress": {
+          "$ref": "#/definitions/AmazonAddress",
+          "description": "The IP address assigned to the Amazon interface."
+        },
+        "asn": {
+          "$ref": "#/definitions/ASN",
+          "description": "The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration."
+        },
+        "authKey": {
+          "$ref": "#/definitions/BGPAuthKey",
+          "description": "The authentication key for BGP configuration."
+        },
+        "customerAddress": {
+          "$ref": "#/definitions/CustomerAddress",
+          "description": "The IP address assigned to the customer interface."
+        },
+        "mtu": {
+          "$ref": "#/definitions/MTU",
+          "description": "The maximum transmission unit (MTU), in bytes. The supported values are 1500 and 9001. The default value is 1500."
+        },
+        "virtualInterfaceName": {
+          "$ref": "#/definitions/VirtualInterfaceName",
+          "description": "The name of the virtual interface assigned by the customer network."
+        },
+        "vlan": {
+          "$ref": "#/definitions/VLAN",
+          "description": "The ID of the VLAN."
+        }
+      },
+      "required": [
+        "virtualInterfaceName",
+        "vlan",
+        "asn"
+      ],
+      "type": "object"
+    },
+    "NewPublicVirtualInterface": {
+      "description": "Information about a public virtual interface.",
+      "properties": {
+        "addressFamily": {
+          "$ref": "#/definitions/AddressFamily",
+          "description": "The address family for the BGP peer."
+        },
+        "amazonAddress": {
+          "$ref": "#/definitions/AmazonAddress",
+          "description": "The IP address assigned to the Amazon interface."
+        },
+        "asn": {
+          "$ref": "#/definitions/ASN",
+          "description": "The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration."
+        },
+        "authKey": {
+          "$ref": "#/definitions/BGPAuthKey",
+          "description": "The authentication key for BGP configuration."
+        },
+        "customerAddress": {
+          "$ref": "#/definitions/CustomerAddress",
+          "description": "The IP address assigned to the customer interface."
+        },
+        "routeFilterPrefixes": {
+          "$ref": "#/definitions/RouteFilterPrefixList",
+          "description": "The routes to be advertised to the AWS network in this Region. Applies to public virtual interfaces."
+        },
+        "virtualInterfaceName": {
+          "$ref": "#/definitions/VirtualInterfaceName",
+          "description": "The name of the virtual interface assigned by the customer network."
+        },
+        "vlan": {
+          "$ref": "#/definitions/VLAN",
+          "description": "The ID of the VLAN."
+        }
+      },
+      "required": [
+        "virtualInterfaceName",
+        "vlan",
+        "asn"
+      ],
+      "type": "object"
+    },
+    "NewPublicVirtualInterfaceAllocation": {
+      "description": "Information about a public virtual interface to be provisioned on a connection.",
+      "properties": {
+        "addressFamily": {
+          "$ref": "#/definitions/AddressFamily",
+          "description": "The address family for the BGP peer."
+        },
+        "amazonAddress": {
+          "$ref": "#/definitions/AmazonAddress",
+          "description": "The IP address assigned to the Amazon interface."
+        },
+        "asn": {
+          "$ref": "#/definitions/ASN",
+          "description": "The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration."
+        },
+        "authKey": {
+          "$ref": "#/definitions/BGPAuthKey",
+          "description": "The authentication key for BGP configuration."
+        },
+        "customerAddress": {
+          "$ref": "#/definitions/CustomerAddress",
+          "description": "The IP address assigned to the customer interface."
+        },
+        "routeFilterPrefixes": {
+          "$ref": "#/definitions/RouteFilterPrefixList",
+          "description": "The routes to be advertised to the AWS network in this Region. Applies to public virtual interfaces."
+        },
+        "virtualInterfaceName": {
+          "$ref": "#/definitions/VirtualInterfaceName",
+          "description": "The name of the virtual interface assigned by the customer network."
+        },
+        "vlan": {
+          "$ref": "#/definitions/VLAN",
+          "description": "The ID of the VLAN."
+        }
+      },
+      "required": [
+        "virtualInterfaceName",
+        "vlan",
+        "asn"
+      ],
+      "type": "object"
+    },
+    "OwnerAccount": {
+      "type": "string"
+    },
+    "PaginationToken": {
+      "type": "string"
+    },
+    "PartnerName": {
+      "type": "string"
+    },
+    "ProviderName": {
+      "type": "string"
+    },
+    "Region": {
+      "type": "string"
+    },
+    "ResourceArn": {
+      "type": "string"
+    },
+    "ResourceArnList": {
+      "items": {
+        "$ref": "#/definitions/ResourceArn"
+      },
+      "type": "array"
+    },
+    "ResourceTag": {
+      "description": "Information about a tag associated with an AWS Direct Connect resource.",
+      "properties": {
+        "resourceArn": {
+          "$ref": "#/definitions/ResourceArn",
+          "description": "The Amazon Resource Name (ARN) of the resource."
+        },
+        "tags": {
+          "$ref": "#/definitions/TagList",
+          "description": "The tags."
+        }
+      },
+      "type": "object"
+    },
+    "ResourceTagList": {
+      "items": {
+        "$ref": "#/definitions/ResourceTag"
+      },
+      "type": "array"
+    },
+    "RouteFilterPrefix": {
+      "description": "Information about a route filter prefix that a customer can advertise through Border Gateway Protocol (BGP) over a public virtual interface.",
+      "properties": {
+        "cidr": {
+          "$ref": "#/definitions/CIDR",
+          "description": "The CIDR block for the advertised route. Separate multiple routes using commas. An IPv6 CIDR must use /64 or shorter."
+        }
+      },
+      "type": "object"
+    },
+    "RouteFilterPrefixList": {
+      "items": {
+        "$ref": "#/definitions/RouteFilterPrefix"
+      },
+      "type": "array"
+    },
+    "RouterConfig": {
+      "type": "string"
+    },
+    "StateChangeError": {
+      "type": "string"
+    },
+    "Tag": {
+      "description": "Information about a tag.",
+      "properties": {
+        "key": {
+          "$ref": "#/definitions/TagKey",
+          "description": "The key."
+        },
+        "value": {
+          "$ref": "#/definitions/TagValue",
+          "description": "The value."
+        }
+      },
+      "required": [
+        "key"
+      ],
+      "type": "object"
+    },
+    "TagKey": {
+      "maxLength": 128,
+      "minLength": 1,
+      "pattern": "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-@]*)$",
+      "type": "string"
+    },
+    "TagKeyList": {
+      "items": {
+        "$ref": "#/definitions/TagKey"
+      },
+      "type": "array"
+    },
+    "TagList": {
+      "items": {
+        "$ref": "#/definitions/Tag"
+      },
+      "minItems": 1,
+      "type": "array"
+    },
+    "TagResourceRequest": {
+      "properties": {
+        "resourceArn": {
+          "$ref": "#/definitions/ResourceArn",
+          "description": "The Amazon Resource Name (ARN) of the resource."
+        },
+        "tags": {
+          "$ref": "#/definitions/TagList",
+          "description": "The tags to add."
+        }
+      },
+      "required": [
+        "resourceArn",
+        "tags"
+      ],
+      "type": "object"
+    },
+    "TagResourceResponse": {
+      "properties": {},
+      "type": "object"
+    },
+    "TagValue": {
+      "maxLength": 256,
+      "minLength": 0,
+      "pattern": "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-@]*)$",
+      "type": "string"
+    },
+    "TooManyTagsException": {},
+    "UntagResourceRequest": {
+      "properties": {
+        "resourceArn": {
+          "$ref": "#/definitions/ResourceArn",
+          "description": "The Amazon Resource Name (ARN) of the resource."
+        },
+        "tagKeys": {
+          "$ref": "#/definitions/TagKeyList",
+          "description": "The tag keys of the tags to remove."
+        }
+      },
+      "required": [
+        "resourceArn",
+        "tagKeys"
+      ],
+      "type": "object"
+    },
+    "UntagResourceResponse": {
+      "properties": {},
+      "type": "object"
+    },
+    "UpdateLagRequest": {
+      "properties": {
+        "lagId": {
+          "$ref": "#/definitions/LagId",
+          "description": "The ID of the LAG."
+        },
+        "lagName": {
+          "$ref": "#/definitions/LagName",
+          "description": "The name of the LAG."
+        },
+        "minimumLinks": {
+          "$ref": "#/definitions/Count",
+          "description": "The minimum number of physical connections that must be operational for the LAG itself to be operational."
+        }
+      },
+      "required": [
+        "lagId"
+      ],
+      "type": "object"
+    },
+    "UpdateVirtualInterfaceAttributesRequest": {
+      "properties": {
+        "mtu": {
+          "$ref": "#/definitions/MTU",
+          "description": "The maximum transmission unit (MTU), in bytes. The supported values are 1500 and 9001. The default value is 1500."
+        },
+        "virtualInterfaceId": {
+          "$ref": "#/definitions/VirtualInterfaceId",
+          "description": "The ID of the virtual private interface."
+        }
+      },
+      "required": [
+        "virtualInterfaceId"
+      ],
+      "type": "object"
+    },
+    "VLAN": {
+      "type": "integer"
+    },
+    "VirtualGateway": {
+      "description": "Information about a virtual private gateway for a private virtual interface.",
+      "properties": {
+        "virtualGatewayId": {
+          "$ref": "#/definitions/VirtualGatewayId",
+          "description": "The ID of the virtual private gateway."
+        },
+        "virtualGatewayState": {
+          "$ref": "#/definitions/VirtualGatewayState",
+          "description": "<p>The state of the virtual private gateway. The following are the possible values:</p> <ul> <li> <p> <code>pending</code>: Initial state after creating the virtual private gateway.</p> </li> <li> <p> <code>available</code>: Ready for use by a private virtual interface.</p> </li> <li> <p> <code>deleting</code>: Initial state after deleting the virtual private gateway.</p> </li> <li> <p> <code>deleted</code>: The virtual private gateway is deleted. The private virtual interface is unable to send traffic over this gateway.</p> </li> </ul>"
+        }
+      },
+      "type": "object"
+    },
+    "VirtualGatewayId": {
+      "type": "string"
+    },
+    "VirtualGatewayList": {
+      "items": {
+        "$ref": "#/definitions/VirtualGateway"
+      },
+      "type": "array"
+    },
+    "VirtualGatewayRegion": {
+      "type": "string"
+    },
+    "VirtualGatewayState": {
+      "type": "string"
+    },
+    "VirtualGateways": {
+      "properties": {
+        "virtualGateways": {
+          "$ref": "#/definitions/VirtualGatewayList",
+          "description": "The virtual private gateways."
+        }
+      },
+      "type": "object"
+    },
+    "VirtualInterface": {
+      "description": "Information about a virtual interface.",
+      "properties": {
+        "addressFamily": {
+          "$ref": "#/definitions/AddressFamily",
+          "description": "The address family for the BGP peer."
+        },
+        "amazonAddress": {
+          "$ref": "#/definitions/AmazonAddress",
+          "description": "The IP address assigned to the Amazon interface."
+        },
+        "amazonSideAsn": {
+          "$ref": "#/definitions/LongAsn",
+          "description": "The autonomous system number (ASN) for the Amazon side of the connection."
+        },
+        "asn": {
+          "$ref": "#/definitions/ASN",
+          "description": "The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration."
+        },
+        "authKey": {
+          "$ref": "#/definitions/BGPAuthKey",
+          "description": "The authentication key for BGP configuration."
+        },
+        "awsDeviceV2": {
+          "$ref": "#/definitions/AwsDeviceV2",
+          "description": "The Direct Connect endpoint on which the virtual interface terminates."
+        },
+        "bgpPeers": {
+          "$ref": "#/definitions/BGPPeerList",
+          "description": "The BGP peers configured on this virtual interface."
+        },
+        "connectionId": {
+          "$ref": "#/definitions/ConnectionId",
+          "description": "The ID of the connection."
+        },
+        "customerAddress": {
+          "$ref": "#/definitions/CustomerAddress",
+          "description": "The IP address assigned to the customer interface."
+        },
+        "customerRouterConfig": {
+          "$ref": "#/definitions/RouterConfig",
+          "description": "The customer router configuration."
+        },
+        "directConnectGatewayId": {
+          "$ref": "#/definitions/DirectConnectGatewayId",
+          "description": "The ID of the Direct Connect gateway."
+        },
+        "jumboFrameCapable": {
+          "$ref": "#/definitions/JumboFrameCapable",
+          "description": "Indicates whether jumbo frames (9001 MTU) are supported."
+        },
+        "location": {
+          "$ref": "#/definitions/LocationCode",
+          "description": "The location of the connection."
+        },
+        "mtu": {
+          "$ref": "#/definitions/MTU",
+          "description": "The maximum transmission unit (MTU), in bytes. The supported values are 1500 and 9001. The default value is 1500."
+        },
+        "ownerAccount": {
+          "$ref": "#/definitions/OwnerAccount",
+          "description": "The ID of the AWS account that owns the virtual interface."
+        },
+        "region": {
+          "$ref": "#/definitions/Region",
+          "description": "The AWS Region where the virtual interface is located."
+        },
+        "routeFilterPrefixes": {
+          "$ref": "#/definitions/RouteFilterPrefixList",
+          "description": "The routes to be advertised to the AWS network in this Region. Applies to public virtual interfaces."
+        },
+        "virtualGatewayId": {
+          "$ref": "#/definitions/VirtualGatewayId",
+          "description": "The ID of the virtual private gateway. Applies only to private virtual interfaces."
+        },
+        "virtualInterfaceId": {
+          "$ref": "#/definitions/VirtualInterfaceId",
+          "description": "The ID of the virtual interface."
+        },
+        "virtualInterfaceName": {
+          "$ref": "#/definitions/VirtualInterfaceName",
+          "description": "The name of the virtual interface assigned by the customer network."
+        },
+        "virtualInterfaceState": {
+          "$ref": "#/definitions/VirtualInterfaceState",
+          "description": "<p>The state of the virtual interface. The following are the possible values:</p> <ul> <li> <p> <code>confirming</code>: The creation of the virtual interface is pending confirmation from the virtual interface owner. If the owner of the virtual interface is different from the owner of the connection on which it is provisioned, then the virtual interface will remain in this state until it is confirmed by the virtual interface owner.</p> </li> <li> <p> <code>verifying</code>: This state only applies to public virtual interfaces. Each public virtual interface needs validation before the virtual interface can be created.</p> </li> <li> <p> <code>pending</code>: A virtual interface is in this state from the time that it is created until the virtual interface is ready to forward traffic.</p> </li> <li> <p> <code>available</code>: A virtual interface that is able to forward traffic.</p> </li> <li> <p> <code>down</code>: A virtual interface that is BGP down.</p> </li> <li> <p> <code>deleting</code>: A virtual interface is in this state immediately after calling <a>DeleteVirtualInterface</a> until it can no longer forward traffic.</p> </li> <li> <p> <code>deleted</code>: A virtual interface that cannot forward traffic.</p> </li> <li> <p> <code>rejected</code>: The virtual interface owner has declined creation of the virtual interface. If a virtual interface in the <code>Confirming</code> state is deleted by the virtual interface owner, the virtual interface enters the <code>Rejected</code> state.</p> </li> </ul>"
+        },
+        "virtualInterfaceType": {
+          "$ref": "#/definitions/VirtualInterfaceType",
+          "description": "The type of virtual interface. The possible values are <code>private</code> and <code>public</code>."
+        },
+        "vlan": {
+          "$ref": "#/definitions/VLAN",
+          "description": "The ID of the VLAN."
+        }
+      },
+      "type": "object"
+    },
+    "VirtualInterfaceId": {
+      "type": "string"
+    },
+    "VirtualInterfaceList": {
+      "items": {
+        "$ref": "#/definitions/VirtualInterface"
+      },
+      "type": "array"
+    },
+    "VirtualInterfaceName": {
+      "type": "string"
+    },
+    "VirtualInterfaceRegion": {
+      "type": "string"
+    },
+    "VirtualInterfaceState": {
+      "enum": [
+        "confirming",
+        "verifying",
+        "pending",
+        "available",
+        "down",
+        "deleting",
+        "deleted",
+        "rejected"
+      ],
+      "type": "string"
+    },
+    "VirtualInterfaceType": {
+      "type": "string"
+    },
+    "VirtualInterfaces": {
+      "properties": {
+        "virtualInterfaces": {
+          "$ref": "#/definitions/VirtualInterfaceList",
+          "description": "The virtual interfaces"
+        }
+      },
+      "type": "object"
+    }
+  }
+}
