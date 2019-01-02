@@ -43,8 +43,8 @@ public class SwaggerElementTest {
 
     @Test
     public void readSwaggerFile() {
-        File sDocFolder = new File("./src/main/resources/swagger document");
-        int fileNumber = 253;
+        File sDocFolder = new File("C:/Users/surpr/Desktop/100-ClusteringExample");
+        int fileNumber = 100;
 
         for (String serviceFile : sDocFolder.list()) {
             if(fileNumber == 0) break;
@@ -52,22 +52,22 @@ public class SwaggerElementTest {
             log.info("parse swagger guru file: {}", serviceFile);
             try {
                 // do something
-                String document = readLocalSwagger("./src/main/resources/swagger document/" + serviceFile);
+                String document = readLocalSwagger("C:/Users/surpr/Desktop/100-ClusteringExample/" + serviceFile);
                 if(document != null){
                     swaggerToNeo4jTransformation.parseSwaggerDocument(document);
                 }else{
                     log.error("error read swagger local file: {}", serviceFile);
                 }
-                Files.move(Paths.get("./src/main/resources/swagger document/" + serviceFile), Paths.get("./src/main/resources/finish/" + serviceFile));
+                Files.move(Paths.get("C:/Users/surpr/Desktop/100-ClusteringExample/" + serviceFile), Paths.get("C:/Users/surpr/Desktop/success/" + serviceFile));
                 log.info("finish move file {} to finish folder.", serviceFile);
             } catch (Exception e) {
                 log.error("error parsing on {}", serviceFile);
                 log.info(e.toString());
-                try {
-                    Files.move(Paths.get("./src/main/resources/swagger document/" + serviceFile), Paths.get("./src/main/resources/fail/" + serviceFile));
-                } catch (IOException e1) {
-                    log.info("error on move file to error folder", e);
-                }
+//                try {
+//                    Files.move(Paths.get("./src/main/resources/swagger document/" + serviceFile), Paths.get("./src/main/resources/fail/" + serviceFile));
+//                } catch (IOException e1) {
+//                    log.info("error on move file to error folder", e);
+//                }
             }
         }
     }

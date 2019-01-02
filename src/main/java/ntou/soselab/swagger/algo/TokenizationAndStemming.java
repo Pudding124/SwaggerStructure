@@ -26,7 +26,8 @@ public class TokenizationAndStemming {
             "up", "url", "url2", "get", "api", "api2", "long", "understand", "app", "add", "people", "provide", "provid",
             "start", "restful", "tful", "make", "www", "run", "html", "servic", "endpoint", "user", "feed",
             "apitor", "googl", "cloud", "tier", "stackdriv", "android", "base","com", "href", "link", "call", "src",
-            "report", "rang", "object", "search", "public", "open", "return", "adyen", "amazon", "aws", "azur", "microsoft", "echo", "variou");
+            "report", "rang", "object", "search", "public", "open", "return", "adyen", "amazon", "aws", "azur", "microsoft", "echo", "variou",
+            "web", "page", "manag", "list");
 
     public String stemTermsAndSaveOriginalTerm(String term, HashMap<String, String> table) throws IOException {
         log.info("- stemming for LDA");

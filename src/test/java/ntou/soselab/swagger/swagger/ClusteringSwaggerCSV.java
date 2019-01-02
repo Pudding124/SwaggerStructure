@@ -43,7 +43,7 @@ public class ClusteringSwaggerCSV {
     @Test
     public void collection_Resource_Operation_Parameter_Response() {
         try {
-            PrintWriter pw = new PrintWriter(new File("/home/mingjen/Desktop/TSNETestData/1253-SwaggerDoc-without-title-input-output.csv"));
+            PrintWriter pw = new PrintWriter(new File("C:/Users/surpr/Desktop/100-Swagger-CSV/100-SwaggerDoc-without-title-input-output-new-stopword-64.csv"));
             StringBuilder sb = new StringBuilder();
 
             // 收集所有 Resource 的 id
@@ -276,7 +276,7 @@ public class ClusteringSwaggerCSV {
                         sumScore = 0;
                     }else {
                         // (parameterScore * 0.2) (responseScore * 0.2)
-                        sumScore = 1-((resourceScore * 0.5) + (operationScore * 0.5));
+                        sumScore = 1-((resourceScore * 0.6) + (operationScore * 0.4));
                     }
 
                     DecimalFormat df = new DecimalFormat("0.00");
@@ -299,6 +299,21 @@ public class ClusteringSwaggerCSV {
             log.info("Error :{}", e.toString());
         }
 
+    }
+
+    //@Test
+    public void calculateTwoMatrixVectorsTest() {
+        ArrayList<String> str1 = new ArrayList<>();
+        ArrayList<String> str2 = new ArrayList<>();
+        str1.add("trash");
+        str1.add("trash");
+        str1.add("page");
+        str1.add("trashnoth");
+        str1.add("regist");
+        str1.add("develop");
+        str2.add("vestorli");
+        str2.add("develop");
+        System.out.println(calculateTwoMatrixVectorsAndCosineSimilarity(str1, str2));
     }
 
     public double calculateTwoMatrixVectorsAndCosineSimilarity(ArrayList<String> targetVector, ArrayList<String> compareVector) {
