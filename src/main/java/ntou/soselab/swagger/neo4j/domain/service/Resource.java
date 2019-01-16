@@ -26,13 +26,14 @@ public class Resource extends ConcreteService{
     ArrayList<String> produces;
     ArrayList<String> originalWord;
     ArrayList<String> wordnetWord;
+    ArrayList<String> feature;
 
 
     public Resource() {
         super();
     }
 
-    public Resource(ArrayList<String> schemes, String host, String basePath, String id, String title, String description, String logo, String provider, String version, String swaggerUrl, ArrayList<String> authentications, ArrayList<String> consumes, ArrayList<String> produces, ArrayList<String> originalWord, ArrayList<String> wordnetWord) {
+    public Resource(ArrayList<String> schemes, String host, String basePath, String id, String title, String description, String logo, String provider, String version, String swaggerUrl, ArrayList<String> authentications, ArrayList<String> consumes, ArrayList<String> produces, ArrayList<String> originalWord, ArrayList<String> wordnetWord, ArrayList<String> feature) {
         this.schemes = schemes;
         this.host = host;
         this.basePath = basePath;
@@ -48,6 +49,7 @@ public class Resource extends ConcreteService{
         this.produces = produces;
         this.originalWord = originalWord;
         this.wordnetWord = wordnetWord;
+        this.feature = feature;
     }
 
     public ArrayList<String> getSchemes() {
@@ -196,6 +198,14 @@ public class Resource extends ConcreteService{
 
     public void setWordnetWord(ArrayList<String> wordnetWord) {
         this.wordnetWord = wordnetWord;
+    }
+
+    public ArrayList<String> getFeature() {
+        return feature;
+    }
+
+    public void setFeature(ArrayList<String> feature) {
+        this.feature = feature;
     }
 
     @Override

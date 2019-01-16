@@ -14,6 +14,8 @@ import io.swagger.parser.SwaggerParser;
 import io.swagger.models.properties.Property;
 import io.swagger.models.properties.RefProperty;
 import ntou.soselab.swagger.algo.WordNetExpansion;
+import ntou.soselab.swagger.feature.EndpointLevel;
+import ntou.soselab.swagger.feature.ServiceLevel;
 import ntou.soselab.swagger.neo4j.domain.relationship.*;
 import ntou.soselab.swagger.neo4j.domain.service.*;
 import ntou.soselab.swagger.neo4j.domain.service.Operation;
@@ -44,6 +46,12 @@ public class SwaggerToNeo4jTransformation {
     @Autowired
     SwaggerToLDA swaggerToLDA;
 
+    @Autowired
+    ServiceLevel serviceLevel;
+
+    @Autowired
+    EndpointLevel endpointLevel;
+
     public void parseSwaggerDocument(String swaggerDocument) {
         Swagger swagger = new SwaggerParser().parse(swaggerDocument);
         Resource resource = new Resource();
@@ -64,7 +72,7 @@ public class SwaggerToNeo4jTransformation {
 
             if (swagger.getPaths().get(p).getDelete() != null) {
                 log.info("--- operation:DELETE on {}", p);
-                OperationGraph operationGraph = getOperationInformation(swagger.getPaths().get(p).getDelete(), "delete");
+                OperationGraph operationGraph = getOperationInformation(swagger, swagger.getPaths().get(p).getDelete(), "delete", p);
 
                 findAllTheParametersFromOperation(operationGraph, swagger.getDefinitions(),
                         swagger.getPaths().get(p).getDelete()); // set
@@ -75,7 +83,7 @@ public class SwaggerToNeo4jTransformation {
             }
             if (swagger.getPaths().get(p).getGet() != null) {
                 log.info("--- operation:GET on {}", p);
-                OperationGraph operationGraph = getOperationInformation(swagger.getPaths().get(p).getGet(), "get");
+                OperationGraph operationGraph = getOperationInformation(swagger, swagger.getPaths().get(p).getGet(), "get", p);
 
                 findAllTheParametersFromOperation(operationGraph, swagger.getDefinitions(),
                         swagger.getPaths().get(p).getGet()); // set
@@ -85,7 +93,7 @@ public class SwaggerToNeo4jTransformation {
             }
             if (swagger.getPaths().get(p).getPatch() != null) {
                 log.info("--- operation:PATCH on {}", p);
-                OperationGraph operationGraph = getOperationInformation(swagger.getPaths().get(p).getPatch(), "patch");
+                OperationGraph operationGraph = getOperationInformation(swagger, swagger.getPaths().get(p).getPatch(), "patch", p);
 
                 findAllTheParametersFromOperation(operationGraph, swagger.getDefinitions(),
                         swagger.getPaths().get(p).getPatch()); // set
@@ -95,7 +103,7 @@ public class SwaggerToNeo4jTransformation {
             }
             if (swagger.getPaths().get(p).getPost() != null) {
                 log.info("--- operation:POST on {}", p);
-                OperationGraph operationGraph = getOperationInformation(swagger.getPaths().get(p).getPost(), "post");
+                OperationGraph operationGraph = getOperationInformation(swagger, swagger.getPaths().get(p).getPost(), "post", p);
 
                 findAllTheParametersFromOperation(operationGraph, swagger.getDefinitions(),
                         swagger.getPaths().get(p).getPost()); // set
@@ -105,7 +113,7 @@ public class SwaggerToNeo4jTransformation {
             }
             if (swagger.getPaths().get(p).getPut() != null) {
                 log.info("--- operation:PUT on {}", p);
-                OperationGraph operationGraph = getOperationInformation(swagger.getPaths().get(p).getPut(), "put");
+                OperationGraph operationGraph = getOperationInformation(swagger, swagger.getPaths().get(p).getPut(), "put", p);
 
                 findAllTheParametersFromOperation(operationGraph, swagger.getDefinitions(),
                         swagger.getPaths().get(p).getPut()); // set
@@ -234,6 +242,9 @@ public class SwaggerToNeo4jTransformation {
             }
         }
 
+        // 檢查 Service Level Feature
+        resource.setFeature(serviceLevel.parseSwaggerService(swagger));
+
         try {
             if(swaggerInfo.size() != 0) {
                 // parse LDA
@@ -251,7 +262,7 @@ public class SwaggerToNeo4jTransformation {
         return new ResourceGraph(resource);
     }
 
-    private OperationGraph getOperationInformation(io.swagger.models.Operation swaggerOperation, String Swaggeraction) {
+    private OperationGraph getOperationInformation(Swagger swagger, io.swagger.models.Operation swaggerOperation, String Swaggeraction, String path) {
 
         // store swagger parse information
         ArrayList<String> swaggerInfo = new ArrayList<>();
@@ -267,6 +278,9 @@ public class SwaggerToNeo4jTransformation {
         log.info("operation description :{}", swaggerOperation.getDescription());
         operation.setOperationAction(Swaggeraction);
         log.info("operation action :{}", Swaggeraction);
+
+        // operation feature
+        operation.setFeature(endpointLevel.parseSwaggerEndpoint(swagger, swaggerOperation, path));
 
         try {
             if(swaggerInfo.size() != 0) {

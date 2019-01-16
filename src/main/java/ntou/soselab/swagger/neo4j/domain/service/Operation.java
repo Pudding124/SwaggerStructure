@@ -17,6 +17,7 @@ public class Operation extends ConcreteService{
     String operationAction;
     ArrayList<String> originalWord;
     ArrayList<String> wordnetWord;
+    ArrayList<String> feature;
 
     public Operation(){
         super();
@@ -59,6 +60,14 @@ public class Operation extends ConcreteService{
 
     public void setWordnetWord(ArrayList<String> wordnetWord) {
         this.wordnetWord = wordnetWord;
+    }
+
+    public ArrayList<String> getFeature() {
+        return feature;
+    }
+
+    public void setFeature(ArrayList<String> feature) {
+        this.feature = feature;
     }
 
     @Relationship(type = "action", direction = Relationship.INCOMING)
