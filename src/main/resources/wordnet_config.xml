@@ -39,7 +39,7 @@
         <param name="file_manager" value="net.didion.jwnl.dictionary.file_manager.FileManagerImpl">
             <param name="file_type" value="net.didion.jwnl.princeton.file.PrincetonRandomAccessDictionaryFile"/>
             <!--  <param name="dictionary_path" value="C:\Program Files (x86)\WordNet\2.1\dict"/> C:\Program Files (x86)\WordNet\2.1\dict /home/mingjen/Documents/WordNet-3.0/dict /Users/xumingjen/WordNet-3.0/dict -->
-            <param name="dictionary_path" value="C:\Program Files (x86)\WordNet\2.1\dict"/>
+            <param name="dictionary_path" value="/home/mingjen/Documents/WordNet-3.0/dict"/>
         </param>
     </dictionary>
     <resource class="PrincetonResource"/>

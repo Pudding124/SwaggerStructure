@@ -31,7 +31,7 @@ public class WordNetExpansion {
     TokenizationAndStemming tokenizationAndStemming = new TokenizationAndStemming();
 
     private String jwnlPropertiesPath = "./src/main/resources/wordnet_config.xml"; // https://github.com/RolandKluge/de.rolandkluge.blog.java.jwnltut/blob/master/src/main/resources/properties.xml.template
-    private String wordNetPath = "C:\\Program Files (x86)\\WordNet\\2.1\\dict"; // "/home/mis101bird/WordNet/dict"; C:\Program Files (x86)\WordNet\2.1\dict /home/mingjen/Documents/WordNet-3.0/dict /Users/xumingjen/WordNet-3.0/dict
+    private String wordNetPath = "/home/mingjen/Documents/WordNet-3.0/dict"; // "/home/mis101bird/WordNet/dict"; C:\Program Files (x86)\WordNet\2.1\dict /home/mingjen/Documents/WordNet-3.0/dict /Users/xumingjen/WordNet-3.0/dict
 
     private String[] stackOverflowWords = {"entity", "check", "rule", "limit",
             "hold", "control", "restrict", "train", "suppress", "lock", "draw", "thermostat"};
