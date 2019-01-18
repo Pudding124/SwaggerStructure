@@ -1,0 +1,15 @@
+package ntou.soselab.swagger.neo4j.repositories.service;
+
+import ntou.soselab.swagger.neo4j.domain.service.Operation;
+import ntou.soselab.swagger.neo4j.domain.service.Path;
+import org.springframework.data.neo4j.annotation.Query;
+import org.springframework.data.neo4j.repository.GraphRepository;
+import org.springframework.data.repository.query.Param;
+
+import java.util.List;
+
+public interface PathRepository extends GraphRepository<Path> {
+
+    @Query("MATCH (n:Resource)-[a:endpoint]-(m:Path) WHERE id(n)= {id} RETURN m")
+    List<Path> findPathsByResource(@Param("id") Long id);
+}

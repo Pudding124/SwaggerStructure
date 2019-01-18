@@ -29,6 +29,10 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-neo4j</artifactId>
         </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -89,6 +93,12 @@
             <groupId>org.apache.lucene</groupId>
             <artifactId>lucene-test-framework</artifactId>
             <version>5.2.1</version>
+        </dependency>
+        <!-- Json -->
+        <dependency>
+            <groupId>org.json</groupId>
+            <artifactId>json</artifactId>
+            <version>20171018</version>
         </dependency>
     </dependencies>
 
