@@ -40,10 +40,12 @@ public class ClusteringSwaggerCSV {
 
     CosineSimilarity cosineSimilarity = new CosineSimilarity();
 
-    @Test
-    public void collection_Resource_Operation_Parameter_Response() {
+//    private double wordnetScore = 0.3;
+
+    //@Test
+    public void collection_Resource_Operation_Parameter_Response(double wordnetScore, int resourceP, int operationP) {
         try {
-            PrintWriter pw = new PrintWriter(new File("C:/Users/surpr/Desktop/100-Swagger-CSV/100-SwaggerDoc-without-title-input-output-new-stopword-64.csv"));
+            PrintWriter pw = new PrintWriter(new File("C:/Users/surpr/Desktop/real-100-ClusterLDA/"+Double.toString(wordnetScore)+"/LDA-16/LDA-not-InputOutput-"+String.valueOf(resourceP)+String.valueOf(operationP)+".csv"));
             StringBuilder sb = new StringBuilder();
 
             // 收集所有 Resource 的 id
@@ -84,23 +86,32 @@ public class ClusteringSwaggerCSV {
                     // resource score
                     if(currentResource.getOriginalWord() != null && compareResource.getOriginalWord() != null) {
                         if(!currentResource.getOriginalWord().isEmpty() && !compareResource.getOriginalWord().isEmpty()) {
-                            resourceScore = resourceScore + (calculateTwoMatrixVectorsAndCosineSimilarity(currentResource.getOriginalWord(),compareResource.getOriginalWord()) * 0.7);
+                            resourceScore = resourceScore + calculateTwoMatrixVectorsAndCosineSimilarity(currentResource.getOriginalWord(),compareResource.getOriginalWord());
                         }
                     }
 
                     if(currentResource.getWordnetWord() != null && compareResource.getWordnetWord() != null) {
                         if(!currentResource.getWordnetWord().isEmpty() && !compareResource.getWordnetWord().isEmpty()) {
                             // must be add LDA word compare together
-                            ArrayList<String> currentOriginalAndWordnetWord = new ArrayList<>(currentResource.getOriginalWord());
-                            ArrayList<String> compareOriginalAndWordnetWord = new ArrayList<>(compareResource.getOriginalWord());
-                            for(String word : currentResource.getWordnetWord()) {
-                                currentOriginalAndWordnetWord.add(word);
-                            }
+//                            ArrayList<String> currentOriginalAndWordnetWord = new ArrayList<>(currentResource.getOriginalWord());
+//                            ArrayList<String> compareOriginalAndWordnetWord = new ArrayList<>(compareResource.getOriginalWord());
+//                            for(String word : currentResource.getWordnetWord()) {
+//                                currentOriginalAndWordnetWord.add(word);
+//                            }
+//
+//                            for(String word : compareResource.getWordnetWord()) {
+//                                compareOriginalAndWordnetWord.add(word);
+//                            }
 
-                            for(String word : compareResource.getWordnetWord()) {
-                                compareOriginalAndWordnetWord.add(word);
+                            // 判斷何者 wordnet 加權分數較高
+                            double s1 = calculateTwoMatrixVectorsAndCosineSimilarity(currentResource.getOriginalWord(), compareResource.getWordnetWord());
+                            double s2 = calculateTwoMatrixVectorsAndCosineSimilarity(compareResource.getOriginalWord(), currentResource.getWordnetWord());
+                            if(s1 >= s2) {
+                                resourceScore = resourceScore + (s1 * wordnetScore);
+                            }else {
+                                resourceScore = resourceScore + (s2 * wordnetScore);
                             }
-                            resourceScore = resourceScore + (calculateTwoMatrixVectorsAndCosineSimilarity(currentOriginalAndWordnetWord,compareOriginalAndWordnetWord) * 0.3);
+//                            resourceScore = resourceScore + (calculateTwoMatrixVectorsAndCosineSimilarity(currentOriginalAndWordnetWord,compareOriginalAndWordnetWord) * 0.3);
                         }
                     }
 
@@ -149,17 +160,27 @@ public class ClusteringSwaggerCSV {
                     }
 
                     if(!currentOperationLDA.isEmpty() && !compareOperationLDA.isEmpty()) {
-                        operationScore = operationScore + (calculateTwoMatrixVectorsAndCosineSimilarity(currentOperationLDA, compareOperationLDA) * 0.7);
+                        operationScore = operationScore + calculateTwoMatrixVectorsAndCosineSimilarity(currentOperationLDA, compareOperationLDA);
                     }
                     if(!currentOperationWordnet.isEmpty() && !compareOperationWordnet.isEmpty()) {
                         // must be add LDA word compare together
-                        for(String word : currentOperationLDA) {
-                            currentOperationWordnet.add(word);
+//                        for(String word : currentOperationLDA) {
+//                            currentOperationWordnet.add(word);
+//                        }
+//                        for(String word : compareOperationLDA) {
+//                            compareOperationWordnet.add(word);
+//                        }
+
+                        // 判斷何者 wordnet 加權分數較高
+                        double s1 = calculateTwoMatrixVectorsAndCosineSimilarity(currentOperationLDA, compareOperationWordnet);
+                        double s2 = calculateTwoMatrixVectorsAndCosineSimilarity(compareOperationLDA, currentOperationWordnet);
+                        if(s1 >= s2) {
+                            operationScore = operationScore + (s1 * wordnetScore);
+                        }else {
+                            operationScore = operationScore + (s2 * wordnetScore);
                         }
-                        for(String word : compareOperationLDA) {
-                            compareOperationWordnet.add(word);
-                        }
-                        operationScore = operationScore + (calculateTwoMatrixVectorsAndCosineSimilarity(currentOperationWordnet, compareOperationWordnet) * 0.3);
+
+//                        operationScore = operationScore + (calculateTwoMatrixVectorsAndCosineSimilarity(currentOperationWordnet, compareOperationWordnet) * 0.3);
                     }
 
                     log.info("Operation Score :{}", operationScore);
@@ -275,8 +296,11 @@ public class ClusteringSwaggerCSV {
                     if(currentResource.getNodeId().equals(id)) {
                         sumScore = 0;
                     }else {
-                        // (parameterScore * 0.2) (responseScore * 0.2)
-                        sumScore = 1-((resourceScore * 0.6) + (operationScore * 0.4));
+                        // (resourceScore * 0.1) (parameterScore * 0.2) (responseScore * 0.2) (operationScore * 0.4)
+                        double x = Double.valueOf(resourceP)/10;
+                        double y = Double.valueOf(operationP)/10;
+                        sumScore = 1-((resourceScore * x) + (operationScore * y));
+                        if(sumScore < 0) sumScore = 0;
                     }
 
                     DecimalFormat df = new DecimalFormat("0.00");
@@ -314,6 +338,25 @@ public class ClusteringSwaggerCSV {
         str2.add("vestorli");
         str2.add("develop");
         System.out.println(calculateTwoMatrixVectorsAndCosineSimilarity(str1, str2));
+    }
+
+    @Test
+    public void setProportion() {
+        double[] wordnetList = {0.1, 0.2, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0};
+        for(double wordnetScore : wordnetList) {
+            int resource = 10;
+            int operation = 0;
+
+            while(resource >= 0) {
+//            double x = Double.valueOf(resource)/10;
+//            double y = Double.valueOf(operation)/10;
+//            log.info("resource :{}", x);
+//            log.info("operation :{}", y);
+                collection_Resource_Operation_Parameter_Response(wordnetScore, resource, operation);
+                resource--;
+                operation++;
+            }
+        }
     }
 
     public double calculateTwoMatrixVectorsAndCosineSimilarity(ArrayList<String> targetVector, ArrayList<String> compareVector) {

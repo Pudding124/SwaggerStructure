@@ -40,7 +40,7 @@ public class SwaggerToLDA {
         ArrayList<String> map = new ArrayList<String>(); // original concepts
         // from LDA
 
-        List<Map<String, Integer>> l = lda.apply(swaggerInfo, 3);
+        List<Map<String, Integer>> l = lda.apply(swaggerInfo, 8);
         for(Map<String, Integer> temp :l){
             int index = 1;
             log.info("---- LDA Topic response ----");
