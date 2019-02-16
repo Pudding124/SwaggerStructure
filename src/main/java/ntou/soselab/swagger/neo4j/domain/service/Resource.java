@@ -21,6 +21,7 @@ public class Resource extends ConcreteService{
     String provider;
     String version;
     String swaggerUrl;
+    String clusterGroup;
     ArrayList<String> authentications;
     ArrayList<String> consumes;
     ArrayList<String> produces;
@@ -33,7 +34,7 @@ public class Resource extends ConcreteService{
         super();
     }
 
-    public Resource(ArrayList<String> schemes, String host, String basePath, String id, String title, String description, String logo, String provider, String version, String swaggerUrl, ArrayList<String> authentications, ArrayList<String> consumes, ArrayList<String> produces, ArrayList<String> originalWord, ArrayList<String> wordnetWord, ArrayList<String> feature) {
+    public Resource(ArrayList<String> schemes, String host, String basePath, String id, String title, String description, String logo, String provider, String version, String swaggerUrl, String clusterGroup, ArrayList<String> authentications, ArrayList<String> consumes, ArrayList<String> produces, ArrayList<String> originalWord, ArrayList<String> wordnetWord, ArrayList<String> feature) {
         this.schemes = schemes;
         this.host = host;
         this.basePath = basePath;
@@ -44,6 +45,7 @@ public class Resource extends ConcreteService{
         this.provider = provider;
         this.version = version;
         this.swaggerUrl = swaggerUrl;
+        this.clusterGroup = clusterGroup;
         this.authentications = authentications;
         this.consumes = consumes;
         this.produces = produces;
@@ -137,6 +139,14 @@ public class Resource extends ConcreteService{
 
     public void setSwaggerUrl(String swaggerUrl) {
         this.swaggerUrl = swaggerUrl;
+    }
+
+    public String getClusterGroup() {
+        return clusterGroup;
+    }
+
+    public void setClusterGroup(String clusterGroup) {
+        this.clusterGroup = clusterGroup;
     }
 
     public ArrayList<String> getAuthentications() {

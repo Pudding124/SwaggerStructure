@@ -14,4 +14,7 @@ public interface ResourceRepository extends GraphRepository<Resource> {
 
     @Query("MATCH (n:Resource {title : {title}}) RETURN n")
     List<Resource> findResourcesByTitle(@Param("title") String title);
+
+    @Query("MATCH (n:Resource {clusterGroup:{clusterGroup}}) RETURN n")
+    List<Resource> findResourcesBySameCluster(@Param("clusterGroup") String clusterGroup);
 }

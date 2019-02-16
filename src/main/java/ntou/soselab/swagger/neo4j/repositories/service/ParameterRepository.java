@@ -11,5 +11,11 @@ public interface ParameterRepository extends GraphRepository<Parameter> {
 
     @Query("MATCH (n:Resource)-[a:endpoint]-(m:Path)-[s:action]-(r:Operation)-[w:input]-(x:Parameter) WHERE id(n)= {id} RETURN x")
     List<Parameter> findParametersByResource(@Param("id") Long id);
+
+    @Query("MATCH (r:Operation)-[w:input]-(x:Parameter {required: true}) WHERE id(r)= {id} RETURN x")
+    List<Parameter> findParametersByOperation(@Param("id") Long id);
+
+    @Query("MATCH (r:Operation)-[w:input]-(x:Parameter) WHERE id(r)= {id} RETURN x")
+    List<Parameter> findParametersByOperationNoThreshold(@Param("id") Long id);
 }
 

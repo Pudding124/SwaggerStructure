@@ -11,5 +11,11 @@ public interface ResponseRepository extends GraphRepository<Response> {
 
     @Query("MATCH (n:Resource)-[a:endpoint]-(m:Path)-[s:action]-(r:Operation)-[w:output]-(x:StatusCode {statusCode : \"200\"})-[y:have]-(z:Response) WHERE id(n)= {id} RETURN z")
     List<Response> findResponsesByResource(@Param("id") Long id);
+
+    @Query("MATCH (r:Operation)-[w:output]-(x:StatusCode {statusCode : \"200\"})-[y:have]-(z:Response) WHERE id(r)= {id} RETURN z")
+    List<Response> findSuccessResponsesByOperation(@Param("id") Long id);
+
+    @Query("MATCH (x:StatusCode)-[y:have]-(z:Response) WHERE id(x)= {id} RETURN z")
+    List<Response> findResponsesByStatusCode(@Param("id") Long id);
 }
 
