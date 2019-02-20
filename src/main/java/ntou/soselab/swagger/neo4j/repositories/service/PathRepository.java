@@ -1,5 +1,6 @@
 package ntou.soselab.swagger.neo4j.repositories.service;
 
+import ntou.soselab.swagger.neo4j.domain.service.GitHub;
 import ntou.soselab.swagger.neo4j.domain.service.Operation;
 import ntou.soselab.swagger.neo4j.domain.service.Path;
 import org.springframework.data.neo4j.annotation.Query;
@@ -12,4 +13,7 @@ public interface PathRepository extends GraphRepository<Path> {
 
     @Query("MATCH (n:Resource)-[a:endpoint]-(m:Path) WHERE id(n)= {id} RETURN m")
     List<Path> findPathsByResource(@Param("id") Long id);
+
+    @Query("MATCH (n:Path)-[a:FIND]-(m:GitHub) WHERE id(n)= {id} RETURN m")
+    List<GitHub> findGitHubsByPathId(@Param("id") Long id);
 }
