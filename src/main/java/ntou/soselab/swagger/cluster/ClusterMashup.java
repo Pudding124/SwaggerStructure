@@ -17,9 +17,9 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 @Service
-public class Mashup {
+public class ClusterMashup {
 
-    Logger log = LoggerFactory.getLogger(Mashup.class);
+    Logger log = LoggerFactory.getLogger(ClusterMashup.class);
 
     @Autowired
     ResourceRepository resourceRepository;

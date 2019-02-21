@@ -1,6 +1,5 @@
 package ntou.soselab.swagger.web.oaspage;
 
-import ntou.soselab.swagger.cluster.Similarity;
 import ntou.soselab.swagger.neo4j.domain.service.*;
 import ntou.soselab.swagger.neo4j.repositories.service.*;
 import org.json.JSONArray;

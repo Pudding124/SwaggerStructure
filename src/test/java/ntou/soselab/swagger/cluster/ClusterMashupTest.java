@@ -13,12 +13,12 @@ import java.util.HashMap;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class MashupTest {
+public class ClusterMashupTest {
 
-    Logger log = LoggerFactory.getLogger(MashupTest.class);
+    Logger log = LoggerFactory.getLogger(ClusterMashupTest.class);
 
     @Autowired
-    Mashup mashup;
+    ClusterMashup clusterMashup;
 
     CosineSimilarity cosineSimilarity = new CosineSimilarity();
 
@@ -30,7 +30,7 @@ public class MashupTest {
         wordCounts.put("software", 50);
         wordCounts.put("technology", 70);
         wordCounts.put("opportunity", 200);
-        mashup.getMoreUseWord(wordCounts, 2);
+        clusterMashup.getMoreUseWord(wordCounts, 2);
     }
 
 
@@ -59,7 +59,7 @@ public class MashupTest {
 
     @Test
     public void mashupFlow() {
-        mashup.findAllClusterGroupLDA(32357L);
+        clusterMashup.findAllClusterGroupLDA(32357L);
     }
 
 }

@@ -1,5 +1,6 @@
 package ntou.soselab.swagger.cluster;
 
+import ntou.soselab.swagger.web.recommand.ServiceRecommand;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,12 +12,12 @@ import org.springframework.test.context.junit4.SpringRunner;
 public class SimilarityTest {
 
     @Autowired
-    Similarity similarity;
+    ServiceRecommand serviceRecommand;
 
     @Test
     public void searchSameEndpoint() {
-        Long resourceId1 = 4104L;
+        Long resourceId1 = 28161L;
         Long resourceId2 = 7081L;
-        similarity.findSameEnpoint(resourceId1, resourceId2);
+        serviceRecommand.getRecommandResult(resourceId1);
     }
 }
