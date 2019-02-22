@@ -55,6 +55,7 @@ public class OASPage {
                 OperationInfo operationInfo = new OperationInfo();
                 operationInfo.setOperation(operation.getOperationAction());
                 operationInfo.setDescription(operation.getDescription());
+                operationInfo.setFeatures(operation.getFeature());
 
                 // get input parameter info
                 ArrayList<InputParameterInfo> inputParameterInfos = new ArrayList<>();
