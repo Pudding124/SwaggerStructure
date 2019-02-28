@@ -38,6 +38,12 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
+            <exclusions>
+                <exclusion>
+                    <groupId>com.vaadin.external.google</groupId>
+                    <artifactId>android-json</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
         <!--project missing-->
         <dependency>
@@ -99,6 +105,12 @@
             <groupId>org.json</groupId>
             <artifactId>json</artifactId>
             <version>20171018</version>
+        </dependency>
+        <!-- java parser-->
+        <dependency>
+            <groupId>com.github.javaparser</groupId>
+            <artifactId>javaparser-symbol-solver-core</artifactId>
+            <version>3.7.0</version>
         </dependency>
     </dependencies>
 

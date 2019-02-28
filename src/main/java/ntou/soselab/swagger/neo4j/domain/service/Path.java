@@ -3,6 +3,7 @@ package ntou.soselab.swagger.neo4j.domain.service;
 import ntou.soselab.swagger.neo4j.domain.relationship.Action;
 import ntou.soselab.swagger.neo4j.domain.relationship.Endpoint;
 import ntou.soselab.swagger.neo4j.domain.relationship.Find;
+import ntou.soselab.swagger.neo4j.domain.relationship.Parse;
 import org.neo4j.ogm.annotation.Relationship;
 
 import java.util.ArrayList;
@@ -55,5 +56,13 @@ public class Path extends ConcreteService {
     public void addFindRelationship(Path path, GitHub gitHub){
         Find find = new Find(path, gitHub);
         finds.add(find);
+    }
+
+    @Relationship(type="parse", direction = Relationship.OUTGOING)
+    ArrayList<Parse> parses = new ArrayList<Parse>();
+
+    public void addParseRelationship(Path path, JavaRepo javaRepo){
+        Parse parse = new Parse(path, javaRepo);
+        parses.add(parse);
     }
 }

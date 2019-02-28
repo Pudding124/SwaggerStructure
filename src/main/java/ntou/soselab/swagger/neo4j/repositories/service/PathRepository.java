@@ -16,4 +16,7 @@ public interface PathRepository extends GraphRepository<Path> {
 
     @Query("MATCH (n:Path)-[a:FIND]-(m:GitHub) WHERE id(n)= {id} RETURN m")
     List<GitHub> findGitHubsByPathId(@Param("id") Long id);
+
+    @Query("MATCH (n:Path) WHERE id(n)= {id} RETURN n")
+    Path findPathById(@Param("id") Long id);
 }

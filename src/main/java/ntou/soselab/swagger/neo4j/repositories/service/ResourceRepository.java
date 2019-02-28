@@ -12,6 +12,9 @@ public interface ResourceRepository extends GraphRepository<Resource> {
     @Query("MATCH (n:Resource) WHERE id(n)= {id} RETURN n")
     Resource findResourceById(@Param("id") Long id);
 
+    @Query("MATCH (n:Resource)-[a:endpoint]-(m:Path) WHERE id(m)= {id} RETURN n")
+    Resource findResourceByPathId(@Param("id") Long id);
+
     @Query("MATCH (n:Resource {title : {title}}) RETURN n")
     List<Resource> findResourcesByTitle(@Param("title") String title);
 
