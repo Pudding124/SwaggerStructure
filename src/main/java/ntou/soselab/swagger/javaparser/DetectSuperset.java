@@ -125,7 +125,9 @@ public class DetectSuperset {
         for(String documentName : rank.keySet()) {
             log.info("Document :{}, Method :{}", documentName, rank.get(documentName));
 
-            GitHub gitHub = gitHubRepository.findGitHubById(Long.valueOf(documentName));
+            String[] githubId = documentName.split("\\.");
+
+            GitHub gitHub = gitHubRepository.findGitHubById(Long.valueOf(githubId[0]));
             Path path = gitHubRepository.findPathByGitHub(gitHub.getNodeId());
 
             JavaRepo javaRepo = new JavaRepo();
