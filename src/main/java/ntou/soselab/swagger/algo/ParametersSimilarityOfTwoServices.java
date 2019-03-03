@@ -250,13 +250,13 @@ public class ParametersSimilarityOfTwoServices {
             int mappingNum = mappingResult[i];
             if (mappingNum != -1) { // mappingNum ==-1 ,表該參數沒配對到
                 Parameter mappingParameter = service2.get(mappingNum);
-                log.info("successful on mapping: {} with {}", sIn.getOriginalWord(),
-                        mappingParameter.getOriginalWord());
                 double score = SQSimilarityMatrix[i][mappingNum];
                 // 分數匹配太低
                 if(Math.abs(score) < 0.4) {
                     return 0.0;
                 }
+                log.info("successful on mapping: {} with {} and {}", sIn.getOriginalWord(),
+                        mappingParameter.getOriginalWord(), mappingParameter.getWordnetWord());
                 resultScore += score;
             }else {
                 log.info("fail on mapping: {}", sIn.getOriginalWord());
@@ -278,13 +278,13 @@ public class ParametersSimilarityOfTwoServices {
             int mappingNum = mappingResult[i];
             if (mappingNum != -1) { // mappingNum ==-1 ,表該參數沒配對到
                 Response mappingParameter = service2.get(mappingNum);
-                log.info("successful on mapping: {} with {}", sIn.getOriginalWord(),
-                        mappingParameter.getOriginalWord());
                 double score = SQSimilarityMatrix[i][mappingNum];
                 // 分數匹配太低
                 if(Math.abs(score) < 0.4) {
                     return 0.0;
                 }
+                log.info("successful on mapping: {} with {} and {}", sIn.getOriginalWord(),
+                        mappingParameter.getOriginalWord(), mappingParameter.getWordnetWord());
                 resultScore += score;
             }else {
                 log.info("fail on mapping: {}", sIn.getOriginalWord());
@@ -306,13 +306,13 @@ public class ParametersSimilarityOfTwoServices {
             int mappingNum = mappingResult[i];
             if (mappingNum != -1) { // mappingNum ==-1 ,表該參數沒配對到
                 Response mappingParameter = service2.get(mappingNum);
-                log.info("successful on mapping: {} with {}", sIn.getOriginalWord(),
-                        mappingParameter.getOriginalWord());
                 double score = SQSimilarityMatrix[i][mappingNum];
                 // 分數匹配太低
                 if(Math.abs(score) < 0.4) {
                     return 0.0;
                 }
+                log.info("successful on mapping: {} with {} and {}", sIn.getOriginalWord(),
+                        mappingParameter.getOriginalWord(), mappingParameter.getWordnetWord());
                 resultScore += score;
             }else {
                 log.info("fail on mapping: {}", sIn.getOriginalWord());
@@ -334,13 +334,13 @@ public class ParametersSimilarityOfTwoServices {
             int mappingNum = mappingResult[i];
             if (mappingNum != -1) { // mappingNum ==-1 ,表該參數沒配對到
                 Parameter mappingParameter = service2.get(mappingNum);
-                log.info("successful on mapping: {} with {}", sIn.getOriginalWord(),
-                        mappingParameter.getOriginalWord());
                 double score = SQSimilarityMatrix[i][mappingNum];
                 // 分數匹配太低
                 if(Math.abs(score) < 0.4) {
                     return 0.0;
                 }
+                log.info("successful on mapping: {} with {} and {}", sIn.getOriginalWord(),
+                        mappingParameter.getOriginalWord(), mappingParameter.getWordnetWord());
                 resultScore += score;
             }else {
                 log.info("fail on mapping: {}", sIn.getOriginalWord());

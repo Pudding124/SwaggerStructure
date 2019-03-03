@@ -19,6 +19,8 @@ public class SwaggerToLDA {
 
     TokenizationAndStemming tokenizationAndStemming = new TokenizationAndStemming();
 
+    private int LDATopicNumber = 4;
+
     public ArrayList swaggerParseLDA(String[] swaggerInfo, HashMap<String, String> stemmingAndTermsTable) throws IOException {
 
         LDA lda = new LDA();
@@ -40,7 +42,7 @@ public class SwaggerToLDA {
         ArrayList<String> map = new ArrayList<String>(); // original concepts
         // from LDA
 
-        List<Map<String, Integer>> l = lda.apply(swaggerInfo, 8);
+        List<Map<String, Integer>> l = lda.apply(swaggerInfo, LDATopicNumber);
         for(Map<String, Integer> temp :l){
             int index = 1;
             log.info("---- LDA Topic response ----");
