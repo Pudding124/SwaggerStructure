@@ -97,7 +97,9 @@ public class UpdateLDAWordNetWord {
                 }
             }
         } catch (IOException e) {
-            log.info("IOException :{}", e.toString());
+            log.error("IOException :{}", e.toString());
+        } catch (Exception e) {
+            log.error("Exception :{}", e.toString());
         }
     }
 
@@ -123,8 +125,10 @@ public class UpdateLDAWordNetWord {
                     }
                 }
             }
-        }catch (IOException e) {
-            log.info("IOException :{}", e.toString());
+        } catch (IOException e) {
+            log.error("IOException :{}", e.toString());
+        } catch (Exception e) {
+            log.error("Exception :{}", e.toString());
         }
     }
 
@@ -154,8 +158,10 @@ public class UpdateLDAWordNetWord {
                     }
                 }
             }
-        }catch (IOException e) {
-            log.info("IOException :{}", e.toString());
+        } catch (IOException e) {
+            log.error("IOException :{}", e.toString());
+        } catch (Exception e) {
+            log.error("Exception :{}", e.toString());
         }
     }
 
@@ -185,8 +191,10 @@ public class UpdateLDAWordNetWord {
                     }
                 }
             }
-        }catch (IOException e) {
-            log.info("IOException :{}", e.toString());
+        } catch (IOException e) {
+            log.error("IOException :{}", e.toString());
+        } catch (Exception e) {
+            log.error("Exception :{}", e.toString());
         }
     }
 

@@ -28,4 +28,5 @@
 swagger document
 application.properties
 PersonalInformation.java
+logs/
 
