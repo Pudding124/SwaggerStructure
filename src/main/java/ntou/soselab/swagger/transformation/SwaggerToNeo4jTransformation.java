@@ -169,9 +169,10 @@ public class SwaggerToNeo4jTransformation {
         Map<String, Object> info = swagger.getInfo().getVendorExtensions();
         if (info.get("x-logo") != null) {
             Object logo = info.get("x-logo");
-            if (logo instanceof ObjectNode) {
-                ObjectNode logoNode = (ObjectNode) logo;
-                resource.setLogo(logoNode.get("url").textValue());
+
+            if (logo instanceof Map) {
+                Map<String, Object> logoNode = (Map) logo;
+                resource.setLogo(logoNode.get("url").toString());
             }
         }
 
@@ -193,9 +194,10 @@ public class SwaggerToNeo4jTransformation {
             Object swaggerUrl = info.get("x-origin");
             if(swaggerUrl instanceof ArrayList){
                 ArrayList list = (ArrayList)swaggerUrl;
-                if (list.size() > 0 && list.get(0) instanceof ObjectNode) {
-                    ObjectNode swaggerUrlNode = (ObjectNode)list.get(0);
-                    resource.setSwaggerUrl(swaggerUrlNode.get("url").textValue());
+                if (list.size() > 0 && list.get(0) instanceof Map) {
+                    Map<String, Object> swaggerUrlNode = (Map)list.get(0);
+//                    log.info(swaggerUrlNode.get("url").toString());
+                    resource.setSwaggerUrl(swaggerUrlNode.get("url").toString());
                 }
             }
         }

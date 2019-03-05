@@ -136,7 +136,7 @@ public class UpdateLDAWordNetWord {
         try {
             for(Resource resource : resourceRepository.findAll()) {
                 for(Operation operation : operationRepository.findOperationsByResource(resource.getNodeId())) {
-                    for(Parameter parameter : parameterRepository.findParametersByOperation(operation.getNodeId())) {
+                    for(Parameter parameter : parameterRepository.findParametersByOperationNoThreshold(operation.getNodeId())) {
                         // store swagger parse information
                         ArrayList<String> parameterSwaggerInfo = new ArrayList<>();
                         // For saving key: stemming term --> value: original term
