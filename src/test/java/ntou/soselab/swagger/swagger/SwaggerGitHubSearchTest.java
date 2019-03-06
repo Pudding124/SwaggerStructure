@@ -38,29 +38,29 @@ public class SwaggerGitHubSearchTest {
     @Test
     public void readFinishFile(){
         int fileNumber = 80;
-        File sDocFolder = new File("C:/Users/surpr/Desktop/100-ClusteringExample");
+        File sDocFolder = new File("./src/main/resources/finish");
         for (String serviceFile : sDocFolder.list()) {
             if(fileNumber == 0) break;
             fileNumber--;
             log.info("parse swagger guru file: {}", serviceFile);
             try {
                 // do something
-                String document = readLocalSwagger("C:/Users/surpr/Desktop/100-ClusteringExample/" + serviceFile);
+                String document = readLocalSwagger("./src/main/resources/finish/" + serviceFile);
                 if(document != null){
                     String title = parseSwaggerTitle(document);
                     addGitHubNode(title);
                 }else{
                     log.error("error read swagger local file: {}", serviceFile);
                 }
-                Files.move(Paths.get("C:/Users/surpr/Desktop/100-ClusteringExample/" + serviceFile), Paths.get("C:/Users/surpr/Desktop/success/" + serviceFile));
+                Files.move(Paths.get("./src/main/resources/finish/" + serviceFile), Paths.get("./src/main/resources/finishsearch/" + serviceFile));
                 log.info("finish move file {} to finish search folder.", serviceFile);
             } catch (Exception e) {
                 log.error("error parsing on {}", serviceFile);
-//                try {
-//                    Files.move(Paths.get("./src/main/resources/100-ClusteringExample/" + serviceFile), Paths.get("./src/main/resources/finishfailsearch/" + serviceFile));
-//                } catch (IOException e1) {
-//                    log.info("error on move file to error folder", e);
-//                }
+                try {
+                    Files.move(Paths.get("./src/main/resources/finish/" + serviceFile), Paths.get("./src/main/resources/finishfailsearch/" + serviceFile));
+                } catch (IOException e1) {
+                    log.info("error on move file to error folder", e);
+                }
             }
         }
     }

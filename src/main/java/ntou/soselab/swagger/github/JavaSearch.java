@@ -155,6 +155,7 @@ public class JavaSearch {
             String javaDocumentName = item.getString("name");
             String javaDocumentUrl = item.getString("url");
             String javaDocumentPath = item.getString("path");
+            String javaDocumentHtmlUrl = item.getString("html_url");
 
             JSONObject repo = item.getJSONObject("repository");
             String repoName = repo.getString("name");
@@ -184,7 +185,7 @@ public class JavaSearch {
             }
             if(saveCheck) {
                 log.info("success !");
-                gitHub = new GitHub(repoFullName, repoName, repoHtmlUrl, javaDocumentName, javaDocumentUrl, javaDocumentPath);
+                gitHub = new GitHub(repoFullName, repoName, repoHtmlUrl, javaDocumentName, javaDocumentUrl, javaDocumentPath, javaDocumentHtmlUrl);
                 path.addFindRelationship(path, gitHub);
                 pathRepository.save(path);
             }

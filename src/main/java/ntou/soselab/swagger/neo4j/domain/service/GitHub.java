@@ -14,16 +14,19 @@ public class GitHub extends ConcreteService {
 
     private String javaDocumentPath;
 
+    private String javaDocumentHtmlUrl;
+
     public GitHub() {
     }
 
-    public GitHub(String repoFullName, String repoName, String repoUrl, String javaDocumentName, String javaDocumentUrl, String javaDocumentPath) {
+    public GitHub(String repoFullName, String repoName, String repoUrl, String javaDocumentName, String javaDocumentUrl, String javaDocumentPath, String javaDocumentHtmlUrl) {
         this.repoFullName = repoFullName;
         this.repoName = repoName;
         this.repoUrl = repoUrl;
         this.javaDocumentName = javaDocumentName;
         this.javaDocumentUrl = javaDocumentUrl;
         this.javaDocumentPath = javaDocumentPath;
+        this.javaDocumentHtmlUrl = javaDocumentHtmlUrl;
     }
 
     public String getRepoFullName() {
@@ -72,5 +75,13 @@ public class GitHub extends ConcreteService {
 
     public void setJavaDocumentPath(String javaDocumentPath) {
         this.javaDocumentPath = javaDocumentPath;
+    }
+
+    public String getJavaDocumentHtmlUrl() {
+        return javaDocumentHtmlUrl;
+    }
+
+    public void setJavaDocumentHtmlUrl(String javaDocumentHtmlUrl) {
+        this.javaDocumentHtmlUrl = javaDocumentHtmlUrl;
     }
 }
