@@ -31,12 +31,15 @@ public class FeatureCount {
         ServiceFeature httpsSupport = new ServiceFeature();
         ServiceFeature userAuthentication = new ServiceFeature();
         ServiceFeature most20perations = new ServiceFeature();
+        ServiceFeature exampleAPIConversations = new ServiceFeature();
         httpsSupport.setFeature("HTTPS support");
         userAuthentication.setFeature("User authentication");
         most20perations.setFeature("At most 20 operations");
+        exampleAPIConversations.setFeature("Example API conversations");
         int support = 0;
         int Authentication = 0;
         int mostOperations = 0;
+        int example = 0;
 
         for(Resource resource : resourceRepository.findAll()) {
             for(String feature : resource.getFeature()) {
@@ -49,20 +52,27 @@ public class FeatureCount {
                 if(feature.equals("At most 20 operations")) {
                     mostOperations++;
                 }
+                if(feature.equals("Example API conversations")) {
+                    example++;
+                }
             }
         }
         log.info("support :{}", support);
         log.info("Authentication :{}", Authentication);
         log.info("mostOperations :{}", mostOperations);
+        log.info("example :{}", example);
         httpsSupport.setQuantity(support);
         userAuthentication.setQuantity(Authentication);
         most20perations.setQuantity(mostOperations);
+        exampleAPIConversations.setQuantity(example);
         log.info("httpsSupport :{}", httpsSupport);
         log.info("userAuthentication :{}", userAuthentication);
         log.info("most20perations :{}", most20perations);
+        log.info("exampleAPIConversations :{}", exampleAPIConversations);
         result.add(httpsSupport);
         result.add(userAuthentication);
         result.add(most20perations);
+        result.add(exampleAPIConversations);
         JSONObject jsonObject = new JSONObject();
         jsonObject.put("serviceLevel", result);
         log.info("service feature :{}", jsonObject);
