@@ -10,9 +10,11 @@ public class JavaRepo extends ConcreteService {
 
     private String javaDocumentName;
 
-    private String javaDocumentUrl;
+    private String javaDocumentHtmlUrl;
 
-    private ArrayList<String> methodName;
+    private String documentId;
+
+    private ArrayList<String> method;
 
     private int score;
 
@@ -20,12 +22,13 @@ public class JavaRepo extends ConcreteService {
 
     }
 
-    public JavaRepo(String repoName, String repoUrl, String javaDocumentName, String javaDocumentUrl, ArrayList<String> methodName, int score) {
+    public JavaRepo(String repoName, String repoUrl, String javaDocumentName, String javaDocumentHtmlUrl, String documentId, ArrayList<String> method, int score) {
         this.repoName = repoName;
         this.repoUrl = repoUrl;
         this.javaDocumentName = javaDocumentName;
-        this.javaDocumentUrl = javaDocumentUrl;
-        this.methodName = methodName;
+        this.javaDocumentHtmlUrl = javaDocumentHtmlUrl;
+        this.documentId = documentId;
+        this.method = method;
         this.score = score;
     }
 
@@ -53,20 +56,28 @@ public class JavaRepo extends ConcreteService {
         this.javaDocumentName = javaDocumentName;
     }
 
-    public String getJavaDocumentUrl() {
-        return javaDocumentUrl;
+    public String getJavaDocumentHtmlUrl() {
+        return javaDocumentHtmlUrl;
     }
 
-    public void setJavaDocumentUrl(String javaDocumentUrl) {
-        this.javaDocumentUrl = javaDocumentUrl;
+    public void setJavaDocumentHtmlUrl(String javaDocumentHtmlUrl) {
+        this.javaDocumentHtmlUrl = javaDocumentHtmlUrl;
     }
 
-    public ArrayList<String> getMethodName() {
-        return methodName;
+    public String getDocumentId() {
+        return documentId;
     }
 
-    public void setMethodName(ArrayList<String> methodName) {
-        this.methodName = methodName;
+    public void setDocumentId(String documentId) {
+        this.documentId = documentId;
+    }
+
+    public ArrayList<String> getMethod() {
+        return method;
+    }
+
+    public void setMethod(ArrayList<String> method) {
+        this.method = method;
     }
 
     public int getScore() {

@@ -132,10 +132,11 @@ public class DetectSuperset {
 
             JavaRepo javaRepo = new JavaRepo();
             javaRepo.setJavaDocumentName(gitHub.getJavaDocumentName());
-            javaRepo.setJavaDocumentUrl(gitHub.getJavaDocumentUrl());
+            javaRepo.setJavaDocumentHtmlUrl(gitHub.getJavaDocumentHtmlUrl());
             javaRepo.setRepoName(gitHub.getRepoName());
             javaRepo.setRepoUrl(gitHub.getRepoUrl());
-            javaRepo.setMethodName(rank.get(documentName));
+            javaRepo.setDocumentId(documentName);
+            javaRepo.setMethod(rank.get(documentName));
             javaRepo.setScore(recordScore.get(i));
 
             path.addParseRelationship(path, javaRepo);

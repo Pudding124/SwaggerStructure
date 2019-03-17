@@ -159,8 +159,8 @@ public class JavaMethodParser {
                                         // 比對 variable api
                                         if(compareCode(vName, methodBody)) {
                                             // codeFragment.setFragment(method.getName().toString());
-                                            methodResult.put(method.getName().toString(), 3.0);
-                                            detectJavaLibraryUse(method.getName().toString());
+                                            methodResult.put(method.toString(), 3.0);
+                                            detectJavaLibraryUse(method.toString());
                                         }
                                     }
                                 }
@@ -204,8 +204,8 @@ public class JavaMethodParser {
                             }
 
                             if(flag) {
-                                methodResult.put(method.getName().toString(), 2.0);
-                                detectJavaLibraryUse(method.getName().toString());
+                                methodResult.put(method.toString(), 2.0);
+                                detectJavaLibraryUse(method.toString());
                             }
                         }
                     }else {
@@ -224,8 +224,8 @@ public class JavaMethodParser {
                             }
 
                             if(flag) {
-                                methodResult.put(method.getName().toString(), 3.0);
-                                detectJavaLibraryUse(method.getName().toString());
+                                methodResult.put(method.toString(), 3.0);
+                                detectJavaLibraryUse(method.toString());
                             }
                         }
                     }
@@ -320,7 +320,7 @@ public class JavaMethodParser {
     }
 
     // 評分 import library
-    public void detectJavaLibraryUse(String methodName) {
+    public void detectJavaLibraryUse(String method) {
         // 紀錄是否有 使用 Http 函式庫
         boolean flag = false;
         // check 該 java document 所有 import
@@ -352,8 +352,8 @@ public class JavaMethodParser {
                 if(flag) break;
             }
             if(flag) {
-                double score = methodResult.get(methodName) + 2.0;
-                methodResult.put(methodName, score);
+                double score = methodResult.get(method) + 2.0;
+                methodResult.put(method, score);
                 break;
             }
         }
