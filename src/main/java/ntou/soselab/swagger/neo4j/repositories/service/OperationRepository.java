@@ -11,6 +11,9 @@ import java.util.List;
 
 public interface OperationRepository extends GraphRepository<Operation> {
 
+    @Query("MATCH (n:Operation) RETURN count(n)")
+    int totalOperation();
+
     @Query("MATCH (n:Resource)-[a:endpoint]-(m:Path)-[s:action]-(r:Operation) WHERE id(n)= {id} RETURN r")
     List<Operation> findOperationsByResource(@Param("id") Long id);
 

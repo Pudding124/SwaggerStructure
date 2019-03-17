@@ -27,6 +27,8 @@ public class FeatureCount {
     @CrossOrigin
     @RequestMapping(value = "/getServiceLevel", method = RequestMethod.GET)
     public String getServiceLevel() {
+        int serviceTotal = resourceRepository.totalResource();
+
         ArrayList<ServiceFeature> result = new ArrayList<>();
         ServiceFeature httpsSupport = new ServiceFeature();
         ServiceFeature userAuthentication = new ServiceFeature();
@@ -74,6 +76,7 @@ public class FeatureCount {
         result.add(most20perations);
         result.add(exampleAPIConversations);
         JSONObject jsonObject = new JSONObject();
+        jsonObject.put("totalService", serviceTotal);
         jsonObject.put("serviceLevel", result);
         log.info("service feature :{}", jsonObject);
         return jsonObject.toString();
@@ -82,6 +85,8 @@ public class FeatureCount {
     @CrossOrigin
     @RequestMapping(value = "/getEndpointLevel", method = RequestMethod.GET)
     public String getEndpointLevel() {
+        int operationTotal = operationRepository.totalOperation();
+
         ArrayList<EndpointFeature> result = new ArrayList<>();
         EndpointFeature restStyle = new EndpointFeature();
         EndpointFeature httpStatus = new EndpointFeature();
@@ -136,6 +141,7 @@ public class FeatureCount {
         result.add(inputJson);
         result.add(outputJson);
         JSONObject jsonObject = new JSONObject();
+        jsonObject.put("totalOperation", operationTotal);
         jsonObject.put("endpointLevel", result);
         log.info("endpoint feature :{}", jsonObject);
         return jsonObject.toString();

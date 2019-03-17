@@ -9,6 +9,9 @@ import java.util.List;
 
 public interface ResourceRepository extends GraphRepository<Resource> {
 
+    @Query("MATCH (n:Resource) RETURN count(n)")
+    int totalResource();
+
     @Query("MATCH (n:Resource) WHERE id(n)= {id} RETURN n")
     Resource findResourceById(@Param("id") Long id);
 
