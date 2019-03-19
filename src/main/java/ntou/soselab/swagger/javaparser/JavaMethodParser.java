@@ -159,8 +159,8 @@ public class JavaMethodParser {
                                         // 比對 variable api
                                         if(compareCode(vName, methodBody)) {
                                             // codeFragment.setFragment(method.getName().toString());
-                                            methodResult.put(method.toString(), 3.0);
-                                            detectJavaLibraryUse(method.toString());
+                                            methodResult.put(variable.toString()+"\n"+method.toString(), 3.0);
+                                            detectJavaLibraryUse(variable.toString()+"\n"+method.toString());
                                         }
                                     }
                                 }
