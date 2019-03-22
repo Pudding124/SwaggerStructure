@@ -1,38 +1,19 @@
 package ntou.soselab.swagger.cluster;
 
 import ntou.soselab.swagger.algo.CosineSimilarity;
-import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import java.util.HashMap;
-
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class ClusterMashupTest {
+public class CosineSimilarityTest {
 
-    Logger log = LoggerFactory.getLogger(ClusterMashupTest.class);
-
-    @Autowired
-    ClusterMashup clusterMashup;
+    Logger log = LoggerFactory.getLogger(CosineSimilarityTest.class);
 
     CosineSimilarity cosineSimilarity = new CosineSimilarity();
-
-    //@Test
-    public void hashmapSortTest() {
-        HashMap<String, Integer> wordCounts = new HashMap<>();
-        wordCounts.put("USA", 100);
-        wordCounts.put("jobs", 200);
-        wordCounts.put("software", 50);
-        wordCounts.put("technology", 70);
-        wordCounts.put("opportunity", 200);
-        clusterMashup.getMoreUseWord(wordCounts, 2);
-    }
-
 
     //@Test
     public void cosineSimilarityScoreTest() {
@@ -55,11 +36,6 @@ public class ClusterMashupTest {
         double[] compare4 = {1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0};
         double score4 = cosineSimilarity.cosineSimilarity(target4, compare4);
         log.info("CS Score :{}", score4);
-    }
-
-    @Test
-    public void mashupFlow() {
-        clusterMashup.findAllClusterGroupLDA(32357L);
     }
 
 }

@@ -1,5 +1,6 @@
 package ntou.soselab.swagger.web.oaspage;
 
+import ntou.soselab.swagger.cluster.ClusterMashup;
 import ntou.soselab.swagger.neo4j.domain.service.*;
 import ntou.soselab.swagger.neo4j.repositories.service.*;
 import org.json.JSONArray;
@@ -12,7 +13,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.ArrayList;
 
 @RestController
-public class OASPage {
+public class OASPageWebController {
 
     @Autowired
     ResourceRepository resourceRepository;
@@ -28,8 +29,10 @@ public class OASPage {
     StatusCodeRepository statusCodeRepository;
     @Autowired
     JavaRepoRepository javaRepoRepository;
+    @Autowired
+    ClusterMashup clusterMashup;
 
-    Logger log = LoggerFactory.getLogger(OASPage.class);
+    Logger log = LoggerFactory.getLogger(OASPageWebController.class);
 
     @CrossOrigin
     @RequestMapping(value = "/getOASInformation/{id}", method = RequestMethod.GET)
@@ -116,5 +119,11 @@ public class OASPage {
         JSONObject jsonObjectMary = new JSONObject(resourceInfo);
         log.info("ans :{}",jsonObjectMary);
         return jsonObjectMary.toString();
+    }
+
+    @CrossOrigin
+    @RequestMapping(value = "/getOASClusterInformation/{id}", method = RequestMethod.GET)
+    public String getOASClusterInformation(@PathVariable("id")Long resourceId) {
+        return clusterMashup.compareTagetClusterAndOtherCluster(resourceId);
     }
 }

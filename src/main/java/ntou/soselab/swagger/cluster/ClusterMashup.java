@@ -1,10 +1,15 @@
 package ntou.soselab.swagger.cluster;
 
 import ntou.soselab.swagger.algo.CosineSimilarity;
+import ntou.soselab.swagger.neo4j.domain.service.ClusterGroupList;
 import ntou.soselab.swagger.neo4j.domain.service.Operation;
 import ntou.soselab.swagger.neo4j.domain.service.Resource;
+import ntou.soselab.swagger.neo4j.repositories.service.ClusterGroupListRepository;
 import ntou.soselab.swagger.neo4j.repositories.service.OperationRepository;
 import ntou.soselab.swagger.neo4j.repositories.service.ResourceRepository;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,122 +30,118 @@ public class ClusterMashup {
     ResourceRepository resourceRepository;
 
     @Autowired
-    OperationRepository operationRepository;
+    ClusterGroupListRepository clusterGroupListRepository;
 
     CosineSimilarity cosineSimilarity = new CosineSimilarity();
 
+    private static final double mashupClusterThreshold = 0.2;
 
-    public void findAllClusterGroupLDA(Long id) {
-        // record all finish search group
-        ArrayList<String> finishSearchCluster = new ArrayList<>();
+    // 收集 群集相關資訊 並進行群集間比較 包裝成 JSON 後回傳
+    public String compareTagetClusterAndOtherCluster(Long id) {
 
-        // record cluster represent word
-        HashMap<String, HashMap<String, Integer>> clusterWord = new HashMap<>();
+        HashMap<String, ArrayList<String>> groupList = new HashMap<>();
+        String groupListJson = "";
 
-        for(Resource resource : resourceRepository.findAll()) {
-            // avoid same cluster search twice
-            if(finishSearchCluster.contains(resource.getClusterGroup())) {
-                log.info("This OAS is finish search");
-            }else {
-                String cluster = resource.getClusterGroup();
-
-                // record same OAS resource and operation appear word and time
-                HashMap<String, Integer> OASWord = new HashMap<>();
-
-                // search this resource all same cluster id
-                for(Resource resource1 : resourceRepository.findResourcesBySameCluster(cluster)) {
-
-                    if(resourceRepository.findResourcesBySameCluster(cluster).size() == 1) {
-                        // not search no cluster OAS
-                        log.info("this OAS only has itself");
-                        break;
-                    }
-
-                    Long resource1Id = resource1.getNodeId();
-
-                    if(resource1.getOriginalWord() != null && !resource1.getOriginalWord().isEmpty()) {
-                        ArrayList<String> resourceLDA = resource1.getOriginalWord();
-                        for(String word : resourceLDA) {
-                            if(OASWord.containsKey(word)) {
-                                OASWord.put(word, OASWord.get(word)+1);
-                            }else {
-                                OASWord.put(word, 1);
-                            }
-                        }
-                    }
-
-                    for(Operation operation : operationRepository.findOperationsByResource(resource1Id)) {
-                        if(operation.getOriginalWord() != null && !operation.getOriginalWord().isEmpty()) {
-                            ArrayList<String> operationLDA = operation.getOriginalWord();
-                            for(String word : operationLDA) {
-                                if(OASWord.containsKey(word)) {
-                                    OASWord.put(word, OASWord.get(word)+1);
-                                }else {
-                                    OASWord.put(word, 1);
-                                }
-                            }
-                        }
-                    }
-                }
-                // add OAS cluster add word
-                clusterWord.put(cluster, OASWord);
-                // add OAS cluster number
-                finishSearchCluster.add(cluster);
-            }
+        for(ClusterGroupList clusterGroupList : clusterGroupListRepository.findAll()) {
+            groupListJson = clusterGroupList.getGroupJson();
         }
 
-        compareTagetClusterAndOtherCluster(clusterWord, id);
+        // 解析群集前十名詞語之 JSON
+        try {
+            JSONObject jsonObject = new JSONObject(groupListJson);
+            JSONArray jsonArray = jsonObject.getJSONArray("clusterGroupList");
 
-//        for(String clusterId : clusterWord.keySet()) {
-//            log.info("ClusterId :{} --> Cluster Group :{}", clusterId, clusterWord.get(clusterId));
-//        }
-    }
+            for(int x=0;x<jsonArray.length();x++) {
+                JSONObject jsonObject1 = jsonArray.getJSONObject(x);
 
-    public void compareTagetClusterAndOtherCluster(HashMap<String, HashMap<String, Integer>> clusterWord, Long id) {
+                String group = jsonObject1.optString("group");
+                ArrayList<String> word = new ArrayList<>();
 
+                JSONArray jsonArray1 = jsonObject1.optJSONArray("word");
+                for(int y = 0;y<jsonArray1.length();y++) {
+                    word.add(jsonArray1.getString(y));
+                }
+
+                groupList.put(group, word);
+            }
+
+        } catch(JSONException e) {
+            log.info("JSON Exception :{}", e.toString());
+        }
+
+        // 獲得可 Mashup 群集編號
+        ArrayList<String> mashupsNumber = getMashupsClusterNumber(groupList, id);
+
+        // 獲得目標群集之群集編號
         Resource resource = resourceRepository.findResourceById(id);
-        // get target cluster word
-        HashMap<String, Integer> target = clusterWord.get(resource.getClusterGroup());
+        String targetClusterNumber = resource.getClusterGroup();
 
-        // get target top 10 word
-        ArrayList<String> targetWord = getMoreUseWord(target, 10);
+        // 介面回傳 群集 json
+        JSONObject clusterWeb = new JSONObject();
+        clusterWeb.put("name", "cluster");
 
-        for(String clusterNumber : clusterWord.keySet()) {
-            if(!clusterNumber.equals(resource.getClusterGroup())) {
+        JSONArray children = new JSONArray();
 
-                //get other top 10 word
-                ArrayList<String> otherWord = getMoreUseWord(clusterWord.get(clusterNumber), 10);
+        // 設定 OAS 所在群集之相關 JSON 資訊
+        JSONObject currentCluster = new JSONObject();
+        currentCluster.put("name", "Location_Cluster");
+        JSONArray currentChildren = new JSONArray();
+        for(Resource resource1 : resourceRepository.findResourcesBySameCluster(targetClusterNumber)) {
+            if(String.valueOf(resource1.getNodeId()).equals(String.valueOf(resource.getNodeId()))) {
+                JSONObject object = new JSONObject();
+                object.put("name", resource1.getTitle());
+                object.put("size", "3");
+                currentChildren.put(object);
+            }else {
+                JSONObject object = new JSONObject();
+                object.put("name", resource1.getTitle());
+                object.put("size", "1");
+                currentChildren.put(object);
+            }
+        }
+        currentCluster.put("children", currentChildren);
+        children.put(currentCluster);
 
-                double score = calculateTwoMatrixVectorsAndCosineSimilarity(targetWord, otherWord);
-                if(score >= 0.0) {
-                    log.info("Mashup Cluster :{} --> Score :{}", clusterNumber, score);
+        // 設定 OAS 可以 Mashup 相關 JSON 資訊
+        int clusterNo = 1;
+        for(String mashupNumber : mashupsNumber) {
+            JSONObject compareCluster = new JSONObject();
+            compareCluster.put("name", "Correlation_Cluster-"+clusterNo);
+            JSONArray compareChildren = new JSONArray();
+            for(Resource resource1 : resourceRepository.findResourcesBySameCluster(mashupNumber)) {
+                JSONObject object = new JSONObject();
+                object.put("name", resource1.getTitle());
+                object.put("size", "1");
+                compareChildren.put(object);
+            }
+            compareCluster.put("children", compareChildren);
+            children.put(compareCluster);
+            clusterNo++;
+        }
+
+        clusterWeb.put("children", children);
+
+        return clusterWeb.toString();
+    }
+
+    public ArrayList<String> getMashupsClusterNumber(HashMap<String, ArrayList<String>> groupList, Long targetId) {
+        // 獲得目標群集之群集字詞
+        Resource resource = resourceRepository.findResourceById(targetId);
+        ArrayList<String> targetWord = groupList.get(resource.getClusterGroup());
+
+        ArrayList<String> result = new ArrayList<>();
+
+        for(String groupNumber : groupList.keySet()) {
+            if(!groupNumber.equals(resource.getClusterGroup())) {
+                double score = calculateTwoMatrixVectorsAndCosineSimilarity(targetWord, groupList.get(groupNumber));
+
+                if(score > mashupClusterThreshold) {
+                    result.add(groupNumber);
                 }
-
             }
         }
 
-    }
-
-    public ArrayList<String> getMoreUseWord(HashMap<String, Integer> list, int rank) {
-        ArrayList<String> rankList = new ArrayList<>();
-
-        // sort hashmap
-        HashMap<String, Integer> sortedByCount = sortByValue(list);
-
-        for(String word : sortedByCount.keySet()) {
-//            log.info("Word :{}, Time :{}", word, list.get(word));
-            if(rank>=1) rankList.add(word);
-            if(rank<1) break;
-            rank--;
-        }
-        return rankList;
-    }
-
-    public static HashMap<String, Integer> sortByValue(HashMap<String, Integer> wordCounts) {
-        return wordCounts.entrySet()
-                .stream()
-                .sorted((Map.Entry.<String, Integer>comparingByValue().reversed()))
-                .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue, (e1, e2) -> e1, LinkedHashMap::new));
+        return result;
     }
 
     public double calculateTwoMatrixVectorsAndCosineSimilarity(ArrayList<String> targetVector, ArrayList<String> compareVector) {
