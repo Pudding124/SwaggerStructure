@@ -18,4 +18,7 @@ public interface JavaRepoRepository extends GraphRepository<JavaRepo> {
 
     @Query("MATCH (n:Resource) MATCH (n)-[:endpoint]-(:Path)-[:parse]-(o:JavaRepo) RETURN n, count(o) ORDER BY count(o) DESC")
     List<Resource> findResourceBySortJavaRepo();
+
+    @Query("MATCH (n:Path)-[p:parse]-(j:JavaRepo) WHERE id(n)= {id} RETURN j")
+    List<JavaRepo> findJavaReposByPath(@Param("id") Long id);
 }

@@ -26,6 +26,8 @@ public class OASPage {
     ResponseRepository responseRepository;
     @Autowired
     StatusCodeRepository statusCodeRepository;
+    @Autowired
+    JavaRepoRepository javaRepoRepository;
 
     Logger log = LoggerFactory.getLogger(OASPage.class);
 
@@ -41,13 +43,25 @@ public class OASPage {
         resourceInfo.setProvider(resource.getProvider());
         resourceInfo.setHost(resource.getHost());
         resourceInfo.setBaseUrl(resource.getBasePath());
-        resourceInfo.setContact("this service provider by yahoo company");
+        resourceInfo.setContact(resource.getSwaggerUrl());
 
         // get path info
         ArrayList<PathInfo> pathInfos = new ArrayList<>();
         for(Path path : pathRepository.findPathsByResource(resourceId)) {
             PathInfo pathInfo = new PathInfo();
             pathInfo.setEndpoint(path.getPath());
+
+            // get javaRepo info
+            ArrayList<JavaRepoInfo> javaRepos = new ArrayList<>();
+            for(JavaRepo javaRepo : javaRepoRepository.findJavaReposByPath(path.getNodeId())) {
+                JavaRepoInfo javaRepoInfo = new JavaRepoInfo();
+                javaRepoInfo.setRepoName(javaRepo.getRepoName());
+                javaRepoInfo.setRepoUrl(javaRepo.getRepoUrl());
+                javaRepoInfo.setJavaDocHtml(javaRepo.getJavaDocumentHtmlUrl());
+                javaRepoInfo.setMethod(javaRepo.getMethod());
+                javaRepoInfo.setScore(javaRepo.getScore());
+                javaRepos.add(javaRepoInfo);
+            }
 
             // get operation info
             ArrayList<OperationInfo> operationInfos = new ArrayList<>();
@@ -95,6 +109,7 @@ public class OASPage {
                 operationInfos.add(operationInfo);
             }
             pathInfo.setOperations(operationInfos);
+            pathInfo.setJavaRepos(javaRepos);
             pathInfos.add(pathInfo);
         }
         resourceInfo.setEndpoints(pathInfos);
