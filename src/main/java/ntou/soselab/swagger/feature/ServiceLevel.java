@@ -73,7 +73,7 @@ public class ServiceLevel {
                 operationQuantity++;
             }
         }
-        if(operationQuantity <= 20){
+        if(operationQuantity >= 20){
             feture.add("At most 20 operations");
         }
 
