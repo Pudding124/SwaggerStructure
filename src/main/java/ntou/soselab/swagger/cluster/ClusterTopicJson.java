@@ -133,7 +133,7 @@ public class ClusterTopicJson {
 
         for(String clusterNumber : clusterWord.keySet()) {
             //get other top 10 word
-            ArrayList<String> topicWord = getMoreUseWord(clusterWord.get(clusterNumber), 10);
+            ArrayList<String> topicWord = getMoreUseWord(clusterWord.get(clusterNumber), 20);
             log.info("Group Id :{} --> Word :{}", clusterNumber, topicWord);
 
             ClusterGroup clusterGroup = new ClusterGroup();

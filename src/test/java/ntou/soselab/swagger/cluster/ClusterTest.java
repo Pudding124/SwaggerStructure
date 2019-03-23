@@ -33,7 +33,7 @@ public class ClusterTest {
 
     }
 
-    //@Test
+    @Test
     public void updateJsonTest() {
         clusterTopicJson.updateClusterTopicJson(clusterTopicJson.collectionEachClusterGroupWord());
     }
