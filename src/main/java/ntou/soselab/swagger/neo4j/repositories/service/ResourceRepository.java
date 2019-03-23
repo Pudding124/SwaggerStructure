@@ -23,4 +23,7 @@ public interface ResourceRepository extends GraphRepository<Resource> {
 
     @Query("MATCH (n:Resource {clusterGroup:{clusterGroup}}) RETURN n")
     List<Resource> findResourcesBySameCluster(@Param("clusterGroup") String clusterGroup);
+
+    @Query("MATCH (n:Resource {clusterGroup:{clusterGroup}}) RETURN count(n)")
+    int findCountBySameCluster(@Param("clusterGroup") String clusterGroup);
 }

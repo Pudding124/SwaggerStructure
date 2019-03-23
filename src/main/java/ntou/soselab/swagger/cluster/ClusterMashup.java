@@ -39,6 +39,29 @@ public class ClusterMashup {
     // 收集 群集相關資訊 並進行群集間比較 包裝成 JSON 後回傳
     public String compareTagetClusterAndOtherCluster(Long id) {
 
+        Resource resource = resourceRepository.findResourceById(id);
+
+        // 先判斷群集是否獨立
+        if(resourceRepository.findCountBySameCluster(resource.getClusterGroup()) == 1) {
+            JSONObject clusterWeb = new JSONObject();
+            clusterWeb.put("name", "cluster");
+            JSONArray children = new JSONArray();
+
+            JSONObject currentCluster = new JSONObject();
+            currentCluster.put("name", "Location_Cluster");
+            JSONArray currentChildren = new JSONArray();
+
+            JSONObject object = new JSONObject();
+            object.put("name", resource.getTitle());
+            object.put("size", "3");
+            currentChildren.put(object);
+
+            currentCluster.put("children", currentChildren);
+            children.put(currentCluster);
+            clusterWeb.put("children", children);
+            return clusterWeb.toString();
+        }
+
         HashMap<String, ArrayList<String>> groupList = new HashMap<>();
         String groupListJson = "";
 
@@ -73,7 +96,6 @@ public class ClusterMashup {
         ArrayList<String> mashupsNumber = getMashupsClusterNumber(groupList, id);
 
         // 獲得目標群集之群集編號
-        Resource resource = resourceRepository.findResourceById(id);
         String targetClusterNumber = resource.getClusterGroup();
 
         // 介面回傳 群集 json
