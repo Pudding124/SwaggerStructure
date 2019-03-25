@@ -123,7 +123,7 @@ public class OASPageWebController {
 
     @CrossOrigin
     @RequestMapping(value = "/getOASClusterInformation/{id}", method = RequestMethod.GET)
-    public String getOASClusterInformation(@PathVariable("id")Long resourceId) {
-        return clusterMashup.compareTagetClusterAndOtherCluster(resourceId);
+    public String getOASClusterInformation(@PathVariable("id")Long resourceId, @RequestParam String threshold) {
+        return clusterMashup.compareTagetClusterAndOtherCluster(resourceId, Double.valueOf(threshold));
     }
 }

@@ -34,10 +34,10 @@ public class ClusterMashup {
 
     CosineSimilarity cosineSimilarity = new CosineSimilarity();
 
-    private static final double mashupClusterThreshold = 0.2;
+//    private static final double mashupClusterThreshold = 0.2;
 
     // 收集 群集相關資訊 並進行群集間比較 包裝成 JSON 後回傳
-    public String compareTagetClusterAndOtherCluster(Long id) {
+    public String compareTagetClusterAndOtherCluster(Long id, double threshold) {
 
         Resource resource = resourceRepository.findResourceById(id);
 
@@ -93,7 +93,7 @@ public class ClusterMashup {
         }
 
         // 獲得可 Mashup 群集編號
-        ArrayList<String> mashupsNumber = getMashupsClusterNumber(groupList, id);
+        ArrayList<String> mashupsNumber = getMashupsClusterNumber(groupList, id, threshold);
 
         // 獲得目標群集之群集編號
         String targetClusterNumber = resource.getClusterGroup();
@@ -146,7 +146,7 @@ public class ClusterMashup {
         return clusterWeb.toString();
     }
 
-    public ArrayList<String> getMashupsClusterNumber(HashMap<String, ArrayList<String>> groupList, Long targetId) {
+    public ArrayList<String> getMashupsClusterNumber(HashMap<String, ArrayList<String>> groupList, Long targetId, double threshold) {
         // 獲得目標群集之群集字詞
         Resource resource = resourceRepository.findResourceById(targetId);
         ArrayList<String> targetWord = groupList.get(resource.getClusterGroup());
@@ -157,7 +157,7 @@ public class ClusterMashup {
             if(!groupNumber.equals(resource.getClusterGroup())) {
                 double score = calculateTwoMatrixVectorsAndCosineSimilarity(targetWord, groupList.get(groupNumber));
 
-                if(score > mashupClusterThreshold) {
+                if(score > threshold) {
                     result.add(groupNumber);
                 }
             }
