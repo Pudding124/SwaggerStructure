@@ -1,6 +1,8 @@
 package ntou.soselab.swagger.web.recommand;
 
+import ntou.soselab.swagger.algo.CosineSimilarity;
 import ntou.soselab.swagger.algo.ParametersSimilarityOfTwoServices;
+import ntou.soselab.swagger.algo.VSMScore;
 import ntou.soselab.swagger.neo4j.domain.service.Operation;
 import ntou.soselab.swagger.neo4j.domain.service.Parameter;
 import ntou.soselab.swagger.neo4j.domain.service.Resource;
@@ -9,12 +11,14 @@ import ntou.soselab.swagger.neo4j.repositories.service.OperationRepository;
 import ntou.soselab.swagger.neo4j.repositories.service.ParameterRepository;
 import ntou.soselab.swagger.neo4j.repositories.service.ResourceRepository;
 import ntou.soselab.swagger.neo4j.repositories.service.ResponseRepository;
+import org.neo4j.ogm.json.JSONException;
 import org.neo4j.ogm.json.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -38,6 +42,11 @@ public class ServiceRecommand {
 
     @Autowired
     ParametersSimilarityOfTwoServices parametersSimilarityOfTwoServices;
+
+    CosineSimilarity cosineSimilarity = new CosineSimilarity();
+
+    private double wordnetScore = 0.9;
+    private double operationThreshold = 0.2;
 
     Logger log = LoggerFactory.getLogger(ServiceRecommand.class);
 
@@ -63,9 +72,14 @@ public class ServiceRecommand {
                 // 計算當前服務與被比較服務之操作
                 for(Operation operation2 : operationRepository.findOperationsByResource(resource1.getNodeId())) {
 
+                    // 判斷非同一個服務
                     if(!resource.getNodeId().equals(resource1.getNodeId())) {
-                        Thread thread = new CalculationThread(similaritys, mashups, operation1, operation2, parameters1, responses1, operationRepository, parameterRepository, responseRepository, parametersSimilarityOfTwoServices);
-                        executor.execute(thread);
+                        if(getOperationCSScore(operation1, operation2)) {
+                            Thread thread = new CalculationThread(similaritys, mashups, operation1, operation2, parameters1, responses1, operationRepository, parameterRepository, responseRepository, parametersSimilarityOfTwoServices);
+                            executor.execute(thread);
+                        }else {
+                            log.info("Operation CS too low");
+                        }
                     }
 
                 }
@@ -94,6 +108,78 @@ public class ServiceRecommand {
         }
         return null;
     }
+
+    // 比較服務間操作的相似度 高於門檻才會進行操作配對
+    public boolean getOperationCSScore(Operation operation1, Operation operation2) {
+        double operationScore = 0.0;
+
+        if(operation1.getOriginalWord() != null && operation2.getOriginalWord() != null) {
+            if(!operation1.getOriginalWord().isEmpty() && !operation2.getOriginalWord().isEmpty()) {
+                operationScore = operationScore + calculateTwoMatrixVectorsAndCosineSimilarity(operation1.getOriginalWord(),operation2.getOriginalWord());
+            }
+        }
+
+        if(operation1.getWordnetWord() != null && operation2.getWordnetWord() != null) {
+            if(!operation1.getWordnetWord().isEmpty() && !operation2.getWordnetWord().isEmpty()) {
+
+                double s1 = calculateTwoMatrixVectorsAndCosineSimilarity(operation1.getOriginalWord(), operation2.getWordnetWord());
+                operationScore = operationScore + (s1 * wordnetScore);
+            }
+        }
+
+        if(operationScore > operationThreshold) {
+            return true;
+        }
+        return false;
+    }
+
+    public double calculateTwoMatrixVectorsAndCosineSimilarity(ArrayList<String> targetVector, ArrayList<String> compareVector) {
+
+        ArrayList<String> allWord = new ArrayList<>();
+        double cosineSimilarityScore = 0.0;
+
+        // record all appear word
+        for(String str : targetVector){
+            if(!allWord.contains(str)) {
+                allWord.add(str);
+            }
+        }
+        for(String str : compareVector){
+            if(!allWord.contains(str)) {
+                allWord.add(str);
+            }
+        }
+
+
+        // calculate two matrix vector
+        double[] target = new double[allWord.size()];
+        double[] compare = new double[allWord.size()];
+        for(int i = 0;i < allWord.size();i++){
+            boolean flag = true;
+            for(String str : targetVector){
+                if(allWord.get(i).equals(str)) {
+                    target[i]++;
+                    flag = false;
+                }
+            }
+            if(flag) target[i] = 0.0;
+        }
+
+        for(int i = 0;i < allWord.size();i++){
+            boolean flag = true;
+            for(String str : compareVector){
+                if(allWord.get(i).equals(str)) {
+                    compare[i]++;
+                    flag = false;
+                }
+            }
+            if(flag) compare[i] = 0.0;
+        }
+        cosineSimilarityScore = cosineSimilarity.cosineSimilarity(target, compare);
+
+        return cosineSimilarityScore;
+    }
+
 
 //    public void getOperationAndOperationMatch(ArrayList<Similarity> similaritys, ArrayList<Mashup> mashups, Operation operation1, Operation operation2, ArrayList<Parameter> parameters1, ArrayList<Response> responses1) {
 //        ArrayList<Parameter> parameters2 = new ArrayList<>(parameterRepository.findParametersByOperation(operation2.getNodeId()));
