@@ -373,8 +373,10 @@ class CalculationThread extends Thread {
         ArrayList<Response> responses2 = new ArrayList<>(responseRepository.findSuccessResponsesByOperation(operation2.getNodeId()));
         //log.info("service1 :{} ---- service2 :{}", operation1.getOperationAction(), operation2.getOperationAction());
         double inputMatchScore = parametersSimilarityOfTwoServices.calculateServiceInputScore(parameters1, parameters2);
+        // 計算 C 輸出是否能夠滿足 T 輸入
         double inputMashupMatchScore = parametersSimilarityOfTwoServices.calculateServiceInputOutputScore(parameters1, responses2);
-        double outputMashupMatchScore = parametersSimilarityOfTwoServices.calculateServiceOutputInputScore(responses1, parameters2);
+        // 計算 T 輸出是否能夠滿足 C 輸入
+        double outputMashupMatchScore = parametersSimilarityOfTwoServices.calculateServiceInputOutputScore(parameters2, responses1);
         double similarityMaxScore = 0.0;
         double mashupMaxScore = 0.0;
         log.info("Input Similarity Score :{}", inputMatchScore);
