@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
@@ -90,15 +91,15 @@ public class ServiceRecommand {
         executor.shutdown();
         try {
             if(executor.awaitTermination(1, TimeUnit.MINUTES)) {
-                service.setSimilaritys(similaritys);
-                service.setMashups(mashups);
+                service.setSimilaritys(sortSimilaritysRank(similaritys));
+                service.setMashups(sortMashupsRank(mashups));
                 JSONObject jsonObjectMary = new JSONObject(service);
                 log.info("ans :{}",jsonObjectMary);
                 return jsonObjectMary.toString();
             }else {
                 executor.shutdownNow();
-                service.setSimilaritys(similaritys);
-                service.setMashups(mashups);
+                service.setSimilaritys(sortSimilaritysRank(similaritys));
+                service.setMashups(sortMashupsRank(mashups));
                 JSONObject jsonObjectMary = new JSONObject(service);
                 log.info("事先回傳 ans :{}",jsonObjectMary);
                 return jsonObjectMary.toString();
@@ -180,6 +181,50 @@ public class ServiceRecommand {
         return cosineSimilarityScore;
     }
 
+    public ArrayList<Similarity> sortSimilaritysRank(ArrayList<Similarity> notSortSimilaritys) {
+        Similarity[] similarityArray = new Similarity[notSortSimilaritys.size()];
+
+        for(int x = 0;x<notSortSimilaritys.size();x++) {
+            similarityArray[x] = notSortSimilaritys.get(x);
+        }
+
+        // 氣泡排序
+        for(int x = 0;x < similarityArray.length;x++) {
+            for(int y = similarityArray.length-1;y>x;y--) {
+                if(similarityArray[y].score >= similarityArray[y-1].score) {
+                    Similarity tmp = similarityArray[y-1];
+                    similarityArray[y-1] = similarityArray[y];
+                    similarityArray[y] = tmp;
+                }
+            }
+        }
+        ArrayList<Similarity> sortSimilaritys = new ArrayList<Similarity>(Arrays.asList(similarityArray));
+
+        return sortSimilaritys;
+    }
+
+    public ArrayList<Mashup> sortMashupsRank(ArrayList<Mashup> notSortMashups) {
+        Mashup[] mashupArray = new Mashup[notSortMashups.size()];
+
+        for(int x = 0;x<notSortMashups.size();x++) {
+            mashupArray[x] = notSortMashups.get(x);
+        }
+
+        // 氣泡排序
+        for(int x = 0;x < mashupArray.length;x++) {
+            for(int y = mashupArray.length-1;y>x;y--) {
+                if(mashupArray[y].score >= mashupArray[y-1].score) {
+                    Mashup tmp = mashupArray[y-1];
+                    mashupArray[y-1] = mashupArray[y];
+                    mashupArray[y] = tmp;
+//                    log.info("交換 :{} --> :{}", mashupArray[y].score, mashupArray[y-1].score);
+                }
+            }
+        }
+        ArrayList<Mashup> sortMashups = new ArrayList<Mashup>(Arrays.asList(mashupArray));
+
+        return sortMashups;
+    }
 
 //    public void getOperationAndOperationMatch(ArrayList<Similarity> similaritys, ArrayList<Mashup> mashups, Operation operation1, Operation operation2, ArrayList<Parameter> parameters1, ArrayList<Response> responses1) {
 //        ArrayList<Parameter> parameters2 = new ArrayList<>(parameterRepository.findParametersByOperation(operation2.getNodeId()));
