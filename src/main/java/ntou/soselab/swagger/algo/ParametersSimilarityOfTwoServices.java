@@ -43,6 +43,8 @@ public class ParametersSimilarityOfTwoServices {
         SQSimilarityMatrix = calculateInputServiceScoreByService1AsStartPoint(startPointService, service2);
         HungarianAlgorithm findBestIOMapping = new HungarianAlgorithm(SQSimilarityMatrix);
         int[] mappingResult = findBestIOMapping.execute();
+        //印出input配對結果
+        log.info("----hungarium mapping result: {}", mappingResult);
 
         return this.calculateInputHungarianMappingScore(SQSimilarityMatrix, mappingResult, startPointService, service2);
     }
@@ -67,7 +69,7 @@ public class ParametersSimilarityOfTwoServices {
         SQSimilarityMatrix = calculateResponseServiceScoreByService1AsStartPoint(startPointService,service2);
         HungarianAlgorithm findBestIOMapping = new HungarianAlgorithm(SQSimilarityMatrix);
         int[] mappingResult = findBestIOMapping.execute();
-        //印出input配對結果
+        //印出output配對結果
         log.info("----hungarium mapping result: {}", mappingResult);
 
         return this.calculateOutputHungarianMappingScore(SQSimilarityMatrix, mappingResult, startPointService, service2);

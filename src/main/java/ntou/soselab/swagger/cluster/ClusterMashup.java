@@ -112,11 +112,13 @@ public class ClusterMashup {
             if(String.valueOf(resource1.getNodeId()).equals(String.valueOf(resource.getNodeId()))) {
                 JSONObject object = new JSONObject();
                 object.put("name", resource1.getTitle());
+                object.put("id", resource1.getNodeId());
                 object.put("size", "3");
                 currentChildren.put(object);
             }else {
                 JSONObject object = new JSONObject();
                 object.put("name", resource1.getTitle());
+                object.put("id", resource1.getNodeId());
                 object.put("size", "1");
                 currentChildren.put(object);
             }
@@ -133,6 +135,7 @@ public class ClusterMashup {
             for(Resource resource1 : resourceRepository.findResourcesBySameCluster(mashupNumber)) {
                 JSONObject object = new JSONObject();
                 object.put("name", resource1.getTitle());
+                object.put("id", resource1.getNodeId());
                 object.put("size", "1");
                 compareChildren.put(object);
             }
