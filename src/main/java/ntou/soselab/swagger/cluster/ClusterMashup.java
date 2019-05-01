@@ -53,6 +53,7 @@ public class ClusterMashup {
 
             JSONObject object = new JSONObject();
             object.put("name", resource.getTitle());
+            object.put("id", resource.getNodeId());
             object.put("size", "3");
             currentChildren.put(object);
 
