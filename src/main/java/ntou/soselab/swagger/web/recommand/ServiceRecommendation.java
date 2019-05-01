@@ -2,7 +2,7 @@ package ntou.soselab.swagger.web.recommand;
 
 import java.util.ArrayList;
 
-public class Service {
+public class ServiceRecommendation {
     ArrayList<Similarity> similaritys;
     ArrayList<Mashup> mashups;
 

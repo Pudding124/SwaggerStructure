@@ -5,7 +5,7 @@ import ntou.soselab.swagger.neo4j.domain.service.Parameter;
 import ntou.soselab.swagger.neo4j.domain.service.Response;
 import ntou.soselab.swagger.neo4j.repositories.service.ParameterRepository;
 import ntou.soselab.swagger.neo4j.repositories.service.ResponseRepository;
-import ntou.soselab.swagger.web.recommand.ServiceRecommand;
+import ntou.soselab.swagger.web.recommand.ServiceRecommender;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.slf4j.Logger;
@@ -21,7 +21,7 @@ import java.util.ArrayList;
 public class SimilarityTest {
 
     @Autowired
-    ServiceRecommand serviceRecommand;
+    ServiceRecommender serviceRecommender;
 
     @Autowired
     ParameterRepository parameterRepository;
@@ -39,7 +39,7 @@ public class SimilarityTest {
     public void searchSameEndpoint() {
         Long resourceId1 = 234089L;
         Long resourceId2 = 7081L;
-        serviceRecommand.getRecommandResult(resourceId1);
+        serviceRecommender.runRecommendService(resourceId1);
     }
 
     @Test

@@ -1,42 +1,43 @@
-package ntou.soselab.swagger.web.homepage;
+package ntou.soselab.swagger.web;
 
 import ntou.soselab.swagger.engine.SearchEngine;
-import ntou.soselab.swagger.neo4j.domain.service.Operation;
-import ntou.soselab.swagger.neo4j.domain.service.Resource;
-import ntou.soselab.swagger.neo4j.repositories.service.JavaRepoRepository;
-import ntou.soselab.swagger.neo4j.repositories.service.OperationRepository;
-import ntou.soselab.swagger.neo4j.repositories.service.ResourceRepository;
+import ntou.soselab.swagger.neo4j.domain.service.*;
+import ntou.soselab.swagger.neo4j.repositories.service.*;
+import ntou.soselab.swagger.web.homepage.*;
+import ntou.soselab.swagger.web.oaspage.*;
+import org.json.JSONArray;
 import org.json.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 
-@RestController
-public class HomePageWebController {
-
+@Service
+public class ServiceManager {
     @Autowired
     ResourceRepository resourceRepository;
-
     @Autowired
     OperationRepository operationRepository;
-
+    @Autowired
+    PathRepository pathRepository;
+    @Autowired
+    ParameterRepository parameterRepository;
+    @Autowired
+    ResponseRepository responseRepository;
+    @Autowired
+    StatusCodeRepository statusCodeRepository;
     @Autowired
     JavaRepoRepository javaRepoRepository;
-
     @Autowired
     SearchEngine searchEngine;
 
-    Logger log = LoggerFactory.getLogger(HomePageWebController.class);
+    Logger log = LoggerFactory.getLogger(ServiceManager.class);
 
-    @CrossOrigin
-    @RequestMapping(value = "/getSearchEngineResult", method = RequestMethod.GET)
-    public String getSearchEngineResult(@RequestParam String query) {
-
+    public String runSearchEngine(String query) {
         // 回傳結果相關資料
         ArrayList<EngineResult> engineResults = new ArrayList<>();
 
@@ -86,9 +87,7 @@ public class HomePageWebController {
         return jsonObject.toString();
     }
 
-    @CrossOrigin
-    @RequestMapping(value = "/getServiceLevel", method = RequestMethod.GET)
-    public String getServiceLevel() {
+    public String countServiceLevel() {
         int serviceTotal = resourceRepository.totalResource();
 
         ArrayList<ServiceFeature> result = new ArrayList<>();
@@ -129,10 +128,10 @@ public class HomePageWebController {
         userAuthentication.setQuantity(Authentication);
         most20perations.setQuantity(mostOperations);
         exampleAPIConversations.setQuantity(example);
-        log.info("httpsSupport :{}", httpsSupport);
-        log.info("userAuthentication :{}", userAuthentication);
-        log.info("most20perations :{}", most20perations);
-        log.info("exampleAPIConversations :{}", exampleAPIConversations);
+//        log.info("httpsSupport :{}", httpsSupport);
+//        log.info("userAuthentication :{}", userAuthentication);
+//        log.info("most20perations :{}", most20perations);
+//        log.info("exampleAPIConversations :{}", exampleAPIConversations);
         result.add(httpsSupport);
         result.add(userAuthentication);
         result.add(most20perations);
@@ -144,9 +143,7 @@ public class HomePageWebController {
         return jsonObject.toString();
     }
 
-    @CrossOrigin
-    @RequestMapping(value = "/getEndpointLevel", method = RequestMethod.GET)
-    public String getEndpointLevel() {
+    public String countEndpointLevel() {
         int operationTotal = operationRepository.totalOperation();
 
         ArrayList<EndpointFeature> result = new ArrayList<>();
@@ -209,9 +206,7 @@ public class HomePageWebController {
         return jsonObject.toString();
     }
 
-    @CrossOrigin
-    @RequestMapping(value = "/getPopularStandardOAS", method = RequestMethod.GET)
-    public String getPopularStandardOAS() {
+    public String countPopularStandardOAS() {
         ArrayList<PopularStandardOAS> standard = new ArrayList<>();
         ArrayList<PopularStandardOAS> popular = new ArrayList<>();
         for(Resource resource : javaRepoRepository.findResourceByHaveJavaRepo()) {
@@ -251,5 +246,89 @@ public class HomePageWebController {
         jsonObject.put("popular", popular);
         log.info("result :{}", jsonObject);
         return jsonObject.toString();
+    }
+
+    public String runOASBasicInformation(Long resourceId) {
+        Resource resource = resourceRepository.findResourceById(resourceId);
+        ResourceInfo resourceInfo = new ResourceInfo();
+        resourceInfo.setTitle(resource.getTitle());
+        resourceInfo.setFeatures(resource.getFeature());
+        resourceInfo.setDescription(resource.getDescription());
+        resourceInfo.setProvider(resource.getProvider());
+        resourceInfo.setHost(resource.getHost());
+        resourceInfo.setBaseUrl(resource.getBasePath());
+        resourceInfo.setContact(resource.getSwaggerUrl());
+
+        // get path info
+        ArrayList<PathInfo> pathInfos = new ArrayList<>();
+        for(Path path : pathRepository.findPathsByResource(resourceId)) {
+            PathInfo pathInfo = new PathInfo();
+            pathInfo.setEndpoint(path.getPath());
+
+            // get javaRepo info
+            ArrayList<JavaRepoInfo> javaRepos = new ArrayList<>();
+            for(JavaRepo javaRepo : javaRepoRepository.findJavaReposByPath(path.getNodeId())) {
+                JavaRepoInfo javaRepoInfo = new JavaRepoInfo();
+                javaRepoInfo.setRepoName(javaRepo.getRepoName());
+                javaRepoInfo.setRepoUrl(javaRepo.getRepoUrl());
+                javaRepoInfo.setJavaDocHtml(javaRepo.getJavaDocumentHtmlUrl());
+                javaRepoInfo.setMethod(javaRepo.getMethod());
+                javaRepoInfo.setScore(javaRepo.getScore());
+                javaRepos.add(javaRepoInfo);
+            }
+
+            // get operation info
+            ArrayList<OperationInfo> operationInfos = new ArrayList<>();
+            for(Operation operation : operationRepository.findOperationsByPath(path.getNodeId())) {
+                OperationInfo operationInfo = new OperationInfo();
+                operationInfo.setOperation(operation.getOperationAction());
+                operationInfo.setDescription(operation.getDescription());
+                operationInfo.setFeatures(operation.getFeature());
+
+                // get input parameter info
+                ArrayList<InputParameterInfo> inputParameterInfos = new ArrayList<>();
+                for(Parameter parameter : parameterRepository.findParametersByOperationNoThreshold(operation.getNodeId())) {
+                    InputParameterInfo inputParameterInfo = new InputParameterInfo();
+                    inputParameterInfo.setId(parameter.getNodeId().toString());
+                    inputParameterInfo.setDescription(parameter.getDescription());
+                    inputParameterInfo.setIn(parameter.getIn());
+                    inputParameterInfo.setParameter(parameter.getName());
+                    inputParameterInfo.setRequired(parameter.isRequired());
+                    inputParameterInfo.setType(parameter.getMedia_type());
+                    inputParameterInfos.add(inputParameterInfo);
+                }
+                // get status code info
+                ArrayList<JSONObject> statusCodeInfos = new ArrayList<>();
+                for(StatusCode statusCode : statusCodeRepository.findStatusCodesByOperation(operation.getNodeId())) {
+                    JSONObject jsonObject = new JSONObject();
+                    String statusNumber = statusCode.getStatusCode();
+
+                    JSONArray responses = new JSONArray();
+                    for(Response response : responseRepository.findResponsesByStatusCode(statusCode.getNodeId())) {
+                        JSONObject object = new JSONObject();
+                        object.put("id", response.getNodeId());
+                        object.put("type", response.getMedia_type());
+                        object.put("parameter", response.getName());
+                        object.put("description", response.getDescription());
+                        object.put("required", response.getRequired());
+                        responses.put(object);
+                    }
+
+                    jsonObject.put(statusNumber, responses);
+                    statusCodeInfos.add(jsonObject);
+                    log.info("status code :{}", statusCodeInfos);
+                }
+                operationInfo.setInputParameters(inputParameterInfos);
+                operationInfo.setStatusCode(statusCodeInfos);
+                operationInfos.add(operationInfo);
+            }
+            pathInfo.setOperations(operationInfos);
+            pathInfo.setJavaRepos(javaRepos);
+            pathInfos.add(pathInfo);
+        }
+        resourceInfo.setEndpoints(pathInfos);
+        JSONObject jsonObjectMary = new JSONObject(resourceInfo);
+        log.info("ans :{}",jsonObjectMary);
+        return jsonObjectMary.toString();
     }
 }

@@ -2,7 +2,6 @@ package ntou.soselab.swagger.web.recommand;
 
 import ntou.soselab.swagger.algo.CosineSimilarity;
 import ntou.soselab.swagger.algo.ParametersSimilarityOfTwoServices;
-import ntou.soselab.swagger.algo.VSMScore;
 import ntou.soselab.swagger.neo4j.domain.service.Operation;
 import ntou.soselab.swagger.neo4j.domain.service.Parameter;
 import ntou.soselab.swagger.neo4j.domain.service.Resource;
@@ -11,23 +10,21 @@ import ntou.soselab.swagger.neo4j.repositories.service.OperationRepository;
 import ntou.soselab.swagger.neo4j.repositories.service.ParameterRepository;
 import ntou.soselab.swagger.neo4j.repositories.service.ResourceRepository;
 import ntou.soselab.swagger.neo4j.repositories.service.ResponseRepository;
-import org.neo4j.ogm.json.JSONException;
 import org.neo4j.ogm.json.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.stereotype.Service;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
 
-@RestController
-public class ServiceRecommand {
+@Service
+public class ServiceRecommender {
 
     @Autowired
     ResourceRepository resourceRepository;
@@ -49,15 +46,14 @@ public class ServiceRecommand {
     private double wordnetScore = 0.9;
     private double operationThreshold = 0.2;
 
-    Logger log = LoggerFactory.getLogger(ServiceRecommand.class);
+    Logger log = LoggerFactory.getLogger(ServiceRecommender.class);
 
-    @CrossOrigin
-    @RequestMapping(value = "/getOASRecommand/{id}", method = RequestMethod.GET)
-    public String getRecommandResult(@PathVariable("id")Long resourceId) {
+
+    public String runRecommendService(Long resourceId) {
 
         ExecutorService executor = Executors.newFixedThreadPool(200);
 
-        Service service = new Service();
+        ServiceRecommendation service = new ServiceRecommendation();
         ArrayList<Similarity> similaritys = new ArrayList<>();
         ArrayList<Mashup> mashups = new ArrayList<>();
 
@@ -374,14 +370,14 @@ class CalculationThread extends Thread {
         //log.info("service1 :{} ---- service2 :{}", operation1.getOperationAction(), operation2.getOperationAction());
         double inputMatchScore = parametersSimilarityOfTwoServices.calculateServiceInputScore(parameters1, parameters2);
         // 計算 C 輸出是否能夠滿足 T 輸入
-        double inputMashupMatchScore = parametersSimilarityOfTwoServices.calculateServiceInputOutputScore(parameters1, responses2);
+//        double inputMashupMatchScore = parametersSimilarityOfTwoServices.calculateServiceInputOutputScore(parameters1, responses2);
         // 計算 T 輸出是否能夠滿足 C 輸入
-        double outputMashupMatchScore = parametersSimilarityOfTwoServices.calculateServiceInputOutputScore(parameters2, responses1);
+//        double outputMashupMatchScore = parametersSimilarityOfTwoServices.calculateServiceInputOutputScore(parameters2, responses1);
         double similarityMaxScore = 0.0;
         double mashupMaxScore = 0.0;
         log.info("Input Similarity Score :{}", inputMatchScore);
-        log.info("Input Mashup Score :{}", inputMashupMatchScore);
-        log.info("Output Mashup Score :{}", outputMashupMatchScore);
+//        log.info("Input Mashup Score :{}", inputMashupMatchScore);
+//        log.info("Output Mashup Score :{}", outputMashupMatchScore);
 
         // 判斷 Input 或是 Output 相似
         int flag = 0;
@@ -451,35 +447,35 @@ class CalculationThread extends Thread {
             saveMashups(mashup);
         }
 
-        if(inputMashupMatchScore > 0.0) {
-            Mashup mashup = new Mashup();
-            mashup.setCategory("Input Match");
-            mashup.setScore(inputMashupMatchScore);
-            mashup.setTargetEndpoint(operationRepository.findPathByOperation(operation1.getNodeId()).getPath());
-            mashup.setTargetOperation(operation1.getOperationAction());
-            Resource resource2 = operationRepository.findResourceByOperation(operation2.getNodeId());
-            mashup.setCompareOASId(resource2.getNodeId());
-            mashup.setCompareOASName(resource2.getTitle());
-            mashup.setCompareEndpoint(operationRepository.findPathByOperation(operation2.getNodeId()).getPath());
-            mashup.setCompareOperation(operation2.getOperationAction());
+//        if(inputMashupMatchScore > 0.0) {
+//            Mashup mashup = new Mashup();
+//            mashup.setCategory("Input Match");
+//            mashup.setScore(inputMashupMatchScore);
+//            mashup.setTargetEndpoint(operationRepository.findPathByOperation(operation1.getNodeId()).getPath());
+//            mashup.setTargetOperation(operation1.getOperationAction());
+//            Resource resource2 = operationRepository.findResourceByOperation(operation2.getNodeId());
+//            mashup.setCompareOASId(resource2.getNodeId());
+//            mashup.setCompareOASName(resource2.getTitle());
+//            mashup.setCompareEndpoint(operationRepository.findPathByOperation(operation2.getNodeId()).getPath());
+//            mashup.setCompareOperation(operation2.getOperationAction());
 //            mashups.add(mashup);
-            saveMashups(mashup);
-        }
-
-        if(outputMashupMatchScore > 0.0) {
-            Mashup mashup = new Mashup();
-            mashup.setCategory("Output Match");
-            mashup.setScore(outputMashupMatchScore);
-            mashup.setTargetEndpoint(operationRepository.findPathByOperation(operation1.getNodeId()).getPath());
-            mashup.setTargetOperation(operation1.getOperationAction());
-            Resource resource2 = operationRepository.findResourceByOperation(operation2.getNodeId());
-            mashup.setCompareOASId(resource2.getNodeId());
-            mashup.setCompareOASName(resource2.getTitle());
-            mashup.setCompareEndpoint(operationRepository.findPathByOperation(operation2.getNodeId()).getPath());
-            mashup.setCompareOperation(operation2.getOperationAction());
+//            saveMashups(mashup);
+//        }
+//
+//        if(outputMashupMatchScore > 0.0) {
+//            Mashup mashup = new Mashup();
+//            mashup.setCategory("Output Match");
+//            mashup.setScore(outputMashupMatchScore);
+//            mashup.setTargetEndpoint(operationRepository.findPathByOperation(operation1.getNodeId()).getPath());
+//            mashup.setTargetOperation(operation1.getOperationAction());
+//            Resource resource2 = operationRepository.findResourceByOperation(operation2.getNodeId());
+//            mashup.setCompareOASId(resource2.getNodeId());
+//            mashup.setCompareOASName(resource2.getTitle());
+//            mashup.setCompareEndpoint(operationRepository.findPathByOperation(operation2.getNodeId()).getPath());
+//            mashup.setCompareOperation(operation2.getOperationAction());
 //            mashups.add(mashup);
-            saveMashups(mashup);
-        }
+//            saveMashups(mashup);
+//        }
     }
 
     public void saveSimilaritys(Similarity similarity) {

@@ -18,13 +18,13 @@ public class CSTest {
     //@Test
     public void CosineSimiliarityTest() {
         CosineSimilarity cosineSimilarity = new CosineSimilarity();
-        double[] docVector1 = {1,1,1,1};
-        double[] docVector2 = {1,1,0,0};
+        double[] docVector1 = {1, 2, 2, 1, 1, 1, 0};
+        double[] docVector2 = {1, 2, 2, 1, 1, 2, 1};
 
         log.info("分數 :{}", cosineSimilarity.cosineSimilarity(docVector1, docVector2));
     }
 
-    @Test
+    //@Test
     public void CollectionWord() {
         // 416527 - 157782
         ArrayList<String> target = new ArrayList<>();
@@ -76,6 +76,33 @@ public class CSTest {
         compare2.add("proactiv");
 
         calculateTwoMatrixVectorsAndCosineSimilarity(target2, compare2);
+    }
+
+    @Test
+    public void CollectionWord2() {
+        ArrayList<String> target = new ArrayList<>();
+        ArrayList<String> compare = new ArrayList<>();
+//        target.add("I");
+//        target.add("like");
+//        target.add("see");
+//        target.add("tv");
+//        target.add("no");
+        target.add("like");
+        target.add("see");
+        target.add("movie");
+
+        compare.add("I");
+        compare.add("no");
+        compare.add("like");
+        compare.add("see");
+        compare.add("tv");
+        compare.add("also");
+        compare.add("no");
+//        compare.add("like");
+//        compare.add("see");
+//        compare.add("movie");
+
+        calculateTwoMatrixVectorsAndCosineSimilarity(target, compare);
     }
 
     public void calculateTwoMatrixVectorsAndCosineSimilarity(ArrayList<String> targetVector, ArrayList<String> compareVector) {
