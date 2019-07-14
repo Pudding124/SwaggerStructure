@@ -36,7 +36,7 @@ public class AllSwaggerTFIDF {
 
     TokenizationAndStemming tokenizationAndStemming = new TokenizationAndStemming();
 
-    @Test
+    //@Test
     public void calculateTFIDF() {
         try{
             File file = new File("D:/SwaggerTFIDFData"); //file path

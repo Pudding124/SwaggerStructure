@@ -20,7 +20,7 @@ public class LDATest {
     @Autowired
     SwaggerToLDA swaggerToLDA;
 
-    @Test
+    //@Test
     public void LDATopicTest() {
         HashMap<String, String> stemmingAndTermsTable = new HashMap<>();
         String[] text = new String[1];

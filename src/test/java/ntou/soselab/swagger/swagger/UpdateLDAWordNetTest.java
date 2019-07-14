@@ -18,7 +18,7 @@ public class UpdateLDAWordNetTest {
     @Autowired
     UpdateLDAWordNetWord updateLDAWordNetWord;
 
-    @Test
+    //@Test
     public void updateResourceTest() {
         updateLDAWordNetWord.updateResource();
     }

@@ -35,7 +35,7 @@ public class SwaggerGitHubSearchTest {
     @Autowired
     JavaSearch javaSearch;
 
-    @Test
+    //@Test
     public void readFinishFile(){
         int fileNumber = 80;
         File sDocFolder = new File("./src/main/resources/finish");

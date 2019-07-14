@@ -1,0 +1,1254 @@
+,team,cluster
+0,233474-Clarify,308
+1,393223-FabricAdminClient,190
+2,419844-PolicyClient,289
+3,296960-Elastic Load Balancing,192
+4,403456-AWS Global Accelerator,298
+5,258052-Reisezentren-API,310
+6,309251-Cloud Tasks,235
+7,415745-IAM Service Account Credentials,344
+8,276488-Knowledge Graph Search,29
+9,88076-KeyVaultClient,164
+10,190479-Bungie.Net,257
+11,38926-ContainerServiceClient,211
+12,178188-TimeSeriesInsightsClient,211
+13,286731-Open Targets Platform,151
+14,135187-SqlManagementClient,176
+15,231440-AWS Database Migration Service,270
+16,237584-AWS Cost and Usage Report Service,340
+17,319511-Azure SQL Database Backup,176
+18,397330-Just Eat Tenant API,24
+19,114708-MonitorManagementClient,43
+20,141332-NPR Listening Service,308
+21,180245-People,336
+22,258078-StorageManagementClient,211
+23,444443-Neblio REST API Suite,118
+24,426023-TVmaze user,89
+25,190502-Geographic,328
+26,280609-Web Security Scanner,32
+27,71719-BatchAI,238
+28,460832-Clever-Cloud,321
+29,114728-UpdateAdminClient,190
+30,141355-Deed,131
+31,92203-Postmark Account-level,183
+32,229417-U.S. EPA Enforcement and Compliance History Online (ECHO) - Effluent Charting and Reporting,313
+33,290857-ApplicationInsightsManagementClient,211
+34,149555-Sandbox,199
+35,18483-Europeana,19
+36,77877-Azure Data Migration Service Resource Provider,288
+37,157750-Bhagavad Gita,356
+38,426034-SqlManagementClient,176
+39,276540-TrafficManagerManagementClient,46
+40,434236-ContainerServiceClient,211
+41,256061-AdSense Host,336
+42,419896-BlueprintClient,211
+43,141378-Azure SQL Server Backup Long Term Retention Vault,176
+44,268356-ContainerInstanceManagementClient,299
+45,294983-ServerManagement,202
+46,81989-Amazon Elastic File System,306
+47,456770-Cloud Search,248
+48,92233-Game feeds APIs,28
+49,168010-Avaza,208
+50,313420-Application Insights Data Plane,138
+51,303176-G Suite Vault,248
+52,395338-Amazon Relational Database Service,296
+53,18510-Numbers,276
+54,71759-StorageManagementClient,211
+55,98383-Azure Media Services,344
+56,307275-Amazon Route 53 Resolver,291
+57,157782-ApplicationInsightsManagementClient,179
+58,241749-MLB v3 Projections,155
+59,364627-Apacta,143
+60,125014-Box 2.0 Uploads,38
+61,233556-Cloud Vision,168
+62,18520-SqlManagementClient,176
+63,204894-Azure Media Services,344
+64,307289-StorageManagementClient,211
+65,135260-Fahrplan-Free,335
+66,63583-Anchore Engine API Server,111
+67,329818-SendGrid v3,184
+68,153698-Cloud Storage,323
+69,313446-Pioneer blog feeds APIs,28
+70,276577-Route Optimization,240
+71,125031-Cosine Similarity,28
+72,292963-GameSparks Request,94
+73,168042-RecoveryServicesClient,162
+74,356461-BeezUP,252
+75,403565-Seldon,272
+76,350313-AutomationManagement,73
+77,276585-SelectPdf HTML To PDF,200
+78,34929-Vestorly,219
+79,149616-Google App State,107
+80,364663-Ad Experience Report,51
+81,88180-Wavecell.Sms.Api,217
+82,295025-Text Analytics Client,35
+83,114809-ResourceHealthMetadata API Client,51
+84,135291-NFL v3 Play-by-Play,1
+85,147579-Healthcare,357
+86,149624-NetworkManagementClient,286
+87,270463-redirection.io,40
+88,419965-Word2Vec APIs,27
+89,141438-MLB v3 RotoBaller Premium News,360
+90,71804-ManagementLinkClient,289
+91,444536-StorageManagementClient,211
+92,118912-EventGridManagementClient,211
+93,290951-Azure Action Groups,299
+94,215174-NBA Stats,2
+95,127111-Data,321
+96,98441-ApiManagementClient,198
+97,266380-CustomerInsightsManagementClient,286
+98,344205-AppServiceCertificateOrders API Client,223
+99,34953-Google Search Console URL Testing Tools,103
+100,229514-HDInsightManagementClient,211
+101,157836-Transportation Laws and Incentives,107
+102,319627-Just Eat UK,350
+103,403606-Winning Email,330
+104,256144-NFL v3 RotoBaller Premium News,361
+105,135316-Azure SQL Server API spec,176
+106,426128-OpenCage Geocoder,142
+107,118934-SqlManagementClient,176
+108,88217-SubscriptionsManagementClient,211
+109,80024-Twitter,279
+110,344220-HDInsightManagementClient,211
+111,219289-AppServicePlans API Client,205
+112,290975-AzureBridgeAdminClient,211
+113,82077-MonitorManagementClient,304
+114,344229-Authentication,171
+115,460967-Azure Alerts Management Service Resource Provider,194
+116,293030-Twitter APIs,27
+117,164006-Gitlab,270
+118,256167-Url2Label by word vector APIs,27
+119,356513-RecoveryServicesBackupClient,162
+120,211109-Azure Bot Service,270
+121,389283-AGCO API,108
+122,155818-NHL v3 Stats,92
+123,360621-CostManagementClient,139
+124,293039-airportsapi,353
+125,329896-Azure Data Catalog Resource Provider,323
+126,444587-SqlManagementClient,176
+127,182451-AWS CloudHSM V2,295
+128,299189-Google Play Game Services,95
+129,69811-setlist.fm,241
+130,186549-Postmark,183
+131,286899-OpenFinTech.io,143
+132,225467-Twine,143
+133,266431-BikeWise API v2,336
+134,69822-Visual Studio Projects Resource Provider Client,290
+135,262331-Amazon Route 53 Domains,185
+136,286907-Words to Vectors APIs,27
+137,348357-Amazon Rekognition,224
+138,168131-AutomationManagement,74
+139,147648-ApiManagementClient,198
+140,213185-NetworkManagementClient,286
+141,403653-MarketplaceOrdering.Agreements,199
+142,149702-Stationsdatenbereitstellung,311
+143,360641-AWS Marketplace Entitlement Service,215
+144,272577-ShipStation Developer Portal,257
+145,127175-HDInsightManagementClient,211
+146,239813-Stackdriver Logging,178
+147,123081-CBB v3 Stats,92
+148,170186-Gitea API.,40
+149,393416-Power BI Embedded Management Client,244
+150,127182-SqlManagementClient,176
+151,291028-Compute Admin Client,113
+152,268501-TrafficManagerManagementClient,44
+153,389329-HanaManagementClient,211
+154,164052-SqlManagementClient,176
+155,147674-FabricAdminClient,191
+156,209114-Amazon Cognito Identity,157
+157,293086-ApplicationInsightsManagementClient,211
+158,123098-2ch matome feeds APIs,28
+159,362713-Cambase.io,156
+160,61665-NFL v3 Stats,92
+161,168163-PageSpeed Insights,281
+162,151776-Gateway,203
+163,211174-News Search,13
+164,348397-Commerce Taxonomy Api,120
+165,164075-Azure SQL Database,176
+166,33002-StatSocial Platform,214
+167,30955-SalesLoft Platform,215
+168,295151-Manufacturer Center,344
+169,153838-Binary Authorization,115
+170,178414-Cloud Firestore,168
+171,389353-Azure SQL Database,176
+172,127219-SpectroCoin Merchant,26
+173,229616-ContainerServiceClient,211
+174,352502-Google Classroom,105
+175,389366-News feeds APIs,28
+176,39161-Browse,251
+177,225528-Personnel Data,314
+178,248063-FrontDoorManagementClient,290
+179,444667-Cloud Speech,287
+180,377092-Stripe,198
+181,149761-Airports API v2,353
+182,137480-ServiceBusManagementClient,211
+183,170249-NetworkManagementClient,286
+184,348430-AWS S3 Control,336
+185,370958-AWS IoT,336
+186,153870-StorageManagementClient,211
+187,164111-StorageManagementClient,211
+188,262409-groov Public,284
+189,389384-ContainerServiceClient,211
+190,329995-Application Insights Data Plane,138
+191,295179-koomalooma Partner,59
+192,432393-Mandrill,184
+193,397590-Cloud Functions,267
+194,8468-DCM/DFA Reporting And Trafficking,88
+195,291097-Microsoft.ResourceHealth,288
+196,444696-Kmeans clustering by word2vec,27
+197,41248-RecoveryServicesBackupClient,161
+198,114977-WordNet Similarity APIs,27
+199,397606-HackathonWatch,362
+200,440615-Cloud Dataproc,270
+201,164134-FabricAdminClient,190
+202,63782-Groups Settings,289
+203,170277-AutomationManagement,239
+204,452907-AWS SecurityHub,291
+205,297258-Cloud Datastore,168
+206,164146-Storm Glass Marine Weather,352
+207,241971-ApiManagementClient,198
+208,141622-AzureDeploymentManager,198
+209,454975-Engagement.ManagementClient,199
+210,307518-Consumer Surveys,172
+211,94524-Ad Exchange Buyer,336
+212,49470-BrandLovers Marketplace API V1,252
+213,291130-Compute Admin Client,10
+214,397638-SqlManagementClient,176
+215,440645-FabricAdminClient,190
+216,205126-DnsManagementClient,211
+217,414019-WebSite Management Client,290
+218,131402-AWS Application Discovery Service,179
+219,186697-BlueprintClient,211
+220,432457-AutomationManagement,78
+221,127312-posty_API,213
+222,364884-CircleCI,334
+223,164176-MonitorManagementClient,278
+224,248151-ApiManagementClient,198
+225,211286-LH Public,128
+226,242010-RunCommandsClient,211
+227,399711-Amazon Comprehend,108
+228,31067-AWS IoT Data Plane,159
+229,39260-CustomSearch,91
+230,248162-FabricAdminClient,190
+231,297312-AviationData.Systems Airports API V1,354
+232,350561-Azure Machine Learning Workspaces,286
+233,86374-Jira,270
+234,92523-DataLakeStoreAccountManagementClient,323
+235,49515-Azure SQL Database replication links,176
+236,325999-Amazon Kinesis,323
+237,385390-DRACOON,199
+238,364905-AWS RDS DataService,321
+239,266602-NHL v3 Projections,363
+240,96622-Amazon QuickSight,301
+241,368-Service Map,224
+242,307574-Amazon CloudSearch Domain,185
+243,455025-Azure SQL Database Import/Export spec,305
+244,366973-ResourceManagementClient,289
+245,65915-Amazon Cognito Identity Provider,157
+246,416123-PatientView,199
+247,164224-AWS Performance Insights,61
+248,98690-Spinitron v2,93
+249,395653-SportsData,325
+250,309632-DataLakeAnalyticsAccountManagementClient,323
+251,307585-MonitorManagementClient,57
+252,317826-Amazon Simple Notification Service,259
+253,416136-CommerceManagementClient,211
+254,399753-SubscriptionsManagementClient,211
+255,106896-ComputeManagementClient,211
+256,432531-ApplicationInsightsManagementClient,211
+257,8600-AutomationManagement,239
+258,416158-Web Search,13
+259,309661-Box 2.0 OAuth2 Token,335
+260,67994-OpenFEC,326
+261,410022-Beanstream Payments,250
+262,444836-Admin Reports,248
+263,350626-Tradeworks,151
+264,72105-NPR Identity Service,321
+265,258473-Cloud Build,270
+266,317864-MicrosoftSerialConsoleClient,336
+267,264619-Amazon Simple Email Service,184
+268,326059-Item Feed Service,38
+269,127408-ApiManagementClient,198
+270,397748-Azure ML Commitment Plans Management Client,205
+271,410036-Url2Src APIs,28
+272,133553-uebermaps API endpoints,226
+273,65972-HDInsightManagementClient,211
+274,295345-StorageManagement,306
+275,371123-Amazon Macie,291
+276,301491-Twilio,292
+277,395710-TransitFeeds,321
+278,262589-Workload Monitor,242
+279,410044-InfrastructureInsightsManagementClient,190
+280,295365-Amazon Mobile Analytics,323
+281,352710-Google Cloud Memorystore for Redis,270
+282,295375-APIs.guru,275
+283,301512-Discovery Market Research,86
+284,268745-Application Auto Scaling,193
+285,123343-BigQuery Data Transfer,322
+286,156108-opendatasoft,133
+287,248273-Cloud OS Login,344
+288,422356-Published Plan Service,205
+289,293328-AWS Certificate Manager,223
+290,135639-AWS X-Ray,324
+291,307665-SqlManagementClient,176
+292,350684-AutomationManagement,331
+293,358876-Google Play EMM,241
+294,309726-ISBNdb,12
+295,147934-AWS Resource Groups,289
+296,291289-Service Usage,270
+297,352728-NetworkManagementClient,286
+298,248285-WordNet synonym APIs,27
+299,301543-Swagger2OpenAPI Converter,12
+300,264672-SqlManagementClient,176
+301,72170-GuestConfiguration,81
+302,356841-Amazon Import/Export Snowball,238
+303,68076-SqlManagementClient,176
+304,135663-Custom Search Client,13
+305,385512-WordNet APIs,27
+306,82414-Cenit IO - REST API Specification,270
+307,352746-Azure SQL Database,176
+308,92656-PolicyClient,289
+309,246258-Amazon Route 53,293
+310,39410-Cloud Composer,269
+311,119283-Amazon Chime,291
+312,137713-Google Play Movies Partner,350
+313,141815-Voodoo Manufacturing 3D Print,125
+314,182772-CFB v3 Scores,92
+315,268786-Buy Marketing,252
+316,504-Orders,126
+317,147960-EU BON UTIS,155
+318,92669-WorkbookClient,211
+319,403962-Flinkster_API_NG,124
+320,367096-LotaData,339
+321,131585-Surveys,172
+322,156161-StorageManagementClient,211
+323,426499-AWS Secrets Manager,163
+324,246282-FabricAdminClient,190
+325,152072-MariaDBManagementClient,176
+326,295434-SqlManagementClient,176
+327,352789-EVEMarketer Marketstat,358
+328,356881-SqlManagementClient,176
+329,533-RecoveryServicesBackupClient,239
+330,117268-AWS Config,291
+331,225812-Bufferapp,234
+332,137752-Article Search,64
+333,248355-ApiManagementClient,198
+334,416294-StorageImportExport,305
+335,82469-AutomationManagement,158
+336,418338-AWS Lambda,323
+337,426528-Reloadly REST APIs,335
+338,131621-UsageManagementClient,140
+339,428577-ClickMeter,89
+340,256554-Wordnik,135
+341,29227-AWS Greengrass,324
+342,178734-NetworkManagementClient,286
+343,205358-AWS Mobile,155
+344,426550-Google Fonts Developer,98
+345,350774-Cisco PSIRT openVuln,338
+346,268861-StreamAnalyticsManagementClient,239
+347,39482-ApplicationInsightsManagementClient,211
+348,141880-Azure Addons Resource Provider,204
+349,426554-Poemist,364
+350,47677-RAMADDA,327
+351,256572-Entity Search,15
+352,457273-Amazon WorkSpaces,197
+353,70208-AWS Amplify,201
+354,111171-Noosh API application,153
+355,47687-ApplicationInsightsManagementClient,229
+356,117321-OMDb,110
+357,414286-EventHub2018PreviewManagementClient,206
+358,451151-Google Analytics,323
+359,445004-AzureAnalysisServices,176
+360,207432-Amazon Neptune,296
+361,266831-YouTube Reporting,238
+362,215631-Amazon Elasticsearch Service,185
+363,115281-ApiManagementClient,282
+364,225875-Visual Studio Projects Resource Provider Client,290
+365,264784-AWS Auto Scaling Plans,193
+366,416336-FeatureClient,55
+367,279132-Amazon Pinpoint,66
+368,195161-StackExchange,350
+369,371289-Safe Browsing,288
+370,141919-RSS2JSON APIs,28
+371,248413-Cloud Identity-Aware Proxy,336
+372,279140-NetworkManagementClient,286
+373,297574-Amazon CloudWatch,260
+374,248422-NetworkManagementClient,286
+375,150117-WinSMS,330
+376,234089-Google Cloud Machine Learning Engine,230
+377,72298-SqlManagementClient,176
+378,262767-TaskQueue,236
+379,385646-DataBoxManagementClient,239
+380,279158-Twitter APIs with sentiment by Apitore sentiment,27
+381,76402-Amazon Simple Workflow Service,191
+382,451186-FabricAdminClient,191
+383,432765-Google+,270
+384,279160-Certificate feeds APIs,28
+385,141951-ApplicationInsightsManagementClient,211
+386,82559-Stackdriver Profiler,201
+387,117376-SqlManagementClient,176
+388,80517-Amazon Elastic MapReduce,296
+389,385664-AutomationManagement,343
+390,268940-Amazon Lex Runtime Service,180
+391,426638-AWS IoT Jobs Data Plane,238
+392,414348-FabricAdminClient,190
+393,311945-Gmail,336
+394,244369-CallFire,182
+395,422548-SqlVirtualMachineManagementClient,299
+396,397970-Stats,94
+397,424595-Data2CRM.API,336
+398,416400-AutomationManagement,79
+399,234139-APIs Discovery Service,151
+400,234143-RecoveryServicesBackupClient,162
+401,316058-Alexa For Business,253
+402,365210-AWSServerlessApplicationRepository,261
+403,424614-SqlManagementClient,176
+404,66208-Domains API Client,185
+405,178851-DeviceServices,207
+406,12968-AmazonApiGatewayV2,292
+407,17064-AWS OpsWorks,241
+408,127661-AWS Support,319
+409,209581-DataLakeAnalyticsCatalogManagementClient,323
+410,223917-Slicebox,116
+411,295595-CitySDK Linked Data,316
+412,119473-Azure Data Lake Storage,306
+413,213681-CdnManagementClient,290
+414,377533-SqlManagementClient,239
+415,33465-iotHubClient,207
+416,219832-Marketcheck Cars,62
+417,422599-Afterbanks,7
+418,426695-URL Shortener,174
+419,416452-Auckland Museum,40
+420,92866-Firebase Rules,297
+421,205504-Azure Maps Resource Provider,288
+422,244423-ApiManagementClient,198
+423,371393-Azure Dedicated HSM Resource Provider,295
+424,262860-DevSpacesManagement,197
+425,269007-TimesTags,63
+426,418509-Service Control,243
+427,269000-PolicyTrackedResourcesClient,141
+428,150220-NASCAR v2,365
+429,66257-SubscriptionsManagementClient,211
+430,312022-AWS Price List Service,252
+431,185046-ADHybridHealthService,199
+432,367327-ART19 Content,122
+433,189151-MotaWord,155
+434,344792-Billbee,208
+435,209629-SubscriptionClient,211
+436,221926-AWS CodeCommit,154
+437,424672-Medium.com,40
+438,8935-AWS Transfer for SFTP,294
+439,76523-G Suite Alert Center,194
+440,191208-AWS RoboMaker,228
+441,107245-Microsoft NetApp,288
+442,119533-NetworkManagementClient,286
+443,74479-Otoroshi Admin,302
+444,8947-ComputeManagementClient,211
+445,330481-Relay,288
+446,150263-Article Rewriter and Article Extractor,21
+447,318194-Firebase Hosting,52
+448,262909-Firebase Remote Config,261
+449,367359-Abusive Experience Report,51
+450,256765-ApiManagementClient,198
+451,66305-SqlManagementClient,176
+452,178951-Open Data,323
+453,428801-Authentiq,171
+454,416527-Update Management,179
+455,201480-LUIS Programmatic,231
+456,76559-Computer Vision Client,117
+457,430870-AWS Directory Service,274
+458,209682-AzureBridgeAdminClient,211
+459,174865-LogicManagementClient,191
+460,21270-StorSimple8000SeriesManagementClient,342
+461,80667-CognitiveServicesManagementClient,211
+462,346905-Business Registries,341
+463,187167-Identity and Access Management (IAM),344
+464,312090-KeyVaultManagementClient,164
+465,150306-Azure SQL Database,176
+466,802-GameSparks NoSql,95
+467,242465-Cloud Key Management Service (KMS),165
+468,318241-AWS Comprehend Medical,35
+469,150315-Hydra Movies,110
+470,422700-Active Documentation for /v1,345
+471,86826-BatchManagement,291
+472,80686-RecoveryServicesClient,162
+473,400180-Runscope,273
+474,119604-AWSMarketplace Metering,215
+475,80694-StreamAnalyticsManagementClient,99
+476,262973-Service Broker,270
+477,426820-Managed Streaming for Kafka,296
+478,107330-Azure Activity Log Alerts,195
+479,113476-JIRA 7.6.1,263
+480,144196-Books,145
+481,150340-CommerceManagementClient,211
+482,176964-AWS Service Catalog,249
+483,318287-TopLevelDomains API Client,185
+484,131919-AWS License Manager,270
+485,416584-Azure Media Services,344
+486,72526-Ad Exchange Seller,336
+487,154449-VirtualWANAsAServiceManagementClient,199
+488,56148-Zenoti Open,248
+489,131927-MonitorManagementClient,194
+490,326492-Cloud Pub/Sub,259
+491,19289-Fusion Tables,241
+492,349020-Elastic Load Balancing,192
+493,402269-Drive,85
+494,342881-Genomics,209
+495,78696-AppVeyor,199
+496,256874-Amazon Translate,90
+497,263023-SubscriptionClient,211
+498,326511-Mobility,60
+499,86892-Community,64
+500,209773-Azure Stack Azure Bridge Client,47
+501,303991-Amazon WorkDocs,241
+502,308081-Android Management,229
+503,201589-taggun.io,8
+504,422768-CodeScan,239
+505,351090-Google Compute Engine Instance Group Updater,289
+506,19320-Betriebsstellen,310
+507,76664-Cloud Monitoring,336
+508,134011-Enterprise Apps Reseller,211
+509,166779-AWS Device Farm,103
+510,91003-BatchService,199
+511,451452-ServiceFabricManagementClient,288
+512,455549-Google Identity Toolkit,50
+513,148350-Crucible,136
+514,164732-Labs64 NetLicensing RESTful API Test Center,336
+515,416632-Digital Asset Links,50
+516,78721-Price,126
+517,314244-Amazon ElastiCache,296
+518,295814-Available API endpoints,127
+519,113541-SqlManagementClient,176
+520,115589-Google Play Game Services Management,95
+521,351105-MonitorManagementClient,42
+522,170884-Cloud Spanner,168
+523,31623-U.S. EPA Enforcement and Compliance History Online (ECHO) - Resource Conservation and Recovery Act ,312
+524,252804-Entertainment Express,110
+525,263043-ApplicationInsightsManagementClient,211
+526,359309-GoToMeeting,255
+527,136072-Amazon CloudHSM,295
+528,414602-AutomationManagement,71
+529,314251-UpdateAdminClient,211
+530,422793-Azure Resource Graph,288
+531,263061-MLB v3 Play-by-Play,1
+532,344982-NBA v3 Projections,366
+533,455573-Tech feeds APIs,28
+534,351121-FabricAdminClient,211
+535,31637-ApiManagementClient,199
+536,244630-LH Partner,132
+537,123800-Amazon CloudSearch,185
+538,314266-KeyVaultManagementClient,164
+539,177057-Call Control,166
+540,224166-AWS IoT 1-Click Devices Service,153
+541,271267-AWS Key Management Service,290
+542,351149-ApiManagementClient,331
+543,101288-Netlifys API definition,367
+544,455596-Azure Log Analytics,138
+545,146351-LUIS Authoring Client,231
+546,422825-Azure SQL Database Backup Long Term Retention Policy,176
+547,119728-SignalRManagementClient,199
+548,330679-Stackdriver Debugger,351
+549,39859-NBA v3 Scores,92
+550,27576-AWS WAF,320
+551,209851-StreamAnalyticsManagementClient,239
+552,330684-NetworkManagementClient,286
+553,359359-NetworkManagementClient,286
+554,367550-The Water Linked Underwater GPS,98
+555,218047-Rat Genome Database,199
+556,351160-LanguageTool,34
+557,277434-Ritc,297
+558,277444-QPX Express,129
+559,136131-AWS Elemental MediaStore Data Plane,233
+560,271301-StorageManagementClient,306
+561,367556-StorageManagementClient,211
+562,252865-AutomationManagement,80
+563,78789-Locations,151
+564,91076-AutomationManagement,239
+565,353219-Amazon Cognito Sync,157
+566,252872-APIMATIC API Transformer,318
+567,117709-AWS Elemental MediaPackage,233
+568,263113-WorkBC Job Posting,238
+569,357320-Face Client,67
+570,56270-MediaServicesManagementClient,288
+571,209868-ApiManagementClient,282
+572,234444-Amazon Simple Queue Service,235
+573,390090-Amazon Machine Learning,230
+574,29648-Fisheye Crucible,263
+575,252880-DeletedWebApps API Client,56
+576,242646-Amazon Transcribe Service,36
+577,304083-FabricAdminClient,193
+578,345054-Sessions,215
+579,367576-Synonym APIs,27
+580,107486-GOV.UK Pay,87
+581,377829-Enterobase-API,321
+582,390116-InfrastructureInsightsManagementClient,190
+583,211937-AWS AppSync,320
+584,330727-Wayback,48
+585,347111-Wealthport API,238
+586,326631-Azure Media Services,344
+587,78821-Greenwire Public,289
+588,109541-Amazon GameLift,94
+589,359392-InfrastructureInsightsManagementClient,194
+590,125926-AWS Organizations,336
+591,353259-Custom Vision Prediction Client,368
+592,99310-Stackdriver Monitoring,155
+593,107502-High Performance Building Database,107
+594,31730-ApplicationInsightsManagementClient,298
+595,39927-Amazon Kinesis Video Streams Archived Media,96
+596,242682-FabricAdminClient,193
+597,345084-Cloud Text-to-Speech,287
+598,33786-Storecove,346
+599,54267-Content API for Shopping,344
+600,248824-PTV Timetable API - Version 3,41
+601,404474-NeutrinoAPI,189
+602,445435-Microsoft Storage Sync,306
+603,349189-Hangouts Chat,181
+604,148495-SchoolDigger API V1,321
+605,343048-n-Auth,202
+606,156684-NHL v3 Scores,92
+607,21519-Receptive,214
+608,289803-App Engine Admin,261
+609,99347-Sonar Trading,347
+610,31766-Azure SQL Database Datamasking Policies and Rules,176
+611,424977-TheTVDB API v2,121
+612,289821-AmazonApiGatewayManagementApi,331
+613,269342-Google Compute Engine Instance Groups,288
+614,50203-Amazon GuardDuty,291
+615,91162-Books,64
+616,404509-SqlManagementClient,176
+617,318488-Infermedica,147
+618,343065-Moon by Ai Weiwei & Olafur Eliasson,277
+619,222243-AWS IoT 1-Click Projects Service,155
+620,435236-AWS Direct Connect,331
+621,359457-api.text2data.org,369
+622,330784-NBA v3 RotoBaller Premium News,370
+623,357408-Qakka,221
+624,345122-AWS Marketplace Commerce Analytics,323
+625,287790-traccar,270
+626,42027-Amazon Mechanical Turk,224
+627,183337-Cloud Tool Results,103
+628,277551-VisibleThread,32
+629,78894-SqlManagementClient,176
+630,31798-Azure SQL Database,176
+631,349247-AzureStack Azure Bridge Client,249
+632,298040-hetras Hotel API Version 0,104
+633,42045-Design feeds APIs,26
+634,433211-SeaBreezeManagementClient,288
+635,121919-AWS Glue,342
+636,377914-DatabricksClient,222
+637,132162-FireBrowse Beta API,148
+638,191555-AWS Cloud Map,226
+639,121924-Sentence separator APIs,28
+640,179271-Fitness,336
+641,377933-AutoSuggest Client,37
+642,109645-DropX,336
+643,269396-AutomationManagement,239
+644,76887-Cloud Source Repositories,336
+645,320594-Dataflow,270
+646,377949-WordNet translation APIs,27
+647,298077-AuthorizationManagementClient,289
+648,398431-Cloud Data Loss Prevention (DLP),36
+649,451676-PostgreSQLManagementClient,176
+650,80986-AWS Certificate Manager Private Certificate Authority,223
+651,418909-Azure Migrate,242
+652,433242-Socio-demo,326
+653,27746-Azure Log Analytics - Operations Management,224
+654,367719-Yunbi,271
+655,314471-Instagram,234
+656,447589-VocaDB,355
+657,156778-StorageManagementClient,211
+658,357480-AWS MediaTailor,233
+659,91247-The Noun Project,116
+660,109681-Provider API Client,170
+661,263286-FunTranslations,90
+662,140401-StorSimpleManagementClient,342
+663,341104-Magento Enterprise,250
+664,27766-1Forge Finance APIs,30
+665,242810-Azure Media Services,344
+666,425085-Domain Services Resource Provider,185
+667,140414-NetworkAdminManagementClient,188
+668,341113-Real-Time Rail Predictions,151
+669,386169-AWS Server Migration Service,270
+670,318585-ApiManagementClient,198
+671,404614-Google Site Verification,185
+672,441479-watchful.li,51
+673,445573-AutomationManagement,82
+674,132228-SqlManagementClient,176
+675,263299-NetworkAdminManagementClient,192
+676,357516-SubscriptionClient,289
+677,281736-Adafruit IO,145
+678,361609-Jumpseller API,252
+679,359560-ApplicationInsightsManagementClient,211
+680,236685-SiteRecoveryManagementClient,161
+681,54416-Google Slides,175
+682,242834-Document frequency APIs,35
+683,122003-AutomationManagement,69
+684,38036-Amazon CloudDirectory,274
+685,320656-SqlManagementClient,176
+686,445586-HDInsightManagementClient,211
+687,158868-BigOven,39
+688,265362-AWS CodePipeline,238
+689,357533-City Context,317
+690,216218-kinto,371
+691,398495-SqlManagementClient,176
+692,429215-Amazon DynamoDB Accelerator (DAX),296
+693,31900-API V1,372
+694,191646-Times Newswire,63
+695,119964-ConsumptionManagementClient,336
+696,9377-Amazon Connect Service,344
+697,212130-Access Context Manager,336
+698,38053-Travel feeds APIs,28
+699,222374-Stackdriver Trace,324
+700,396448-Amazon AppStream,260
+701,165034-iotDpsClient,207
+702,222379-Image Moderation,17
+703,418986-SqlManagementClient,176
+704,11437-Amazon Lightsail,336
+705,54448-AzureStack Azure Bridge Client,249
+706,341169-SubscriptionsManagementClient,211
+707,304306-SharedImageGalleryServiceClient,116
+708,9399-ApplicationInsightsManagementClient,205
+709,234676-Azure Log Analytics,224
+710,242872-SqlManagementClient,176
+711,265412-Refuge Restrooms,262
+712,271558-Amazon CloudWatch Events,106
+713,187585-AmazonMQ,179
+714,419013-Drive Activity,84
+715,457923-Amazon DynamoDB,193
+716,341187-Freesound,309
+717,120006-NFL v3 RotoBaller Articles,373
+718,21704-SchedulerManagementClient,239
+719,40136-U.S. EPA Enforcement and Compliance History Online (ECHO) - Safe Drinking Water Act,312
+720,142539-Botify,265
+721,122061-MLB v3 RotoBaller Articles,374
+722,208076-smart-me,199
+723,271563-BackupManagementClient,211
+724,171218-Cloud IoT,270
+725,343253-SimplyRETS,163
+726,263381-Amazon Data Lifecycle Manager,323
+727,68820-AWS Elastic Beanstalk,237
+728,267474-U.S. EPA Enforcement and Compliance History Online (ECHO) - Clean Air Act,312
+729,234708-Semantic,64
+730,165083-ContainerServiceClient,211
+731,265439-FabricAdminClient,289
+732,312538-HHS Media Services,144
+733,353498-Soccer v3 Projections,375
+734,148706-CORE API v2,151
+735,429286-SqlManagementClient,176
+736,132320-Pandorabots AIaaS,270
+737,99554-DataLakeAnalyticsJobManagementClient,323
+738,165095-Azure SQL Database,176
+739,183530-DiskResourceProviderClient,211
+740,320748-Google Civic Information,188
+741,445678-MonitorManagementClient,194
+742,197866-Amazon API Gateway,292
+743,111853-AdSense Management,336
+744,42221-Prediction,230
+745,171247-Archive,22
+746,353512-HDInsightManagementClient,211
+747,68846-SentencePiece APIs (tweet),28
+748,191725-Most Popular,22
+749,253170-Adobe Experience Manager (AEM),6
+750,285941-Swagger API2Cart,251
+751,134385-Cloud Talent Solution,238
+752,353526-Deep Art Effects,376
+753,230647-NBA v3 Stats,92
+754,154872-AWS App Mesh,287
+755,455933-Giphy,101
+756,111871-HDInsightManagementClient,211
+757,431353-Android Device Provisioning Partner,215
+758,263428-GalleryManagementClient,211
+759,402694-AWS Migration Hub,273
+760,138499-VisageCloud,68
+761,150787-GraphRbacManagementClient,211
+762,224518-Content Moderator Client,117
+763,148740-CarbonDoomsDay,146
+764,281870-StorageManagementClient,306
+765,445708-XKCD,100
+766,52494-AWS Identity and Access Management,290
+767,245010-Apps Script,155
+768,175376-Google+ Domains,270
+769,136465-U.S. EPA Enforcement and Compliance History Online (ECHO) - Enforcement Case Search,312
+770,181527-Zoom,153
+771,435475-Cloud TPU,336
+772,402705-NHL v3 Play-by-Play,1
+773,455966-DataLakeStoreFileSystemManagementClient,323
+774,175387-Peel Tune-in API,61
+775,402716-MonitorManagementClient,42
+776,423196-ExaVault,164
+777,435483-Url2Label by tfidf APIs,35
+778,265498-Google OAuth2,348
+779,171297-Inventory,126
+780,445730-WordNet hypernym APIs,27
+781,105767-Rebilly,341
+782,245029-Azure SQL Database,176
+783,402720-SqlManagementClient,176
+784,91430-Search Console,51
+785,425263-ContainerRegistryManagementClient,236
+786,429357-ODWeather,336
+787,453930-Soccer v3 Stats,377
+788,17709-Semantria,35
+789,68910-Video Search,14
+790,392490-Docker Engine,111
+791,341302-EtMDB REST API v1,110
+792,431410-Movie Reviews,65
+793,320819-Item,126
+794,122168-NPR Authorization Service,202
+795,445759-ComputeDiskAdminManagementClient,211
+796,165177-WeGA,108
+797,398653-SearchManagementClient,211
+798,435514-SqlManagementClient,176
+799,281913-SqlManagementClient,176
+800,404795-ManagementLockClient,288
+801,42304-SqlManagementClient,176
+802,378181-Azure Media Services,288
+803,419142-Cloud Testing,103
+804,68928-Incidents,150
+805,150851-Azure Addons Resource Provider,204
+806,281926-Azure SQL Database,176
+807,224583-RiteKit,220
+808,17735-FabricAdminClient,192
+809,316739-Amazon EC2 Container Service,296
+810,167242-LaunchDarkly,199
+811,253257-Guest Diagnostic Settings Association,288
+812,175433-Search Services,48
+813,232776-Calendar,319
+814,93520-Amazon CloudWatch Logs,323
+815,288081-NFL v3 Projections DFSR,155
+816,281938-GuestConfiguration,81
+817,13655-Getty Images,244
+818,263517-Guest Diagnostic Settings,288
+819,171353-Stackdriver Trace,324
+820,304479-They Said So Quotes,30
+821,445786-Custom Image Search Client,13
+822,17759-Visual Search Client,117
+823,111969-Request Baskets,154
+824,220515-Google Partners,212
+825,136547-ApiManagementClient,198
+826,243041-ApiManagementClient,198
+827,134502-AWS Resource Groups Tagging API,282
+828,234852-Amazon Pinpoint SMS and Voice Service,66
+829,257387-U.S. EPA Enforcement and Compliance History Online (ECHO) - All Data,312
+830,71016-iQualify,336
+831,247151-VictorOps,93
+832,259439-U.S. EPA Enforcement and Compliance History Online (ECHO) - Clean Water Act (CWA) Rest Services,312
+833,144749-GoToWebinar,258
+834,378229-FabricAdminClient,190
+835,257394-SearchIndexClient,209
+836,245105-Rail Station Information,150
+837,284022-Wowza Streaming Cloud REST API Reference Documentation,163
+838,136561-domainsdb.info,187
+839,232822-WebApplicationFirewallManagement,297
+840,431475-ApiManagementClient,198
+841,13686-SqlManagementClient,176
+842,38263-AWS Elemental MediaStore,233
+843,306556-Amazon Redshift,296
+844,23931-Flat,219
+845,445818-Spell Check Client,34
+846,447866-ApplicationClient,261
+847,120188-Amazon Athena,138
+848,134527-Text2Label by tfidf APIs,35
+849,136575-Url2Text APIs,35
+850,238973-AWS WAF Regional,320
+851,286084-AWS Health APIs and Notifications,319
+852,320899-Icons8,216
+853,447873-Azure Stack Azure Bridge Client,167
+854,73097-Taxamo,307
+855,204175-Kubernetes Engine,296
+856,265609-Machine Learning Compute Management Client,296
+857,17806-AutomationManagement,223
+858,245133-SubscriptionsManagementClient,211
+859,263562-SqlManagementClient,176
+860,447894-SqlManagementClient,176
+861,433559-AWS Budgets,340
+862,157078-Google Play Game Services Publishing,95
+863,372112-BigQuery,270
+864,257429-OrgHunter,144
+865,288146-AutomationManagement,72
+866,392595-ApiManagementClient,289
+867,191893-LetMC Api V2  Customer Login,378
+868,95641-AWS Storage Gateway,306
+869,456095-IoTSpacesClient,197
+870,122266-Certificates API Client,223
+871,390553-Channel 4,245
+872,204190-MonitorManagementClient,42
+873,286105-Drive Activity,84
+874,347544-IntuneResourceManagementClient,289
+875,419224-ApiManagementClient,198
+876,15775-Square Connect,336
+877,99742-API iSendPro,11
+878,400807-Learnifier,264
+879,445860-Cloud Shell,168
+880,136609-NBA v3 RotoBaller Articles,379
+881,259495-FabricAdminClient,289
+882,304545-SqlManagementClient,176
+883,271778- API Client,70
+884,243108-BillingManagementClient,208
+885,232875-Azure SQL Database,176
+886,185771-AWS CloudFormation,252
+887,204202-AuthorizationManagementClient,289
+888,1453-AWS Elemental MediaLive,233
+889,89516-Cloud SQL Administration,177
+890,386474-iotDpsClient,207
+891,69042-SlideRoom API V2,305
+892,239024-SubscriptionsManagementClient,211
+893,386483-Url2Html APIs,28
+894,38328-NetworkManagementClient,286
+895,132539-FORTNITE,199
+896,120251-ODN,329
+897,116157-Turbine Labs,118
+898,185791-NetworkAdminManagementClient,287
+899,259518-LetMC Api V3  maintenance,380
+900,234947-api.ecota.co v2,123
+901,366021-IoE² IoT API - to create end-user applications,268
+902,433607-Swagger Generator,49
+903,314822-AWS CodeBuild,155
+904,69058-Azure Log Analytics,138
+905,140737-Browshot,61
+906,429507-Amazon SimpleDB,247
+907,54727-ML Team Account Management Client,286
+908,392653-ApplicationInsightsManagementClient,211
+909,259528-Box 2.0 Authorization,335
+910,445898-Update Management,179
+911,435657-obono RKSV,119
+912,73169-Amazon DynamoDB Streams,320
+913,19922-Service Management,270
+914,447956-NeoWs - (Near Earth Object Web Service),246
+915,454097-Amazon Polly,36
+916,415199-Cloud User Accounts,289
+917,183769-Storage Transfer,322
+918,107997-LetMC Api V2  Free (Tier 1),381
+919,314842-DomainRegistrationProvider API Client,169
+920,402916-Cloud Filestore,177
+921,108008-Local Search Client,13
+922,179691-Paylocity,290
+923,191977-Bets,172
+924,13804-RecoveryServicesClient,162
+925,245230-NetworkManagementClient,286
+926,62958-Amazon SageMaker Service,228
+927,310763-Amazon CloudFront,323
+928,75249-MLB v3 Scores,92
+929,208371-Amazon Kinesis Firehose,323
+930,11761-CBB v3 Scores,92
+931,36337-Tag Manager,336
+932,294389-Amazon Glacier,238
+933,341492-Visual Studio Resource Provider Client,290
+934,267767-KustoManagementClient,296
+935,26100-MLB v3 Stats,92
+936,378352-AdvisorManagementClient,199
+937,75256-Transform,4
+938,19964-AzureBridgeAdminClient,211
+939,181757-MySQLManagementClient,176
+940,404999-Google Spectrum Database,257
+941,443908-GameSparks Request,94
+942,112133-Authentiq Connect,225
+943,318976-SearchServiceClient,209
+944,42501-NetworkManagementClient,286
+945,202244-Google Mirror,119
+946,452097-AWS DataSync,323
+947,108040-The Consumer Financial Protection Bureau,20
+948,405007-Twitter APIs with Word2Vec query expansion  and add sentiment by Apitore sentiment,27
+949,271881-ApiManagementClient,198
+950,448020-BackupManagementClient,211
+951,218640-API v1.0.0,359
+952,392720-Cloud Asset,288
+953,13846-Management Groups,289
+954,95770-ApplicationInsightsManagementClient,305
+955,259608-SubscriptionsManagementClient,211
+956,429594-FaSta-Station_Facilities_Status,311
+957,126492-Soccer v3 Scores,382
+958,312857-AWS CodeStar,155
+959,218653-Scrape Website Email API,51
+960,415270-AutomationManagement,76
+961,132643-SqlManagementClient,176
+962,208417-Regulations.gov,334
+963,239137-MonitorManagementClient,194
+964,386599-ManagedServiceIdentityClient,211
+965,181793-SqlManagementClient,176
+966,259622-SqlManagementClient,176
+967,38443-IotCentralClient,261
+968,419370-Azure Location Based Services Resource Provider,288
+969,77356-Custom Vision Training Client,112
+970,314921-AutomationManagementClient,77
+971,110127-hetras Booking API Version 0,104
+972,259629-MonitorManagementClient,170
+973,398902-Cloud Resource Manager,270
+974,296501-Amazon Inspector,291
+975,26164-Daymet Single Pixel Tool,146
+976,175671-Owler,336
+977,448051-SqlManagementClient,176
+978,151092-SwaggerHub Registry,186
+979,91702-GoToTraining,255
+980,341554-AutomationManagement,75
+981,419377-KeyVaultManagementClient,211
+982,372285-AWS Cost Explorer Service,340
+983,142907-AWS Step Functions,257
+984,314941-Sentiment APIs,28
+985,392764-UGC,227
+986,454202-Highways England API,383
+987,26173-ApplicationInsightsManagementClient,211
+988,237117-NotificationHubsManagementClient,206
+989,261693-NFL v3 Projections,155
+990,192066-Solar VPS,124
+991,255552-DevTestLabsClient,211
+992,126536-SqlManagementClient,176
+993,378444-FishEye,137
+994,132680-SqlManagementClient,176
+995,81489-Wikimedia,40
+996,372308-Japanese WordNet APIs,27
+997,415316-Cnab Online,9
+998,95826-AuthorizationManagementClient,289
+999,257616-YouTube Analytics,324
+1000,306768-Street View Publish,115
+1001,433746-Rotten Tomatoes,103
+1002,261718-FabricAdminClient,188
+1003,259675-MonitorManagementClient,278
+1004,417375-Ad Exchange Buyer API II,344
+1005,458335-AWS Data Pipeline,238
+1006,77402-NSIDC Web Service Documentation Index,258
+1007,386654-AutomationManagement,239
+1008,165470-LogicAppsManagementClient,300
+1009,222812-Zalando Shop,18
+1010,77409-NetworkManagementClient,286
+1011,294502-Poly,336
+1012,149094-AWS Resource Access Manager,336
+1013,173670-Advicent.FactFinderService,336
+1014,259685-Polling Places,332
+1015,400993-EngagementFabric,215
+1016,165482-NetworkManagementClient,286
+1017,312940-AuthorizationManagementClient,289
+1018,83562-OSF APIv2 Documentation,105
+1019,206440-AWS CodeDeploy,257
+1020,77420-WordNet hyponym APIs,27
+1021,239213-Image Search,13
+1022,149106-PasswordUtility.Web,349
+1023,259699-AutomationManagement,82
+1024,20081-Service Networking,287
+1025,312949-RecoveryServicesClient,162
+1026,179824-Amazon Elastic Container Service for Kubernetes,296
+1027,54901-Geneea Natural Language Processing,35
+1028,36470-Azure Reservation,102
+1029,392818-AuthorizationManagementClient,289
+1030,132730-Language Detection APIs,28
+1031,142970-SqlManagementClient,176
+1032,235131-AuthorizationManagementClient,289
+1033,192123-Blazemeter API Explorer,40
+1034,409212-PI Web API 2017 Swagger Spec,38
+1035,458364-SqlManagementClient,176
+1036,54908-RecoveryServicesBackupClient,170
+1037,34429-U.S. EPA Enforcement and Compliance History Online (ECHO) - Detailed Facility Report (DFR),312
+1038,183933-DoubleClick Bid Manager,88
+1039,210556-Flickr API Schema,318
+1040,280199-Weatherbit.io - Swagger UI Weather API documentation,39
+1041,353922-Amadeus Travel Innovation Sandbox,130
+1042,73355-Polygon,31
+1043,286350-GeoDB,316
+1044,69258-link.fish,318
+1045,319124-Cloud Natural Language,35
+1046,353941-ComputeManagementConvenienceClient,25
+1047,81555-ApiManagementClient,177
+1048,116373-Firewall Management Service,323
+1049,439964-Accounting,344
+1050,124570-Qualpay Payment Gateway,40
+1051,188062-Amazon EC2 Container Registry,283
+1052,210591-Miataru,318
+1053,229023-Trello,40
+1054,20125-StreamAnalyticsManagementClient,239
+1055,378520-Azure Media Services,344
+1056,149149-BackupManagementClient,211
+1057,71329-Security Center,290
+1058,75425-Service Consumer Management,151
+1059,26273-Machine Learning Workspaces Management Client,286
+1060,79522-shinobiapi,384
+1061,235168-HDInsightManagementClient,211
+1062,272034-OpenAPI space,197
+1063,294562-Kuromoji APIs,28
+1064,306851-Microsoft Insights,194
+1065,171688-Oxford Dictionaries,109
+1066,302766-Transport for London Unified,333
+1067,417452-Accounts,344
+1068,116394-Database Threat Detection Policy APIs,176
+1069,237229-Management Groups,289
+1070,210604-SqlManagementClient,176
+1071,239281-Mailsquad,182
+1072,241329-NFL v3 Scores,92
+1073,247473-Amazon Kinesis Analytics,232
+1074,386743-StreamAnalyticsManagementClient,239
+1075,308914-Auto Scaling,193
+1076,403135-Amazon FSx,306
+1077,290495-Amazon Pinpoint Email Service,184
+1078,188095-Bandsintown,144
+1079,313017-SqlManagementClient,176
+1080,343736-RecoveryServicesBackupClient,161
+1081,20159-Indexing,106
+1082,247484-Groups Migration,289
+1083,317126-Diagnostics API Client,53
+1084,81605-Native Ads Publisher,256
+1085,425664-Amazon Elastic Transcoder,237
+1086,220868-RemediationsClient,303
+1087,237258-SqlManagementClient,176
+1088,188104-CertificateRegistrationProvider API Client,169
+1089,454346-Gisgraphy webservices,319
+1090,253646-Proximity Beacon,247
+1091,188114-City of Surrey Traffic Loop Count API.,54
+1092,259793-AutomationManagement,343
+1093,372439-InfrastructureInsightsManagementClient,211
+1094,14035-AWS Signer,218
+1095,325335-PayRun.IO,285
+1096,247511-Analytics Reporting,336
+1097,372432-Firebase Dynamic Links,174
+1098,286418-Instawell,336
+1099,222932-QnAMaker Client,228
+1100,126683-AWS Security Token Service,290
+1101,143070-Google Cloud Translation,90
+1102,208605-DoubleClick Search,88
+1103,286426-FabricAdminClient,190
+1104,440025-Betfair: Exchange Streaming,3
+1105,14049-Url2Href APIs,28
+1106,173798-VAT API,134
+1107,222949-City of Surrey Open511,61
+1108,390893-ContainerRegistryManagementClient,280
+1109,429806-AWS Import/Export,305
+1110,403179-Zappiti Player,94
+1111,14062-Google Play Custom App Publishing,215
+1112,208627-Sentence Similarity,28
+1113,126706-Profile,94
+1114,75508-ApiManagementClient,331
+1115,280305-Jirafe Events,16
+1116,325363-Azure SQL Database API spec,176
+1117,366333-Lyft,85
+1118,208634-Compute Admin Client,167
+1119,218879-Amazon Kinesis Video Streams,96
+1120,433914-Metadata,227
+1121,40701-Google Cloud Deployment Manager,270
+1122,147196-REST API Version 2,221
+1123,165628-RecoveryServicesBackupClient,161
+1124,390907-Twitter APIs with Word2Vec query expansion,27
+1125,116478-Azure Media Services,344
+1126,124670-Azure ML Web Services Management Client,289
+1127,177917-Amazon Lex Model Building Service,180
+1128,147206-MonitorManagementClient,42
+1129,235271-ApiManagementClient,198
+1130,139015-AWS Elemental MediaConvert,233
+1131,390915-Who Hosts This,50
+1132,458511-Stackdriver Error Reporting,289
+1133,325390-Real-Time Bus Predictions,151
+1134,20236-Computer Vision Client,117
+1135,286472-ComputeDiskAdminManagementClient,211
+1136,304905-AWS CloudTrail,323
+1137,343816-DLx,199
+1138,237324-LetMC Api V3  diary,385
+1139,280340-Furkot Trips,337
+1140,286492-Azure Metrics,199
+1141,151323-Cloud Billing,270
+1142,77599-PolicyEventsClient,141
+1143,421657-Figshare,266
+1144,354086-PowerBIDedicated,176
+1145,126758-Compute Admin Client,114
+1146,433966-MonitorManagementClient,45
+1147,192296-NPR Station Finder Service,210
+1148,458538-UpdateAdminClient,190
+1149,325417-SqlManagementClient,176
+1150,247607-Computer Vision,117
+1151,32565-AWS IoT Analytics,323
+1152,372543-SYNQ Video,218
+1153,143166-Cloud Video Intelligence,168
+1154,390969-Azure SQL Database disaster recovery configurations,176
+1155,216892-Zoom Connect,181
+1156,233281-NetworkManagementClient,286
+1157,425796-Open Skills,238
+1158,440133-Recommendations API Client,58
+1159,433987-SqlManagementClient,176
+1160,14157-StreamAnalyticsManagementClient,267
+1161,216908-Top Stories,21
+1162,118611-Google Play Developer,336
+1163,147286-Taxrates.io,120
+1164,343889-DatumBox,256
+1165,18263-Spotify,160
+1166,235354-Service User,270
+1167,247644-FabricAdminClient,190
+1168,286560-dweet.io,256
+1169,192357-Bus Route and Stop Methods,321
+1170,143211-SqlManagementClient,176
+1171,200552-YouTube Data,309
+1172,247656-MonitorManagementClient,196
+1173,253806-PolicyClient,289
+1174,40814-AuthorizationManagementClient,289
+1175,442227-reverb,254
+1176,14202-Cloud Runtime Configuration,168
+1177,49018-Slack,270
+1178,317310-Netatmo,350
+1179,253823-LetMC Api V3  reporting,386
+1180,415608-AWS Shield,323
+1181,257916-PolicyStatesClient,141
+1182,257921-ocrapi,33
+1183,151425-NetworkManagementClient,286
+1184,118661-MonitorManagementClient,278
+1185,259975-ServiceBusManagementClient,206
+1186,38789-Tasks,236
+1187,429955-Enterprise License Manager,186
+1188,448396-Google Cloud DNS,178
+1189,149385-BulkSMS JSON,144
+1190,229263-CompanyAPI,387
+1191,268169-Google Compute Engine Instance Group Manager,289
+1192,434056-Azure SQL Database,176
+1193,219027-Azure Container Registry,283
+1194,151441-Amazon SageMaker Runtime,228
+1195,128917-Radio & Music Services,191
+1196,393105-AWS Batch,238
+1197,286609-Word Associations,27
+1198,147348-SqlManagementClient,176
+1199,372633-AuthorizationManagementClient,289
+1200,415640-FabricAdminClient,38
+1201,257963-GlobalWineScore,121
+1202,305068-ApiManagementClient,198
+1203,350124-Blogger,336
+1204,372652-NetworkAdminManagementClient,287
+1205,419759-Musixmatch,152
+1206,272296-RedisManagementClient,199
+1207,421802-ApiManagementClient,198
+1208,237486-PolicyClient,289
+1209,362408-Amazon WorkMail,336
+1210,313259-nFusion Solutions Market Data API v1,347
+1211,130993-Amazon Simple Systems Manager (SSM),177
+1212,319412-MLB v3 Projections DFSR,155
+1213,393142-Crossbrowsertesting.com Screenshot Comparisons,103
+1214,14262-SubscriptionDefinitionsClient,211
+1215,69558-Golf v2,388
+1216,421809-AzureBridgeAdminClient,211
+1217,350137-MonitorManagementClient,195
+1218,257981-NBA v3 Play-by-Play,1
+1219,305092-SentencePiece APIs (wikipedia),28
+1220,268230-Fulfillment,125
+1221,204736-LetMC Api V2  Basic (Tier 2),389
+1222,237510-FabricAdminClient,190
+1223,204741-Accelerated Mobile Pages (AMP) URL,173
+1224,272323-SubscriptionClient,211
+1225,182216-Amazon Kinesis Analytics,323
+1226,350159-Update Management,179
+1227,366542-AWS Cloud9,269
+1228,319432-Tweet summarization APIs,28
+1229,157651-EventHubManagementClient,206
+1230,313301-ACE Provisioning ManagementPartner,102
+1231,319446-SubscriptionsManagementClient,211
+1232,288728-HSBC UK,149
+1233,327652-Pims,5
+1234,350181-StorageManagementClient,211
+1235,268263-NPR Sponsorship Service,210
+1236,393197-AutomationManagement,82
+1237,188392-ServiceFabricManagementClient,288
+1238,319471-InfrastructureInsightsManagementClient,190
+1239,135150-IBM Containers,197
+1240,198639-DataFactoryManagementClient,83
+1241,360424-trash nothing!,219
+1242,276458-GitHub,155
+1243,290794-AWS MediaConnect,233
+1244,75761-AWS OpsWorks for Chef Automate,241
+1245,98291-GameSparks Request,94
+1246,313334-Text2Label by word vector APIs,35
+1247,96242-Google Sheets,315
+1248,151537-paccurate.io,23
+1249,276471-Amazon Kinesis Video Streams Media,97
+1250,276477-GalleryManagementClient,211
+1251,114682-GameSparks Game Details,95
+1252,69630-ApiManagementClient,198

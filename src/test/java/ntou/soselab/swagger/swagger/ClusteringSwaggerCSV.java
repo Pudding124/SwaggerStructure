@@ -40,8 +40,6 @@ public class ClusteringSwaggerCSV {
 
     CosineSimilarity cosineSimilarity = new CosineSimilarity();
 
-//    private double wordnetScore = 0.3;
-
     //@Test
     public void collection_Resource_Operation_Parameter_Response(double wordnetScore, int resourceP, int operationP) {
         try {
@@ -80,8 +78,6 @@ public class ClusteringSwaggerCSV {
 
                     double resourceScore = 0.0;
                     double operationScore = 0.0;
-                    double parameterScore = 0.0;
-                    double responseScore = 0.0;
 
                     // resource score
                     if(currentResource.getOriginalWord() != null && compareResource.getOriginalWord() != null) {
@@ -92,16 +88,6 @@ public class ClusteringSwaggerCSV {
 
                     if(currentResource.getWordnetWord() != null && compareResource.getWordnetWord() != null) {
                         if(!currentResource.getWordnetWord().isEmpty() && !compareResource.getWordnetWord().isEmpty()) {
-                            // must be add LDA word compare together
-//                            ArrayList<String> currentOriginalAndWordnetWord = new ArrayList<>(currentResource.getOriginalWord());
-//                            ArrayList<String> compareOriginalAndWordnetWord = new ArrayList<>(compareResource.getOriginalWord());
-//                            for(String word : currentResource.getWordnetWord()) {
-//                                currentOriginalAndWordnetWord.add(word);
-//                            }
-//
-//                            for(String word : compareResource.getWordnetWord()) {
-//                                compareOriginalAndWordnetWord.add(word);
-//                            }
 
                             // 判斷何者 wordnet 加權分數較高
                             double s1 = calculateTwoMatrixVectorsAndCosineSimilarity(currentResource.getOriginalWord(), compareResource.getWordnetWord());
@@ -111,7 +97,6 @@ public class ClusteringSwaggerCSV {
                             }else {
                                 resourceScore = resourceScore + (s2 * wordnetScore);
                             }
-//                            resourceScore = resourceScore + (calculateTwoMatrixVectorsAndCosineSimilarity(currentOriginalAndWordnetWord,compareOriginalAndWordnetWord) * 0.3);
                         }
                     }
 
@@ -163,13 +148,6 @@ public class ClusteringSwaggerCSV {
                         operationScore = operationScore + calculateTwoMatrixVectorsAndCosineSimilarity(currentOperationLDA, compareOperationLDA);
                     }
                     if(!currentOperationWordnet.isEmpty() && !compareOperationWordnet.isEmpty()) {
-                        // must be add LDA word compare together
-//                        for(String word : currentOperationLDA) {
-//                            currentOperationWordnet.add(word);
-//                        }
-//                        for(String word : compareOperationLDA) {
-//                            compareOperationWordnet.add(word);
-//                        }
 
                         // 判斷何者 wordnet 加權分數較高
                         double s1 = calculateTwoMatrixVectorsAndCosineSimilarity(currentOperationLDA, compareOperationWordnet);
@@ -179,119 +157,9 @@ public class ClusteringSwaggerCSV {
                         }else {
                             operationScore = operationScore + (s2 * wordnetScore);
                         }
-
-//                        operationScore = operationScore + (calculateTwoMatrixVectorsAndCosineSimilarity(currentOperationWordnet, compareOperationWordnet) * 0.3);
                     }
 
                     log.info("Operation Score :{}", operationScore);
-
-//                    // parameter score
-//                    ArrayList<String> currentParameterLDA = new ArrayList<>();
-//                    ArrayList<String> currentParameterWordnet = new ArrayList<>();
-//                    ArrayList<String> compareParameterLDA = new ArrayList<>();
-//                    ArrayList<String> compareParameterWordnet = new ArrayList<>();
-//
-//                    for(Parameter parameter : parameterRepository.findParametersByResource(currentResource.getNodeId())) {
-//                        if(parameter.getOriginalWord() != null) {
-//                            if(!parameter.getOriginalWord().isEmpty()) {
-//                                for(String word : parameter.getOriginalWord()) {
-//                                    currentParameterLDA.add(word);
-//                                }
-//                            }
-//                        }
-//
-//                        if(parameter.getWordnetWord() != null) {
-//                            if(!parameter.getWordnetWord().isEmpty()) {
-//                                for(String word : parameter.getWordnetWord()) {
-//                                    currentParameterWordnet.add(word);
-//                                }
-//                            }
-//                        }
-//                    }
-//
-//                    for(Parameter parameter : parameterRepository.findParametersByResource(id)) {
-//                        if(parameter.getOriginalWord() != null) {
-//                            if(!parameter.getOriginalWord().isEmpty()) {
-//                                for(String word : parameter.getOriginalWord()) {
-//                                    compareParameterLDA.add(word);
-//                                }
-//                            }
-//                        }
-//
-//                        if(parameter.getWordnetWord() != null) {
-//                            if(!parameter.getWordnetWord().isEmpty()) {
-//                                for(String word : parameter.getWordnetWord()) {
-//                                    compareParameterWordnet.add(word);
-//                                }
-//                            }
-//                        }
-//                    }
-//
-//                    if(!currentParameterLDA.isEmpty() && !compareParameterLDA.isEmpty()) {
-//                        parameterScore = parameterScore + (calculateTwoMatrixVectorsAndCosineSimilarity(currentParameterLDA, compareParameterLDA) * 0.7);
-//                    }
-//                    if(!currentParameterWordnet.isEmpty() && !compareParameterWordnet.isEmpty()) {
-//                        parameterScore = parameterScore + (calculateTwoMatrixVectorsAndCosineSimilarity(currentParameterWordnet, compareParameterWordnet) * 0.3);
-//                    }
-//
-//                    log.info("Parameter Score :{}", parameterScore);
-
-//                    // response score
-//                    ArrayList<String> currentResponseLDA = new ArrayList<>();
-//                    ArrayList<String> currentResponseWordnet = new ArrayList<>();
-//                    ArrayList<String> compareResponseLDA = new ArrayList<>();
-//                    ArrayList<String> compareResponseWordnet = new ArrayList<>();
-//
-//                    for(Response response : responseRepository.findResponsesByResource(currentResource.getNodeId())) {
-//                        if(response.getOriginalWord() != null) {
-//                            if(!response.getOriginalWord().isEmpty()) {
-//                                for(String word : response.getOriginalWord() ) {
-//                                    currentResponseLDA.add(word);
-//                                }
-//                            }
-//                        }
-//
-//                        if(response.getWordnetWord() != null) {
-//                            if(!response.getWordnetWord().isEmpty()) {
-//                                for(String word : response.getWordnetWord()) {
-//                                    currentResponseWordnet.add(word);
-//                                }
-//                            }
-//                        }
-//                    }
-//
-//                    for(Response response : responseRepository.findResponsesByResource(id)) {
-//                        if(response.getOriginalWord() != null) {
-//                            if(!response.getOriginalWord().isEmpty()) {
-//                                for(String word : response.getOriginalWord()) {
-//                                    compareResponseLDA.add(word);
-//                                }
-//                            }
-//                        }
-//                        if(response.getWordnetWord() != null) {
-//                            if(!response.getWordnetWord().isEmpty()) {
-//                                for(String word : response.getWordnetWord()) {
-//                                    compareResponseWordnet.add(word);
-//                                }
-//                            }
-//                        }
-//                    }
-//
-//                    if(!currentResponseLDA.isEmpty() && !compareResponseLDA.isEmpty()) {
-//                        responseScore = responseScore + (calculateTwoMatrixVectorsAndCosineSimilarity(currentResponseLDA, compareResponseLDA) * 0.7);
-//                    }
-//                    if(!currentResponseWordnet.isEmpty() && !compareResponseWordnet.isEmpty()) {
-//                        // must be add LDA word compare together
-//                        for(String word : currentResponseLDA) {
-//                            currentResponseWordnet.add(word);
-//                        }
-//                        for(String word : compareResponseLDA) {
-//                            compareResponseWordnet.add(word);
-//                        }
-//                        responseScore = responseScore + (calculateTwoMatrixVectorsAndCosineSimilarity(currentResponseWordnet, compareResponseWordnet) * 0.3);
-//                    }
-//
-//                    log.info("Response Score :{}", responseScore);
 
                     if(currentResource.getNodeId().equals(id)) {
                         sumScore = 0;
@@ -340,9 +208,9 @@ public class ClusteringSwaggerCSV {
         System.out.println(calculateTwoMatrixVectorsAndCosineSimilarity(str1, str2));
     }
 
-    @Test
+    //@Test
     public void setProportion() {
-        double[] wordnetList = {0.1, 0.2, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0};
+        double[] wordnetList = {0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0};
         for(double wordnetScore : wordnetList) {
             int resource = 10;
             int operation = 0;

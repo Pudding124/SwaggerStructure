@@ -24,7 +24,7 @@ public class AddAPIExampleFeature {
     @Autowired
     ResourceRepository resourceRepository;
 
-    @Test
+    //@Test
     public void addExampleFeature() {
 
         for(Resource resource : javaRepoRepository.findResourceByHaveJavaRepo()) {

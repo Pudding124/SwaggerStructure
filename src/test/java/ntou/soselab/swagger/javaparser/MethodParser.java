@@ -28,7 +28,7 @@ public class MethodParser {
     @Autowired
     DetectSuperset detectSuperset;
 
-    @Test
+    //@Test
     public void searchDownloadFile() {
 
         String filePathName = "D:/JavaParserTestData/DownloadGitHubJavaDoc";

@@ -36,10 +36,10 @@ public class AllSwaggerClusterCSV {
     private double resourceP = 0.6;
     private double operationP = 0.4;
 
-    @Test
+    //@Test
     public void collection_Resource_Operation_Parameter_Response() {
         try {
-            PrintWriter pw = new PrintWriter(new File("C:/Users/surpr/Desktop/test/1253-Swagger-2.csv"));
+            PrintWriter pw = new PrintWriter(new File("C:/Users/surpr/Desktop/test/1253-Swagger.csv"));
             StringBuilder sb = new StringBuilder();
 
             // 收集所有 Resource 的 id

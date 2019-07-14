@@ -27,7 +27,7 @@ public class DownloadJavaDocTest {
     @Autowired
     ResourceRepository resourceRepository;
 
-    @Test
+    //@Test
     public void readGuruFiles(){
         int fileNumber = 245;
         File sDocFolder = new File("./src/main/resources/finishsearch");

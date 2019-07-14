@@ -25,7 +25,7 @@ public class ReadClusterCSV {
         HashMap<Long, String> cluster = new HashMap<Long, String>();
 
         try {
-            FileReader fr = new FileReader("E:\\t-SNE\\testfoo.csv");//抓CSV檔進java
+            FileReader fr = new FileReader("./src/main/resources/Cluster-Results.csv");//抓CSV檔進java
             BufferedReader brdFile = new BufferedReader(fr);//bufferedReader
             String strLine = null;
 

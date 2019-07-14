@@ -17,7 +17,7 @@ public class SaveNeo4jTest {
     @Autowired
     ResourceRepository resourceRepository;
 
-    @Test
+    //@Test
     public void saveResource() {
 
         for(Resource resource : resourceRepository.findAll()) {
